@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using GreenApp.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static System.DateTime;
 using static GreenApp.App;
 
 namespace GreenApp.Activity
@@ -59,7 +60,7 @@ namespace GreenApp.Activity
                         {
                             id = CurrentOrderId,
                             users_id = user_id,
-                            order_date = DateTime.Now,
+                            order_date = Now,
                             stat = "1",
                             order_status = "Ordered",
                             tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
