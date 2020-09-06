@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:renderers="clr-namespace:GreenApp.Renderers;assembly=GreenApp"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="bg"
+             x:Class="GreenApp.Activity.MainPage">
+    <StackLayout Padding="0,170">
+        <renderers:PancakeView
+            x:Name="Logo"
+            WidthRequest="120"
+            HeightRequest="120"
+            CornerRadius="20"
+            Elevation="3"
+            HorizontalOptions="CenterAndExpand"
+            Padding="0,40,0,0">
+            <Image
+                WidthRequest="150"
+                HeightRequest="150"
+                Source="logo"
+                HorizontalOptions="CenterAndExpand"/>
+        </renderers:PancakeView>
+
+        <StackLayout TranslationY="0" x:Name="MainStack"
+                     Margin="20,0,20,0"
+                     VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="FillAndExpand">
+            <Label Text="Get started" HorizontalOptions="Center" Padding="0,0,0,10"
+                   TextColor="{StaticResource TextColor}" FontAttributes="Bold" FontSize="20"/>
+            <Button x:Name="Btnlogin"
+                Text="Login"
+                TextColor="{StaticResource TextColor}"
+                BackgroundColor="{StaticResource ButtonColor}"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="CenterAndExpand"
+                CornerRadius="10"
+                Clicked="Btnlogin_OnClicked"/>
+            <Button
+                Text="Sign up"
+                x:Name="Btnsignup"
+                TextColor="{StaticResource TextColor}"
+                BackgroundColor="{StaticResource ButtonColor}"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="CenterAndExpand"
+                CornerRadius="10"
+                Clicked="Btnsignup_OnClicked"/>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

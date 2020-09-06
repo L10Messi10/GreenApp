@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:renderers="clr-namespace:GreenApp.Renderers;assembly=GreenApp"
+             mc:Ignorable="d" NavigationPage.HasBackButton="False"
+             Title="Green Market" Visual="Material"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="GreenApp.Activity.MenuPage" BackgroundColor="{StaticResource BackgroundColor}">
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="LightSkyBlue" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+        <Style TargetType="Frame">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates_1">
+                        <VisualState x:Name="Normal_1" />
+                        <VisualState x:Name="Selected_1">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="{StaticResource Primary}" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <AbsoluteLayout>
+        <Grid AbsoluteLayout.LayoutBounds="0,0,1,1"
+              AbsoluteLayout.LayoutFlags="SizeProportional">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Padding="0" BackgroundColor="#D4D4D4" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+            <SearchBar Grid.Column="0"  CancelButtonColor="{StaticResource TextColor}"
+                       IsVisible="True" HorizontalOptions="Start"
+                       PlaceholderColor="Gray" Placeholder="Search setions. . . ."
+                       Visual="Material" TextColor="{StaticResource TextColor}" x:Name="prosearh" TextChanged="Prosearh_OnTextChanged"/>
+            <Image Grid.Column="1" Source="cart.png" Aspect="AspectFit" HeightRequest="40"
+                   HorizontalOptions="FillAndExpand">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" NumberOfTapsRequired="1"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+        <Grid Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="3" Grid.Column="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="Sections" HeightRequest="15"
+                   FontSize="20" FontAttributes="Bold" />
+            <CollectionView Grid.Row="0" ItemsSource="{Binding TBL_Category}"
+                            Margin="0,25,0,0" x:Name="ListCategories" SelectionMode="Single"
+                            HorizontalScrollBarVisibility="Always" x:FieldModifier="public"
+                            VerticalOptions="Fill" SelectionChanged="ListCategories_OnSelectionChanged" >
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Horizontal"
+                                     Span="3" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0" Padding="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Row="0" Margin="5,0,5,0" Padding="0" Grid.Column="0">
+                                <!--<ActivityIndicator IsRunning="{Binding Source={x:Reference prodimg}, Path=IsLoading}"
+                                                   IsVisible="{Binding Source={x:Reference prodimg}, Path=IsLoading}"
+                                                   Color="Black"/>-->
+                                <Label VerticalOptions="Center" Margin="0,5" Padding="0" FontAttributes="Bold">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding category_name}" FontSize="Medium"
+                                                  TextColor="{StaticResource TextColor}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Frame Padding="0" CornerRadius="10" IsClippedToBounds="True"
+                                       HorizontalOptions="Center">
+                                    <ff:CachedImage x:Name="prodimg" Source="{Binding catimg_uri}"
+                                                    HeightRequest="150" Aspect="AspectFill"
+                                                    LoadingPlaceholder="Image section" ErrorPlaceholder="Error loading image"/>
+                                </Frame>
+                                
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </Grid>
+        <Frame AbsoluteLayout.LayoutBounds="0.9,0,30,30" BackgroundColor="Red" AbsoluteLayout.LayoutFlags="PositionProportional"
+               HeightRequest="20" WidthRequest="20" CornerRadius="25" Margin="0" Padding="0">
+            <Label Text="0" TextColor="WhiteSmoke" HorizontalOptions="Center" FontSize="15"
+                   VerticalOptions="CenterAndExpand"
+                   x:Name="lblcartcount">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+    </AbsoluteLayout>
+</ContentPage>

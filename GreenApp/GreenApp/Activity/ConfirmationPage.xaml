@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             x:Class="GreenApp.Activity.ConfirmationPage" BindingContext="{Binding V_Orders}"
+             Title="Order confirmed"
+             BackgroundColor="{StaticResource BackgroundColor}">
+    <ScrollView>
+        <StackLayout x:Name="stackpanel" VerticalOptions="End">
+            <StackLayout Margin="20,0,20,20" x:Name="mainlayout"> 
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Order ID : " Grid.Row="0" Grid.Column="0" />
+                    <Label Text="{Binding order_id}" x:Name="lblorderid" Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="0"
+                           HorizontalOptions="End" TextColor="{StaticResource TextColor}" FontSize="Small" />
+                    <Label Text="Customer name : " Grid.Row="1" Grid.Column="0" />
+                    <Label Text="{Binding full_name}" x:Name="lblfullname" Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="0"
+                           HorizontalOptions="End" TextColor="{StaticResource TextColor}" FontAttributes="Bold" FontSize="Medium" />
+                    <Label Text="Amount Payable : " Grid.Row="2" Grid.Column="0" />
+                    <Label Text="{Binding tot_payable}" x:Name="lbltotpayable" Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="0"
+                           HorizontalOptions="End" TextColor="{StaticResource TextColor}" FontAttributes="Bold"  FontSize="Medium" />
+                    <BoxView Grid.Row="3" Grid.ColumnSpan="3" Grid.Column="0"
+                             HeightRequest="0.1" Color="Gray" />
+                </Grid>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Take a Screen-shot and present this to claim your order." Margin="0,0,0,30" Padding="0"
+                       FontSize="Small"
+                       HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                <Button Text="Close" Margin="0" BackgroundColor="{StaticResource ButtonCart}"
+                        HeightRequest="50" Visual="Material" TextColor="{StaticResource TextColor}" 
+                        Clicked="Button_OnClicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

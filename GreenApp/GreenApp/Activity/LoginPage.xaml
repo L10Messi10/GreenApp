@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffTrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             x:Class="GreenApp.Activity.LoginPage"
+             BackgroundColor="#D5D5D5"
+             NavigationPage.HasNavigationBar="False">
+    <StackLayout>
+        <ScrollView>
+            <Grid>
+                <ff:CachedImage Source="https://ded8b07dd9e637888fc2-e87978aaae5cf97349d88697fd53e4c9.ssl.cf1.rackcdn.com/0df3a215-baa7-4ffc-ade2-fbe6da167765.jpg"
+                                Aspect="AspectFill" Margin="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <ff:CachedImage.Transformations>
+                        <ffTrans:BlurredTransformation Radius="5" />
+                    </ff:CachedImage.Transformations>
+                </ff:CachedImage>
+                <StackLayout Margin="15,50,15,0" HeightRequest="500" >
+                    <Frame HasShadow="True" HeightRequest="460" CornerRadius="10" Opacity="0.8"
+                           BackgroundColor="{StaticResource BackgroundColor}"
+                           HorizontalOptions="FillAndExpand">
+                    </Frame>
+                    <StackLayout Margin="20,-450,20,0" x:Name="marketcontentlayout" >
+                            <StackLayout HorizontalOptions="CenterAndExpand">
+                                <Label x:Name="lblmktid" Text="{Binding status}"/>
+                                <Label Text="SIGN IN" HorizontalOptions="CenterAndExpand" FontSize="Large"
+                                       TextColor="{StaticResource TextColor}" FontAttributes="Bold" />
+                            </StackLayout>
+                            <StackLayout Margin="0,15,0,0">
+                                <Frame CornerRadius="50" BorderColor="Gray" Padding="0" Margin="0"
+                                       HeightRequest="50" BackgroundColor="Transparent">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame VerticalOptions="Center" HeightRequest="35" WidthRequest="35" CornerRadius="50" Padding="0" HorizontalOptions="Start" Margin="7">
+                                            <ff:CachedImage Source="https://cdn4.iconfinder.com/data/icons/black-white-social-media/32/mail_email_envelope_send_message-512.png"
+                                                   Aspect="AspectFill"/>
+                                        </Frame>
+                                        <Entry x:Name="emailentry" Placeholder="Email address" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand"
+                                               TextColor="{StaticResource TextColor}" Margin="0,0,15,0"
+                                               Keyboard="Email"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame CornerRadius="50" BorderColor="Gray" Padding="0" Margin="0,20,0,0"
+                                       HeightRequest="50" BackgroundColor="Transparent">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame VerticalOptions="Center" HeightRequest="35" WidthRequest="35" CornerRadius="50" Padding="0" HorizontalOptions="Start" Margin="7">
+                                        <ff:CachedImage Source="https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/windows_online_social_media_operating_system-512.png"
+                                               Aspect="AspectFill"/>
+                                        </Frame>
+                                        <Entry x:Name="passentry" Placeholder="Password" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand"
+                                               TextColor="{StaticResource TextColor}" Margin="0,0,15,0"
+                                               IsPassword="True"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <CheckBox IsChecked="False" Color="{StaticResource Primary}" HorizontalOptions="Start"
+                                          VerticalOptions="Center" />
+                                <Label Text="Remember me" Margin="0" TextColor="{StaticResource PlaceHolderColor}"
+                                       HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                            </StackLayout>
+                            <ActivityIndicator x:Name="indicatorloader" Color="Black" IsVisible="False" IsRunning="True" />
+                            <Button x:Name="btnlogin" Text="SIGN IN" CornerRadius="20" HeightRequest="40" BackgroundColor="{StaticResource Primary}"
+                                    TextColor="{StaticResource TextColor}" Clicked="Btnlogin_OnClicked"/>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0">
+                                <Label Text="Don't have an account yet?" Margin="0"
+                                       TextColor="{StaticResource TextColor}"
+                                       HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                                <Button x:Name="btnsignup" Text="Sign Up" Margin="0" TextColor="{StaticResource Primary}"
+                                        BackgroundColor="Transparent" FontAttributes="Bold" Clicked="Btnsignup_OnClicked" />
+                            </StackLayout>
+                            <StackLayout>
+                                <Grid>
+                                    <BoxView BackgroundColor="{StaticResource Primary}" HeightRequest="1"
+                                             HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                             Margin="0" WidthRequest="150" />
+                                    <Frame BackgroundColor="{StaticResource BackgroundColor}" WidthRequest="50" HeightRequest="50" Margin="0"
+                                           Padding="0" HasShadow="True"
+                                           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                           BorderColor="{StaticResource Primary}"
+                                           CornerRadius="30">
+                                        <Label Text="OR" HorizontalOptions="Center" TextColor="{StaticResource TextColor}"
+                                               VerticalOptions="Center" FontAttributes="Bold" FontSize="15" />
+                                    </Frame>
+                                </Grid>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10">
+
+                                    <Frame BackgroundColor="#676767" WidthRequest="50" HeightRequest="50" Margin="0"
+                                           Padding="0" HasShadow="True"
+                                           HorizontalOptions="Center" VerticalOptions="CenterAndExpand"
+                                           CornerRadius="30">
+                                        <ff:CachedImage Source="https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/online_social_media_facebook-512.png"
+                                               Aspect="AspectFit" HorizontalOptions="Center"/>
+                                    </Frame>
+                                    <Frame BackgroundColor="#676767" WidthRequest="50" HeightRequest="50" Margin="0"
+                                           Padding="0" HasShadow="True"
+                                           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                           CornerRadius="30">
+                                        <ff:CachedImage Source="https://cdn3.iconfinder.com/data/icons/black-white-social-media/32/logo_social_media_google_plus-512.png"
+                                               Aspect="AspectFit"/>
+                                    </Frame>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

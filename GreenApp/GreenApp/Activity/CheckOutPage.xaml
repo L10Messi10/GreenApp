@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GreenApp.Activity.CheckOutPage"
+             BackgroundColor="{StaticResource BackgroundColor}" Visual="Material"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             Title="My Cart" NavigationPage.HasNavigationBar="True">
+    <ContentPage.ToolbarItems> 
+        <ToolbarItem IconImageSource="trash.png" x:Name="deleteitem" Clicked="Deleteitem_OnClicked"/>
+        <ToolbarItem IconImageSource="edit.png" x:Name="edititem" Clicked="Edititem_OnClicked" />
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <Grid VerticalOptions="End">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="330" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Frame Grid.Row="0" BackgroundColor="#BEC1BA" Margin="10" CornerRadius="10" Padding="0"
+                   HasShadow="True">
+                <CollectionView x:Name="ordercollection" ItemsSource="{Binding TBL_Order_Details}"
+                                ItemsLayout="HorizontalList" BackgroundColor="#BEC1BA"
+                                SelectionMode="Single" HorizontalScrollBarVisibility="Always"
+                                SelectionChanged="Ordercollection_OnSelectionChanged">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <ContentView>
+                                <Frame
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    HeightRequest="330"
+                                    WidthRequest="260"
+                                    Padding="0" Margin="8"
+                                    HasShadow="True" BackgroundColor="{StaticResource FrameColor}"
+                                    CornerRadius="10">
+                                    <StackLayout WidthRequest="250" HorizontalOptions="CenterAndExpand"
+                                                 VerticalOptions="Start" Margin="0,5">
+                                        <Frame VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                                               CornerRadius="5" BackgroundColor="Gray" Margin="0" Padding="0"
+                                               HasShadow="True">
+                                            <ff:CachedImage Source="{Binding img_uri}" HeightRequest="150"
+                                                            WidthRequest="250"
+                                                            Aspect="AspectFill" />
+                                        </Frame>
+                                        <StackLayout>
+                                            <Label Text="{Binding prod_name}" FontSize="Large"
+                                                   TextColor="{StaticResource TextColor}"
+                                                   FontAttributes="Bold" />
+                                        </StackLayout>
+                                        <BoxView HeightRequest="0.1" BackgroundColor="Silver" />
+                                        <StackLayout Margin="10">
+                                            <Grid HorizontalOptions="FillAndExpand">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition />
+                                                </Grid.ColumnDefinitions>
+                                                <Label Grid.Row="0" Grid.Column="0" Text="Sell Price:"
+                                                       HorizontalOptions="Start" />
+                                                <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"
+                                                       HorizontalOptions="End">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{Binding prod_price}" FontSize="15"
+                                                                  TextColor="{StaticResource TextColor}"
+                                                                  FontAttributes="Bold" />
+                                                            <Span Text=" / " FontSize="15"
+                                                                  TextColor="{StaticResource TextColor}" />
+                                                            <Span Text="{Binding unit_desc}" FontSize="15"
+                                                                  TextColor="{StaticResource TextColor}" />
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                                <Label Grid.Row="1" Grid.Column="0" Text="Quantity:"
+                                                       HorizontalOptions="Start" />
+                                                <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+                                                       HorizontalOptions="End" FontSize="15" FontAttributes="Bold">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{Binding qty}" FontSize="15"
+                                                                  FontAttributes="Bold"
+                                                                  TextColor="{StaticResource TextColor}" />
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                                <Label Grid.Row="2" Grid.Column="0" Text="Sub-total:"
+                                                       HorizontalOptions="Start" />
+                                                <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+                                                       HorizontalOptions="End" FontSize="15" FontAttributes="Bold">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{Binding sub_total}" FontSize="15"
+                                                                  FontAttributes="Bold"
+                                                                  TextColor="{StaticResource TextColor}" />
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                            </Grid>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ContentView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Frame>
+            <StackLayout Grid.Row="1" VerticalOptions="End">
+                <Frame BackgroundColor="#BEC1BA" Margin="10,0" HeightRequest="205"
+                       CornerRadius="10" HasShadow="True">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0" Text="SUB TOTAL" TextColor="WhiteSmoke" />
+                        <Label x:Name="lblsubtotal" Grid.Row="0" Grid.Column="2" Text="$ 0"
+                               HorizontalOptions="EndAndExpand"
+                               FontSize="Medium" TextColor="White" FontAttributes="Bold" />
+                        <BoxView Grid.Row="1" Grid.Column="0" HeightRequest="1" BackgroundColor="WhiteSmoke"
+                                 Grid.ColumnSpan="3" />
+                        <BoxView Grid.Row="2" Grid.Column="0" HeightRequest="20" />
+                        <Label Grid.Row="3" Grid.Column="0" Text="DELIVERY FEE" TextColor="WhiteSmoke" />
+                        <Label Grid.Row="3" Grid.Column="2" Text="$ 0" HorizontalOptions="End"
+                               FontSize="Medium" TextColor="White" FontAttributes="Bold" />
+                        <BoxView Grid.Row="4" Grid.Column="0" HeightRequest="1" BackgroundColor="WhiteSmoke"
+                                 Grid.ColumnSpan="3" />
+                        <BoxView Grid.Row="5" Grid.Column="0" HeightRequest="30" />
+                        <Label Grid.Row="6" Grid.Column="0" Text="TOTAL" TextColor="{StaticResource TextColor}"
+                               FontSize="Large" />
+                        <Label Grid.Row="6" Grid.Column="2" Text="$ 0" HorizontalOptions="EndAndExpand"
+                               x:Name="totalpayable"
+                               FontSize="Medium" TextColor="{StaticResource TextColor}" FontAttributes="Bold" />
+                    </Grid>
+                </Frame>
+                <StackLayout Visual="Material" Margin="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Grid.ColumnSpan="3" Text="Place order now"
+                                TextColor="{StaticResource TextColor}"
+                                BackgroundColor="{StaticResource ButtonCart}"
+                                x:Name="btncheckout" Clicked="Btncheckout_OnClicked" />
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

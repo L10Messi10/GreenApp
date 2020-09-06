@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffTrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="GreenApp.Activity.ProfilePage" Title="Profile">
+    <Grid>
+        <!-- 2.0 Main structure-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+            
+        <!-- Here add the code that is being explained in the next block-->
+        <ff:CachedImage Grid.Row="0" Source="https://i.ibb.co/N6Vg8Q2/v211batch10-aum-67-family-2.jpg" Aspect="AspectFill"
+                        VerticalOptions="Start"/>
+        <Label Grid.Row="1" Text="User name" TextColor="Black" FontAttributes="Bold" FontSize="35" Margin="25,-80,0,0"/>
+        <Button Grid.Row="1" Text="Edit" HorizontalOptions="End" Margin="25,-100,0,0" BackgroundColor="Transparent"
+                TextColor="WhiteSmoke"/>
+        <Frame Grid.Row="2" CornerRadius="30" Margin="0,-40">
+            <!-- Struture for the next block-->
+            <Grid Padding="0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions> 
+                <!-- Here add the code that is being explained in the next block-->
+                <Label Grid.Row="0" Grid.Column="0" Text="Order History" FontAttributes="Bold" FontSize="18"/>
+                <CollectionView ItemsSource="{Binding V_Orders}" 
+                               VerticalOptions="Start" x:Name="OrdersList" HorizontalOptions="Fill"
+                               VerticalScrollBarVisibility="Never"
+                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                                <Frame HasShadow="False" BackgroundColor="#fef6f2" HeightRequest="70" CornerRadius="20"
+                                       Margin="0,0,0,5">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <pancakeView:PancakeView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                                                 CornerRadius="12" Margin="0,0,10,0">
+                                            <Image Source="https://i.ibb.co/TmZxS1V/history.png" HeightRequest="100" WidthRequest="95"
+                                                   Aspect="AspectFit" />
+                                        </pancakeView:PancakeView>
+                                        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding tot_payable}"
+                                               FontSize="15" FontAttributes="Bold" />
+                                        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+                                               Text="{Binding cash_rendered}" FontSize="15" TextColor="#a4a7b6" />
+                                    </Grid>
+                                </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </Frame> 
+    </Grid>           
+    <!--<StackLayout>
+        --><!-- Principal--><!--
+        <StackLayout BackgroundColor="#FEB333" HeightRequest="400">
+            --><!-- Main image--><!--
+            <ff:CachedImage Source="https://i.ibb.co/N6Vg8Q2/v211batch10-aum-67-family-2.jpg" 
+                   HorizontalOptions="Center" VerticalOptions="Center" Margin="0,30,0,0" HeightRequest="200"/>
+            --><!-- Place name & travel date--><!--
+            <Label Margin="30,0,0,0">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="San Francisco &#10;" FontSize="28" FontAttributes="Bold" ForegroundColor="White" />
+                        <Span Text="17 November - 24 November" FontSize="17" ForegroundColor="White" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label> 
+            <Frame CornerRadius="35" Margin="0,0,0,-25" BackgroundColor="#FEB333" HasShadow="False" HeightRequest="25" VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+        
+        --><!-- Here add the code that is being explained in the next block--><!--
+
+    </StackLayout>-->       
+</ContentPage>

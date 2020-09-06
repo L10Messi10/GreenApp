@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="GreenApp.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ButtonColor">#208204</Color>
+            
+            
+            <Color x:Key="Textcolor">White</Color>
+            <!--<Style TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="{StaticResource Greencolor}"/>
+                    <Setter Property="TextColor" Value="{StaticResource Textcolor}"/>
+            </Style>-->
+            
+                <!-- Application resource dictionary -->
+                <Color x:Key="TextBackColor">#333337</Color>
+                <Color x:Key="PlaceHolderColor">#869797</Color>
+                <Color x:Key="BackgroundColor">WhiteSmoke</Color>
+                <Color x:Key="Primary">#29B700</Color>
+                <Color x:Key="TextColor">Black</Color>
+                <Color x:Key="PrimaryDark">#176802</Color>
+                <Color x:Key="Accent">#00BCD4</Color>
+                <Color x:Key="PriceBg">#FF391C</Color>
+                <Color x:Key="FrameColor">White</Color>
+                <Color x:Key="ButtonCart">#FFC42A</Color>
+
+                <Style x:Key="ButtonOutline" TargetType="Button">
+                    <Setter Property="BackgroundColor" Value="{StaticResource FrameColor}"/>
+                    <Setter Property="TextColor" Value="{StaticResource Primary}"/>
+                    <Setter Property="BorderColor" Value="{StaticResource Primary}"/>
+                    <Setter Property="BorderWidth" Value="2"/>
+                    <Setter Property="HeightRequest" Value="40"/>
+                    <Setter Property="CornerRadius" Value="20"/>
+                    <Setter Property="Visual" Value="Material"/>
+                </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

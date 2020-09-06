@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d" BackgroundColor="#D5D5D5"
+			 NavigationPage.HasNavigationBar="False"
+			 x:Class="GreenApp.Activity.SignupPage">
+		<ScrollView FlowDirection="MatchParent" VerticalScrollBarVisibility="Always" HorizontalScrollBarVisibility="Always">
+		<StackLayout VerticalOptions="Center" Margin="15">
+			<Label Text="Registration Form"
+				   FontSize="15" TextColor="{StaticResource TextColor}"
+				   HorizontalOptions="CenterAndExpand"/>
+			<Frame BackgroundColor="{StaticResource FrameColor}" CornerRadius="20">
+				<Grid Margin="0,0,0,0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+				<Entry  Grid.Row="0" x:Name="NameEntry" BackgroundColor="#E5E5E5" Visual="Material"
+						Placeholder="Full name" TextColor="{StaticResource TextColor}"
+						PlaceholderColor="{StaticResource PlaceHolderColor}"/>
+				<Entry Grid.Row="1"  x:Name="mobileentry" BackgroundColor="#E5E5E5" Visual="Material"
+						Placeholder="Mobile #" TextColor="{StaticResource TextColor}"
+						Keyboard="Numeric"
+						PlaceholderColor="{StaticResource PlaceHolderColor}"/>
+				<Entry Grid.Row="2"  x:Name="emailentry" BackgroundColor="#E5E5E5" Visual="Material"
+						Placeholder="Email address" TextColor="{StaticResource TextColor}"
+						Keyboard="Email"
+						PlaceholderColor="{StaticResource PlaceHolderColor}"/>
+				<Entry Grid.Row="3"  x:Name="passentry" BackgroundColor="#E5E5E5" Visual="Material"
+					   Placeholder="Password" TextColor="{StaticResource TextColor}"
+					   IsPassword="True"
+					   PlaceholderColor="{StaticResource PlaceHolderColor}"/>
+				<Entry Grid.Row="4"  x:Name="confirmpassentry" BackgroundColor="#E5E5E5" Visual="Material"
+					   Placeholder="Confirm Password" TextColor="{StaticResource TextColor}"
+					   IsPassword="True"
+					   PlaceholderColor="{StaticResource PlaceHolderColor}"/>
+				<Label Grid.Row="7" Text="By registering, you agree to our terms of services and privacy policy." HorizontalTextAlignment="Center" TextColor="Black"/>
+				<ActivityIndicator Grid.Row="8" x:Name="loadingindicator" Color="Black"  IsVisible="False" IsRunning="False"/>
+				<Label Grid.Row="9" x:Name="indicatornot" Text="Please wait. Your request is being processed." HorizontalTextAlignment="Center" TextColor="Red" IsVisible="False"/>
+				</Grid>
+			</Frame>
+			<StackLayout HorizontalOptions="Fill">
+				<Button x:Name="btnregister"
+						Text="register"
+						CornerRadius="10"
+						FontSize="15"
+						BackgroundColor="{StaticResource Primary}"
+						Clicked="Btnregister_OnClicked"/>
+				<BoxView
+					BackgroundColor="White"
+					HeightRequest="1"
+					Margin="0,10"/>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+					<Label Text="Already have an account? Login now."
+						   FontSize="13"
+						   HorizontalOptions="End"
+						   TextColor="Gray"/>
+					<Button  x:Name="btnlogin"
+							 Text="login" Margin="0,-7" Padding="0"
+							 TextColor="{StaticResource Primary}"
+							 Clicked="Btnlogin_OnClicked"/>
+				</StackLayout>
+			</StackLayout>
+		</StackLayout>
+	</ScrollView>
+</ContentPage>
