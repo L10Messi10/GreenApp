@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffTrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             x:Class="GreenApp.Activity.FeedBackPage">
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300" />
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <ff:CachedImage Source="feedback.jpg" Margin="0" ErrorPlaceholder="Error loading image"
+                            LoadingPriority="High" Aspect="AspectFill"/>
+            <Frame Grid.Row="1" Margin="20,-140" CornerRadius="20" HasShadow="True">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="200"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ff:CachedImage Grid.Row="0" Grid.Column="1"/>
+                    <Label Grid.Row="0" Grid.Column="1" Text="We'd love to hear from you to improve the application."/>
+                    <Editor Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                            Placeholder="A descriptive and informative statements about your feedback.." PlaceholderColor="Silver"/>
+                </Grid>
+            </Frame>
+            <StackLayout Grid.Row="2" Grid.Column="0" Margin="20,155">
+                <Button BackgroundColor="{StaticResource Primary}" TextColor="White"
+                        Text="Submit feedback" CornerRadius="20"/>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>
