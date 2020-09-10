@@ -58,7 +58,7 @@
                             <StackLayout Orientation="Horizontal">
                                 <CheckBox IsChecked="False" Color="{StaticResource Primary}" HorizontalOptions="Start"
                                           VerticalOptions="Center" />
-                                <Label Text="Remember me" Margin="0" TextColor="{StaticResource PlaceHolderColor}"
+                                <Label x:Name="xtime" Text="Remember me" Margin="0" TextColor="{StaticResource PlaceHolderColor}"
                                        HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
                             </StackLayout>
                             <ActivityIndicator x:Name="indicatorloader" Color="Black" IsVisible="False" IsRunning="True" />

@@ -19,7 +19,7 @@ namespace GreenApp
         {
             InitializeComponent();
 
-            MainPage =new NavigationPage(new FeedBackPage());
+            MainPage =new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()

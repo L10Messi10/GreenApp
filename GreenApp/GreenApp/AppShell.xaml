@@ -3,7 +3,7 @@
        xmlns:local="clr-namespace:GreenApp.Activity"
        x:Class="GreenApp.AppShell"
        BackgroundImageSource="https://i.ibb.co/XtyMysS/flyoutimage.png"
-       TitleColor="White" FlyoutBackgroundImage="https://i.ibb.co/XtyMysS/flyoutimage.png"
+       TitleColor="White" FlyoutBackgroundImage="https://i.ibb.co/q0pW2dt/flyout.png"
        FlyoutBackgroundImageAspect="AspectFill">
     <Shell.Resources>
         <ResourceDictionary>

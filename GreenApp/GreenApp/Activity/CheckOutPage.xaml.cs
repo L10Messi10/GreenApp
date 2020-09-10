@@ -60,7 +60,7 @@ namespace GreenApp.Activity
                         {
                             id = CurrentOrderId,
                             users_id = user_id,
-                            order_date = Now,
+                            order_date = Now.ToString(CultureInfo.CurrentCulture),
                             stat = "1",
                             order_status = "Ordered",
                             tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)

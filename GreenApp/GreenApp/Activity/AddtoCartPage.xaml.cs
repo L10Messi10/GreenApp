@@ -9,6 +9,7 @@ using GreenApp.Renderers;
 using Plugin.Toasts;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static System.DateTime;
 
 namespace GreenApp.Activity
 {
@@ -88,7 +89,7 @@ namespace GreenApp.Activity
                 var order = new TBL_Orders
                 {
                     users_id = App.user_id,
-                    order_date = DateTime.Now,
+                    order_date = Now.ToString(CultureInfo.CurrentCulture),
                     stat = "0",
                     order_status = "Carted"
                 };
@@ -134,12 +135,13 @@ namespace GreenApp.Activity
                         prod_id = App.Selected_ProdId,
                         qty = qtystepper.Value.ToString(CultureInfo.InvariantCulture),
                         sell_price = txtprice.Text,
+                        cart_datetime = Now.ToString(CultureInfo.CurrentCulture),
                         sub_total = txtsubtotal.Text
                     };
                     await TBL_Order_Details.Insert(order_details);
                     var s = App.CurrentOrderId; ;
-                await DisplayAlert("Success", "Item successfully added to cart!", "OK");
-                await Navigation.PopAsync(true);
+                    await DisplayAlert("Success", "Item successfully added to cart!", "OK");
+                    await Navigation.PopAsync(true);
                 }
                 else
                 {
@@ -150,6 +152,7 @@ namespace GreenApp.Activity
                         prod_id = App.Selected_ProdId,
                         qty = qtystepper.Value.ToString(CultureInfo.InvariantCulture),
                         sell_price = txtprice.Text,
+                        cart_datetime = Now.ToString(CultureInfo.CurrentCulture),
                         sub_total = txtsubtotal.Text
                     };
                     await TBL_Order_Details.Update(order_details);

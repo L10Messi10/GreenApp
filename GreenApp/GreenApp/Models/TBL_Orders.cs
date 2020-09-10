@@ -13,7 +13,7 @@ namespace GreenApp.Models
         public string tot_payable { get; set; }
         public string cash_rendered { get; set; }
         public string cash_change { get; set; }
-        public DateTime order_date { get; set; }
+        public string order_date { get; set; }
         public string order_status { get; set; }
         public string stat { get; set; }
 

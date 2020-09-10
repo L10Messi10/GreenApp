@@ -15,6 +15,7 @@ namespace GreenApp.Models
         public string sell_price { get; set; }
         public string sub_total { get; set; }
         public string discount { get; set; }
+        public string cart_datetime { get; set; }
 
         public static async Task Insert(TBL_Order_Details orderdetails)
         {
