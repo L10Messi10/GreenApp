@@ -120,5 +120,10 @@ namespace GreenApp.Activity
                 //ignored
             }
         }
+
+        private void Logout_OnClicked(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

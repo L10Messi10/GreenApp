@@ -24,8 +24,7 @@ namespace GreenApp.Activity
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
-            if (stat != null) MarketStatus = stat.status;
+            
             var current = Connectivity.NetworkAccess;
             if (current == NetworkAccess.None)
             {
@@ -37,6 +36,8 @@ namespace GreenApp.Activity
         {
             try
             {
+                var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
+                if (stat != null) MarketStatus = stat.status;
                 //await Navigation.PushModalAsync(new MenuPage(),true);
                 bool isemailempty = string.IsNullOrEmpty(emailentry.Text);
                 bool ispasswordempty = string.IsNullOrEmpty(passentry.Text);

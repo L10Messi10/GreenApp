@@ -18,10 +18,12 @@ namespace GreenApp.Activity
     {
         private bool _newprodorder;
         private string _orderdetailsId;
+
         public AddtoCartPage()
         {
             InitializeComponent();
         }
+
         protected override async void OnAppearing()
         {
             //btnaddtocart.Clicked += Btnaddtocart_OnClicked;
@@ -89,7 +91,7 @@ namespace GreenApp.Activity
                 var order = new TBL_Orders
                 {
                     users_id = App.user_id,
-                    order_date = Now.ToString(CultureInfo.CurrentCulture),
+                    order_date = Now.ToString("yyyy-MM-dd"),
                     stat = "0",
                     order_status = "Carted"
                 };
@@ -115,21 +117,22 @@ namespace GreenApp.Activity
 
         private async Task XGetOrderID()
         {
-            var getorderid = (await App.MobileService.GetTable<TBL_Orders>().Where(order_ => order_.users_id == App.user_id && order_.order_status == "Carted").ToListAsync()).FirstOrDefault();
+            var getorderid = (await App.MobileService.GetTable<TBL_Orders>().Where(order => order.users_id == App.user_id && order.order_status == "Carted").ToListAsync()).FirstOrDefault();
             if (getorderid != null)
             {
                 App.CurrentOrderId = getorderid.id;
             }
         }
+
         private async Task InsertOrder_Details()
         {
             //There might be a case of deleting the order
             //When an error occured.
-            //try
-            //{
+            try
+            {
                 if (_newprodorder)
                 {
-                    var order_details = new TBL_Order_Details
+                    var orderDetails = new TBL_Order_Details
                     {
                         order_id = App.CurrentOrderId,
                         prod_id = App.Selected_ProdId,
@@ -138,14 +141,13 @@ namespace GreenApp.Activity
                         cart_datetime = Now.ToString(CultureInfo.CurrentCulture),
                         sub_total = txtsubtotal.Text
                     };
-                    await TBL_Order_Details.Insert(order_details);
-                    var s = App.CurrentOrderId; ;
+                    await TBL_Order_Details.Insert(orderDetails);
                     await DisplayAlert("Success", "Item successfully added to cart!", "OK");
                     await Navigation.PopAsync(true);
                 }
                 else
                 {
-                    var order_details = new TBL_Order_Details
+                    var orderDetails = new TBL_Order_Details
                     {
                         id = _orderdetailsId,
                         order_id = App.CurrentOrderId,
@@ -155,22 +157,22 @@ namespace GreenApp.Activity
                         cart_datetime = Now.ToString(CultureInfo.CurrentCulture),
                         sub_total = txtsubtotal.Text
                     };
-                    await TBL_Order_Details.Update(order_details);
-                //var notificator = DependencyService.Get<IToastNotificator>();
-                //var options = new NotificationOptions()
-                //{
-                //    Title = "Green Market",
-                //    Description = "Cart updated!"
-                //};
-                //await notificator.Notify(options);
-                await DisplayAlert("Success", "Cart successfully updated!", "OK");
-                await Navigation.PopAsync(true);
+                    await TBL_Order_Details.Update(orderDetails);
+                    //var notificator = DependencyService.Get<IToastNotificator>();
+                    //var options = new NotificationOptions()
+                    //{
+                    //    Title = "Green Market",
+                    //    Description = "Cart updated!"
+                    //};
+                    //await notificator.Notify(options);
+                    await DisplayAlert("Success", "Cart successfully updated!", "OK");
+                    await Navigation.PopAsync(true);
                 }
-            //}
-            //catch
-            //{
-            //    await DisplayAlert("Error", "An error occured. Please check your internet connection.", "OK");
-            //}
+            }
+            catch
+            {
+                await DisplayAlert("Error", "Error processing your request, please check you internet connection.", "OK");
+            }
         }
     }
 }

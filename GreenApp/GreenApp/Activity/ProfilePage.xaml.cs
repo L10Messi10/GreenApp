@@ -19,8 +19,15 @@ namespace GreenApp.Activity
 
         protected override async void OnAppearing()
         {
-            var getorders = (await App.MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id == App.user_id).ToListAsync());
-            OrdersList.ItemsSource = getorders;
+            try
+            {
+                var getorders = (await App.MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id == App.user_id).ToListAsync());
+                OrdersList.ItemsSource = getorders;
+            }
+            catch
+            {
+                await DisplayAlert("Error", "Error processing your request, please check you internet connection.", "OK");
+            }
         }
     }
 }

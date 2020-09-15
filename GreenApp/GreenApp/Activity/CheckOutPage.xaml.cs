@@ -24,24 +24,32 @@ namespace GreenApp.Activity
 
         protected override async void OnAppearing()
         {
-            if (CurrentOrderId != null)
+            try
             {
-                var getorders = await MobileService.GetTable<V_Orders>().Where(orders => orders.order_id == CurrentOrderId).ToListAsync();
-                ordercollection.ItemsSource = getorders;
-                //ordercollection.ItemsSource.re
-                totaSum = getorders.AsQueryable().Sum(ord => ord.sub_total);
-                lblsubtotal.Text = totaSum.ToString(CultureInfo.InvariantCulture);
-                totalpayable.Text = totaSum.ToString(CultureInfo.InvariantCulture);
-                itemid = null;
-                Selected_ProdId = null;
+                if (CurrentOrderId != null)
+                {
+                    var getorders = await MobileService.GetTable<V_Orders>().Where(orders => orders.order_id == CurrentOrderId).ToListAsync();
+                    ordercollection.ItemsSource = getorders;
+                    //ordercollection.ItemsSource.re
+                    totaSum = getorders.AsQueryable().Sum(ord => ord.sub_total);
+                    lblsubtotal.Text = totaSum.ToString(CultureInfo.InvariantCulture);
+                    totalpayable.Text = totaSum.ToString(CultureInfo.InvariantCulture);
+                    itemid = null;
+                    Selected_ProdId = null;
+                }
+                else
+                {
+                    lblsubtotal.Text = "0";
+                    totalpayable.Text = "0";
+                    itemid = null;
+                    Selected_ProdId = null;
+                }
             }
-            else
+            catch
             {
-                lblsubtotal.Text = "0";
-                totalpayable.Text = "0";
-                itemid = null;
-                Selected_ProdId = null;
+                await DisplayAlert("Error", "Error processing your request, please check you internet connection.", "OK");
             }
+            
         }
 
         private async void Btncheckout_OnClicked(object sender, EventArgs e)
@@ -60,7 +68,7 @@ namespace GreenApp.Activity
                         {
                             id = CurrentOrderId,
                             users_id = user_id,
-                            order_date = Now.ToString(CultureInfo.CurrentCulture),
+                            order_date = Now.ToString("yyyy-MM-dd"),
                             stat = "1",
                             order_status = "Ordered",
                             tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
@@ -99,31 +107,61 @@ namespace GreenApp.Activity
 
         private async void Deleteitem_OnClicked(object sender, EventArgs e)
         {
-            if (itemid != null)
+            try
             {
-                var confirm = await DisplayAlert("Remove", "Do you really want to remove this item on your cart?", "Yes", "No");
-                if (!confirm) return;
-                var order_details = new TBL_Order_Details
+                if (itemid != null)
                 {
-                    id = itemid,
-                };
-                await TBL_Order_Details.Delete(order_details);
-                itemid = null;
-                Selected_ProdId = null;
-                OnAppearing();
+                    var confirm = await DisplayAlert("Remove", "Do you really want to remove this item on your cart?", "Yes", "No");
+                    if (!confirm) return;
+                    var order_details = new TBL_Order_Details
+                    {
+                        id = itemid,
+                    };
+                    await TBL_Order_Details.Delete(order_details);
+                    itemid = null;
+                    Selected_ProdId = null;
+                    OnAppearing();
+                }
             }
+            catch
+            {
+                await DisplayAlert("Error", "Error processing your request, please check you internet connection.", "OK");
+            }
+            
         }
 
         private async void Edititem_OnClicked(object sender, EventArgs e)
         {
             if (itemid != null)
             {
-                await Navigation.PushAsync(new AddtoCartPage());
+                await Navigation.PushAsync(new AddtoCartPage(),true);
             }
             else
             {
                 await DisplayAlert("No item selected", "Please select an item on your cart to modify!", "OK");
             }
+        }
+
+        private async void Voiditem_OnClicked(object sender, EventArgs e)
+        {
+            try
+            {
+                var answer = await DisplayAlert("Void", "Do you want to void this order?", "Yes", "No");
+                if (!answer) return;
+                var orderDetails = new TBL_Orders()
+                {
+                    id = CurrentOrderId,
+                };
+                await TBL_Orders.Void(orderDetails);
+                OnAppearing();
+                await DisplayAlert("Order cancelled", "Your order have cancelled successfully.", "OK");
+                await Navigation.PopToRootAsync(true);
+            }
+            catch
+            {
+                await DisplayAlert("Error", "Error processing your request, please check you internet connection.", "OK");
+            }
+            
         }
     }
 }

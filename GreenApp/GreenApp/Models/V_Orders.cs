@@ -28,7 +28,7 @@ namespace GreenApp.Models
         public string tot_payable { get; set; }
         public string cash_rendered { get; set; }
         public string cash_change { get; set; }
-        public DateTime order_date { get; set; }
+        public string order_date { get; set; }
         public static async Task<List<V_Orders>> Read()
         {
             var orderdetails = await MobileService.GetTable<V_Orders>().ToListAsync();

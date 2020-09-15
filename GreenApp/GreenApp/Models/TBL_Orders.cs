@@ -25,6 +25,11 @@ namespace GreenApp.Models
         {
             await MobileService.GetTable<TBL_Orders>().UpdateAsync(orders);
         }
+
+        public static async Task Void(TBL_Orders voidorder)
+        {
+            await MobileService.GetTable<TBL_Orders>().DeleteAsync(voidorder);
+        }
         public static async Task<List<TBL_Orders>> Read()
         {
             var orders = await MobileService.GetTable<TBL_Orders>().ToListAsync();

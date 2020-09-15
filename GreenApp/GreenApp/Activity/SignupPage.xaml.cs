@@ -81,13 +81,11 @@ namespace GreenApp.Activity
                     indicatornot.IsVisible = false;
                     loadingindicator.IsVisible = false;
                     await Navigation.PopAsync(true);
-
                 }
                 else
                 {
                     await DisplayAlert("Confirm password", "Password did not match!", "OK");
                     confirmpassentry.Focus();
-                    return;
                 }
             }
             catch
@@ -95,7 +93,6 @@ namespace GreenApp.Activity
                 indicatornot.IsVisible = false;
                 loadingindicator.IsVisible = false;
                 await DisplayAlert("Error", "There was an error processing your request. Please check your email add and try again. Please check your internet connectivity as well.", "OK");
-
             }
         }
     }

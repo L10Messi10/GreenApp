@@ -8,7 +8,7 @@
     <ContentPage.ToolbarItems> 
         <ToolbarItem IconImageSource="trash.png" x:Name="deleteitem" Clicked="Deleteitem_OnClicked"/>
         <ToolbarItem IconImageSource="edit.png" x:Name="edititem" Clicked="Edititem_OnClicked" />
-        <ToolbarItem IconImageSource="cancel.png" x:Name="voiditem" />
+        <ToolbarItem IconImageSource="cancel.png" x:Name="voiditem" Clicked="Voiditem_OnClicked" />
     </ContentPage.ToolbarItems>
     <ScrollView>
         <Grid VerticalOptions="End">

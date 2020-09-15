@@ -23,11 +23,19 @@ namespace GreenApp.Activity
 
         protected override async void OnAppearing()
         {
-            string ord = "1";
-            var getorders = await MobileService.GetTable<TBL_Orders>().Where(orders => orders.stat.Contains(ord) && orders.users_id.ToLower().Contains(user_id)).ToListAsync();
-            OrdersList.ItemsSource = getorders;
-            OrderDetailsList.ItemsSource = null;
-            lblsum.Text = "Php. 0";
+            try
+            {
+                string ord = "1";
+                var getorders = await MobileService.GetTable<TBL_Orders>().Where(orders => orders.stat.Contains(ord) && orders.users_id.ToLower().Contains(user_id)).ToListAsync();
+                OrdersList.ItemsSource = getorders;
+                OrderDetailsList.ItemsSource = null;
+                lblsum.Text = "Php. 0";
+            }
+            catch
+            {
+                await DisplayAlert("Error", "Error processing your request, please check you internet connection.", "OK");
+            }
+            
         }
 
         private async void OrdersList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -45,11 +53,19 @@ namespace GreenApp.Activity
 
         private async Task XGetOrders()
         {
-            var getorderdetails = (await MobileService.GetTable<V_Orders>().Where(orders => orders.order_id == Selected_orderID).ToListAsync());
-            OrderDetailsList.ItemsSource = getorderdetails;
-            var amount = getorderdetails.Sum(p => p.sub_total).ToString("N");
-            //AnimateText();
-            lblsum.Text = "Php. " + amount;
+            try
+            {
+                var getorderdetails = (await MobileService.GetTable<V_Orders>().Where(orders => orders.order_id == Selected_orderID).ToListAsync());
+                OrderDetailsList.ItemsSource = getorderdetails;
+                var amount = getorderdetails.Sum(p => p.sub_total).ToString("N");
+                //AnimateText();
+                lblsum.Text = "Php. " + amount;
+            }
+            catch
+            {
+                await DisplayAlert("Error", "Error processing your request, please check you internet connection.", "OK");
+            }
+            
         }
 
         private void AnimateAmount()
@@ -59,7 +75,6 @@ namespace GreenApp.Activity
             Device.StartTimer(TimeSpan.FromSeconds(1 / 100f), () =>
             {
                 double t = stw.Elapsed.TotalMilliseconds % 500 / 500;
-
                 return true;
             });
         }
@@ -67,7 +82,6 @@ namespace GreenApp.Activity
         private void Reload_OnClicked(object sender, EventArgs e)
         {
             OnAppearing();
-           
         }
     }
 }

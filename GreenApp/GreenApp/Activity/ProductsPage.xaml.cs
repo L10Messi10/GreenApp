@@ -20,20 +20,26 @@ namespace GreenApp.Activity
 
         protected override async void OnAppearing()
         {
-            var getproducts = await MobileService.GetTable<TBL_Products>().Where(p => p.category_name == Selected_CatID).ToListAsync();
-            ListProducts.ItemsSource = getproducts;
-            var getorderid = (await App.MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id == App.user_id && orders.order_status == "Carted").ToListAsync()).FirstOrDefault();
-            if (getorderid != null) CurrentOrderId = getorderid.id;
-            if (CurrentOrderId != null)
+            try
             {
-                var totalorders = await TBL_Order_Details.Read();
-                lblcartcount.Text = totalorders.Count(p => p.order_id.Equals(CurrentOrderId)).ToString();
+                var getproducts = await MobileService.GetTable<TBL_Products>().Where(p => p.category_name == Selected_CatID).ToListAsync();
+                ListProducts.ItemsSource = getproducts;
+                var getorderid = (await App.MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id == App.user_id && orders.order_status == "Carted").ToListAsync()).FirstOrDefault();
+                if (getorderid != null) CurrentOrderId = getorderid.id;
+                if (CurrentOrderId != null)
+                {
+                    var totalorders = await TBL_Order_Details.Read();
+                    lblcartcount.Text = totalorders.Count(p => p.order_id.Equals(CurrentOrderId)).ToString();
+                }
+                else
+                {
+                    lblcartcount.Text = "0";
+                }
             }
-            else
+            catch
             {
-                lblcartcount.Text = "0";
+                await DisplayAlert("Error", "Error processing your request, please check you internet connection.", "OK");
             }
-
         }
 
         private async void ListProducts_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
