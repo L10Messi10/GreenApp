@@ -24,6 +24,7 @@ namespace GreenApp.iOS
         {
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
             Xamarin.Forms.Forms.Init();
+            Xamarin.Forms.FormsMaterial.Init();
             //FormsControls.Touch.Main.Init(this);
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             LoadApplication(new App());

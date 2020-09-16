@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GreenApp.Activity.EditProfilePage" Title="Edit Profile"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             BackgroundColor="#F6F5FA">
+    <StackLayout BackgroundColor="#F6F5FA">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Frame Grid.Row="0" HeightRequest="200" HasShadow="True"
+                   BackgroundColor="Gray">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,1"
+                                         EndPoint="1,0">
+                        <GradientStop Color="#AAFFA9"
+                                      Offset="2"/>
+                        <GradientStop Color="#11FFBD"
+                                      Offset="0.1"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+            </Frame>
+
+            <Frame Grid.Row="1" Margin="10,-20" CornerRadius="20" >
+                <StackLayout>
+                    <Label Text="General" BackgroundColor="#F6F5FA" HeightRequest="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <StackLayout  Orientation="Horizontal">
+                        <ff:CachedImage Source="https://i.ibb.co/xD64L4K/kisspng-businessperson-computer-icons-clip-art-red-bus-icon-5b4affbff100c6-9827017415316417919872.png"
+                                        WidthRequest="30" HeightRequest="30"/>
+                        <Entry Margin="20,0" WidthRequest="300" Placeholder="Full name"/>
+                    </StackLayout>
+                    <StackLayout  Orientation="Horizontal">
+                        <ff:CachedImage Source="https://i.ibb.co/4ZxR49X/pngwing-com.png"
+                                        WidthRequest="30" HeightRequest="30"/>
+                        <Entry Margin="20,0" WidthRequest="300" Placeholder="Mobile no."/>
+                    </StackLayout><StackLayout  Orientation="Horizontal">
+                        <ff:CachedImage Source="https://i.ibb.co/NyYY2Gq/clipart523723.png"
+                                        WidthRequest="30" HeightRequest="30"/>
+                        <Editor Margin="20,0" WidthRequest="300" Placeholder="Address" MaxLength="200"/>
+                    </StackLayout>
+                    <Label Text="Security" BackgroundColor="#F6F5FA" HeightRequest="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                    <StackLayout  Orientation="Horizontal">
+                        <ff:CachedImage Source="https://i.ibb.co/xD64L4K/kisspng-businessperson-computer-icons-clip-art-red-bus-icon-5b4affbff100c6-9827017415316417919872.png"
+                                        WidthRequest="30" HeightRequest="30"/>
+                        <Entry Margin="20,0" WidthRequest="300" Placeholder="email-address"/>
+                    </StackLayout>
+                </StackLayout>
+                
+            </Frame>
+        </Grid>
+    </StackLayout>
+</ContentPage>

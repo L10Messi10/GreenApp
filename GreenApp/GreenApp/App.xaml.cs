@@ -18,8 +18,8 @@ namespace GreenApp
         public App()
         {
             InitializeComponent();
-
-            MainPage =new NavigationPage(new LoginPage());
+            Device.SetFlags(new []{"Brush_Experimental"});
+            MainPage =new NavigationPage(new EditProfilePage());
         }
 
         protected override void OnStart()

@@ -25,6 +25,7 @@ namespace GreenApp.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Forms.SetFlags("UseLegacyRenderers");
             Forms.Init(this, savedInstanceState);
+            FormsMaterial.Init(this,savedInstanceState);
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
             FormsControls.Droid.Main.Init(this);
             ZXing.Net.Mobile.Forms.Android.Platform.Init();

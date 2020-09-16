@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using GreenApp.Models;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
 using static GreenApp.App;
 using static Xamarin.Forms.Application;
@@ -121,9 +123,10 @@ namespace GreenApp.Activity
             }
         }
 
-        private void Logout_OnClicked(object sender, EventArgs e)
+        private async void Logout_OnClicked(object sender, EventArgs e)
         {
-            
+            Current.MainPage = new LoginPage();
+            await Navigation.PushAsync(new LoginPage(),true);
         }
     }
 }

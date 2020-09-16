@@ -10,7 +10,7 @@
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="GreenApp.Activity.MenuPage" BackgroundColor="{StaticResource BackgroundColor}">
     <ContentPage.ToolbarItems> 
-        <ToolbarItem Text="Logout" x:Name="logout" Clicked="Logout_OnClicked" />
+        <ToolbarItem Text="Logout" x:Name="logout" Clicked="Logout_OnClicked" Order="Secondary"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Resources>
         <Style TargetType="Grid">

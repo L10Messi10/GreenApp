@@ -92,7 +92,9 @@ namespace GreenApp.Activity
             {
                 indicatornot.IsVisible = false;
                 loadingindicator.IsVisible = false;
-                await DisplayAlert("Error", "There was an error processing your request. Please check your email add and try again. Please check your internet connectivity as well.", "OK");
+                await DisplayAlert("Error", "There was an error processing your request. " +
+                                            "The email address you've entered already exist. Please try another one. " +
+                                            "Please check you internet connectivity as well.", "OK");
             }
         }
     }
