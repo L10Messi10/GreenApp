@@ -74,6 +74,7 @@ namespace GreenApp.Activity
                             tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
                         };
                         await TBL_Orders.Update(orderDetails);
+                        checkout = true;
                         await Navigation.PushAsync(new ConfirmationPage(), true);
                     }
                     else
@@ -153,8 +154,11 @@ namespace GreenApp.Activity
                     id = CurrentOrderId,
                 };
                 await TBL_Orders.Void(orderDetails);
+                itemid = null;
+                Selected_ProdId = null;
+                CurrentOrderId = null;
                 OnAppearing();
-                await DisplayAlert("Order cancelled", "Your order have cancelled successfully.", "OK");
+                await DisplayAlert("Order cancelled", "Your order has been cancelled successfully.", "OK");
                 await Navigation.PopToRootAsync(true);
             }
             catch

@@ -24,9 +24,18 @@ namespace GreenApp.Activity
 
         protected override async void OnDisappearing()
         {
-            CurrentOrderId = null;
-            refresh = false;
-            await Navigation.PopToRootAsync(true);
+            if (checkout)
+            {
+                CurrentOrderId = null;
+                refresh = false;
+                await Navigation.PopToRootAsync(true);
+            }
+            else
+            {
+                CurrentOrderId = null;
+                refresh = false;
+                await Navigation.PopAsync(true);
+            }
         }
 
         protected override async void OnAppearing()
@@ -69,9 +78,18 @@ namespace GreenApp.Activity
 
         private async void Button_OnClicked(object sender, EventArgs e)
         {
-            CurrentOrderId = null;
-            refresh = false;
-            await Navigation.PopToRootAsync(true);
+            if (checkout)
+            {
+                CurrentOrderId = null;
+                refresh = false;
+                await Navigation.PopToRootAsync(true);
+            }
+            else
+            {
+                CurrentOrderId = null;
+                refresh = false;
+                await Navigation.PopAsync(true);
+            }
             //await Navigation.PushAsync(new MenuPage(),true);
         }
     }

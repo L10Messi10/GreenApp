@@ -15,11 +15,12 @@ namespace GreenApp
         public static string CurrentOrderId;
         public static bool refresh;
         public static string MarketStatus;
+        public static bool checkout;
         public App()
         {
             InitializeComponent();
             Device.SetFlags(new []{"Brush_Experimental"});
-            MainPage =new NavigationPage(new EditProfilePage());
+            MainPage =new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()

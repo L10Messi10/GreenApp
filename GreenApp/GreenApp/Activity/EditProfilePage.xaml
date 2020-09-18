@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GreenApp.Activity.EditProfilePage" Title="Edit Profile"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              BackgroundColor="#F6F5FA">
     <StackLayout BackgroundColor="#F6F5FA">
         <Grid>
@@ -21,33 +22,62 @@
                                       Offset="0.1"/>
                     </LinearGradientBrush>
                 </Frame.Background>
-            </Frame>
-
-            <Frame Grid.Row="1" Margin="10,-20" CornerRadius="20" >
                 <StackLayout>
-                    <Label Text="General" BackgroundColor="#F6F5FA" HeightRequest="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                    <StackLayout  Orientation="Horizontal">
-                        <ff:CachedImage Source="https://i.ibb.co/xD64L4K/kisspng-businessperson-computer-icons-clip-art-red-bus-icon-5b4affbff100c6-9827017415316417919872.png"
-                                        WidthRequest="30" HeightRequest="30"/>
-                        <Entry Margin="20,0" WidthRequest="300" Placeholder="Full name"/>
-                    </StackLayout>
-                    <StackLayout  Orientation="Horizontal">
-                        <ff:CachedImage Source="https://i.ibb.co/4ZxR49X/pngwing-com.png"
-                                        WidthRequest="30" HeightRequest="30"/>
-                        <Entry Margin="20,0" WidthRequest="300" Placeholder="Mobile no."/>
-                    </StackLayout><StackLayout  Orientation="Horizontal">
-                        <ff:CachedImage Source="https://i.ibb.co/NyYY2Gq/clipart523723.png"
-                                        WidthRequest="30" HeightRequest="30"/>
-                        <Editor Margin="20,0" WidthRequest="300" Placeholder="Address" MaxLength="200"/>
-                    </StackLayout>
-                    <Label Text="Security" BackgroundColor="#F6F5FA" HeightRequest="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                    <StackLayout  Orientation="Horizontal">
-                        <ff:CachedImage Source="https://i.ibb.co/xD64L4K/kisspng-businessperson-computer-icons-clip-art-red-bus-icon-5b4affbff100c6-9827017415316417919872.png"
-                                        WidthRequest="30" HeightRequest="30"/>
-                        <Entry Margin="20,0" WidthRequest="300" Placeholder="email-address"/>
-                    </StackLayout>
+                    <ff:CachedImage HeightRequest="130" WidthRequest="150" CacheDuration="30"
+                                    Aspect="AspectFit" HorizontalOptions="Center" RetryCount="5" LoadingPlaceholder="Profile picture"
+                                    ErrorPlaceholder="No image" RetryDelay="450" DownsampleToViewSize="True"
+                                    Source="https://i.pinimg.com/originals/6f/c7/22/6fc722d8edd788df1ea850edfe8b57d7.jpg">
+
+                        <ff:CachedImage.Transformations>
+                            <transformations:CircleTransformation  />
+                        </ff:CachedImage.Transformations>
+                    </ff:CachedImage>
+                    <ImageButton HeightRequest="50" BackgroundColor="Transparent" HorizontalOptions="End" WidthRequest="50"
+                                 Source="https://i.ibb.co/n8Bq2Sv/camera.png" Aspect="AspectFit" Padding="2"
+                                 Margin="0,-50,80,0">
+                    </ImageButton>
                 </StackLayout>
-                
+            </Frame>
+            <Frame Grid.Row="1" Margin="10,-40" CornerRadius="20" >
+                <ScrollView>
+                    <StackLayout>
+                        <Label Text="General" BackgroundColor="#F6F5FA" HeightRequest="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <StackLayout  Orientation="Horizontal">
+                            <ff:CachedImage Source="https://i.ibb.co/xD64L4K/kisspng-businessperson-computer-icons-clip-art-red-bus-icon-5b4affbff100c6-9827017415316417919872.png"
+                                            WidthRequest="30" HeightRequest="30"/>
+                            <Entry Margin="20,0" WidthRequest="300" Placeholder="Full name"/>
+                        </StackLayout>
+                        <StackLayout  Orientation="Horizontal">
+                            <ff:CachedImage Source="https://i.ibb.co/4ZxR49X/pngwing-com.png"
+                                            WidthRequest="30" HeightRequest="30"/>
+                            <Entry Margin="20,0" WidthRequest="300" Placeholder="Mobile no."/>
+                        </StackLayout>
+                        <StackLayout  Orientation="Horizontal">
+                            <ff:CachedImage Source="https://i.ibb.co/xD64L4K/kisspng-businessperson-computer-icons-clip-art-red-bus-icon-5b4affbff100c6-9827017415316417919872.png"
+                                            WidthRequest="30" HeightRequest="30"/>
+                            <Picker Margin="20,0" WidthRequest="300" Title="Select Gender">
+                                <Picker.Items>
+                                    <x:String>Male</x:String>
+                                    <x:String>Female</x:String>
+                                </Picker.Items>
+                            </Picker>
+                        </StackLayout>
+                        <StackLayout  Orientation="Horizontal">
+                            <ff:CachedImage Source="https://i.ibb.co/NyYY2Gq/clipart523723.png"
+                                            WidthRequest="30" HeightRequest="30"/>
+                            <Editor Margin="20,0" WidthRequest="300" Placeholder="Address" MaxLength="200"/>
+                        </StackLayout>
+                        <Label Text="Security" BackgroundColor="#F6F5FA" HeightRequest="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <StackLayout  Orientation="Horizontal">
+                            <ff:CachedImage Source="https://i.ibb.co/NW0sM4W/email.png"
+                                            WidthRequest="30" HeightRequest="30"/>
+                            <Entry Margin="20,0" WidthRequest="300" Placeholder="email-address"/>
+                        </StackLayout>
+                        <Button BackgroundColor="{StaticResource ButtonColor}" Text="Save" TextColor="{StaticResource Textcolor}"
+                                CornerRadius="20" Margin="30,0" Clicked="Button_OnClicked"/>
+                    </StackLayout>
+
+                </ScrollView>
             </Frame>
         </Grid>
     </StackLayout>

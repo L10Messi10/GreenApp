@@ -43,6 +43,7 @@ namespace GreenApp.Activity
             try
             {
                 Selected_orderID = (e.CurrentSelection.FirstOrDefault() as TBL_Orders)?.id;
+                CurrentOrderId = Selected_orderID;
                 await XGetOrders();
             }
             catch
@@ -82,6 +83,13 @@ namespace GreenApp.Activity
         private void Reload_OnClicked(object sender, EventArgs e)
         {
             OnAppearing();
+        }
+
+        private async void Viewcode_OnClicked(object sender, EventArgs e)
+        {
+            if(Selected_orderID == null) return;
+            checkout = false;
+            await Navigation.PushAsync(new ConfirmationPage(), true);
         }
     }
 }

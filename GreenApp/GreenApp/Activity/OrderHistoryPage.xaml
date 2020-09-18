@@ -6,7 +6,8 @@
              x:Class="GreenApp.Activity.OrderHistoryPage">
     <!-- 1. Market body-->
     <ContentPage.ToolbarItems> 
-        <ToolbarItem IconImageSource="refresh.png" x:Name="reload" Clicked="Reload_OnClicked" />
+        <ToolbarItem Text="Refresh" x:Name="reload" Clicked="Reload_OnClicked" Order="Secondary" />
+        <ToolbarItem Text="Confirmation" x:Name="viewcode" Order="Secondary" Clicked="Viewcode_OnClicked"/>
     </ContentPage.ToolbarItems>
     <Grid BackgroundColor="DarkGreen">
         <Grid.RowDefinitions>
