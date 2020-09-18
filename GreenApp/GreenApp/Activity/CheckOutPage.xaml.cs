@@ -17,6 +17,7 @@ namespace GreenApp.Activity
     {
         private double totaSum;
         private string itemid;
+        private int itemcount;
         public CheckOutPage()
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace GreenApp.Activity
                 {
                     var getorders = await MobileService.GetTable<V_Orders>().Where(orders => orders.order_id == CurrentOrderId).ToListAsync();
                     ordercollection.ItemsSource = getorders;
+                    itemcount = getorders.Count;
                     //ordercollection.ItemsSource.re
                     totaSum = getorders.AsQueryable().Sum(ord => ord.sub_total);
                     lblsubtotal.Text = totaSum.ToString(CultureInfo.InvariantCulture);
@@ -110,18 +112,40 @@ namespace GreenApp.Activity
         {
             try
             {
-                if (itemid != null)
+                if (itemcount == 1)
                 {
-                    var confirm = await DisplayAlert("Remove", "Do you really want to remove this item on your cart?", "Yes", "No");
-                    if (!confirm) return;
-                    var order_details = new TBL_Order_Details
+                    if (itemid != null)
                     {
-                        id = itemid,
-                    };
-                    await TBL_Order_Details.Delete(order_details);
-                    itemid = null;
-                    Selected_ProdId = null;
-                    OnAppearing();
+                        var answer = await DisplayAlert("Void", "There's only one item remaining on the list. Do you want to void this transaction?", "Yes", "No");
+                        if (!answer) return;
+                        var orderDetails = new TBL_Orders()
+                        {
+                            id = CurrentOrderId,
+                        };
+                        await TBL_Orders.Void(orderDetails);
+                        itemid = null;
+                        Selected_ProdId = null;
+                        CurrentOrderId = null;
+                        await DisplayAlert("Order cancelled", "Your order has been cancelled.", "OK");
+                        await Navigation.PopToRootAsync(true);
+                    }
+                }
+                else
+                {
+                    //ordercollection.
+                    if (itemid != null)
+                    {
+                        var confirm = await DisplayAlert("Remove", "Do you really want to remove this item on your cart?", "Yes", "No");
+                        if (!confirm) return;
+                        var order_details = new TBL_Order_Details
+                        {
+                            id = itemid,
+                        };
+                        await TBL_Order_Details.Delete(order_details);
+                        itemid = null;
+                        Selected_ProdId = null;
+                        OnAppearing();
+                    }
                 }
             }
             catch
@@ -157,7 +181,6 @@ namespace GreenApp.Activity
                 itemid = null;
                 Selected_ProdId = null;
                 CurrentOrderId = null;
-                OnAppearing();
                 await DisplayAlert("Order cancelled", "Your order has been cancelled successfully.", "OK");
                 await Navigation.PopToRootAsync(true);
             }

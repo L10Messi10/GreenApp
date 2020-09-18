@@ -10,6 +10,7 @@ using Plugin.Toasts;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static System.DateTime;
+using static GreenApp.App;
 
 namespace GreenApp.Activity
 {
@@ -29,19 +30,19 @@ namespace GreenApp.Activity
             //btnaddtocart.Clicked += Btnaddtocart_OnClicked;
             try
             {
-                if (App.CurrentOrderId == null)
+                if (CurrentOrderId == null)
                 {
-                    var selectedproduct = (await App.MobileService.GetTable<TBL_Products>().Where(id => id.id == App.Selected_ProdId).ToListAsync()).FirstOrDefault();
+                    var selectedproduct = (await MobileService.GetTable<TBL_Products>().Where(id => id.id == Selected_ProdId).ToListAsync()).FirstOrDefault();
                     selectedproductcontainer.BindingContext = selectedproduct;
                     txtsubtotal.Text = (qtystepper.Value * double.Parse(txtprice.Text)).ToString(CultureInfo.InvariantCulture);
                     _newprodorder = true;
                 }
                 else
                 {
-                    var existingseletedproduct = (await App.MobileService.GetTable<V_Orders>().Where(ordertails => ordertails.order_id == App.CurrentOrderId && ordertails.prod_id == App.Selected_ProdId).ToListAsync()).FirstOrDefault();
+                    var existingseletedproduct = (await MobileService.GetTable<V_Orders>().Where(ordertails => ordertails.order_id == CurrentOrderId && ordertails.prod_id == Selected_ProdId).ToListAsync()).FirstOrDefault();
                     if (existingseletedproduct == null)
                     {
-                        var newselectedproduct = (await App.MobileService.GetTable<TBL_Products>().Where(id => id.id == App.Selected_ProdId).ToListAsync()).FirstOrDefault();
+                        var newselectedproduct = (await MobileService.GetTable<TBL_Products>().Where(id => id.id == Selected_ProdId).ToListAsync()).FirstOrDefault();
                         selectedproductcontainer.BindingContext = newselectedproduct;
                         txtsubtotal.Text = (qtystepper.Value * double.Parse(txtprice.Text)).ToString(CultureInfo.InvariantCulture);
                         _newprodorder = true;
@@ -72,7 +73,7 @@ namespace GreenApp.Activity
             var answer = await DisplayAlert("Confirm", "Do you want to add this to your cart?", "Yes", "No");
             if (answer)
             {
-                if (App.CurrentOrderId == null)
+                if (CurrentOrderId == null)
                 {
                     await InsertOrder();
                 }
@@ -90,7 +91,7 @@ namespace GreenApp.Activity
             {
                 var order = new TBL_Orders
                 {
-                    users_id = App.user_id,
+                    users_id = user_id,
                     order_date = Now.ToString("yyyy-MM-dd"),
                     stat = "0",
                     order_status = "Carted"
@@ -117,10 +118,10 @@ namespace GreenApp.Activity
 
         private async Task XGetOrderID()
         {
-            var getorderid = (await App.MobileService.GetTable<TBL_Orders>().Where(order => order.users_id == App.user_id && order.order_status == "Carted").ToListAsync()).FirstOrDefault();
+            var getorderid = (await MobileService.GetTable<TBL_Orders>().Where(order => order.users_id == user_id && order.order_status == "Carted").ToListAsync()).FirstOrDefault();
             if (getorderid != null)
             {
-                App.CurrentOrderId = getorderid.id;
+                CurrentOrderId = getorderid.id;
             }
         }
 
@@ -134,8 +135,8 @@ namespace GreenApp.Activity
                 {
                     var orderDetails = new TBL_Order_Details
                     {
-                        order_id = App.CurrentOrderId,
-                        prod_id = App.Selected_ProdId,
+                        order_id = CurrentOrderId,
+                        prod_id = Selected_ProdId,
                         qty = qtystepper.Value.ToString(CultureInfo.InvariantCulture),
                         sell_price = txtprice.Text,
                         cart_datetime = Now.ToString(CultureInfo.CurrentCulture),
@@ -150,8 +151,8 @@ namespace GreenApp.Activity
                     var orderDetails = new TBL_Order_Details
                     {
                         id = _orderdetailsId,
-                        order_id = App.CurrentOrderId,
-                        prod_id = App.Selected_ProdId,
+                        order_id = CurrentOrderId,
+                        prod_id = Selected_ProdId,
                         qty = qtystepper.Value.ToString(CultureInfo.InvariantCulture),
                         sell_price = txtprice.Text,
                         cart_datetime = Now.ToString(CultureInfo.CurrentCulture),

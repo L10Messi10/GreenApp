@@ -52,6 +52,7 @@ namespace GreenApp.Activity
                 {
                     lblcartcount.Text = "0";
                 }
+                ListCategories.SelectedItem = null;
             }
             catch
             {
@@ -109,17 +110,12 @@ namespace GreenApp.Activity
         //    refresh = true;
         //    closecategory.IsVisible = false;
         //}
-        private void ListCategories_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void ListCategories_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            try
+            if (ListCategories.SelectedItem != null)
             {
-
                 Selected_CatID = (e.CurrentSelection.FirstOrDefault() as TBL_Category)?.category_name;
-                Navigation.PushAsync(new ProductsPage(), true);
-            }
-            catch
-            {
-                //ignored
+                await Navigation.PushAsync(new ProductsPage(), true);
             }
         }
 
@@ -127,6 +123,12 @@ namespace GreenApp.Activity
         {
             Current.MainPage = new LoginPage();
             await Navigation.PushAsync(new LoginPage(),true);
+        }
+
+        private void Btnrefresh_OnClicked(object sender, EventArgs e)
+        { 
+            refresh = false;
+            OnAppearing();
         }
     }
 }

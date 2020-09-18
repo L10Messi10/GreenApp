@@ -21,6 +21,12 @@ namespace GreenApp.Activity
             InitializeComponent();
         }
 
+        protected override void OnDisappearing()
+        {
+            CurrentOrderId = null;
+            refresh = false;
+        }
+
         protected override async void OnAppearing()
         {
             try

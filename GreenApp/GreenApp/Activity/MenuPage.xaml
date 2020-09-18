@@ -9,7 +9,8 @@
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="GreenApp.Activity.MenuPage" BackgroundColor="{StaticResource BackgroundColor}">
-    <ContentPage.ToolbarItems> 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Refresh" x:Name="btnrefresh" Clicked="Btnrefresh_OnClicked" Order="Secondary"/>
         <ToolbarItem Text="Logout" x:Name="logout" Clicked="Logout_OnClicked" Order="Secondary"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Resources>
@@ -65,7 +66,7 @@
             </Grid.ColumnDefinitions>
             <SearchBar Grid.Column="0"  CancelButtonColor="{StaticResource TextColor}"
                        IsVisible="True" HorizontalOptions="Start"
-                       PlaceholderColor="Gray" Placeholder="Search setions. . . ."
+                       PlaceholderColor="Gray" Placeholder="Search sections. . . ."
                        Visual="Material" TextColor="{StaticResource TextColor}" x:Name="prosearh" TextChanged="Prosearh_OnTextChanged"/>
             <Image Grid.Column="1" Source="cart.png" Aspect="AspectFit" HeightRequest="40"
                    HorizontalOptions="FillAndExpand">
