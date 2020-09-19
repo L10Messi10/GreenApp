@@ -6,9 +6,9 @@
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              Title="My Cart" NavigationPage.HasNavigationBar="True">
     <ContentPage.ToolbarItems> 
-        <ToolbarItem IconImageSource="trash.png" x:Name="deleteitem" Clicked="Deleteitem_OnClicked"/>
-        <ToolbarItem IconImageSource="edit.png" x:Name="edititem" Clicked="Edititem_OnClicked" />
-        <ToolbarItem IconImageSource="cancel.png" x:Name="voiditem" Clicked="Voiditem_OnClicked" />
+        <ToolbarItem IconImageSource="trash.png" Text="Remove" x:Name="deleteitem" Clicked="Deleteitem_OnClicked" Order="Secondary"/>
+        <ToolbarItem IconImageSource="edit.png" Text="Modify" x:Name="edititem" Clicked="Edititem_OnClicked" Order="Secondary"/>
+        <ToolbarItem IconImageSource="cancel.png" Text="Void" x:Name="voiditem" Clicked="Voiditem_OnClicked" Order="Secondary"/>
     </ContentPage.ToolbarItems>
     <ScrollView>
         <Grid VerticalOptions="End">

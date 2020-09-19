@@ -7333,6 +7333,8 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Animation.abc_slide_in_top = global::GreenApp.Droid.Resource.Animation.abc_slide_in_top;
 			global::PhantomLib.Droid.Resource.Animation.abc_slide_out_bottom = global::GreenApp.Droid.Resource.Animation.abc_slide_out_bottom;
 			global::PhantomLib.Droid.Resource.Animation.abc_slide_out_top = global::GreenApp.Droid.Resource.Animation.abc_slide_out_top;
+			global::PhantomLib.Droid.Resource.Animation.abc_tooltip_enter = global::GreenApp.Droid.Resource.Animation.abc_tooltip_enter;
+			global::PhantomLib.Droid.Resource.Animation.abc_tooltip_exit = global::GreenApp.Droid.Resource.Animation.abc_tooltip_exit;
 			global::PhantomLib.Droid.Resource.Animation.design_bottom_sheet_slide_in = global::GreenApp.Droid.Resource.Animation.design_bottom_sheet_slide_in;
 			global::PhantomLib.Droid.Resource.Animation.design_bottom_sheet_slide_out = global::GreenApp.Droid.Resource.Animation.design_bottom_sheet_slide_out;
 			global::PhantomLib.Droid.Resource.Animation.design_snackbar_in = global::GreenApp.Droid.Resource.Animation.design_snackbar_in;
@@ -7342,6 +7344,15 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Animation.ExitToLeft = global::GreenApp.Droid.Resource.Animation.ExitToLeft;
 			global::PhantomLib.Droid.Resource.Animation.ExitToRight = global::GreenApp.Droid.Resource.Animation.ExitToRight;
 			global::PhantomLib.Droid.Resource.Animator.design_appbar_state_list_animator = global::GreenApp.Droid.Resource.Animator.design_appbar_state_list_animator;
+			global::PhantomLib.Droid.Resource.Animator.design_fab_hide_motion_spec = global::GreenApp.Droid.Resource.Animator.design_fab_hide_motion_spec;
+			global::PhantomLib.Droid.Resource.Animator.design_fab_show_motion_spec = global::GreenApp.Droid.Resource.Animator.design_fab_show_motion_spec;
+			global::PhantomLib.Droid.Resource.Animator.mtrl_btn_state_list_anim = global::GreenApp.Droid.Resource.Animator.mtrl_btn_state_list_anim;
+			global::PhantomLib.Droid.Resource.Animator.mtrl_btn_unelevated_state_list_anim = global::GreenApp.Droid.Resource.Animator.mtrl_btn_unelevated_state_list_anim;
+			global::PhantomLib.Droid.Resource.Animator.mtrl_chip_state_list_anim = global::GreenApp.Droid.Resource.Animator.mtrl_chip_state_list_anim;
+			global::PhantomLib.Droid.Resource.Animator.mtrl_fab_hide_motion_spec = global::GreenApp.Droid.Resource.Animator.mtrl_fab_hide_motion_spec;
+			global::PhantomLib.Droid.Resource.Animator.mtrl_fab_show_motion_spec = global::GreenApp.Droid.Resource.Animator.mtrl_fab_show_motion_spec;
+			global::PhantomLib.Droid.Resource.Animator.mtrl_fab_transformation_sheet_collapse_spec = global::GreenApp.Droid.Resource.Animator.mtrl_fab_transformation_sheet_collapse_spec;
+			global::PhantomLib.Droid.Resource.Animator.mtrl_fab_transformation_sheet_expand_spec = global::GreenApp.Droid.Resource.Animator.mtrl_fab_transformation_sheet_expand_spec;
 			global::PhantomLib.Droid.Resource.Attribute.actionBarDivider = global::GreenApp.Droid.Resource.Attribute.actionBarDivider;
 			global::PhantomLib.Droid.Resource.Attribute.actionBarItemBackground = global::GreenApp.Droid.Resource.Attribute.actionBarItemBackground;
 			global::PhantomLib.Droid.Resource.Attribute.actionBarPopupTheme = global::GreenApp.Droid.Resource.Attribute.actionBarPopupTheme;
@@ -7398,20 +7409,33 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Attribute.backgroundTintMode = global::GreenApp.Droid.Resource.Attribute.backgroundTintMode;
 			global::PhantomLib.Droid.Resource.Attribute.barLength = global::GreenApp.Droid.Resource.Attribute.barLength;
 			global::PhantomLib.Droid.Resource.Attribute.behavior_autoHide = global::GreenApp.Droid.Resource.Attribute.behavior_autoHide;
+			global::PhantomLib.Droid.Resource.Attribute.behavior_fitToContents = global::GreenApp.Droid.Resource.Attribute.behavior_fitToContents;
 			global::PhantomLib.Droid.Resource.Attribute.behavior_hideable = global::GreenApp.Droid.Resource.Attribute.behavior_hideable;
 			global::PhantomLib.Droid.Resource.Attribute.behavior_overlapTop = global::GreenApp.Droid.Resource.Attribute.behavior_overlapTop;
 			global::PhantomLib.Droid.Resource.Attribute.behavior_peekHeight = global::GreenApp.Droid.Resource.Attribute.behavior_peekHeight;
 			global::PhantomLib.Droid.Resource.Attribute.behavior_skipCollapsed = global::GreenApp.Droid.Resource.Attribute.behavior_skipCollapsed;
 			global::PhantomLib.Droid.Resource.Attribute.borderlessButtonStyle = global::GreenApp.Droid.Resource.Attribute.borderlessButtonStyle;
 			global::PhantomLib.Droid.Resource.Attribute.borderWidth = global::GreenApp.Droid.Resource.Attribute.borderWidth;
+			global::PhantomLib.Droid.Resource.Attribute.bottomAppBarStyle = global::GreenApp.Droid.Resource.Attribute.bottomAppBarStyle;
+			global::PhantomLib.Droid.Resource.Attribute.bottomNavigationStyle = global::GreenApp.Droid.Resource.Attribute.bottomNavigationStyle;
 			global::PhantomLib.Droid.Resource.Attribute.bottomSheetDialogTheme = global::GreenApp.Droid.Resource.Attribute.bottomSheetDialogTheme;
 			global::PhantomLib.Droid.Resource.Attribute.bottomSheetStyle = global::GreenApp.Droid.Resource.Attribute.bottomSheetStyle;
+			global::PhantomLib.Droid.Resource.Attribute.boxBackgroundColor = global::GreenApp.Droid.Resource.Attribute.boxBackgroundColor;
+			global::PhantomLib.Droid.Resource.Attribute.boxBackgroundMode = global::GreenApp.Droid.Resource.Attribute.boxBackgroundMode;
+			global::PhantomLib.Droid.Resource.Attribute.boxCollapsedPaddingTop = global::GreenApp.Droid.Resource.Attribute.boxCollapsedPaddingTop;
+			global::PhantomLib.Droid.Resource.Attribute.boxCornerRadiusBottomEnd = global::GreenApp.Droid.Resource.Attribute.boxCornerRadiusBottomEnd;
+			global::PhantomLib.Droid.Resource.Attribute.boxCornerRadiusBottomStart = global::GreenApp.Droid.Resource.Attribute.boxCornerRadiusBottomStart;
+			global::PhantomLib.Droid.Resource.Attribute.boxCornerRadiusTopEnd = global::GreenApp.Droid.Resource.Attribute.boxCornerRadiusTopEnd;
+			global::PhantomLib.Droid.Resource.Attribute.boxCornerRadiusTopStart = global::GreenApp.Droid.Resource.Attribute.boxCornerRadiusTopStart;
+			global::PhantomLib.Droid.Resource.Attribute.boxStrokeColor = global::GreenApp.Droid.Resource.Attribute.boxStrokeColor;
+			global::PhantomLib.Droid.Resource.Attribute.boxStrokeWidth = global::GreenApp.Droid.Resource.Attribute.boxStrokeWidth;
 			global::PhantomLib.Droid.Resource.Attribute.buttonBarButtonStyle = global::GreenApp.Droid.Resource.Attribute.buttonBarButtonStyle;
 			global::PhantomLib.Droid.Resource.Attribute.buttonBarNegativeButtonStyle = global::GreenApp.Droid.Resource.Attribute.buttonBarNegativeButtonStyle;
 			global::PhantomLib.Droid.Resource.Attribute.buttonBarNeutralButtonStyle = global::GreenApp.Droid.Resource.Attribute.buttonBarNeutralButtonStyle;
 			global::PhantomLib.Droid.Resource.Attribute.buttonBarPositiveButtonStyle = global::GreenApp.Droid.Resource.Attribute.buttonBarPositiveButtonStyle;
 			global::PhantomLib.Droid.Resource.Attribute.buttonBarStyle = global::GreenApp.Droid.Resource.Attribute.buttonBarStyle;
 			global::PhantomLib.Droid.Resource.Attribute.buttonGravity = global::GreenApp.Droid.Resource.Attribute.buttonGravity;
+			global::PhantomLib.Droid.Resource.Attribute.buttonIconDimen = global::GreenApp.Droid.Resource.Attribute.buttonIconDimen;
 			global::PhantomLib.Droid.Resource.Attribute.buttonPanelSideLayout = global::GreenApp.Droid.Resource.Attribute.buttonPanelSideLayout;
 			global::PhantomLib.Droid.Resource.Attribute.buttonStyle = global::GreenApp.Droid.Resource.Attribute.buttonStyle;
 			global::PhantomLib.Droid.Resource.Attribute.buttonStyleSmall = global::GreenApp.Droid.Resource.Attribute.buttonStyleSmall;
@@ -7423,9 +7447,38 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Attribute.cardMaxElevation = global::GreenApp.Droid.Resource.Attribute.cardMaxElevation;
 			global::PhantomLib.Droid.Resource.Attribute.cardPreventCornerOverlap = global::GreenApp.Droid.Resource.Attribute.cardPreventCornerOverlap;
 			global::PhantomLib.Droid.Resource.Attribute.cardUseCompatPadding = global::GreenApp.Droid.Resource.Attribute.cardUseCompatPadding;
+			global::PhantomLib.Droid.Resource.Attribute.cardViewStyle = global::GreenApp.Droid.Resource.Attribute.cardViewStyle;
 			global::PhantomLib.Droid.Resource.Attribute.checkboxStyle = global::GreenApp.Droid.Resource.Attribute.checkboxStyle;
+			global::PhantomLib.Droid.Resource.Attribute.checkedChip = global::GreenApp.Droid.Resource.Attribute.checkedChip;
+			global::PhantomLib.Droid.Resource.Attribute.checkedIcon = global::GreenApp.Droid.Resource.Attribute.checkedIcon;
+			global::PhantomLib.Droid.Resource.Attribute.checkedIconEnabled = global::GreenApp.Droid.Resource.Attribute.checkedIconEnabled;
+			global::PhantomLib.Droid.Resource.Attribute.checkedIconVisible = global::GreenApp.Droid.Resource.Attribute.checkedIconVisible;
 			global::PhantomLib.Droid.Resource.Attribute.checkedTextViewStyle = global::GreenApp.Droid.Resource.Attribute.checkedTextViewStyle;
+			global::PhantomLib.Droid.Resource.Attribute.chipBackgroundColor = global::GreenApp.Droid.Resource.Attribute.chipBackgroundColor;
+			global::PhantomLib.Droid.Resource.Attribute.chipCornerRadius = global::GreenApp.Droid.Resource.Attribute.chipCornerRadius;
+			global::PhantomLib.Droid.Resource.Attribute.chipEndPadding = global::GreenApp.Droid.Resource.Attribute.chipEndPadding;
+			global::PhantomLib.Droid.Resource.Attribute.chipGroupStyle = global::GreenApp.Droid.Resource.Attribute.chipGroupStyle;
+			global::PhantomLib.Droid.Resource.Attribute.chipIcon = global::GreenApp.Droid.Resource.Attribute.chipIcon;
+			global::PhantomLib.Droid.Resource.Attribute.chipIconEnabled = global::GreenApp.Droid.Resource.Attribute.chipIconEnabled;
+			global::PhantomLib.Droid.Resource.Attribute.chipIconSize = global::GreenApp.Droid.Resource.Attribute.chipIconSize;
+			global::PhantomLib.Droid.Resource.Attribute.chipIconTint = global::GreenApp.Droid.Resource.Attribute.chipIconTint;
+			global::PhantomLib.Droid.Resource.Attribute.chipIconVisible = global::GreenApp.Droid.Resource.Attribute.chipIconVisible;
+			global::PhantomLib.Droid.Resource.Attribute.chipMinHeight = global::GreenApp.Droid.Resource.Attribute.chipMinHeight;
+			global::PhantomLib.Droid.Resource.Attribute.chipSpacing = global::GreenApp.Droid.Resource.Attribute.chipSpacing;
+			global::PhantomLib.Droid.Resource.Attribute.chipSpacingHorizontal = global::GreenApp.Droid.Resource.Attribute.chipSpacingHorizontal;
+			global::PhantomLib.Droid.Resource.Attribute.chipSpacingVertical = global::GreenApp.Droid.Resource.Attribute.chipSpacingVertical;
+			global::PhantomLib.Droid.Resource.Attribute.chipStandaloneStyle = global::GreenApp.Droid.Resource.Attribute.chipStandaloneStyle;
+			global::PhantomLib.Droid.Resource.Attribute.chipStartPadding = global::GreenApp.Droid.Resource.Attribute.chipStartPadding;
+			global::PhantomLib.Droid.Resource.Attribute.chipStrokeColor = global::GreenApp.Droid.Resource.Attribute.chipStrokeColor;
+			global::PhantomLib.Droid.Resource.Attribute.chipStrokeWidth = global::GreenApp.Droid.Resource.Attribute.chipStrokeWidth;
+			global::PhantomLib.Droid.Resource.Attribute.chipStyle = global::GreenApp.Droid.Resource.Attribute.chipStyle;
 			global::PhantomLib.Droid.Resource.Attribute.closeIcon = global::GreenApp.Droid.Resource.Attribute.closeIcon;
+			global::PhantomLib.Droid.Resource.Attribute.closeIconEnabled = global::GreenApp.Droid.Resource.Attribute.closeIconEnabled;
+			global::PhantomLib.Droid.Resource.Attribute.closeIconEndPadding = global::GreenApp.Droid.Resource.Attribute.closeIconEndPadding;
+			global::PhantomLib.Droid.Resource.Attribute.closeIconSize = global::GreenApp.Droid.Resource.Attribute.closeIconSize;
+			global::PhantomLib.Droid.Resource.Attribute.closeIconStartPadding = global::GreenApp.Droid.Resource.Attribute.closeIconStartPadding;
+			global::PhantomLib.Droid.Resource.Attribute.closeIconTint = global::GreenApp.Droid.Resource.Attribute.closeIconTint;
+			global::PhantomLib.Droid.Resource.Attribute.closeIconVisible = global::GreenApp.Droid.Resource.Attribute.closeIconVisible;
 			global::PhantomLib.Droid.Resource.Attribute.closeItemLayout = global::GreenApp.Droid.Resource.Attribute.closeItemLayout;
 			global::PhantomLib.Droid.Resource.Attribute.collapseContentDescription = global::GreenApp.Droid.Resource.Attribute.collapseContentDescription;
 			global::PhantomLib.Droid.Resource.Attribute.collapsedTitleGravity = global::GreenApp.Droid.Resource.Attribute.collapsedTitleGravity;
@@ -7441,6 +7494,7 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Attribute.colorError = global::GreenApp.Droid.Resource.Attribute.colorError;
 			global::PhantomLib.Droid.Resource.Attribute.colorPrimary = global::GreenApp.Droid.Resource.Attribute.colorPrimary;
 			global::PhantomLib.Droid.Resource.Attribute.colorPrimaryDark = global::GreenApp.Droid.Resource.Attribute.colorPrimaryDark;
+			global::PhantomLib.Droid.Resource.Attribute.colorSecondary = global::GreenApp.Droid.Resource.Attribute.colorSecondary;
 			global::PhantomLib.Droid.Resource.Attribute.colorSwitchThumbNormal = global::GreenApp.Droid.Resource.Attribute.colorSwitchThumbNormal;
 			global::PhantomLib.Droid.Resource.Attribute.commitIcon = global::GreenApp.Droid.Resource.Attribute.commitIcon;
 			global::PhantomLib.Droid.Resource.Attribute.contentDescription = global::GreenApp.Droid.Resource.Attribute.contentDescription;
@@ -7457,12 +7511,15 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Attribute.contentPaddingTop = global::GreenApp.Droid.Resource.Attribute.contentPaddingTop;
 			global::PhantomLib.Droid.Resource.Attribute.contentScrim = global::GreenApp.Droid.Resource.Attribute.contentScrim;
 			global::PhantomLib.Droid.Resource.Attribute.controlBackground = global::GreenApp.Droid.Resource.Attribute.controlBackground;
+			global::PhantomLib.Droid.Resource.Attribute.coordinatorLayoutStyle = global::GreenApp.Droid.Resource.Attribute.coordinatorLayoutStyle;
+			global::PhantomLib.Droid.Resource.Attribute.cornerRadius = global::GreenApp.Droid.Resource.Attribute.cornerRadius;
 			global::PhantomLib.Droid.Resource.Attribute.counterEnabled = global::GreenApp.Droid.Resource.Attribute.counterEnabled;
 			global::PhantomLib.Droid.Resource.Attribute.counterMaxLength = global::GreenApp.Droid.Resource.Attribute.counterMaxLength;
 			global::PhantomLib.Droid.Resource.Attribute.counterOverflowTextAppearance = global::GreenApp.Droid.Resource.Attribute.counterOverflowTextAppearance;
 			global::PhantomLib.Droid.Resource.Attribute.counterTextAppearance = global::GreenApp.Droid.Resource.Attribute.counterTextAppearance;
 			global::PhantomLib.Droid.Resource.Attribute.customNavigationLayout = global::GreenApp.Droid.Resource.Attribute.customNavigationLayout;
 			global::PhantomLib.Droid.Resource.Attribute.defaultQueryHint = global::GreenApp.Droid.Resource.Attribute.defaultQueryHint;
+			global::PhantomLib.Droid.Resource.Attribute.dialogCornerRadius = global::GreenApp.Droid.Resource.Attribute.dialogCornerRadius;
 			global::PhantomLib.Droid.Resource.Attribute.dialogPreferredPadding = global::GreenApp.Droid.Resource.Attribute.dialogPreferredPadding;
 			global::PhantomLib.Droid.Resource.Attribute.dialogTheme = global::GreenApp.Droid.Resource.Attribute.dialogTheme;
 			global::PhantomLib.Droid.Resource.Attribute.displayOptions = global::GreenApp.Droid.Resource.Attribute.displayOptions;
@@ -7478,6 +7535,8 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Attribute.editTextColor = global::GreenApp.Droid.Resource.Attribute.editTextColor;
 			global::PhantomLib.Droid.Resource.Attribute.editTextStyle = global::GreenApp.Droid.Resource.Attribute.editTextStyle;
 			global::PhantomLib.Droid.Resource.Attribute.elevation = global::GreenApp.Droid.Resource.Attribute.elevation;
+			global::PhantomLib.Droid.Resource.Attribute.enforceMaterialTheme = global::GreenApp.Droid.Resource.Attribute.enforceMaterialTheme;
+			global::PhantomLib.Droid.Resource.Attribute.enforceTextAppearance = global::GreenApp.Droid.Resource.Attribute.enforceTextAppearance;
 			global::PhantomLib.Droid.Resource.Attribute.errorEnabled = global::GreenApp.Droid.Resource.Attribute.errorEnabled;
 			global::PhantomLib.Droid.Resource.Attribute.errorTextAppearance = global::GreenApp.Droid.Resource.Attribute.errorTextAppearance;
 			global::PhantomLib.Droid.Resource.Attribute.expandActivityOverflowButtonDrawable = global::GreenApp.Droid.Resource.Attribute.expandActivityOverflowButtonDrawable;
@@ -7489,12 +7548,19 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Attribute.expandedTitleMarginStart = global::GreenApp.Droid.Resource.Attribute.expandedTitleMarginStart;
 			global::PhantomLib.Droid.Resource.Attribute.expandedTitleMarginTop = global::GreenApp.Droid.Resource.Attribute.expandedTitleMarginTop;
 			global::PhantomLib.Droid.Resource.Attribute.expandedTitleTextAppearance = global::GreenApp.Droid.Resource.Attribute.expandedTitleTextAppearance;
+			global::PhantomLib.Droid.Resource.Attribute.fabAlignmentMode = global::GreenApp.Droid.Resource.Attribute.fabAlignmentMode;
+			global::PhantomLib.Droid.Resource.Attribute.fabCradleMargin = global::GreenApp.Droid.Resource.Attribute.fabCradleMargin;
+			global::PhantomLib.Droid.Resource.Attribute.fabCradleRoundedCornerRadius = global::GreenApp.Droid.Resource.Attribute.fabCradleRoundedCornerRadius;
+			global::PhantomLib.Droid.Resource.Attribute.fabCradleVerticalOffset = global::GreenApp.Droid.Resource.Attribute.fabCradleVerticalOffset;
+			global::PhantomLib.Droid.Resource.Attribute.fabCustomSize = global::GreenApp.Droid.Resource.Attribute.fabCustomSize;
 			global::PhantomLib.Droid.Resource.Attribute.fabSize = global::GreenApp.Droid.Resource.Attribute.fabSize;
 			global::PhantomLib.Droid.Resource.Attribute.fastScrollEnabled = global::GreenApp.Droid.Resource.Attribute.fastScrollEnabled;
 			global::PhantomLib.Droid.Resource.Attribute.fastScrollHorizontalThumbDrawable = global::GreenApp.Droid.Resource.Attribute.fastScrollHorizontalThumbDrawable;
 			global::PhantomLib.Droid.Resource.Attribute.fastScrollHorizontalTrackDrawable = global::GreenApp.Droid.Resource.Attribute.fastScrollHorizontalTrackDrawable;
 			global::PhantomLib.Droid.Resource.Attribute.fastScrollVerticalThumbDrawable = global::GreenApp.Droid.Resource.Attribute.fastScrollVerticalThumbDrawable;
 			global::PhantomLib.Droid.Resource.Attribute.fastScrollVerticalTrackDrawable = global::GreenApp.Droid.Resource.Attribute.fastScrollVerticalTrackDrawable;
+			global::PhantomLib.Droid.Resource.Attribute.firstBaselineToTopHeight = global::GreenApp.Droid.Resource.Attribute.firstBaselineToTopHeight;
+			global::PhantomLib.Droid.Resource.Attribute.floatingActionButtonStyle = global::GreenApp.Droid.Resource.Attribute.floatingActionButtonStyle;
 			global::PhantomLib.Droid.Resource.Attribute.font = global::GreenApp.Droid.Resource.Attribute.font;
 			global::PhantomLib.Droid.Resource.Attribute.fontFamily = global::GreenApp.Droid.Resource.Attribute.fontFamily;
 			global::PhantomLib.Droid.Resource.Attribute.fontProviderAuthority = global::GreenApp.Droid.Resource.Attribute.fontProviderAuthority;
@@ -7504,20 +7570,32 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Attribute.fontProviderPackage = global::GreenApp.Droid.Resource.Attribute.fontProviderPackage;
 			global::PhantomLib.Droid.Resource.Attribute.fontProviderQuery = global::GreenApp.Droid.Resource.Attribute.fontProviderQuery;
 			global::PhantomLib.Droid.Resource.Attribute.fontStyle = global::GreenApp.Droid.Resource.Attribute.fontStyle;
+			global::PhantomLib.Droid.Resource.Attribute.fontVariationSettings = global::GreenApp.Droid.Resource.Attribute.fontVariationSettings;
 			global::PhantomLib.Droid.Resource.Attribute.fontWeight = global::GreenApp.Droid.Resource.Attribute.fontWeight;
 			global::PhantomLib.Droid.Resource.Attribute.foregroundInsidePadding = global::GreenApp.Droid.Resource.Attribute.foregroundInsidePadding;
 			global::PhantomLib.Droid.Resource.Attribute.gapBetweenBars = global::GreenApp.Droid.Resource.Attribute.gapBetweenBars;
 			global::PhantomLib.Droid.Resource.Attribute.goIcon = global::GreenApp.Droid.Resource.Attribute.goIcon;
 			global::PhantomLib.Droid.Resource.Attribute.headerLayout = global::GreenApp.Droid.Resource.Attribute.headerLayout;
 			global::PhantomLib.Droid.Resource.Attribute.height = global::GreenApp.Droid.Resource.Attribute.height;
+			global::PhantomLib.Droid.Resource.Attribute.helperText = global::GreenApp.Droid.Resource.Attribute.helperText;
+			global::PhantomLib.Droid.Resource.Attribute.helperTextEnabled = global::GreenApp.Droid.Resource.Attribute.helperTextEnabled;
+			global::PhantomLib.Droid.Resource.Attribute.helperTextTextAppearance = global::GreenApp.Droid.Resource.Attribute.helperTextTextAppearance;
+			global::PhantomLib.Droid.Resource.Attribute.hideMotionSpec = global::GreenApp.Droid.Resource.Attribute.hideMotionSpec;
 			global::PhantomLib.Droid.Resource.Attribute.hideOnContentScroll = global::GreenApp.Droid.Resource.Attribute.hideOnContentScroll;
+			global::PhantomLib.Droid.Resource.Attribute.hideOnScroll = global::GreenApp.Droid.Resource.Attribute.hideOnScroll;
 			global::PhantomLib.Droid.Resource.Attribute.hintAnimationEnabled = global::GreenApp.Droid.Resource.Attribute.hintAnimationEnabled;
 			global::PhantomLib.Droid.Resource.Attribute.hintEnabled = global::GreenApp.Droid.Resource.Attribute.hintEnabled;
 			global::PhantomLib.Droid.Resource.Attribute.hintTextAppearance = global::GreenApp.Droid.Resource.Attribute.hintTextAppearance;
 			global::PhantomLib.Droid.Resource.Attribute.homeAsUpIndicator = global::GreenApp.Droid.Resource.Attribute.homeAsUpIndicator;
 			global::PhantomLib.Droid.Resource.Attribute.homeLayout = global::GreenApp.Droid.Resource.Attribute.homeLayout;
+			global::PhantomLib.Droid.Resource.Attribute.hoveredFocusedTranslationZ = global::GreenApp.Droid.Resource.Attribute.hoveredFocusedTranslationZ;
 			global::PhantomLib.Droid.Resource.Attribute.icon = global::GreenApp.Droid.Resource.Attribute.icon;
+			global::PhantomLib.Droid.Resource.Attribute.iconEndPadding = global::GreenApp.Droid.Resource.Attribute.iconEndPadding;
+			global::PhantomLib.Droid.Resource.Attribute.iconGravity = global::GreenApp.Droid.Resource.Attribute.iconGravity;
 			global::PhantomLib.Droid.Resource.Attribute.iconifiedByDefault = global::GreenApp.Droid.Resource.Attribute.iconifiedByDefault;
+			global::PhantomLib.Droid.Resource.Attribute.iconPadding = global::GreenApp.Droid.Resource.Attribute.iconPadding;
+			global::PhantomLib.Droid.Resource.Attribute.iconSize = global::GreenApp.Droid.Resource.Attribute.iconSize;
+			global::PhantomLib.Droid.Resource.Attribute.iconStartPadding = global::GreenApp.Droid.Resource.Attribute.iconStartPadding;
 			global::PhantomLib.Droid.Resource.Attribute.iconTint = global::GreenApp.Droid.Resource.Attribute.iconTint;
 			global::PhantomLib.Droid.Resource.Attribute.iconTintMode = global::GreenApp.Droid.Resource.Attribute.iconTintMode;
 			global::PhantomLib.Droid.Resource.Attribute.imageButtonStyle = global::GreenApp.Droid.Resource.Attribute.imageButtonStyle;
@@ -7526,11 +7604,20 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Attribute.insetForeground = global::GreenApp.Droid.Resource.Attribute.insetForeground;
 			global::PhantomLib.Droid.Resource.Attribute.isLightTheme = global::GreenApp.Droid.Resource.Attribute.isLightTheme;
 			global::PhantomLib.Droid.Resource.Attribute.itemBackground = global::GreenApp.Droid.Resource.Attribute.itemBackground;
+			global::PhantomLib.Droid.Resource.Attribute.itemHorizontalPadding = global::GreenApp.Droid.Resource.Attribute.itemHorizontalPadding;
+			global::PhantomLib.Droid.Resource.Attribute.itemHorizontalTranslationEnabled = global::GreenApp.Droid.Resource.Attribute.itemHorizontalTranslationEnabled;
+			global::PhantomLib.Droid.Resource.Attribute.itemIconPadding = global::GreenApp.Droid.Resource.Attribute.itemIconPadding;
+			global::PhantomLib.Droid.Resource.Attribute.itemIconSize = global::GreenApp.Droid.Resource.Attribute.itemIconSize;
 			global::PhantomLib.Droid.Resource.Attribute.itemIconTint = global::GreenApp.Droid.Resource.Attribute.itemIconTint;
 			global::PhantomLib.Droid.Resource.Attribute.itemPadding = global::GreenApp.Droid.Resource.Attribute.itemPadding;
+			global::PhantomLib.Droid.Resource.Attribute.itemSpacing = global::GreenApp.Droid.Resource.Attribute.itemSpacing;
 			global::PhantomLib.Droid.Resource.Attribute.itemTextAppearance = global::GreenApp.Droid.Resource.Attribute.itemTextAppearance;
+			global::PhantomLib.Droid.Resource.Attribute.itemTextAppearanceActive = global::GreenApp.Droid.Resource.Attribute.itemTextAppearanceActive;
+			global::PhantomLib.Droid.Resource.Attribute.itemTextAppearanceInactive = global::GreenApp.Droid.Resource.Attribute.itemTextAppearanceInactive;
 			global::PhantomLib.Droid.Resource.Attribute.itemTextColor = global::GreenApp.Droid.Resource.Attribute.itemTextColor;
 			global::PhantomLib.Droid.Resource.Attribute.keylines = global::GreenApp.Droid.Resource.Attribute.keylines;
+			global::PhantomLib.Droid.Resource.Attribute.labelVisibilityMode = global::GreenApp.Droid.Resource.Attribute.labelVisibilityMode;
+			global::PhantomLib.Droid.Resource.Attribute.lastBaselineToBottomHeight = global::GreenApp.Droid.Resource.Attribute.lastBaselineToBottomHeight;
 			global::PhantomLib.Droid.Resource.Attribute.layout = global::GreenApp.Droid.Resource.Attribute.layout;
 			global::PhantomLib.Droid.Resource.Attribute.layoutManager = global::GreenApp.Droid.Resource.Attribute.layoutManager;
 			global::PhantomLib.Droid.Resource.Attribute.layout_anchor = global::GreenApp.Droid.Resource.Attribute.layout_anchor;
@@ -7543,6 +7630,9 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Attribute.layout_keyline = global::GreenApp.Droid.Resource.Attribute.layout_keyline;
 			global::PhantomLib.Droid.Resource.Attribute.layout_scrollFlags = global::GreenApp.Droid.Resource.Attribute.layout_scrollFlags;
 			global::PhantomLib.Droid.Resource.Attribute.layout_scrollInterpolator = global::GreenApp.Droid.Resource.Attribute.layout_scrollInterpolator;
+			global::PhantomLib.Droid.Resource.Attribute.liftOnScroll = global::GreenApp.Droid.Resource.Attribute.liftOnScroll;
+			global::PhantomLib.Droid.Resource.Attribute.lineHeight = global::GreenApp.Droid.Resource.Attribute.lineHeight;
+			global::PhantomLib.Droid.Resource.Attribute.lineSpacing = global::GreenApp.Droid.Resource.Attribute.lineSpacing;
 			global::PhantomLib.Droid.Resource.Attribute.listChoiceBackgroundIndicator = global::GreenApp.Droid.Resource.Attribute.listChoiceBackgroundIndicator;
 			global::PhantomLib.Droid.Resource.Attribute.listDividerAlertDialog = global::GreenApp.Droid.Resource.Attribute.listDividerAlertDialog;
 			global::PhantomLib.Droid.Resource.Attribute.listItemLayout = global::GreenApp.Droid.Resource.Attribute.listItemLayout;
@@ -7556,14 +7646,18 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Attribute.listPreferredItemPaddingRight = global::GreenApp.Droid.Resource.Attribute.listPreferredItemPaddingRight;
 			global::PhantomLib.Droid.Resource.Attribute.logo = global::GreenApp.Droid.Resource.Attribute.logo;
 			global::PhantomLib.Droid.Resource.Attribute.logoDescription = global::GreenApp.Droid.Resource.Attribute.logoDescription;
+			global::PhantomLib.Droid.Resource.Attribute.materialButtonStyle = global::GreenApp.Droid.Resource.Attribute.materialButtonStyle;
+			global::PhantomLib.Droid.Resource.Attribute.materialCardViewStyle = global::GreenApp.Droid.Resource.Attribute.materialCardViewStyle;
 			global::PhantomLib.Droid.Resource.Attribute.maxActionInlineWidth = global::GreenApp.Droid.Resource.Attribute.maxActionInlineWidth;
 			global::PhantomLib.Droid.Resource.Attribute.maxButtonHeight = global::GreenApp.Droid.Resource.Attribute.maxButtonHeight;
+			global::PhantomLib.Droid.Resource.Attribute.maxImageSize = global::GreenApp.Droid.Resource.Attribute.maxImageSize;
 			global::PhantomLib.Droid.Resource.Attribute.measureWithLargestChild = global::GreenApp.Droid.Resource.Attribute.measureWithLargestChild;
 			global::PhantomLib.Droid.Resource.Attribute.menu = global::GreenApp.Droid.Resource.Attribute.menu;
 			global::PhantomLib.Droid.Resource.Attribute.multiChoiceItemLayout = global::GreenApp.Droid.Resource.Attribute.multiChoiceItemLayout;
 			global::PhantomLib.Droid.Resource.Attribute.navigationContentDescription = global::GreenApp.Droid.Resource.Attribute.navigationContentDescription;
 			global::PhantomLib.Droid.Resource.Attribute.navigationIcon = global::GreenApp.Droid.Resource.Attribute.navigationIcon;
 			global::PhantomLib.Droid.Resource.Attribute.navigationMode = global::GreenApp.Droid.Resource.Attribute.navigationMode;
+			global::PhantomLib.Droid.Resource.Attribute.navigationViewStyle = global::GreenApp.Droid.Resource.Attribute.navigationViewStyle;
 			global::PhantomLib.Droid.Resource.Attribute.numericModifiers = global::GreenApp.Droid.Resource.Attribute.numericModifiers;
 			global::PhantomLib.Droid.Resource.Attribute.overlapAnchor = global::GreenApp.Droid.Resource.Attribute.overlapAnchor;
 			global::PhantomLib.Droid.Resource.Attribute.paddingBottomNoButtons = global::GreenApp.Droid.Resource.Attribute.paddingBottomNoButtons;
@@ -7594,6 +7688,7 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Attribute.reverseLayout = global::GreenApp.Droid.Resource.Attribute.reverseLayout;
 			global::PhantomLib.Droid.Resource.Attribute.rippleColor = global::GreenApp.Droid.Resource.Attribute.rippleColor;
 			global::PhantomLib.Droid.Resource.Attribute.scrimAnimationDuration = global::GreenApp.Droid.Resource.Attribute.scrimAnimationDuration;
+			global::PhantomLib.Droid.Resource.Attribute.scrimBackground = global::GreenApp.Droid.Resource.Attribute.scrimBackground;
 			global::PhantomLib.Droid.Resource.Attribute.scrimVisibleHeightTrigger = global::GreenApp.Droid.Resource.Attribute.scrimVisibleHeightTrigger;
 			global::PhantomLib.Droid.Resource.Attribute.searchHintIcon = global::GreenApp.Droid.Resource.Attribute.searchHintIcon;
 			global::PhantomLib.Droid.Resource.Attribute.searchIcon = global::GreenApp.Droid.Resource.Attribute.searchIcon;
@@ -7603,9 +7698,14 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Attribute.selectableItemBackgroundBorderless = global::GreenApp.Droid.Resource.Attribute.selectableItemBackgroundBorderless;
 			global::PhantomLib.Droid.Resource.Attribute.showAsAction = global::GreenApp.Droid.Resource.Attribute.showAsAction;
 			global::PhantomLib.Droid.Resource.Attribute.showDividers = global::GreenApp.Droid.Resource.Attribute.showDividers;
+			global::PhantomLib.Droid.Resource.Attribute.showMotionSpec = global::GreenApp.Droid.Resource.Attribute.showMotionSpec;
 			global::PhantomLib.Droid.Resource.Attribute.showText = global::GreenApp.Droid.Resource.Attribute.showText;
 			global::PhantomLib.Droid.Resource.Attribute.showTitle = global::GreenApp.Droid.Resource.Attribute.showTitle;
 			global::PhantomLib.Droid.Resource.Attribute.singleChoiceItemLayout = global::GreenApp.Droid.Resource.Attribute.singleChoiceItemLayout;
+			global::PhantomLib.Droid.Resource.Attribute.singleLine = global::GreenApp.Droid.Resource.Attribute.singleLine;
+			global::PhantomLib.Droid.Resource.Attribute.singleSelection = global::GreenApp.Droid.Resource.Attribute.singleSelection;
+			global::PhantomLib.Droid.Resource.Attribute.snackbarButtonStyle = global::GreenApp.Droid.Resource.Attribute.snackbarButtonStyle;
+			global::PhantomLib.Droid.Resource.Attribute.snackbarStyle = global::GreenApp.Droid.Resource.Attribute.snackbarStyle;
 			global::PhantomLib.Droid.Resource.Attribute.spanCount = global::GreenApp.Droid.Resource.Attribute.spanCount;
 			global::PhantomLib.Droid.Resource.Attribute.spinBars = global::GreenApp.Droid.Resource.Attribute.spinBars;
 			global::PhantomLib.Droid.Resource.Attribute.spinnerDropDownItemStyle = global::GreenApp.Droid.Resource.Attribute.spinnerDropDownItemStyle;
@@ -7616,8 +7716,12 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Attribute.state_above_anchor = global::GreenApp.Droid.Resource.Attribute.state_above_anchor;
 			global::PhantomLib.Droid.Resource.Attribute.state_collapsed = global::GreenApp.Droid.Resource.Attribute.state_collapsed;
 			global::PhantomLib.Droid.Resource.Attribute.state_collapsible = global::GreenApp.Droid.Resource.Attribute.state_collapsible;
+			global::PhantomLib.Droid.Resource.Attribute.state_liftable = global::GreenApp.Droid.Resource.Attribute.state_liftable;
+			global::PhantomLib.Droid.Resource.Attribute.state_lifted = global::GreenApp.Droid.Resource.Attribute.state_lifted;
 			global::PhantomLib.Droid.Resource.Attribute.statusBarBackground = global::GreenApp.Droid.Resource.Attribute.statusBarBackground;
 			global::PhantomLib.Droid.Resource.Attribute.statusBarScrim = global::GreenApp.Droid.Resource.Attribute.statusBarScrim;
+			global::PhantomLib.Droid.Resource.Attribute.strokeColor = global::GreenApp.Droid.Resource.Attribute.strokeColor;
+			global::PhantomLib.Droid.Resource.Attribute.strokeWidth = global::GreenApp.Droid.Resource.Attribute.strokeWidth;
 			global::PhantomLib.Droid.Resource.Attribute.subMenuArrow = global::GreenApp.Droid.Resource.Attribute.subMenuArrow;
 			global::PhantomLib.Droid.Resource.Attribute.submitBackground = global::GreenApp.Droid.Resource.Attribute.submitBackground;
 			global::PhantomLib.Droid.Resource.Attribute.subtitle = global::GreenApp.Droid.Resource.Attribute.subtitle;
@@ -7632,8 +7736,15 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Attribute.tabBackground = global::GreenApp.Droid.Resource.Attribute.tabBackground;
 			global::PhantomLib.Droid.Resource.Attribute.tabContentStart = global::GreenApp.Droid.Resource.Attribute.tabContentStart;
 			global::PhantomLib.Droid.Resource.Attribute.tabGravity = global::GreenApp.Droid.Resource.Attribute.tabGravity;
+			global::PhantomLib.Droid.Resource.Attribute.tabIconTint = global::GreenApp.Droid.Resource.Attribute.tabIconTint;
+			global::PhantomLib.Droid.Resource.Attribute.tabIconTintMode = global::GreenApp.Droid.Resource.Attribute.tabIconTintMode;
+			global::PhantomLib.Droid.Resource.Attribute.tabIndicator = global::GreenApp.Droid.Resource.Attribute.tabIndicator;
+			global::PhantomLib.Droid.Resource.Attribute.tabIndicatorAnimationDuration = global::GreenApp.Droid.Resource.Attribute.tabIndicatorAnimationDuration;
 			global::PhantomLib.Droid.Resource.Attribute.tabIndicatorColor = global::GreenApp.Droid.Resource.Attribute.tabIndicatorColor;
+			global::PhantomLib.Droid.Resource.Attribute.tabIndicatorFullWidth = global::GreenApp.Droid.Resource.Attribute.tabIndicatorFullWidth;
+			global::PhantomLib.Droid.Resource.Attribute.tabIndicatorGravity = global::GreenApp.Droid.Resource.Attribute.tabIndicatorGravity;
 			global::PhantomLib.Droid.Resource.Attribute.tabIndicatorHeight = global::GreenApp.Droid.Resource.Attribute.tabIndicatorHeight;
+			global::PhantomLib.Droid.Resource.Attribute.tabInlineLabel = global::GreenApp.Droid.Resource.Attribute.tabInlineLabel;
 			global::PhantomLib.Droid.Resource.Attribute.tabMaxWidth = global::GreenApp.Droid.Resource.Attribute.tabMaxWidth;
 			global::PhantomLib.Droid.Resource.Attribute.tabMinWidth = global::GreenApp.Droid.Resource.Attribute.tabMinWidth;
 			global::PhantomLib.Droid.Resource.Attribute.tabMode = global::GreenApp.Droid.Resource.Attribute.tabMode;
@@ -7642,20 +7753,39 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Attribute.tabPaddingEnd = global::GreenApp.Droid.Resource.Attribute.tabPaddingEnd;
 			global::PhantomLib.Droid.Resource.Attribute.tabPaddingStart = global::GreenApp.Droid.Resource.Attribute.tabPaddingStart;
 			global::PhantomLib.Droid.Resource.Attribute.tabPaddingTop = global::GreenApp.Droid.Resource.Attribute.tabPaddingTop;
+			global::PhantomLib.Droid.Resource.Attribute.tabRippleColor = global::GreenApp.Droid.Resource.Attribute.tabRippleColor;
 			global::PhantomLib.Droid.Resource.Attribute.tabSelectedTextColor = global::GreenApp.Droid.Resource.Attribute.tabSelectedTextColor;
+			global::PhantomLib.Droid.Resource.Attribute.tabStyle = global::GreenApp.Droid.Resource.Attribute.tabStyle;
 			global::PhantomLib.Droid.Resource.Attribute.tabTextAppearance = global::GreenApp.Droid.Resource.Attribute.tabTextAppearance;
 			global::PhantomLib.Droid.Resource.Attribute.tabTextColor = global::GreenApp.Droid.Resource.Attribute.tabTextColor;
+			global::PhantomLib.Droid.Resource.Attribute.tabUnboundedRipple = global::GreenApp.Droid.Resource.Attribute.tabUnboundedRipple;
 			global::PhantomLib.Droid.Resource.Attribute.textAllCaps = global::GreenApp.Droid.Resource.Attribute.textAllCaps;
+			global::PhantomLib.Droid.Resource.Attribute.textAppearanceBody1 = global::GreenApp.Droid.Resource.Attribute.textAppearanceBody1;
+			global::PhantomLib.Droid.Resource.Attribute.textAppearanceBody2 = global::GreenApp.Droid.Resource.Attribute.textAppearanceBody2;
+			global::PhantomLib.Droid.Resource.Attribute.textAppearanceButton = global::GreenApp.Droid.Resource.Attribute.textAppearanceButton;
+			global::PhantomLib.Droid.Resource.Attribute.textAppearanceCaption = global::GreenApp.Droid.Resource.Attribute.textAppearanceCaption;
+			global::PhantomLib.Droid.Resource.Attribute.textAppearanceHeadline1 = global::GreenApp.Droid.Resource.Attribute.textAppearanceHeadline1;
+			global::PhantomLib.Droid.Resource.Attribute.textAppearanceHeadline2 = global::GreenApp.Droid.Resource.Attribute.textAppearanceHeadline2;
+			global::PhantomLib.Droid.Resource.Attribute.textAppearanceHeadline3 = global::GreenApp.Droid.Resource.Attribute.textAppearanceHeadline3;
+			global::PhantomLib.Droid.Resource.Attribute.textAppearanceHeadline4 = global::GreenApp.Droid.Resource.Attribute.textAppearanceHeadline4;
+			global::PhantomLib.Droid.Resource.Attribute.textAppearanceHeadline5 = global::GreenApp.Droid.Resource.Attribute.textAppearanceHeadline5;
+			global::PhantomLib.Droid.Resource.Attribute.textAppearanceHeadline6 = global::GreenApp.Droid.Resource.Attribute.textAppearanceHeadline6;
 			global::PhantomLib.Droid.Resource.Attribute.textAppearanceLargePopupMenu = global::GreenApp.Droid.Resource.Attribute.textAppearanceLargePopupMenu;
 			global::PhantomLib.Droid.Resource.Attribute.textAppearanceListItem = global::GreenApp.Droid.Resource.Attribute.textAppearanceListItem;
 			global::PhantomLib.Droid.Resource.Attribute.textAppearanceListItemSecondary = global::GreenApp.Droid.Resource.Attribute.textAppearanceListItemSecondary;
 			global::PhantomLib.Droid.Resource.Attribute.textAppearanceListItemSmall = global::GreenApp.Droid.Resource.Attribute.textAppearanceListItemSmall;
+			global::PhantomLib.Droid.Resource.Attribute.textAppearanceOverline = global::GreenApp.Droid.Resource.Attribute.textAppearanceOverline;
 			global::PhantomLib.Droid.Resource.Attribute.textAppearancePopupMenuHeader = global::GreenApp.Droid.Resource.Attribute.textAppearancePopupMenuHeader;
 			global::PhantomLib.Droid.Resource.Attribute.textAppearanceSearchResultSubtitle = global::GreenApp.Droid.Resource.Attribute.textAppearanceSearchResultSubtitle;
 			global::PhantomLib.Droid.Resource.Attribute.textAppearanceSearchResultTitle = global::GreenApp.Droid.Resource.Attribute.textAppearanceSearchResultTitle;
 			global::PhantomLib.Droid.Resource.Attribute.textAppearanceSmallPopupMenu = global::GreenApp.Droid.Resource.Attribute.textAppearanceSmallPopupMenu;
+			global::PhantomLib.Droid.Resource.Attribute.textAppearanceSubtitle1 = global::GreenApp.Droid.Resource.Attribute.textAppearanceSubtitle1;
+			global::PhantomLib.Droid.Resource.Attribute.textAppearanceSubtitle2 = global::GreenApp.Droid.Resource.Attribute.textAppearanceSubtitle2;
 			global::PhantomLib.Droid.Resource.Attribute.textColorAlertDialogListItem = global::GreenApp.Droid.Resource.Attribute.textColorAlertDialogListItem;
 			global::PhantomLib.Droid.Resource.Attribute.textColorSearchUrl = global::GreenApp.Droid.Resource.Attribute.textColorSearchUrl;
+			global::PhantomLib.Droid.Resource.Attribute.textEndPadding = global::GreenApp.Droid.Resource.Attribute.textEndPadding;
+			global::PhantomLib.Droid.Resource.Attribute.textInputStyle = global::GreenApp.Droid.Resource.Attribute.textInputStyle;
+			global::PhantomLib.Droid.Resource.Attribute.textStartPadding = global::GreenApp.Droid.Resource.Attribute.textStartPadding;
 			global::PhantomLib.Droid.Resource.Attribute.theme = global::GreenApp.Droid.Resource.Attribute.theme;
 			global::PhantomLib.Droid.Resource.Attribute.thickness = global::GreenApp.Droid.Resource.Attribute.thickness;
 			global::PhantomLib.Droid.Resource.Attribute.thumbTextPadding = global::GreenApp.Droid.Resource.Attribute.thumbTextPadding;
@@ -7686,7 +7816,9 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Attribute.track = global::GreenApp.Droid.Resource.Attribute.track;
 			global::PhantomLib.Droid.Resource.Attribute.trackTint = global::GreenApp.Droid.Resource.Attribute.trackTint;
 			global::PhantomLib.Droid.Resource.Attribute.trackTintMode = global::GreenApp.Droid.Resource.Attribute.trackTintMode;
+			global::PhantomLib.Droid.Resource.Attribute.ttcIndex = global::GreenApp.Droid.Resource.Attribute.ttcIndex;
 			global::PhantomLib.Droid.Resource.Attribute.useCompatPadding = global::GreenApp.Droid.Resource.Attribute.useCompatPadding;
+			global::PhantomLib.Droid.Resource.Attribute.viewInflaterClass = global::GreenApp.Droid.Resource.Attribute.viewInflaterClass;
 			global::PhantomLib.Droid.Resource.Attribute.voiceIcon = global::GreenApp.Droid.Resource.Attribute.voiceIcon;
 			global::PhantomLib.Droid.Resource.Attribute.windowActionBar = global::GreenApp.Droid.Resource.Attribute.windowActionBar;
 			global::PhantomLib.Droid.Resource.Attribute.windowActionBarOverlay = global::GreenApp.Droid.Resource.Attribute.windowActionBarOverlay;
@@ -7701,6 +7833,7 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Boolean.abc_action_bar_embed_tabs = global::GreenApp.Droid.Resource.Boolean.abc_action_bar_embed_tabs;
 			global::PhantomLib.Droid.Resource.Boolean.abc_allow_stacked_button_bar = global::GreenApp.Droid.Resource.Boolean.abc_allow_stacked_button_bar;
 			global::PhantomLib.Droid.Resource.Boolean.abc_config_actionMenuItemAllCaps = global::GreenApp.Droid.Resource.Boolean.abc_config_actionMenuItemAllCaps;
+			global::PhantomLib.Droid.Resource.Boolean.mtrl_btn_textappearance_all_caps = global::GreenApp.Droid.Resource.Boolean.mtrl_btn_textappearance_all_caps;
 			global::PhantomLib.Droid.Resource.Color.abc_background_cache_hint_selector_material_dark = global::GreenApp.Droid.Resource.Color.abc_background_cache_hint_selector_material_dark;
 			global::PhantomLib.Droid.Resource.Color.abc_background_cache_hint_selector_material_light = global::GreenApp.Droid.Resource.Color.abc_background_cache_hint_selector_material_light;
 			global::PhantomLib.Droid.Resource.Color.abc_btn_colored_borderless_text_material = global::GreenApp.Droid.Resource.Color.abc_btn_colored_borderless_text_material;
@@ -7737,6 +7870,10 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Color.bright_foreground_inverse_material_light = global::GreenApp.Droid.Resource.Color.bright_foreground_inverse_material_light;
 			global::PhantomLib.Droid.Resource.Color.bright_foreground_material_dark = global::GreenApp.Droid.Resource.Color.bright_foreground_material_dark;
 			global::PhantomLib.Droid.Resource.Color.bright_foreground_material_light = global::GreenApp.Droid.Resource.Color.bright_foreground_material_light;
+			global::PhantomLib.Droid.Resource.Color.browser_actions_bg_grey = global::GreenApp.Droid.Resource.Color.browser_actions_bg_grey;
+			global::PhantomLib.Droid.Resource.Color.browser_actions_divider_color = global::GreenApp.Droid.Resource.Color.browser_actions_divider_color;
+			global::PhantomLib.Droid.Resource.Color.browser_actions_text_color = global::GreenApp.Droid.Resource.Color.browser_actions_text_color;
+			global::PhantomLib.Droid.Resource.Color.browser_actions_title_color = global::GreenApp.Droid.Resource.Color.browser_actions_title_color;
 			global::PhantomLib.Droid.Resource.Color.button_material_dark = global::GreenApp.Droid.Resource.Color.button_material_dark;
 			global::PhantomLib.Droid.Resource.Color.button_material_light = global::GreenApp.Droid.Resource.Color.button_material_light;
 			global::PhantomLib.Droid.Resource.Color.cardview_dark_background = global::GreenApp.Droid.Resource.Color.cardview_dark_background;
@@ -7744,6 +7881,8 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Color.cardview_shadow_end_color = global::GreenApp.Droid.Resource.Color.cardview_shadow_end_color;
 			global::PhantomLib.Droid.Resource.Color.cardview_shadow_start_color = global::GreenApp.Droid.Resource.Color.cardview_shadow_start_color;
 			global::PhantomLib.Droid.Resource.Color.design_bottom_navigation_shadow_color = global::GreenApp.Droid.Resource.Color.design_bottom_navigation_shadow_color;
+			global::PhantomLib.Droid.Resource.Color.design_default_color_primary = global::GreenApp.Droid.Resource.Color.design_default_color_primary;
+			global::PhantomLib.Droid.Resource.Color.design_default_color_primary_dark = global::GreenApp.Droid.Resource.Color.design_default_color_primary_dark;
 			global::PhantomLib.Droid.Resource.Color.design_error = global::GreenApp.Droid.Resource.Color.design_error;
 			global::PhantomLib.Droid.Resource.Color.design_fab_shadow_end_color = global::GreenApp.Droid.Resource.Color.design_fab_shadow_end_color;
 			global::PhantomLib.Droid.Resource.Color.design_fab_shadow_mid_color = global::GreenApp.Droid.Resource.Color.design_fab_shadow_mid_color;
@@ -7758,6 +7897,8 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Color.dim_foreground_disabled_material_light = global::GreenApp.Droid.Resource.Color.dim_foreground_disabled_material_light;
 			global::PhantomLib.Droid.Resource.Color.dim_foreground_material_dark = global::GreenApp.Droid.Resource.Color.dim_foreground_material_dark;
 			global::PhantomLib.Droid.Resource.Color.dim_foreground_material_light = global::GreenApp.Droid.Resource.Color.dim_foreground_material_light;
+			global::PhantomLib.Droid.Resource.Color.error_color_material_dark = global::GreenApp.Droid.Resource.Color.error_color_material_dark;
+			global::PhantomLib.Droid.Resource.Color.error_color_material_light = global::GreenApp.Droid.Resource.Color.error_color_material_light;
 			global::PhantomLib.Droid.Resource.Color.foreground_material_dark = global::GreenApp.Droid.Resource.Color.foreground_material_dark;
 			global::PhantomLib.Droid.Resource.Color.foreground_material_light = global::GreenApp.Droid.Resource.Color.foreground_material_light;
 			global::PhantomLib.Droid.Resource.Color.highlighted_text_material_dark = global::GreenApp.Droid.Resource.Color.highlighted_text_material_dark;
@@ -7774,6 +7915,32 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Color.material_grey_800 = global::GreenApp.Droid.Resource.Color.material_grey_800;
 			global::PhantomLib.Droid.Resource.Color.material_grey_850 = global::GreenApp.Droid.Resource.Color.material_grey_850;
 			global::PhantomLib.Droid.Resource.Color.material_grey_900 = global::GreenApp.Droid.Resource.Color.material_grey_900;
+			global::PhantomLib.Droid.Resource.Color.mtrl_bottom_nav_colored_item_tint = global::GreenApp.Droid.Resource.Color.mtrl_bottom_nav_colored_item_tint;
+			global::PhantomLib.Droid.Resource.Color.mtrl_bottom_nav_item_tint = global::GreenApp.Droid.Resource.Color.mtrl_bottom_nav_item_tint;
+			global::PhantomLib.Droid.Resource.Color.mtrl_btn_bg_color_disabled = global::GreenApp.Droid.Resource.Color.mtrl_btn_bg_color_disabled;
+			global::PhantomLib.Droid.Resource.Color.mtrl_btn_bg_color_selector = global::GreenApp.Droid.Resource.Color.mtrl_btn_bg_color_selector;
+			global::PhantomLib.Droid.Resource.Color.mtrl_btn_ripple_color = global::GreenApp.Droid.Resource.Color.mtrl_btn_ripple_color;
+			global::PhantomLib.Droid.Resource.Color.mtrl_btn_stroke_color_selector = global::GreenApp.Droid.Resource.Color.mtrl_btn_stroke_color_selector;
+			global::PhantomLib.Droid.Resource.Color.mtrl_btn_text_btn_ripple_color = global::GreenApp.Droid.Resource.Color.mtrl_btn_text_btn_ripple_color;
+			global::PhantomLib.Droid.Resource.Color.mtrl_btn_text_color_disabled = global::GreenApp.Droid.Resource.Color.mtrl_btn_text_color_disabled;
+			global::PhantomLib.Droid.Resource.Color.mtrl_btn_text_color_selector = global::GreenApp.Droid.Resource.Color.mtrl_btn_text_color_selector;
+			global::PhantomLib.Droid.Resource.Color.mtrl_btn_transparent_bg_color = global::GreenApp.Droid.Resource.Color.mtrl_btn_transparent_bg_color;
+			global::PhantomLib.Droid.Resource.Color.mtrl_chip_background_color = global::GreenApp.Droid.Resource.Color.mtrl_chip_background_color;
+			global::PhantomLib.Droid.Resource.Color.mtrl_chip_close_icon_tint = global::GreenApp.Droid.Resource.Color.mtrl_chip_close_icon_tint;
+			global::PhantomLib.Droid.Resource.Color.mtrl_chip_ripple_color = global::GreenApp.Droid.Resource.Color.mtrl_chip_ripple_color;
+			global::PhantomLib.Droid.Resource.Color.mtrl_chip_text_color = global::GreenApp.Droid.Resource.Color.mtrl_chip_text_color;
+			global::PhantomLib.Droid.Resource.Color.mtrl_fab_ripple_color = global::GreenApp.Droid.Resource.Color.mtrl_fab_ripple_color;
+			global::PhantomLib.Droid.Resource.Color.mtrl_scrim_color = global::GreenApp.Droid.Resource.Color.mtrl_scrim_color;
+			global::PhantomLib.Droid.Resource.Color.mtrl_tabs_colored_ripple_color = global::GreenApp.Droid.Resource.Color.mtrl_tabs_colored_ripple_color;
+			global::PhantomLib.Droid.Resource.Color.mtrl_tabs_icon_color_selector = global::GreenApp.Droid.Resource.Color.mtrl_tabs_icon_color_selector;
+			global::PhantomLib.Droid.Resource.Color.mtrl_tabs_icon_color_selector_colored = global::GreenApp.Droid.Resource.Color.mtrl_tabs_icon_color_selector_colored;
+			global::PhantomLib.Droid.Resource.Color.mtrl_tabs_legacy_text_color_selector = global::GreenApp.Droid.Resource.Color.mtrl_tabs_legacy_text_color_selector;
+			global::PhantomLib.Droid.Resource.Color.mtrl_tabs_ripple_color = global::GreenApp.Droid.Resource.Color.mtrl_tabs_ripple_color;
+			global::PhantomLib.Droid.Resource.Color.mtrl_textinput_default_box_stroke_color = global::GreenApp.Droid.Resource.Color.mtrl_textinput_default_box_stroke_color;
+			global::PhantomLib.Droid.Resource.Color.mtrl_textinput_disabled_color = global::GreenApp.Droid.Resource.Color.mtrl_textinput_disabled_color;
+			global::PhantomLib.Droid.Resource.Color.mtrl_textinput_filled_box_default_background_color = global::GreenApp.Droid.Resource.Color.mtrl_textinput_filled_box_default_background_color;
+			global::PhantomLib.Droid.Resource.Color.mtrl_textinput_hovered_box_stroke_color = global::GreenApp.Droid.Resource.Color.mtrl_textinput_hovered_box_stroke_color;
+			global::PhantomLib.Droid.Resource.Color.mtrl_text_btn_text_color_selector = global::GreenApp.Droid.Resource.Color.mtrl_text_btn_text_color_selector;
 			global::PhantomLib.Droid.Resource.Color.notification_action_color_filter = global::GreenApp.Droid.Resource.Color.notification_action_color_filter;
 			global::PhantomLib.Droid.Resource.Color.notification_icon_bg_color = global::GreenApp.Droid.Resource.Color.notification_icon_bg_color;
 			global::PhantomLib.Droid.Resource.Color.notification_material_background_media_default_color = global::GreenApp.Droid.Resource.Color.notification_material_background_media_default_color;
@@ -7816,6 +7983,7 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Dimension.abc_action_button_min_width_material = global::GreenApp.Droid.Resource.Dimension.abc_action_button_min_width_material;
 			global::PhantomLib.Droid.Resource.Dimension.abc_action_button_min_width_overflow_material = global::GreenApp.Droid.Resource.Dimension.abc_action_button_min_width_overflow_material;
 			global::PhantomLib.Droid.Resource.Dimension.abc_alert_dialog_button_bar_height = global::GreenApp.Droid.Resource.Dimension.abc_alert_dialog_button_bar_height;
+			global::PhantomLib.Droid.Resource.Dimension.abc_alert_dialog_button_dimen = global::GreenApp.Droid.Resource.Dimension.abc_alert_dialog_button_dimen;
 			global::PhantomLib.Droid.Resource.Dimension.abc_button_inset_horizontal_material = global::GreenApp.Droid.Resource.Dimension.abc_button_inset_horizontal_material;
 			global::PhantomLib.Droid.Resource.Dimension.abc_button_inset_vertical_material = global::GreenApp.Droid.Resource.Dimension.abc_button_inset_vertical_material;
 			global::PhantomLib.Droid.Resource.Dimension.abc_button_padding_horizontal_material = global::GreenApp.Droid.Resource.Dimension.abc_button_padding_horizontal_material;
@@ -7825,6 +7993,7 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Dimension.abc_control_corner_material = global::GreenApp.Droid.Resource.Dimension.abc_control_corner_material;
 			global::PhantomLib.Droid.Resource.Dimension.abc_control_inset_material = global::GreenApp.Droid.Resource.Dimension.abc_control_inset_material;
 			global::PhantomLib.Droid.Resource.Dimension.abc_control_padding_material = global::GreenApp.Droid.Resource.Dimension.abc_control_padding_material;
+			global::PhantomLib.Droid.Resource.Dimension.abc_dialog_corner_radius_material = global::GreenApp.Droid.Resource.Dimension.abc_dialog_corner_radius_material;
 			global::PhantomLib.Droid.Resource.Dimension.abc_dialog_fixed_height_major = global::GreenApp.Droid.Resource.Dimension.abc_dialog_fixed_height_major;
 			global::PhantomLib.Droid.Resource.Dimension.abc_dialog_fixed_height_minor = global::GreenApp.Droid.Resource.Dimension.abc_dialog_fixed_height_minor;
 			global::PhantomLib.Droid.Resource.Dimension.abc_dialog_fixed_width_major = global::GreenApp.Droid.Resource.Dimension.abc_dialog_fixed_width_major;
@@ -7872,6 +8041,8 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Dimension.abc_text_size_subtitle_material_toolbar = global::GreenApp.Droid.Resource.Dimension.abc_text_size_subtitle_material_toolbar;
 			global::PhantomLib.Droid.Resource.Dimension.abc_text_size_title_material = global::GreenApp.Droid.Resource.Dimension.abc_text_size_title_material;
 			global::PhantomLib.Droid.Resource.Dimension.abc_text_size_title_material_toolbar = global::GreenApp.Droid.Resource.Dimension.abc_text_size_title_material_toolbar;
+			global::PhantomLib.Droid.Resource.Dimension.browser_actions_context_menu_max_width = global::GreenApp.Droid.Resource.Dimension.browser_actions_context_menu_max_width;
+			global::PhantomLib.Droid.Resource.Dimension.browser_actions_context_menu_min_padding = global::GreenApp.Droid.Resource.Dimension.browser_actions_context_menu_min_padding;
 			global::PhantomLib.Droid.Resource.Dimension.cardview_compat_inset_shadow = global::GreenApp.Droid.Resource.Dimension.cardview_compat_inset_shadow;
 			global::PhantomLib.Droid.Resource.Dimension.cardview_default_elevation = global::GreenApp.Droid.Resource.Dimension.cardview_default_elevation;
 			global::PhantomLib.Droid.Resource.Dimension.cardview_default_radius = global::GreenApp.Droid.Resource.Dimension.cardview_default_radius;
@@ -7880,11 +8051,15 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Dimension.compat_button_padding_horizontal_material = global::GreenApp.Droid.Resource.Dimension.compat_button_padding_horizontal_material;
 			global::PhantomLib.Droid.Resource.Dimension.compat_button_padding_vertical_material = global::GreenApp.Droid.Resource.Dimension.compat_button_padding_vertical_material;
 			global::PhantomLib.Droid.Resource.Dimension.compat_control_corner_material = global::GreenApp.Droid.Resource.Dimension.compat_control_corner_material;
+			global::PhantomLib.Droid.Resource.Dimension.compat_notification_large_icon_max_height = global::GreenApp.Droid.Resource.Dimension.compat_notification_large_icon_max_height;
+			global::PhantomLib.Droid.Resource.Dimension.compat_notification_large_icon_max_width = global::GreenApp.Droid.Resource.Dimension.compat_notification_large_icon_max_width;
 			global::PhantomLib.Droid.Resource.Dimension.design_appbar_elevation = global::GreenApp.Droid.Resource.Dimension.design_appbar_elevation;
 			global::PhantomLib.Droid.Resource.Dimension.design_bottom_navigation_active_item_max_width = global::GreenApp.Droid.Resource.Dimension.design_bottom_navigation_active_item_max_width;
+			global::PhantomLib.Droid.Resource.Dimension.design_bottom_navigation_active_item_min_width = global::GreenApp.Droid.Resource.Dimension.design_bottom_navigation_active_item_min_width;
 			global::PhantomLib.Droid.Resource.Dimension.design_bottom_navigation_active_text_size = global::GreenApp.Droid.Resource.Dimension.design_bottom_navigation_active_text_size;
 			global::PhantomLib.Droid.Resource.Dimension.design_bottom_navigation_elevation = global::GreenApp.Droid.Resource.Dimension.design_bottom_navigation_elevation;
 			global::PhantomLib.Droid.Resource.Dimension.design_bottom_navigation_height = global::GreenApp.Droid.Resource.Dimension.design_bottom_navigation_height;
+			global::PhantomLib.Droid.Resource.Dimension.design_bottom_navigation_icon_size = global::GreenApp.Droid.Resource.Dimension.design_bottom_navigation_icon_size;
 			global::PhantomLib.Droid.Resource.Dimension.design_bottom_navigation_item_max_width = global::GreenApp.Droid.Resource.Dimension.design_bottom_navigation_item_max_width;
 			global::PhantomLib.Droid.Resource.Dimension.design_bottom_navigation_item_min_width = global::GreenApp.Droid.Resource.Dimension.design_bottom_navigation_item_min_width;
 			global::PhantomLib.Droid.Resource.Dimension.design_bottom_navigation_margin = global::GreenApp.Droid.Resource.Dimension.design_bottom_navigation_margin;
@@ -7897,10 +8072,13 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Dimension.design_fab_image_size = global::GreenApp.Droid.Resource.Dimension.design_fab_image_size;
 			global::PhantomLib.Droid.Resource.Dimension.design_fab_size_mini = global::GreenApp.Droid.Resource.Dimension.design_fab_size_mini;
 			global::PhantomLib.Droid.Resource.Dimension.design_fab_size_normal = global::GreenApp.Droid.Resource.Dimension.design_fab_size_normal;
+			global::PhantomLib.Droid.Resource.Dimension.design_fab_translation_z_hovered_focused = global::GreenApp.Droid.Resource.Dimension.design_fab_translation_z_hovered_focused;
 			global::PhantomLib.Droid.Resource.Dimension.design_fab_translation_z_pressed = global::GreenApp.Droid.Resource.Dimension.design_fab_translation_z_pressed;
 			global::PhantomLib.Droid.Resource.Dimension.design_navigation_elevation = global::GreenApp.Droid.Resource.Dimension.design_navigation_elevation;
 			global::PhantomLib.Droid.Resource.Dimension.design_navigation_icon_padding = global::GreenApp.Droid.Resource.Dimension.design_navigation_icon_padding;
 			global::PhantomLib.Droid.Resource.Dimension.design_navigation_icon_size = global::GreenApp.Droid.Resource.Dimension.design_navigation_icon_size;
+			global::PhantomLib.Droid.Resource.Dimension.design_navigation_item_horizontal_padding = global::GreenApp.Droid.Resource.Dimension.design_navigation_item_horizontal_padding;
+			global::PhantomLib.Droid.Resource.Dimension.design_navigation_item_icon_padding = global::GreenApp.Droid.Resource.Dimension.design_navigation_item_icon_padding;
 			global::PhantomLib.Droid.Resource.Dimension.design_navigation_max_width = global::GreenApp.Droid.Resource.Dimension.design_navigation_max_width;
 			global::PhantomLib.Droid.Resource.Dimension.design_navigation_padding_bottom = global::GreenApp.Droid.Resource.Dimension.design_navigation_padding_bottom;
 			global::PhantomLib.Droid.Resource.Dimension.design_navigation_separator_vertical_padding = global::GreenApp.Droid.Resource.Dimension.design_navigation_separator_vertical_padding;
@@ -7918,6 +8096,7 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Dimension.design_tab_scrollable_min_width = global::GreenApp.Droid.Resource.Dimension.design_tab_scrollable_min_width;
 			global::PhantomLib.Droid.Resource.Dimension.design_tab_text_size = global::GreenApp.Droid.Resource.Dimension.design_tab_text_size;
 			global::PhantomLib.Droid.Resource.Dimension.design_tab_text_size_2line = global::GreenApp.Droid.Resource.Dimension.design_tab_text_size_2line;
+			global::PhantomLib.Droid.Resource.Dimension.design_textinput_caption_translate_y = global::GreenApp.Droid.Resource.Dimension.design_textinput_caption_translate_y;
 			global::PhantomLib.Droid.Resource.Dimension.disabled_alpha_material_dark = global::GreenApp.Droid.Resource.Dimension.disabled_alpha_material_dark;
 			global::PhantomLib.Droid.Resource.Dimension.disabled_alpha_material_light = global::GreenApp.Droid.Resource.Dimension.disabled_alpha_material_light;
 			global::PhantomLib.Droid.Resource.Dimension.fastscroll_default_thickness = global::GreenApp.Droid.Resource.Dimension.fastscroll_default_thickness;
@@ -7933,6 +8112,54 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame = global::GreenApp.Droid.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame;
 			global::PhantomLib.Droid.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity = global::GreenApp.Droid.Resource.Dimension.item_touch_helper_swipe_escape_max_velocity;
 			global::PhantomLib.Droid.Resource.Dimension.item_touch_helper_swipe_escape_velocity = global::GreenApp.Droid.Resource.Dimension.item_touch_helper_swipe_escape_velocity;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_bottomappbar_fabOffsetEndMode = global::GreenApp.Droid.Resource.Dimension.mtrl_bottomappbar_fabOffsetEndMode;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_bottomappbar_fab_cradle_margin = global::GreenApp.Droid.Resource.Dimension.mtrl_bottomappbar_fab_cradle_margin;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_bottomappbar_fab_cradle_rounded_corner_radius = global::GreenApp.Droid.Resource.Dimension.mtrl_bottomappbar_fab_cradle_rounded_corner_radius;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_bottomappbar_fab_cradle_vertical_offset = global::GreenApp.Droid.Resource.Dimension.mtrl_bottomappbar_fab_cradle_vertical_offset;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_bottomappbar_height = global::GreenApp.Droid.Resource.Dimension.mtrl_bottomappbar_height;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_corner_radius = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_corner_radius;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_dialog_btn_min_width = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_dialog_btn_min_width;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_disabled_elevation = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_disabled_elevation;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_disabled_z = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_disabled_z;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_elevation = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_elevation;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_focused_z = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_focused_z;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_hovered_z = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_hovered_z;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_icon_btn_padding_left = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_icon_btn_padding_left;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_icon_padding = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_icon_padding;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_inset = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_inset;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_letter_spacing = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_letter_spacing;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_padding_bottom = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_padding_bottom;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_padding_left = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_padding_left;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_padding_right = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_padding_right;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_padding_top = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_padding_top;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_pressed_z = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_pressed_z;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_stroke_size = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_stroke_size;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_text_btn_icon_padding = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_text_btn_icon_padding;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_text_btn_padding_left = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_text_btn_padding_left;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_text_btn_padding_right = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_text_btn_padding_right;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_text_size = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_text_size;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_btn_z = global::GreenApp.Droid.Resource.Dimension.mtrl_btn_z;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_card_elevation = global::GreenApp.Droid.Resource.Dimension.mtrl_card_elevation;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_card_spacing = global::GreenApp.Droid.Resource.Dimension.mtrl_card_spacing;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_chip_pressed_translation_z = global::GreenApp.Droid.Resource.Dimension.mtrl_chip_pressed_translation_z;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_chip_text_size = global::GreenApp.Droid.Resource.Dimension.mtrl_chip_text_size;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_fab_elevation = global::GreenApp.Droid.Resource.Dimension.mtrl_fab_elevation;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_fab_translation_z_hovered_focused = global::GreenApp.Droid.Resource.Dimension.mtrl_fab_translation_z_hovered_focused;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_fab_translation_z_pressed = global::GreenApp.Droid.Resource.Dimension.mtrl_fab_translation_z_pressed;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_navigation_elevation = global::GreenApp.Droid.Resource.Dimension.mtrl_navigation_elevation;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_navigation_item_horizontal_padding = global::GreenApp.Droid.Resource.Dimension.mtrl_navigation_item_horizontal_padding;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_navigation_item_icon_padding = global::GreenApp.Droid.Resource.Dimension.mtrl_navigation_item_icon_padding;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_snackbar_background_corner_radius = global::GreenApp.Droid.Resource.Dimension.mtrl_snackbar_background_corner_radius;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_snackbar_margin = global::GreenApp.Droid.Resource.Dimension.mtrl_snackbar_margin;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_textinput_box_bottom_offset = global::GreenApp.Droid.Resource.Dimension.mtrl_textinput_box_bottom_offset;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_textinput_box_corner_radius_medium = global::GreenApp.Droid.Resource.Dimension.mtrl_textinput_box_corner_radius_medium;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_textinput_box_corner_radius_small = global::GreenApp.Droid.Resource.Dimension.mtrl_textinput_box_corner_radius_small;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_textinput_box_label_cutout_padding = global::GreenApp.Droid.Resource.Dimension.mtrl_textinput_box_label_cutout_padding;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_textinput_box_padding_end = global::GreenApp.Droid.Resource.Dimension.mtrl_textinput_box_padding_end;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_textinput_box_stroke_width_default = global::GreenApp.Droid.Resource.Dimension.mtrl_textinput_box_stroke_width_default;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_textinput_box_stroke_width_focused = global::GreenApp.Droid.Resource.Dimension.mtrl_textinput_box_stroke_width_focused;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_textinput_outline_box_expanded_padding = global::GreenApp.Droid.Resource.Dimension.mtrl_textinput_outline_box_expanded_padding;
+			global::PhantomLib.Droid.Resource.Dimension.mtrl_toolbar_default_height = global::GreenApp.Droid.Resource.Dimension.mtrl_toolbar_default_height;
 			global::PhantomLib.Droid.Resource.Dimension.notification_action_icon_size = global::GreenApp.Droid.Resource.Dimension.notification_action_icon_size;
 			global::PhantomLib.Droid.Resource.Dimension.notification_action_text_size = global::GreenApp.Droid.Resource.Dimension.notification_action_text_size;
 			global::PhantomLib.Droid.Resource.Dimension.notification_big_circle_margin = global::GreenApp.Droid.Resource.Dimension.notification_big_circle_margin;
@@ -7948,6 +8175,10 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Dimension.notification_subtext_size = global::GreenApp.Droid.Resource.Dimension.notification_subtext_size;
 			global::PhantomLib.Droid.Resource.Dimension.notification_top_pad = global::GreenApp.Droid.Resource.Dimension.notification_top_pad;
 			global::PhantomLib.Droid.Resource.Dimension.notification_top_pad_large_text = global::GreenApp.Droid.Resource.Dimension.notification_top_pad_large_text;
+			global::PhantomLib.Droid.Resource.Dimension.subtitle_corner_radius = global::GreenApp.Droid.Resource.Dimension.subtitle_corner_radius;
+			global::PhantomLib.Droid.Resource.Dimension.subtitle_outline_width = global::GreenApp.Droid.Resource.Dimension.subtitle_outline_width;
+			global::PhantomLib.Droid.Resource.Dimension.subtitle_shadow_offset = global::GreenApp.Droid.Resource.Dimension.subtitle_shadow_offset;
+			global::PhantomLib.Droid.Resource.Dimension.subtitle_shadow_radius = global::GreenApp.Droid.Resource.Dimension.subtitle_shadow_radius;
 			global::PhantomLib.Droid.Resource.Dimension.tooltip_corner_radius = global::GreenApp.Droid.Resource.Dimension.tooltip_corner_radius;
 			global::PhantomLib.Droid.Resource.Dimension.tooltip_horizontal_padding = global::GreenApp.Droid.Resource.Dimension.tooltip_horizontal_padding;
 			global::PhantomLib.Droid.Resource.Dimension.tooltip_margin = global::GreenApp.Droid.Resource.Dimension.tooltip_margin;
@@ -7996,6 +8227,7 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Drawable.abc_ic_voice_search_api_material = global::GreenApp.Droid.Resource.Drawable.abc_ic_voice_search_api_material;
 			global::PhantomLib.Droid.Resource.Drawable.abc_item_background_holo_dark = global::GreenApp.Droid.Resource.Drawable.abc_item_background_holo_dark;
 			global::PhantomLib.Droid.Resource.Drawable.abc_item_background_holo_light = global::GreenApp.Droid.Resource.Drawable.abc_item_background_holo_light;
+			global::PhantomLib.Droid.Resource.Drawable.abc_list_divider_material = global::GreenApp.Droid.Resource.Drawable.abc_list_divider_material;
 			global::PhantomLib.Droid.Resource.Drawable.abc_list_divider_mtrl_alpha = global::GreenApp.Droid.Resource.Drawable.abc_list_divider_mtrl_alpha;
 			global::PhantomLib.Droid.Resource.Drawable.abc_list_focused_holo = global::GreenApp.Droid.Resource.Drawable.abc_list_focused_holo;
 			global::PhantomLib.Droid.Resource.Drawable.abc_list_longpressed_holo = global::GreenApp.Droid.Resource.Drawable.abc_list_longpressed_holo;
@@ -8048,6 +8280,11 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Drawable.design_password_eye = global::GreenApp.Droid.Resource.Drawable.design_password_eye;
 			global::PhantomLib.Droid.Resource.Drawable.design_snackbar_background = global::GreenApp.Droid.Resource.Drawable.design_snackbar_background;
 			global::PhantomLib.Droid.Resource.Drawable.ExtEntryShape = global::GreenApp.Droid.Resource.Drawable.ExtEntryShape;
+			global::PhantomLib.Droid.Resource.Drawable.ic_mtrl_chip_checked_black = global::GreenApp.Droid.Resource.Drawable.ic_mtrl_chip_checked_black;
+			global::PhantomLib.Droid.Resource.Drawable.ic_mtrl_chip_checked_circle = global::GreenApp.Droid.Resource.Drawable.ic_mtrl_chip_checked_circle;
+			global::PhantomLib.Droid.Resource.Drawable.ic_mtrl_chip_close_circle = global::GreenApp.Droid.Resource.Drawable.ic_mtrl_chip_close_circle;
+			global::PhantomLib.Droid.Resource.Drawable.mtrl_snackbar_background = global::GreenApp.Droid.Resource.Drawable.mtrl_snackbar_background;
+			global::PhantomLib.Droid.Resource.Drawable.mtrl_tabs_default_indicator = global::GreenApp.Droid.Resource.Drawable.mtrl_tabs_default_indicator;
 			global::PhantomLib.Droid.Resource.Drawable.navigation_empty_icon = global::GreenApp.Droid.Resource.Drawable.navigation_empty_icon;
 			global::PhantomLib.Droid.Resource.Drawable.notification_action_background = global::GreenApp.Droid.Resource.Drawable.notification_action_background;
 			global::PhantomLib.Droid.Resource.Drawable.notification_bg = global::GreenApp.Droid.Resource.Drawable.notification_bg;
@@ -8096,6 +8333,11 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Id.bottom = global::GreenApp.Droid.Resource.Id.bottom;
 			global::PhantomLib.Droid.Resource.Id.bottomtab_navarea = global::GreenApp.Droid.Resource.Id.bottomtab_navarea;
 			global::PhantomLib.Droid.Resource.Id.bottomtab_tabbar = global::GreenApp.Droid.Resource.Id.bottomtab_tabbar;
+			global::PhantomLib.Droid.Resource.Id.browser_actions_header_text = global::GreenApp.Droid.Resource.Id.browser_actions_header_text;
+			global::PhantomLib.Droid.Resource.Id.browser_actions_menu_items = global::GreenApp.Droid.Resource.Id.browser_actions_menu_items;
+			global::PhantomLib.Droid.Resource.Id.browser_actions_menu_item_icon = global::GreenApp.Droid.Resource.Id.browser_actions_menu_item_icon;
+			global::PhantomLib.Droid.Resource.Id.browser_actions_menu_item_text = global::GreenApp.Droid.Resource.Id.browser_actions_menu_item_text;
+			global::PhantomLib.Droid.Resource.Id.browser_actions_menu_view = global::GreenApp.Droid.Resource.Id.browser_actions_menu_view;
 			global::PhantomLib.Droid.Resource.Id.buttonPanel = global::GreenApp.Droid.Resource.Id.buttonPanel;
 			global::PhantomLib.Droid.Resource.Id.cancel_action = global::GreenApp.Droid.Resource.Id.cancel_action;
 			global::PhantomLib.Droid.Resource.Id.center = global::GreenApp.Droid.Resource.Id.center;
@@ -8107,6 +8349,7 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Id.clip_vertical = global::GreenApp.Droid.Resource.Id.clip_vertical;
 			global::PhantomLib.Droid.Resource.Id.collapseActionView = global::GreenApp.Droid.Resource.Id.collapseActionView;
 			global::PhantomLib.Droid.Resource.Id.container = global::GreenApp.Droid.Resource.Id.container;
+			global::PhantomLib.Droid.Resource.Id.content = global::GreenApp.Droid.Resource.Id.content;
 			global::PhantomLib.Droid.Resource.Id.contentPanel = global::GreenApp.Droid.Resource.Id.contentPanel;
 			global::PhantomLib.Droid.Resource.Id.coordinator = global::GreenApp.Droid.Resource.Id.coordinator;
 			global::PhantomLib.Droid.Resource.Id.CTRL = global::GreenApp.Droid.Resource.Id.CTRL;
@@ -8129,6 +8372,7 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Id.expanded_menu = global::GreenApp.Droid.Resource.Id.expanded_menu;
 			global::PhantomLib.Droid.Resource.Id.expand_activities_button = global::GreenApp.Droid.Resource.Id.expand_activities_button;
 			global::PhantomLib.Droid.Resource.Id.fill = global::GreenApp.Droid.Resource.Id.fill;
+			global::PhantomLib.Droid.Resource.Id.filled = global::GreenApp.Droid.Resource.Id.filled;
 			global::PhantomLib.Droid.Resource.Id.fill_horizontal = global::GreenApp.Droid.Resource.Id.fill_horizontal;
 			global::PhantomLib.Droid.Resource.Id.fill_vertical = global::GreenApp.Droid.Resource.Id.fill_vertical;
 			global::PhantomLib.Droid.Resource.Id.@fixed = global::GreenApp.Droid.Resource.Id.@fixed;
@@ -8137,6 +8381,7 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Id.forever = global::GreenApp.Droid.Resource.Id.forever;
 			global::PhantomLib.Droid.Resource.Id.FUNCTION = global::GreenApp.Droid.Resource.Id.FUNCTION;
 			global::PhantomLib.Droid.Resource.Id.ghost_view = global::GreenApp.Droid.Resource.Id.ghost_view;
+			global::PhantomLib.Droid.Resource.Id.group_divider = global::GreenApp.Droid.Resource.Id.group_divider;
 			global::PhantomLib.Droid.Resource.Id.home = global::GreenApp.Droid.Resource.Id.home;
 			global::PhantomLib.Droid.Resource.Id.homeAsUp = global::GreenApp.Droid.Resource.Id.homeAsUp;
 			global::PhantomLib.Droid.Resource.Id.icon = global::GreenApp.Droid.Resource.Id.icon;
@@ -8146,6 +8391,7 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Id.info = global::GreenApp.Droid.Resource.Id.info;
 			global::PhantomLib.Droid.Resource.Id.italic = global::GreenApp.Droid.Resource.Id.italic;
 			global::PhantomLib.Droid.Resource.Id.item_touch_helper_previous_elevation = global::GreenApp.Droid.Resource.Id.item_touch_helper_previous_elevation;
+			global::PhantomLib.Droid.Resource.Id.labeled = global::GreenApp.Droid.Resource.Id.labeled;
 			global::PhantomLib.Droid.Resource.Id.largeLabel = global::GreenApp.Droid.Resource.Id.largeLabel;
 			global::PhantomLib.Droid.Resource.Id.left = global::GreenApp.Droid.Resource.Id.left;
 			global::PhantomLib.Droid.Resource.Id.line1 = global::GreenApp.Droid.Resource.Id.line1;
@@ -8155,12 +8401,15 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Id.main_appbar = global::GreenApp.Droid.Resource.Id.main_appbar;
 			global::PhantomLib.Droid.Resource.Id.main_tablayout = global::GreenApp.Droid.Resource.Id.main_tablayout;
 			global::PhantomLib.Droid.Resource.Id.main_toolbar = global::GreenApp.Droid.Resource.Id.main_toolbar;
+			global::PhantomLib.Droid.Resource.Id.main_viewpager = global::GreenApp.Droid.Resource.Id.main_viewpager;
 			global::PhantomLib.Droid.Resource.Id.masked = global::GreenApp.Droid.Resource.Id.masked;
 			global::PhantomLib.Droid.Resource.Id.media_actions = global::GreenApp.Droid.Resource.Id.media_actions;
 			global::PhantomLib.Droid.Resource.Id.message = global::GreenApp.Droid.Resource.Id.message;
 			global::PhantomLib.Droid.Resource.Id.META = global::GreenApp.Droid.Resource.Id.META;
 			global::PhantomLib.Droid.Resource.Id.middle = global::GreenApp.Droid.Resource.Id.middle;
 			global::PhantomLib.Droid.Resource.Id.mini = global::GreenApp.Droid.Resource.Id.mini;
+			global::PhantomLib.Droid.Resource.Id.mtrl_child_content_container = global::GreenApp.Droid.Resource.Id.mtrl_child_content_container;
+			global::PhantomLib.Droid.Resource.Id.mtrl_internal_children_alpha_tag = global::GreenApp.Droid.Resource.Id.mtrl_internal_children_alpha_tag;
 			global::PhantomLib.Droid.Resource.Id.multiply = global::GreenApp.Droid.Resource.Id.multiply;
 			global::PhantomLib.Droid.Resource.Id.navigation_header_container = global::GreenApp.Droid.Resource.Id.navigation_header_container;
 			global::PhantomLib.Droid.Resource.Id.never = global::GreenApp.Droid.Resource.Id.never;
@@ -8169,6 +8418,7 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Id.notification_background = global::GreenApp.Droid.Resource.Id.notification_background;
 			global::PhantomLib.Droid.Resource.Id.notification_main_column = global::GreenApp.Droid.Resource.Id.notification_main_column;
 			global::PhantomLib.Droid.Resource.Id.notification_main_column_container = global::GreenApp.Droid.Resource.Id.notification_main_column_container;
+			global::PhantomLib.Droid.Resource.Id.outline = global::GreenApp.Droid.Resource.Id.outline;
 			global::PhantomLib.Droid.Resource.Id.parallax = global::GreenApp.Droid.Resource.Id.parallax;
 			global::PhantomLib.Droid.Resource.Id.parentPanel = global::GreenApp.Droid.Resource.Id.parentPanel;
 			global::PhantomLib.Droid.Resource.Id.parent_matrix = global::GreenApp.Droid.Resource.Id.parent_matrix;
@@ -8198,6 +8448,7 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Id.search_plate = global::GreenApp.Droid.Resource.Id.search_plate;
 			global::PhantomLib.Droid.Resource.Id.search_src_text = global::GreenApp.Droid.Resource.Id.search_src_text;
 			global::PhantomLib.Droid.Resource.Id.search_voice_btn = global::GreenApp.Droid.Resource.Id.search_voice_btn;
+			global::PhantomLib.Droid.Resource.Id.selected = global::GreenApp.Droid.Resource.Id.selected;
 			global::PhantomLib.Droid.Resource.Id.select_dialog_listview = global::GreenApp.Droid.Resource.Id.select_dialog_listview;
 			global::PhantomLib.Droid.Resource.Id.shellcontent_appbar = global::GreenApp.Droid.Resource.Id.shellcontent_appbar;
 			global::PhantomLib.Droid.Resource.Id.shellcontent_toolbar = global::GreenApp.Droid.Resource.Id.shellcontent_toolbar;
@@ -8210,6 +8461,7 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Id.snackbar_action = global::GreenApp.Droid.Resource.Id.snackbar_action;
 			global::PhantomLib.Droid.Resource.Id.snackbar_text = global::GreenApp.Droid.Resource.Id.snackbar_text;
 			global::PhantomLib.Droid.Resource.Id.snap = global::GreenApp.Droid.Resource.Id.snap;
+			global::PhantomLib.Droid.Resource.Id.snapMargins = global::GreenApp.Droid.Resource.Id.snapMargins;
 			global::PhantomLib.Droid.Resource.Id.spacer = global::GreenApp.Droid.Resource.Id.spacer;
 			global::PhantomLib.Droid.Resource.Id.split_action_bar = global::GreenApp.Droid.Resource.Id.split_action_bar;
 			global::PhantomLib.Droid.Resource.Id.src_atop = global::GreenApp.Droid.Resource.Id.src_atop;
@@ -8217,17 +8469,22 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Id.src_over = global::GreenApp.Droid.Resource.Id.src_over;
 			global::PhantomLib.Droid.Resource.Id.start = global::GreenApp.Droid.Resource.Id.start;
 			global::PhantomLib.Droid.Resource.Id.status_bar_latest_event_content = global::GreenApp.Droid.Resource.Id.status_bar_latest_event_content;
+			global::PhantomLib.Droid.Resource.Id.stretch = global::GreenApp.Droid.Resource.Id.stretch;
 			global::PhantomLib.Droid.Resource.Id.submenuarrow = global::GreenApp.Droid.Resource.Id.submenuarrow;
 			global::PhantomLib.Droid.Resource.Id.submit_area = global::GreenApp.Droid.Resource.Id.submit_area;
 			global::PhantomLib.Droid.Resource.Id.SYM = global::GreenApp.Droid.Resource.Id.SYM;
 			global::PhantomLib.Droid.Resource.Id.tabMode = global::GreenApp.Droid.Resource.Id.tabMode;
 			global::PhantomLib.Droid.Resource.Id.tag_transition_group = global::GreenApp.Droid.Resource.Id.tag_transition_group;
+			global::PhantomLib.Droid.Resource.Id.tag_unhandled_key_event_manager = global::GreenApp.Droid.Resource.Id.tag_unhandled_key_event_manager;
+			global::PhantomLib.Droid.Resource.Id.tag_unhandled_key_listeners = global::GreenApp.Droid.Resource.Id.tag_unhandled_key_listeners;
 			global::PhantomLib.Droid.Resource.Id.text = global::GreenApp.Droid.Resource.Id.text;
 			global::PhantomLib.Droid.Resource.Id.text2 = global::GreenApp.Droid.Resource.Id.text2;
 			global::PhantomLib.Droid.Resource.Id.textinput_counter = global::GreenApp.Droid.Resource.Id.textinput_counter;
 			global::PhantomLib.Droid.Resource.Id.textinput_error = global::GreenApp.Droid.Resource.Id.textinput_error;
+			global::PhantomLib.Droid.Resource.Id.textinput_helper_text = global::GreenApp.Droid.Resource.Id.textinput_helper_text;
 			global::PhantomLib.Droid.Resource.Id.textSpacerNoButtons = global::GreenApp.Droid.Resource.Id.textSpacerNoButtons;
 			global::PhantomLib.Droid.Resource.Id.textSpacerNoTitle = global::GreenApp.Droid.Resource.Id.textSpacerNoTitle;
+			global::PhantomLib.Droid.Resource.Id.textStart = global::GreenApp.Droid.Resource.Id.textStart;
 			global::PhantomLib.Droid.Resource.Id.text_input_password_toggle = global::GreenApp.Droid.Resource.Id.text_input_password_toggle;
 			global::PhantomLib.Droid.Resource.Id.time = global::GreenApp.Droid.Resource.Id.time;
 			global::PhantomLib.Droid.Resource.Id.title = global::GreenApp.Droid.Resource.Id.title;
@@ -8242,6 +8499,7 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Id.transition_scene_layoutid_cache = global::GreenApp.Droid.Resource.Id.transition_scene_layoutid_cache;
 			global::PhantomLib.Droid.Resource.Id.transition_transform = global::GreenApp.Droid.Resource.Id.transition_transform;
 			global::PhantomLib.Droid.Resource.Id.uniform = global::GreenApp.Droid.Resource.Id.uniform;
+			global::PhantomLib.Droid.Resource.Id.unlabeled = global::GreenApp.Droid.Resource.Id.unlabeled;
 			global::PhantomLib.Droid.Resource.Id.up = global::GreenApp.Droid.Resource.Id.up;
 			global::PhantomLib.Droid.Resource.Id.useLogo = global::GreenApp.Droid.Resource.Id.useLogo;
 			global::PhantomLib.Droid.Resource.Id.view_offset_helper = global::GreenApp.Droid.Resource.Id.view_offset_helper;
@@ -8255,9 +8513,18 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Integer.cancel_button_image_alpha = global::GreenApp.Droid.Resource.Integer.cancel_button_image_alpha;
 			global::PhantomLib.Droid.Resource.Integer.config_tooltipAnimTime = global::GreenApp.Droid.Resource.Integer.config_tooltipAnimTime;
 			global::PhantomLib.Droid.Resource.Integer.design_snackbar_text_max_lines = global::GreenApp.Droid.Resource.Integer.design_snackbar_text_max_lines;
+			global::PhantomLib.Droid.Resource.Integer.design_tab_indicator_anim_duration_ms = global::GreenApp.Droid.Resource.Integer.design_tab_indicator_anim_duration_ms;
 			global::PhantomLib.Droid.Resource.Integer.hide_password_duration = global::GreenApp.Droid.Resource.Integer.hide_password_duration;
+			global::PhantomLib.Droid.Resource.Integer.mtrl_btn_anim_delay_ms = global::GreenApp.Droid.Resource.Integer.mtrl_btn_anim_delay_ms;
+			global::PhantomLib.Droid.Resource.Integer.mtrl_btn_anim_duration_ms = global::GreenApp.Droid.Resource.Integer.mtrl_btn_anim_duration_ms;
+			global::PhantomLib.Droid.Resource.Integer.mtrl_chip_anim_duration = global::GreenApp.Droid.Resource.Integer.mtrl_chip_anim_duration;
+			global::PhantomLib.Droid.Resource.Integer.mtrl_tab_indicator_anim_duration_ms = global::GreenApp.Droid.Resource.Integer.mtrl_tab_indicator_anim_duration_ms;
 			global::PhantomLib.Droid.Resource.Integer.show_password_duration = global::GreenApp.Droid.Resource.Integer.show_password_duration;
 			global::PhantomLib.Droid.Resource.Integer.status_bar_notification_info_maxnum = global::GreenApp.Droid.Resource.Integer.status_bar_notification_info_maxnum;
+			global::PhantomLib.Droid.Resource.Interpolator.mtrl_fast_out_linear_in = global::GreenApp.Droid.Resource.Interpolator.mtrl_fast_out_linear_in;
+			global::PhantomLib.Droid.Resource.Interpolator.mtrl_fast_out_slow_in = global::GreenApp.Droid.Resource.Interpolator.mtrl_fast_out_slow_in;
+			global::PhantomLib.Droid.Resource.Interpolator.mtrl_linear = global::GreenApp.Droid.Resource.Interpolator.mtrl_linear;
+			global::PhantomLib.Droid.Resource.Interpolator.mtrl_linear_out_slow_in = global::GreenApp.Droid.Resource.Interpolator.mtrl_linear_out_slow_in;
 			global::PhantomLib.Droid.Resource.Layout.abc_action_bar_title_item = global::GreenApp.Droid.Resource.Layout.abc_action_bar_title_item;
 			global::PhantomLib.Droid.Resource.Layout.abc_action_bar_up_container = global::GreenApp.Droid.Resource.Layout.abc_action_bar_up_container;
 			global::PhantomLib.Droid.Resource.Layout.abc_action_menu_item_layout = global::GreenApp.Droid.Resource.Layout.abc_action_menu_item_layout;
@@ -8269,6 +8536,7 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Layout.abc_alert_dialog_button_bar_material = global::GreenApp.Droid.Resource.Layout.abc_alert_dialog_button_bar_material;
 			global::PhantomLib.Droid.Resource.Layout.abc_alert_dialog_material = global::GreenApp.Droid.Resource.Layout.abc_alert_dialog_material;
 			global::PhantomLib.Droid.Resource.Layout.abc_alert_dialog_title_material = global::GreenApp.Droid.Resource.Layout.abc_alert_dialog_title_material;
+			global::PhantomLib.Droid.Resource.Layout.abc_cascading_menu_item_layout = global::GreenApp.Droid.Resource.Layout.abc_cascading_menu_item_layout;
 			global::PhantomLib.Droid.Resource.Layout.abc_dialog_title_material = global::GreenApp.Droid.Resource.Layout.abc_dialog_title_material;
 			global::PhantomLib.Droid.Resource.Layout.abc_expanded_menu_layout = global::GreenApp.Droid.Resource.Layout.abc_expanded_menu_layout;
 			global::PhantomLib.Droid.Resource.Layout.abc_list_menu_item_checkbox = global::GreenApp.Droid.Resource.Layout.abc_list_menu_item_checkbox;
@@ -8284,7 +8552,10 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Layout.abc_search_dropdown_item_icons_2line = global::GreenApp.Droid.Resource.Layout.abc_search_dropdown_item_icons_2line;
 			global::PhantomLib.Droid.Resource.Layout.abc_search_view = global::GreenApp.Droid.Resource.Layout.abc_search_view;
 			global::PhantomLib.Droid.Resource.Layout.abc_select_dialog_material = global::GreenApp.Droid.Resource.Layout.abc_select_dialog_material;
+			global::PhantomLib.Droid.Resource.Layout.abc_tooltip = global::GreenApp.Droid.Resource.Layout.abc_tooltip;
 			global::PhantomLib.Droid.Resource.Layout.BottomTabLayout = global::GreenApp.Droid.Resource.Layout.BottomTabLayout;
+			global::PhantomLib.Droid.Resource.Layout.browser_actions_context_menu_page = global::GreenApp.Droid.Resource.Layout.browser_actions_context_menu_page;
+			global::PhantomLib.Droid.Resource.Layout.browser_actions_context_menu_row = global::GreenApp.Droid.Resource.Layout.browser_actions_context_menu_row;
 			global::PhantomLib.Droid.Resource.Layout.design_bottom_navigation_item = global::GreenApp.Droid.Resource.Layout.design_bottom_navigation_item;
 			global::PhantomLib.Droid.Resource.Layout.design_bottom_sheet_dialog = global::GreenApp.Droid.Resource.Layout.design_bottom_sheet_dialog;
 			global::PhantomLib.Droid.Resource.Layout.design_layout_snackbar = global::GreenApp.Droid.Resource.Layout.design_layout_snackbar;
@@ -8300,6 +8571,8 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Layout.design_navigation_menu_item = global::GreenApp.Droid.Resource.Layout.design_navigation_menu_item;
 			global::PhantomLib.Droid.Resource.Layout.design_text_input_password_icon = global::GreenApp.Droid.Resource.Layout.design_text_input_password_icon;
 			global::PhantomLib.Droid.Resource.Layout.FlyoutContent = global::GreenApp.Droid.Resource.Layout.FlyoutContent;
+			global::PhantomLib.Droid.Resource.Layout.mtrl_layout_snackbar = global::GreenApp.Droid.Resource.Layout.mtrl_layout_snackbar;
+			global::PhantomLib.Droid.Resource.Layout.mtrl_layout_snackbar_include = global::GreenApp.Droid.Resource.Layout.mtrl_layout_snackbar_include;
 			global::PhantomLib.Droid.Resource.Layout.notification_action = global::GreenApp.Droid.Resource.Layout.notification_action;
 			global::PhantomLib.Droid.Resource.Layout.notification_action_tombstone = global::GreenApp.Droid.Resource.Layout.notification_action_tombstone;
 			global::PhantomLib.Droid.Resource.Layout.notification_media_action = global::GreenApp.Droid.Resource.Layout.notification_media_action;
@@ -8341,6 +8614,16 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.String.abc_font_family_menu_material = global::GreenApp.Droid.Resource.String.abc_font_family_menu_material;
 			global::PhantomLib.Droid.Resource.String.abc_font_family_subhead_material = global::GreenApp.Droid.Resource.String.abc_font_family_subhead_material;
 			global::PhantomLib.Droid.Resource.String.abc_font_family_title_material = global::GreenApp.Droid.Resource.String.abc_font_family_title_material;
+			global::PhantomLib.Droid.Resource.String.abc_menu_alt_shortcut_label = global::GreenApp.Droid.Resource.String.abc_menu_alt_shortcut_label;
+			global::PhantomLib.Droid.Resource.String.abc_menu_ctrl_shortcut_label = global::GreenApp.Droid.Resource.String.abc_menu_ctrl_shortcut_label;
+			global::PhantomLib.Droid.Resource.String.abc_menu_delete_shortcut_label = global::GreenApp.Droid.Resource.String.abc_menu_delete_shortcut_label;
+			global::PhantomLib.Droid.Resource.String.abc_menu_enter_shortcut_label = global::GreenApp.Droid.Resource.String.abc_menu_enter_shortcut_label;
+			global::PhantomLib.Droid.Resource.String.abc_menu_function_shortcut_label = global::GreenApp.Droid.Resource.String.abc_menu_function_shortcut_label;
+			global::PhantomLib.Droid.Resource.String.abc_menu_meta_shortcut_label = global::GreenApp.Droid.Resource.String.abc_menu_meta_shortcut_label;
+			global::PhantomLib.Droid.Resource.String.abc_menu_shift_shortcut_label = global::GreenApp.Droid.Resource.String.abc_menu_shift_shortcut_label;
+			global::PhantomLib.Droid.Resource.String.abc_menu_space_shortcut_label = global::GreenApp.Droid.Resource.String.abc_menu_space_shortcut_label;
+			global::PhantomLib.Droid.Resource.String.abc_menu_sym_shortcut_label = global::GreenApp.Droid.Resource.String.abc_menu_sym_shortcut_label;
+			global::PhantomLib.Droid.Resource.String.abc_prepend_shortcut_label = global::GreenApp.Droid.Resource.String.abc_prepend_shortcut_label;
 			global::PhantomLib.Droid.Resource.String.abc_searchview_description_clear = global::GreenApp.Droid.Resource.String.abc_searchview_description_clear;
 			global::PhantomLib.Droid.Resource.String.abc_searchview_description_query = global::GreenApp.Droid.Resource.String.abc_searchview_description_query;
 			global::PhantomLib.Droid.Resource.String.abc_searchview_description_search = global::GreenApp.Droid.Resource.String.abc_searchview_description_search;
@@ -8353,8 +8636,13 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.String.appbar_scrolling_view_behavior = global::GreenApp.Droid.Resource.String.appbar_scrolling_view_behavior;
 			global::PhantomLib.Droid.Resource.String.app_name = global::GreenApp.Droid.Resource.String.app_name;
 			global::PhantomLib.Droid.Resource.String.bottom_sheet_behavior = global::GreenApp.Droid.Resource.String.bottom_sheet_behavior;
+			global::PhantomLib.Droid.Resource.String.character_counter_content_description = global::GreenApp.Droid.Resource.String.character_counter_content_description;
 			global::PhantomLib.Droid.Resource.String.character_counter_pattern = global::GreenApp.Droid.Resource.String.character_counter_pattern;
+			global::PhantomLib.Droid.Resource.String.fab_transformation_scrim_behavior = global::GreenApp.Droid.Resource.String.fab_transformation_scrim_behavior;
+			global::PhantomLib.Droid.Resource.String.fab_transformation_sheet_behavior = global::GreenApp.Droid.Resource.String.fab_transformation_sheet_behavior;
 			global::PhantomLib.Droid.Resource.String.hello = global::GreenApp.Droid.Resource.String.hello;
+			global::PhantomLib.Droid.Resource.String.hide_bottom_view_on_scroll_behavior = global::GreenApp.Droid.Resource.String.hide_bottom_view_on_scroll_behavior;
+			global::PhantomLib.Droid.Resource.String.mtrl_chip_close_icon_content_description = global::GreenApp.Droid.Resource.String.mtrl_chip_close_icon_content_description;
 			global::PhantomLib.Droid.Resource.String.password_toggle_content_description = global::GreenApp.Droid.Resource.String.password_toggle_content_description;
 			global::PhantomLib.Droid.Resource.String.path_password_eye = global::GreenApp.Droid.Resource.String.path_password_eye;
 			global::PhantomLib.Droid.Resource.String.path_password_eye_mask_strike_through = global::GreenApp.Droid.Resource.String.path_password_eye_mask_strike_through;
@@ -8431,6 +8719,8 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog = global::GreenApp.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog;
 			global::PhantomLib.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert = global::GreenApp.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert;
 			global::PhantomLib.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Light = global::GreenApp.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Light;
+			global::PhantomLib.Droid.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog = global::GreenApp.Droid.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog;
+			global::PhantomLib.Droid.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog_Alert = global::GreenApp.Droid.Resource.Style.Base_ThemeOverlay_MaterialComponents_Dialog_Alert;
 			global::PhantomLib.Droid.Resource.Style.Base_Theme_AppCompat = global::GreenApp.Droid.Resource.Style.Base_Theme_AppCompat;
 			global::PhantomLib.Droid.Resource.Style.Base_Theme_AppCompat_CompactMenu = global::GreenApp.Droid.Resource.Style.Base_Theme_AppCompat_CompactMenu;
 			global::PhantomLib.Droid.Resource.Style.Base_Theme_AppCompat_Dialog = global::GreenApp.Droid.Resource.Style.Base_Theme_AppCompat_Dialog;
@@ -8445,6 +8735,32 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert = global::GreenApp.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert;
 			global::PhantomLib.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize = global::GreenApp.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize;
 			global::PhantomLib.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth = global::GreenApp.Droid.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth;
+			global::PhantomLib.Droid.Resource.Style.Base_Theme_MaterialComponents = global::GreenApp.Droid.Resource.Style.Base_Theme_MaterialComponents;
+			global::PhantomLib.Droid.Resource.Style.Base_Theme_MaterialComponents_Bridge = global::GreenApp.Droid.Resource.Style.Base_Theme_MaterialComponents_Bridge;
+			global::PhantomLib.Droid.Resource.Style.Base_Theme_MaterialComponents_CompactMenu = global::GreenApp.Droid.Resource.Style.Base_Theme_MaterialComponents_CompactMenu;
+			global::PhantomLib.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog = global::GreenApp.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog;
+			global::PhantomLib.Droid.Resource.Style.Base_Theme_MaterialComponents_DialogWhenLarge = global::GreenApp.Droid.Resource.Style.Base_Theme_MaterialComponents_DialogWhenLarge;
+			global::PhantomLib.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog_Alert = global::GreenApp.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog_Alert;
+			global::PhantomLib.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog_FixedSize = global::GreenApp.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog_FixedSize;
+			global::PhantomLib.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog_MinWidth = global::GreenApp.Droid.Resource.Style.Base_Theme_MaterialComponents_Dialog_MinWidth;
+			global::PhantomLib.Droid.Resource.Style.Base_Theme_MaterialComponents_Light = global::GreenApp.Droid.Resource.Style.Base_Theme_MaterialComponents_Light;
+			global::PhantomLib.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Bridge = global::GreenApp.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Bridge;
+			global::PhantomLib.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar = global::GreenApp.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar;
+			global::PhantomLib.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar_Bridge = global::GreenApp.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_DarkActionBar_Bridge;
+			global::PhantomLib.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog = global::GreenApp.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog;
+			global::PhantomLib.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_DialogWhenLarge = global::GreenApp.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_DialogWhenLarge;
+			global::PhantomLib.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_Alert = global::GreenApp.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_Alert;
+			global::PhantomLib.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_FixedSize = global::GreenApp.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_FixedSize;
+			global::PhantomLib.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_MinWidth = global::GreenApp.Droid.Resource.Style.Base_Theme_MaterialComponents_Light_Dialog_MinWidth;
+			global::PhantomLib.Droid.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog = global::GreenApp.Droid.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog;
+			global::PhantomLib.Droid.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog_Alert = global::GreenApp.Droid.Resource.Style.Base_V14_ThemeOverlay_MaterialComponents_Dialog_Alert;
+			global::PhantomLib.Droid.Resource.Style.Base_V14_Theme_MaterialComponents = global::GreenApp.Droid.Resource.Style.Base_V14_Theme_MaterialComponents;
+			global::PhantomLib.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Bridge = global::GreenApp.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Bridge;
+			global::PhantomLib.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Dialog = global::GreenApp.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Dialog;
+			global::PhantomLib.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Light = global::GreenApp.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Light;
+			global::PhantomLib.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Light_Bridge = global::GreenApp.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Light_Bridge;
+			global::PhantomLib.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Light_DarkActionBar_Bridge = global::GreenApp.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Light_DarkActionBar_Bridge;
+			global::PhantomLib.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Light_Dialog = global::GreenApp.Droid.Resource.Style.Base_V14_Theme_MaterialComponents_Light_Dialog;
 			global::PhantomLib.Droid.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog = global::GreenApp.Droid.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog;
 			global::PhantomLib.Droid.Resource.Style.Base_V21_Theme_AppCompat = global::GreenApp.Droid.Resource.Style.Base_V21_Theme_AppCompat;
 			global::PhantomLib.Droid.Resource.Style.Base_V21_Theme_AppCompat_Dialog = global::GreenApp.Droid.Resource.Style.Base_V21_Theme_AppCompat_Dialog;
@@ -8457,6 +8773,8 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Style.Base_V26_Theme_AppCompat = global::GreenApp.Droid.Resource.Style.Base_V26_Theme_AppCompat;
 			global::PhantomLib.Droid.Resource.Style.Base_V26_Theme_AppCompat_Light = global::GreenApp.Droid.Resource.Style.Base_V26_Theme_AppCompat_Light;
 			global::PhantomLib.Droid.Resource.Style.Base_V26_Widget_AppCompat_Toolbar = global::GreenApp.Droid.Resource.Style.Base_V26_Widget_AppCompat_Toolbar;
+			global::PhantomLib.Droid.Resource.Style.Base_V28_Theme_AppCompat = global::GreenApp.Droid.Resource.Style.Base_V28_Theme_AppCompat;
+			global::PhantomLib.Droid.Resource.Style.Base_V28_Theme_AppCompat_Light = global::GreenApp.Droid.Resource.Style.Base_V28_Theme_AppCompat_Light;
 			global::PhantomLib.Droid.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog = global::GreenApp.Droid.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog;
 			global::PhantomLib.Droid.Resource.Style.Base_V7_Theme_AppCompat = global::GreenApp.Droid.Resource.Style.Base_V7_Theme_AppCompat;
 			global::PhantomLib.Droid.Resource.Style.Base_V7_Theme_AppCompat_Dialog = global::GreenApp.Droid.Resource.Style.Base_V7_Theme_AppCompat_Dialog;
@@ -8523,11 +8841,18 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Style.Base_Widget_AppCompat_Toolbar = global::GreenApp.Droid.Resource.Style.Base_Widget_AppCompat_Toolbar;
 			global::PhantomLib.Droid.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation = global::GreenApp.Droid.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation;
 			global::PhantomLib.Droid.Resource.Style.Base_Widget_Design_TabLayout = global::GreenApp.Droid.Resource.Style.Base_Widget_Design_TabLayout;
+			global::PhantomLib.Droid.Resource.Style.Base_Widget_MaterialComponents_Chip = global::GreenApp.Droid.Resource.Style.Base_Widget_MaterialComponents_Chip;
+			global::PhantomLib.Droid.Resource.Style.Base_Widget_MaterialComponents_TextInputEditText = global::GreenApp.Droid.Resource.Style.Base_Widget_MaterialComponents_TextInputEditText;
+			global::PhantomLib.Droid.Resource.Style.Base_Widget_MaterialComponents_TextInputLayout = global::GreenApp.Droid.Resource.Style.Base_Widget_MaterialComponents_TextInputLayout;
 			global::PhantomLib.Droid.Resource.Style.CardView = global::GreenApp.Droid.Resource.Style.CardView;
 			global::PhantomLib.Droid.Resource.Style.CardView_Dark = global::GreenApp.Droid.Resource.Style.CardView_Dark;
 			global::PhantomLib.Droid.Resource.Style.CardView_Light = global::GreenApp.Droid.Resource.Style.CardView_Light;
 			global::PhantomLib.Droid.Resource.Style.Platform_AppCompat = global::GreenApp.Droid.Resource.Style.Platform_AppCompat;
 			global::PhantomLib.Droid.Resource.Style.Platform_AppCompat_Light = global::GreenApp.Droid.Resource.Style.Platform_AppCompat_Light;
+			global::PhantomLib.Droid.Resource.Style.Platform_MaterialComponents = global::GreenApp.Droid.Resource.Style.Platform_MaterialComponents;
+			global::PhantomLib.Droid.Resource.Style.Platform_MaterialComponents_Dialog = global::GreenApp.Droid.Resource.Style.Platform_MaterialComponents_Dialog;
+			global::PhantomLib.Droid.Resource.Style.Platform_MaterialComponents_Light = global::GreenApp.Droid.Resource.Style.Platform_MaterialComponents_Light;
+			global::PhantomLib.Droid.Resource.Style.Platform_MaterialComponents_Light_Dialog = global::GreenApp.Droid.Resource.Style.Platform_MaterialComponents_Light_Dialog;
 			global::PhantomLib.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat = global::GreenApp.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat;
 			global::PhantomLib.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark = global::GreenApp.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark;
 			global::PhantomLib.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat_Light = global::GreenApp.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat_Light;
@@ -8541,7 +8866,10 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon = global::GreenApp.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon;
 			global::PhantomLib.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem = global::GreenApp.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem;
 			global::PhantomLib.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup = global::GreenApp.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup;
+			global::PhantomLib.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Shortcut = global::GreenApp.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Shortcut;
+			global::PhantomLib.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_SubmenuArrow = global::GreenApp.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_SubmenuArrow;
 			global::PhantomLib.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text = global::GreenApp.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text;
+			global::PhantomLib.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Title = global::GreenApp.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Title;
 			global::PhantomLib.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon = global::GreenApp.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon;
 			global::PhantomLib.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown = global::GreenApp.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown;
 			global::PhantomLib.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 = global::GreenApp.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1;
@@ -8612,9 +8940,25 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Style.TextAppearance_Design_Counter = global::GreenApp.Droid.Resource.Style.TextAppearance_Design_Counter;
 			global::PhantomLib.Droid.Resource.Style.TextAppearance_Design_Counter_Overflow = global::GreenApp.Droid.Resource.Style.TextAppearance_Design_Counter_Overflow;
 			global::PhantomLib.Droid.Resource.Style.TextAppearance_Design_Error = global::GreenApp.Droid.Resource.Style.TextAppearance_Design_Error;
+			global::PhantomLib.Droid.Resource.Style.TextAppearance_Design_HelperText = global::GreenApp.Droid.Resource.Style.TextAppearance_Design_HelperText;
 			global::PhantomLib.Droid.Resource.Style.TextAppearance_Design_Hint = global::GreenApp.Droid.Resource.Style.TextAppearance_Design_Hint;
 			global::PhantomLib.Droid.Resource.Style.TextAppearance_Design_Snackbar_Message = global::GreenApp.Droid.Resource.Style.TextAppearance_Design_Snackbar_Message;
 			global::PhantomLib.Droid.Resource.Style.TextAppearance_Design_Tab = global::GreenApp.Droid.Resource.Style.TextAppearance_Design_Tab;
+			global::PhantomLib.Droid.Resource.Style.TextAppearance_MaterialComponents_Body1 = global::GreenApp.Droid.Resource.Style.TextAppearance_MaterialComponents_Body1;
+			global::PhantomLib.Droid.Resource.Style.TextAppearance_MaterialComponents_Body2 = global::GreenApp.Droid.Resource.Style.TextAppearance_MaterialComponents_Body2;
+			global::PhantomLib.Droid.Resource.Style.TextAppearance_MaterialComponents_Button = global::GreenApp.Droid.Resource.Style.TextAppearance_MaterialComponents_Button;
+			global::PhantomLib.Droid.Resource.Style.TextAppearance_MaterialComponents_Caption = global::GreenApp.Droid.Resource.Style.TextAppearance_MaterialComponents_Caption;
+			global::PhantomLib.Droid.Resource.Style.TextAppearance_MaterialComponents_Chip = global::GreenApp.Droid.Resource.Style.TextAppearance_MaterialComponents_Chip;
+			global::PhantomLib.Droid.Resource.Style.TextAppearance_MaterialComponents_Headline1 = global::GreenApp.Droid.Resource.Style.TextAppearance_MaterialComponents_Headline1;
+			global::PhantomLib.Droid.Resource.Style.TextAppearance_MaterialComponents_Headline2 = global::GreenApp.Droid.Resource.Style.TextAppearance_MaterialComponents_Headline2;
+			global::PhantomLib.Droid.Resource.Style.TextAppearance_MaterialComponents_Headline3 = global::GreenApp.Droid.Resource.Style.TextAppearance_MaterialComponents_Headline3;
+			global::PhantomLib.Droid.Resource.Style.TextAppearance_MaterialComponents_Headline4 = global::GreenApp.Droid.Resource.Style.TextAppearance_MaterialComponents_Headline4;
+			global::PhantomLib.Droid.Resource.Style.TextAppearance_MaterialComponents_Headline5 = global::GreenApp.Droid.Resource.Style.TextAppearance_MaterialComponents_Headline5;
+			global::PhantomLib.Droid.Resource.Style.TextAppearance_MaterialComponents_Headline6 = global::GreenApp.Droid.Resource.Style.TextAppearance_MaterialComponents_Headline6;
+			global::PhantomLib.Droid.Resource.Style.TextAppearance_MaterialComponents_Overline = global::GreenApp.Droid.Resource.Style.TextAppearance_MaterialComponents_Overline;
+			global::PhantomLib.Droid.Resource.Style.TextAppearance_MaterialComponents_Subtitle1 = global::GreenApp.Droid.Resource.Style.TextAppearance_MaterialComponents_Subtitle1;
+			global::PhantomLib.Droid.Resource.Style.TextAppearance_MaterialComponents_Subtitle2 = global::GreenApp.Droid.Resource.Style.TextAppearance_MaterialComponents_Subtitle2;
+			global::PhantomLib.Droid.Resource.Style.TextAppearance_MaterialComponents_Tab = global::GreenApp.Droid.Resource.Style.TextAppearance_MaterialComponents_Tab;
 			global::PhantomLib.Droid.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::GreenApp.Droid.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
 			global::PhantomLib.Droid.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::GreenApp.Droid.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
 			global::PhantomLib.Droid.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title = global::GreenApp.Droid.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title;
@@ -8625,6 +8969,18 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Style.ThemeOverlay_AppCompat_Dialog = global::GreenApp.Droid.Resource.Style.ThemeOverlay_AppCompat_Dialog;
 			global::PhantomLib.Droid.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert = global::GreenApp.Droid.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert;
 			global::PhantomLib.Droid.Resource.Style.ThemeOverlay_AppCompat_Light = global::GreenApp.Droid.Resource.Style.ThemeOverlay_AppCompat_Light;
+			global::PhantomLib.Droid.Resource.Style.ThemeOverlay_MaterialComponents = global::GreenApp.Droid.Resource.Style.ThemeOverlay_MaterialComponents;
+			global::PhantomLib.Droid.Resource.Style.ThemeOverlay_MaterialComponents_ActionBar = global::GreenApp.Droid.Resource.Style.ThemeOverlay_MaterialComponents_ActionBar;
+			global::PhantomLib.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Dark = global::GreenApp.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Dark;
+			global::PhantomLib.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Dark_ActionBar = global::GreenApp.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Dark_ActionBar;
+			global::PhantomLib.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Dialog = global::GreenApp.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Dialog;
+			global::PhantomLib.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Dialog_Alert = global::GreenApp.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Dialog_Alert;
+			global::PhantomLib.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Light = global::GreenApp.Droid.Resource.Style.ThemeOverlay_MaterialComponents_Light;
+			global::PhantomLib.Droid.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText = global::GreenApp.Droid.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText;
+			global::PhantomLib.Droid.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox = global::GreenApp.Droid.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox;
+			global::PhantomLib.Droid.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox_Dense = global::GreenApp.Droid.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox_Dense;
+			global::PhantomLib.Droid.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox = global::GreenApp.Droid.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox;
+			global::PhantomLib.Droid.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox_Dense = global::GreenApp.Droid.Resource.Style.ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox_Dense;
 			global::PhantomLib.Droid.Resource.Style.Theme_AppCompat = global::GreenApp.Droid.Resource.Style.Theme_AppCompat;
 			global::PhantomLib.Droid.Resource.Style.Theme_AppCompat_CompactMenu = global::GreenApp.Droid.Resource.Style.Theme_AppCompat_CompactMenu;
 			global::PhantomLib.Droid.Resource.Style.Theme_AppCompat_DayNight = global::GreenApp.Droid.Resource.Style.Theme_AppCompat_DayNight;
@@ -8652,6 +9008,27 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Style.Theme_Design_Light_BottomSheetDialog = global::GreenApp.Droid.Resource.Style.Theme_Design_Light_BottomSheetDialog;
 			global::PhantomLib.Droid.Resource.Style.Theme_Design_Light_NoActionBar = global::GreenApp.Droid.Resource.Style.Theme_Design_Light_NoActionBar;
 			global::PhantomLib.Droid.Resource.Style.Theme_Design_NoActionBar = global::GreenApp.Droid.Resource.Style.Theme_Design_NoActionBar;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_BottomSheetDialog = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_BottomSheetDialog;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_Bridge = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_Bridge;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_CompactMenu = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_CompactMenu;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_Dialog = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_Dialog;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_DialogWhenLarge = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_DialogWhenLarge;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_Dialog_Alert = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_Dialog_Alert;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_Dialog_MinWidth = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_Dialog_MinWidth;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_Light = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_Light;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_Light_BottomSheetDialog = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_Light_BottomSheetDialog;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_Light_Bridge = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_Light_Bridge;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar_Bridge = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_Light_DarkActionBar_Bridge;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_Light_Dialog = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_Light_Dialog;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_Light_DialogWhenLarge = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_Light_DialogWhenLarge;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_Light_Dialog_Alert = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_Light_Dialog_Alert;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_Light_Dialog_MinWidth = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_Light_Dialog_MinWidth;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_Light_NoActionBar = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_Light_NoActionBar;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_Light_NoActionBar_Bridge = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_Light_NoActionBar_Bridge;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_NoActionBar = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_NoActionBar;
+			global::PhantomLib.Droid.Resource.Style.Theme_MaterialComponents_NoActionBar_Bridge = global::GreenApp.Droid.Resource.Style.Theme_MaterialComponents_NoActionBar_Bridge;
 			global::PhantomLib.Droid.Resource.Style.Widget_AppCompat_ActionBar = global::GreenApp.Droid.Resource.Style.Widget_AppCompat_ActionBar;
 			global::PhantomLib.Droid.Resource.Style.Widget_AppCompat_ActionBar_Solid = global::GreenApp.Droid.Resource.Style.Widget_AppCompat_ActionBar_Solid;
 			global::PhantomLib.Droid.Resource.Style.Widget_AppCompat_ActionBar_TabBar = global::GreenApp.Droid.Resource.Style.Widget_AppCompat_ActionBar_TabBar;
@@ -8736,6 +9113,43 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Style.Widget_Design_Snackbar = global::GreenApp.Droid.Resource.Style.Widget_Design_Snackbar;
 			global::PhantomLib.Droid.Resource.Style.Widget_Design_TabLayout = global::GreenApp.Droid.Resource.Style.Widget_Design_TabLayout;
 			global::PhantomLib.Droid.Resource.Style.Widget_Design_TextInputLayout = global::GreenApp.Droid.Resource.Style.Widget_Design_TextInputLayout;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_BottomAppBar = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_BottomAppBar;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_BottomAppBar_Colored = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_BottomAppBar_Colored;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_BottomNavigationView = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_BottomNavigationView;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_BottomNavigationView_Colored = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_BottomNavigationView_Colored;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_BottomSheet_Modal = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_BottomSheet_Modal;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_Button = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_Button;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_Button_Icon = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_Button_Icon;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_Button_OutlinedButton = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_Button_OutlinedButton;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_Button_OutlinedButton_Icon = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_Button_OutlinedButton_Icon;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_Button_TextButton = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_Button_TextButton;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_Button_TextButton_Dialog = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_Button_TextButton_Dialog;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_Button_TextButton_Dialog_Icon = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_Button_TextButton_Dialog_Icon;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_Button_TextButton_Icon = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_Button_TextButton_Icon;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_Button_UnelevatedButton = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_Button_UnelevatedButton;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_Button_UnelevatedButton_Icon = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_Button_UnelevatedButton_Icon;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_CardView = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_CardView;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_ChipGroup = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_ChipGroup;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_Chip_Action = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_Chip_Action;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_Chip_Choice = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_Chip_Choice;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_Chip_Entry = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_Chip_Entry;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_Chip_Filter = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_Chip_Filter;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_FloatingActionButton = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_FloatingActionButton;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_NavigationView = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_NavigationView;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_Snackbar = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_Snackbar;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_Snackbar_FullWidth = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_Snackbar_FullWidth;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_TabLayout = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_TabLayout;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_TabLayout_Colored = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_TabLayout_Colored;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_TextInputEditText_FilledBox = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_TextInputEditText_FilledBox;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_TextInputEditText_FilledBox_Dense = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_TextInputEditText_FilledBox_Dense;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_TextInputEditText_OutlinedBox = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_TextInputEditText_OutlinedBox;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_TextInputEditText_OutlinedBox_Dense = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_TextInputEditText_OutlinedBox_Dense;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_TextInputLayout_FilledBox = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_TextInputLayout_FilledBox;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_TextInputLayout_FilledBox_Dense = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_TextInputLayout_FilledBox_Dense;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_TextInputLayout_OutlinedBox = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_TextInputLayout_OutlinedBox;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_TextInputLayout_OutlinedBox_Dense = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_TextInputLayout_OutlinedBox_Dense;
+			global::PhantomLib.Droid.Resource.Style.Widget_MaterialComponents_Toolbar = global::GreenApp.Droid.Resource.Style.Widget_MaterialComponents_Toolbar;
+			global::PhantomLib.Droid.Resource.Style.Widget_Support_CoordinatorLayout = global::GreenApp.Droid.Resource.Style.Widget_Support_CoordinatorLayout;
 			global::PhantomLib.Droid.Resource.Styleable.ActionBar = global::GreenApp.Droid.Resource.Styleable.ActionBar;
 			global::PhantomLib.Droid.Resource.Styleable.ActionBarLayout = global::GreenApp.Droid.Resource.Styleable.ActionBarLayout;
 			global::PhantomLib.Droid.Resource.Styleable.ActionBarLayout_android_layout_gravity = global::GreenApp.Droid.Resource.Styleable.ActionBarLayout_android_layout_gravity;
@@ -8783,16 +9197,34 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Styleable.ActivityChooserView_initialActivityCount = global::GreenApp.Droid.Resource.Styleable.ActivityChooserView_initialActivityCount;
 			global::PhantomLib.Droid.Resource.Styleable.AlertDialog = global::GreenApp.Droid.Resource.Styleable.AlertDialog;
 			global::PhantomLib.Droid.Resource.Styleable.AlertDialog_android_layout = global::GreenApp.Droid.Resource.Styleable.AlertDialog_android_layout;
+			global::PhantomLib.Droid.Resource.Styleable.AlertDialog_buttonIconDimen = global::GreenApp.Droid.Resource.Styleable.AlertDialog_buttonIconDimen;
 			global::PhantomLib.Droid.Resource.Styleable.AlertDialog_buttonPanelSideLayout = global::GreenApp.Droid.Resource.Styleable.AlertDialog_buttonPanelSideLayout;
 			global::PhantomLib.Droid.Resource.Styleable.AlertDialog_listItemLayout = global::GreenApp.Droid.Resource.Styleable.AlertDialog_listItemLayout;
 			global::PhantomLib.Droid.Resource.Styleable.AlertDialog_listLayout = global::GreenApp.Droid.Resource.Styleable.AlertDialog_listLayout;
 			global::PhantomLib.Droid.Resource.Styleable.AlertDialog_multiChoiceItemLayout = global::GreenApp.Droid.Resource.Styleable.AlertDialog_multiChoiceItemLayout;
 			global::PhantomLib.Droid.Resource.Styleable.AlertDialog_showTitle = global::GreenApp.Droid.Resource.Styleable.AlertDialog_showTitle;
 			global::PhantomLib.Droid.Resource.Styleable.AlertDialog_singleChoiceItemLayout = global::GreenApp.Droid.Resource.Styleable.AlertDialog_singleChoiceItemLayout;
+			global::PhantomLib.Droid.Resource.Styleable.AnimatedStateListDrawableCompat = global::GreenApp.Droid.Resource.Styleable.AnimatedStateListDrawableCompat;
+			global::PhantomLib.Droid.Resource.Styleable.AnimatedStateListDrawableCompat_android_constantSize = global::GreenApp.Droid.Resource.Styleable.AnimatedStateListDrawableCompat_android_constantSize;
+			global::PhantomLib.Droid.Resource.Styleable.AnimatedStateListDrawableCompat_android_dither = global::GreenApp.Droid.Resource.Styleable.AnimatedStateListDrawableCompat_android_dither;
+			global::PhantomLib.Droid.Resource.Styleable.AnimatedStateListDrawableCompat_android_enterFadeDuration = global::GreenApp.Droid.Resource.Styleable.AnimatedStateListDrawableCompat_android_enterFadeDuration;
+			global::PhantomLib.Droid.Resource.Styleable.AnimatedStateListDrawableCompat_android_exitFadeDuration = global::GreenApp.Droid.Resource.Styleable.AnimatedStateListDrawableCompat_android_exitFadeDuration;
+			global::PhantomLib.Droid.Resource.Styleable.AnimatedStateListDrawableCompat_android_variablePadding = global::GreenApp.Droid.Resource.Styleable.AnimatedStateListDrawableCompat_android_variablePadding;
+			global::PhantomLib.Droid.Resource.Styleable.AnimatedStateListDrawableCompat_android_visible = global::GreenApp.Droid.Resource.Styleable.AnimatedStateListDrawableCompat_android_visible;
+			global::PhantomLib.Droid.Resource.Styleable.AnimatedStateListDrawableItem = global::GreenApp.Droid.Resource.Styleable.AnimatedStateListDrawableItem;
+			global::PhantomLib.Droid.Resource.Styleable.AnimatedStateListDrawableItem_android_drawable = global::GreenApp.Droid.Resource.Styleable.AnimatedStateListDrawableItem_android_drawable;
+			global::PhantomLib.Droid.Resource.Styleable.AnimatedStateListDrawableItem_android_id = global::GreenApp.Droid.Resource.Styleable.AnimatedStateListDrawableItem_android_id;
+			global::PhantomLib.Droid.Resource.Styleable.AnimatedStateListDrawableTransition = global::GreenApp.Droid.Resource.Styleable.AnimatedStateListDrawableTransition;
+			global::PhantomLib.Droid.Resource.Styleable.AnimatedStateListDrawableTransition_android_drawable = global::GreenApp.Droid.Resource.Styleable.AnimatedStateListDrawableTransition_android_drawable;
+			global::PhantomLib.Droid.Resource.Styleable.AnimatedStateListDrawableTransition_android_fromId = global::GreenApp.Droid.Resource.Styleable.AnimatedStateListDrawableTransition_android_fromId;
+			global::PhantomLib.Droid.Resource.Styleable.AnimatedStateListDrawableTransition_android_reversible = global::GreenApp.Droid.Resource.Styleable.AnimatedStateListDrawableTransition_android_reversible;
+			global::PhantomLib.Droid.Resource.Styleable.AnimatedStateListDrawableTransition_android_toId = global::GreenApp.Droid.Resource.Styleable.AnimatedStateListDrawableTransition_android_toId;
 			global::PhantomLib.Droid.Resource.Styleable.AppBarLayout = global::GreenApp.Droid.Resource.Styleable.AppBarLayout;
 			global::PhantomLib.Droid.Resource.Styleable.AppBarLayoutStates = global::GreenApp.Droid.Resource.Styleable.AppBarLayoutStates;
 			global::PhantomLib.Droid.Resource.Styleable.AppBarLayoutStates_state_collapsed = global::GreenApp.Droid.Resource.Styleable.AppBarLayoutStates_state_collapsed;
 			global::PhantomLib.Droid.Resource.Styleable.AppBarLayoutStates_state_collapsible = global::GreenApp.Droid.Resource.Styleable.AppBarLayoutStates_state_collapsible;
+			global::PhantomLib.Droid.Resource.Styleable.AppBarLayoutStates_state_liftable = global::GreenApp.Droid.Resource.Styleable.AppBarLayoutStates_state_liftable;
+			global::PhantomLib.Droid.Resource.Styleable.AppBarLayoutStates_state_lifted = global::GreenApp.Droid.Resource.Styleable.AppBarLayoutStates_state_lifted;
 			global::PhantomLib.Droid.Resource.Styleable.AppBarLayout_android_background = global::GreenApp.Droid.Resource.Styleable.AppBarLayout_android_background;
 			global::PhantomLib.Droid.Resource.Styleable.AppBarLayout_android_keyboardNavigationCluster = global::GreenApp.Droid.Resource.Styleable.AppBarLayout_android_keyboardNavigationCluster;
 			global::PhantomLib.Droid.Resource.Styleable.AppBarLayout_android_touchscreenBlocksFocus = global::GreenApp.Droid.Resource.Styleable.AppBarLayout_android_touchscreenBlocksFocus;
@@ -8801,6 +9233,7 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Styleable.AppBarLayout_Layout = global::GreenApp.Droid.Resource.Styleable.AppBarLayout_Layout;
 			global::PhantomLib.Droid.Resource.Styleable.AppBarLayout_Layout_layout_scrollFlags = global::GreenApp.Droid.Resource.Styleable.AppBarLayout_Layout_layout_scrollFlags;
 			global::PhantomLib.Droid.Resource.Styleable.AppBarLayout_Layout_layout_scrollInterpolator = global::GreenApp.Droid.Resource.Styleable.AppBarLayout_Layout_layout_scrollInterpolator;
+			global::PhantomLib.Droid.Resource.Styleable.AppBarLayout_liftOnScroll = global::GreenApp.Droid.Resource.Styleable.AppBarLayout_liftOnScroll;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatImageView = global::GreenApp.Droid.Resource.Styleable.AppCompatImageView;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatImageView_android_src = global::GreenApp.Droid.Resource.Styleable.AppCompatImageView_android_src;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatImageView_srcCompat = global::GreenApp.Droid.Resource.Styleable.AppCompatImageView_srcCompat;
@@ -8826,7 +9259,10 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTextView_autoSizePresetSizes = global::GreenApp.Droid.Resource.Styleable.AppCompatTextView_autoSizePresetSizes;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTextView_autoSizeStepGranularity = global::GreenApp.Droid.Resource.Styleable.AppCompatTextView_autoSizeStepGranularity;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTextView_autoSizeTextType = global::GreenApp.Droid.Resource.Styleable.AppCompatTextView_autoSizeTextType;
+			global::PhantomLib.Droid.Resource.Styleable.AppCompatTextView_firstBaselineToTopHeight = global::GreenApp.Droid.Resource.Styleable.AppCompatTextView_firstBaselineToTopHeight;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTextView_fontFamily = global::GreenApp.Droid.Resource.Styleable.AppCompatTextView_fontFamily;
+			global::PhantomLib.Droid.Resource.Styleable.AppCompatTextView_lastBaselineToBottomHeight = global::GreenApp.Droid.Resource.Styleable.AppCompatTextView_lastBaselineToBottomHeight;
+			global::PhantomLib.Droid.Resource.Styleable.AppCompatTextView_lineHeight = global::GreenApp.Droid.Resource.Styleable.AppCompatTextView_lineHeight;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTextView_textAllCaps = global::GreenApp.Droid.Resource.Styleable.AppCompatTextView_textAllCaps;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTheme = global::GreenApp.Droid.Resource.Styleable.AppCompatTheme;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTheme_actionBarDivider = global::GreenApp.Droid.Resource.Styleable.AppCompatTheme_actionBarDivider;
@@ -8888,6 +9324,7 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTheme_colorPrimaryDark = global::GreenApp.Droid.Resource.Styleable.AppCompatTheme_colorPrimaryDark;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal = global::GreenApp.Droid.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTheme_controlBackground = global::GreenApp.Droid.Resource.Styleable.AppCompatTheme_controlBackground;
+			global::PhantomLib.Droid.Resource.Styleable.AppCompatTheme_dialogCornerRadius = global::GreenApp.Droid.Resource.Styleable.AppCompatTheme_dialogCornerRadius;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTheme_dialogPreferredPadding = global::GreenApp.Droid.Resource.Styleable.AppCompatTheme_dialogPreferredPadding;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTheme_dialogTheme = global::GreenApp.Droid.Resource.Styleable.AppCompatTheme_dialogTheme;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTheme_dividerHorizontal = global::GreenApp.Droid.Resource.Styleable.AppCompatTheme_dividerHorizontal;
@@ -8938,6 +9375,7 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTheme_toolbarStyle = global::GreenApp.Droid.Resource.Styleable.AppCompatTheme_toolbarStyle;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTheme_tooltipForegroundColor = global::GreenApp.Droid.Resource.Styleable.AppCompatTheme_tooltipForegroundColor;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTheme_tooltipFrameBackground = global::GreenApp.Droid.Resource.Styleable.AppCompatTheme_tooltipFrameBackground;
+			global::PhantomLib.Droid.Resource.Styleable.AppCompatTheme_viewInflaterClass = global::GreenApp.Droid.Resource.Styleable.AppCompatTheme_viewInflaterClass;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTheme_windowActionBar = global::GreenApp.Droid.Resource.Styleable.AppCompatTheme_windowActionBar;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTheme_windowActionBarOverlay = global::GreenApp.Droid.Resource.Styleable.AppCompatTheme_windowActionBarOverlay;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTheme_windowActionModeOverlay = global::GreenApp.Droid.Resource.Styleable.AppCompatTheme_windowActionModeOverlay;
@@ -8948,13 +9386,26 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTheme_windowMinWidthMajor = global::GreenApp.Droid.Resource.Styleable.AppCompatTheme_windowMinWidthMajor;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTheme_windowMinWidthMinor = global::GreenApp.Droid.Resource.Styleable.AppCompatTheme_windowMinWidthMinor;
 			global::PhantomLib.Droid.Resource.Styleable.AppCompatTheme_windowNoTitle = global::GreenApp.Droid.Resource.Styleable.AppCompatTheme_windowNoTitle;
+			global::PhantomLib.Droid.Resource.Styleable.BottomAppBar = global::GreenApp.Droid.Resource.Styleable.BottomAppBar;
+			global::PhantomLib.Droid.Resource.Styleable.BottomAppBar_backgroundTint = global::GreenApp.Droid.Resource.Styleable.BottomAppBar_backgroundTint;
+			global::PhantomLib.Droid.Resource.Styleable.BottomAppBar_fabAlignmentMode = global::GreenApp.Droid.Resource.Styleable.BottomAppBar_fabAlignmentMode;
+			global::PhantomLib.Droid.Resource.Styleable.BottomAppBar_fabCradleMargin = global::GreenApp.Droid.Resource.Styleable.BottomAppBar_fabCradleMargin;
+			global::PhantomLib.Droid.Resource.Styleable.BottomAppBar_fabCradleRoundedCornerRadius = global::GreenApp.Droid.Resource.Styleable.BottomAppBar_fabCradleRoundedCornerRadius;
+			global::PhantomLib.Droid.Resource.Styleable.BottomAppBar_fabCradleVerticalOffset = global::GreenApp.Droid.Resource.Styleable.BottomAppBar_fabCradleVerticalOffset;
+			global::PhantomLib.Droid.Resource.Styleable.BottomAppBar_hideOnScroll = global::GreenApp.Droid.Resource.Styleable.BottomAppBar_hideOnScroll;
 			global::PhantomLib.Droid.Resource.Styleable.BottomNavigationView = global::GreenApp.Droid.Resource.Styleable.BottomNavigationView;
 			global::PhantomLib.Droid.Resource.Styleable.BottomNavigationView_elevation = global::GreenApp.Droid.Resource.Styleable.BottomNavigationView_elevation;
 			global::PhantomLib.Droid.Resource.Styleable.BottomNavigationView_itemBackground = global::GreenApp.Droid.Resource.Styleable.BottomNavigationView_itemBackground;
+			global::PhantomLib.Droid.Resource.Styleable.BottomNavigationView_itemHorizontalTranslationEnabled = global::GreenApp.Droid.Resource.Styleable.BottomNavigationView_itemHorizontalTranslationEnabled;
+			global::PhantomLib.Droid.Resource.Styleable.BottomNavigationView_itemIconSize = global::GreenApp.Droid.Resource.Styleable.BottomNavigationView_itemIconSize;
 			global::PhantomLib.Droid.Resource.Styleable.BottomNavigationView_itemIconTint = global::GreenApp.Droid.Resource.Styleable.BottomNavigationView_itemIconTint;
+			global::PhantomLib.Droid.Resource.Styleable.BottomNavigationView_itemTextAppearanceActive = global::GreenApp.Droid.Resource.Styleable.BottomNavigationView_itemTextAppearanceActive;
+			global::PhantomLib.Droid.Resource.Styleable.BottomNavigationView_itemTextAppearanceInactive = global::GreenApp.Droid.Resource.Styleable.BottomNavigationView_itemTextAppearanceInactive;
 			global::PhantomLib.Droid.Resource.Styleable.BottomNavigationView_itemTextColor = global::GreenApp.Droid.Resource.Styleable.BottomNavigationView_itemTextColor;
+			global::PhantomLib.Droid.Resource.Styleable.BottomNavigationView_labelVisibilityMode = global::GreenApp.Droid.Resource.Styleable.BottomNavigationView_labelVisibilityMode;
 			global::PhantomLib.Droid.Resource.Styleable.BottomNavigationView_menu = global::GreenApp.Droid.Resource.Styleable.BottomNavigationView_menu;
 			global::PhantomLib.Droid.Resource.Styleable.BottomSheetBehavior_Layout = global::GreenApp.Droid.Resource.Styleable.BottomSheetBehavior_Layout;
+			global::PhantomLib.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_fitToContents = global::GreenApp.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_fitToContents;
 			global::PhantomLib.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_hideable = global::GreenApp.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_hideable;
 			global::PhantomLib.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_peekHeight = global::GreenApp.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_peekHeight;
 			global::PhantomLib.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_skipCollapsed = global::GreenApp.Droid.Resource.Styleable.BottomSheetBehavior_Layout_behavior_skipCollapsed;
@@ -8974,6 +9425,48 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Styleable.CardView_contentPaddingLeft = global::GreenApp.Droid.Resource.Styleable.CardView_contentPaddingLeft;
 			global::PhantomLib.Droid.Resource.Styleable.CardView_contentPaddingRight = global::GreenApp.Droid.Resource.Styleable.CardView_contentPaddingRight;
 			global::PhantomLib.Droid.Resource.Styleable.CardView_contentPaddingTop = global::GreenApp.Droid.Resource.Styleable.CardView_contentPaddingTop;
+			global::PhantomLib.Droid.Resource.Styleable.Chip = global::GreenApp.Droid.Resource.Styleable.Chip;
+			global::PhantomLib.Droid.Resource.Styleable.ChipGroup = global::GreenApp.Droid.Resource.Styleable.ChipGroup;
+			global::PhantomLib.Droid.Resource.Styleable.ChipGroup_checkedChip = global::GreenApp.Droid.Resource.Styleable.ChipGroup_checkedChip;
+			global::PhantomLib.Droid.Resource.Styleable.ChipGroup_chipSpacing = global::GreenApp.Droid.Resource.Styleable.ChipGroup_chipSpacing;
+			global::PhantomLib.Droid.Resource.Styleable.ChipGroup_chipSpacingHorizontal = global::GreenApp.Droid.Resource.Styleable.ChipGroup_chipSpacingHorizontal;
+			global::PhantomLib.Droid.Resource.Styleable.ChipGroup_chipSpacingVertical = global::GreenApp.Droid.Resource.Styleable.ChipGroup_chipSpacingVertical;
+			global::PhantomLib.Droid.Resource.Styleable.ChipGroup_singleLine = global::GreenApp.Droid.Resource.Styleable.ChipGroup_singleLine;
+			global::PhantomLib.Droid.Resource.Styleable.ChipGroup_singleSelection = global::GreenApp.Droid.Resource.Styleable.ChipGroup_singleSelection;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_android_checkable = global::GreenApp.Droid.Resource.Styleable.Chip_android_checkable;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_android_ellipsize = global::GreenApp.Droid.Resource.Styleable.Chip_android_ellipsize;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_android_maxWidth = global::GreenApp.Droid.Resource.Styleable.Chip_android_maxWidth;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_android_text = global::GreenApp.Droid.Resource.Styleable.Chip_android_text;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_android_textAppearance = global::GreenApp.Droid.Resource.Styleable.Chip_android_textAppearance;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_checkedIcon = global::GreenApp.Droid.Resource.Styleable.Chip_checkedIcon;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_checkedIconEnabled = global::GreenApp.Droid.Resource.Styleable.Chip_checkedIconEnabled;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_checkedIconVisible = global::GreenApp.Droid.Resource.Styleable.Chip_checkedIconVisible;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_chipBackgroundColor = global::GreenApp.Droid.Resource.Styleable.Chip_chipBackgroundColor;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_chipCornerRadius = global::GreenApp.Droid.Resource.Styleable.Chip_chipCornerRadius;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_chipEndPadding = global::GreenApp.Droid.Resource.Styleable.Chip_chipEndPadding;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_chipIcon = global::GreenApp.Droid.Resource.Styleable.Chip_chipIcon;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_chipIconEnabled = global::GreenApp.Droid.Resource.Styleable.Chip_chipIconEnabled;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_chipIconSize = global::GreenApp.Droid.Resource.Styleable.Chip_chipIconSize;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_chipIconTint = global::GreenApp.Droid.Resource.Styleable.Chip_chipIconTint;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_chipIconVisible = global::GreenApp.Droid.Resource.Styleable.Chip_chipIconVisible;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_chipMinHeight = global::GreenApp.Droid.Resource.Styleable.Chip_chipMinHeight;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_chipStartPadding = global::GreenApp.Droid.Resource.Styleable.Chip_chipStartPadding;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_chipStrokeColor = global::GreenApp.Droid.Resource.Styleable.Chip_chipStrokeColor;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_chipStrokeWidth = global::GreenApp.Droid.Resource.Styleable.Chip_chipStrokeWidth;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_closeIcon = global::GreenApp.Droid.Resource.Styleable.Chip_closeIcon;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_closeIconEnabled = global::GreenApp.Droid.Resource.Styleable.Chip_closeIconEnabled;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_closeIconEndPadding = global::GreenApp.Droid.Resource.Styleable.Chip_closeIconEndPadding;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_closeIconSize = global::GreenApp.Droid.Resource.Styleable.Chip_closeIconSize;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_closeIconStartPadding = global::GreenApp.Droid.Resource.Styleable.Chip_closeIconStartPadding;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_closeIconTint = global::GreenApp.Droid.Resource.Styleable.Chip_closeIconTint;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_closeIconVisible = global::GreenApp.Droid.Resource.Styleable.Chip_closeIconVisible;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_hideMotionSpec = global::GreenApp.Droid.Resource.Styleable.Chip_hideMotionSpec;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_iconEndPadding = global::GreenApp.Droid.Resource.Styleable.Chip_iconEndPadding;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_iconStartPadding = global::GreenApp.Droid.Resource.Styleable.Chip_iconStartPadding;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_rippleColor = global::GreenApp.Droid.Resource.Styleable.Chip_rippleColor;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_showMotionSpec = global::GreenApp.Droid.Resource.Styleable.Chip_showMotionSpec;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_textEndPadding = global::GreenApp.Droid.Resource.Styleable.Chip_textEndPadding;
+			global::PhantomLib.Droid.Resource.Styleable.Chip_textStartPadding = global::GreenApp.Droid.Resource.Styleable.Chip_textStartPadding;
 			global::PhantomLib.Droid.Resource.Styleable.CollapsingToolbarLayout = global::GreenApp.Droid.Resource.Styleable.CollapsingToolbarLayout;
 			global::PhantomLib.Droid.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleGravity = global::GreenApp.Droid.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleGravity;
 			global::PhantomLib.Droid.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance = global::GreenApp.Droid.Resource.Styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance;
@@ -9032,18 +9525,30 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Styleable.FloatingActionButton_Behavior_Layout_behavior_autoHide = global::GreenApp.Droid.Resource.Styleable.FloatingActionButton_Behavior_Layout_behavior_autoHide;
 			global::PhantomLib.Droid.Resource.Styleable.FloatingActionButton_borderWidth = global::GreenApp.Droid.Resource.Styleable.FloatingActionButton_borderWidth;
 			global::PhantomLib.Droid.Resource.Styleable.FloatingActionButton_elevation = global::GreenApp.Droid.Resource.Styleable.FloatingActionButton_elevation;
+			global::PhantomLib.Droid.Resource.Styleable.FloatingActionButton_fabCustomSize = global::GreenApp.Droid.Resource.Styleable.FloatingActionButton_fabCustomSize;
 			global::PhantomLib.Droid.Resource.Styleable.FloatingActionButton_fabSize = global::GreenApp.Droid.Resource.Styleable.FloatingActionButton_fabSize;
+			global::PhantomLib.Droid.Resource.Styleable.FloatingActionButton_hideMotionSpec = global::GreenApp.Droid.Resource.Styleable.FloatingActionButton_hideMotionSpec;
+			global::PhantomLib.Droid.Resource.Styleable.FloatingActionButton_hoveredFocusedTranslationZ = global::GreenApp.Droid.Resource.Styleable.FloatingActionButton_hoveredFocusedTranslationZ;
+			global::PhantomLib.Droid.Resource.Styleable.FloatingActionButton_maxImageSize = global::GreenApp.Droid.Resource.Styleable.FloatingActionButton_maxImageSize;
 			global::PhantomLib.Droid.Resource.Styleable.FloatingActionButton_pressedTranslationZ = global::GreenApp.Droid.Resource.Styleable.FloatingActionButton_pressedTranslationZ;
 			global::PhantomLib.Droid.Resource.Styleable.FloatingActionButton_rippleColor = global::GreenApp.Droid.Resource.Styleable.FloatingActionButton_rippleColor;
+			global::PhantomLib.Droid.Resource.Styleable.FloatingActionButton_showMotionSpec = global::GreenApp.Droid.Resource.Styleable.FloatingActionButton_showMotionSpec;
 			global::PhantomLib.Droid.Resource.Styleable.FloatingActionButton_useCompatPadding = global::GreenApp.Droid.Resource.Styleable.FloatingActionButton_useCompatPadding;
+			global::PhantomLib.Droid.Resource.Styleable.FlowLayout = global::GreenApp.Droid.Resource.Styleable.FlowLayout;
+			global::PhantomLib.Droid.Resource.Styleable.FlowLayout_itemSpacing = global::GreenApp.Droid.Resource.Styleable.FlowLayout_itemSpacing;
+			global::PhantomLib.Droid.Resource.Styleable.FlowLayout_lineSpacing = global::GreenApp.Droid.Resource.Styleable.FlowLayout_lineSpacing;
 			global::PhantomLib.Droid.Resource.Styleable.FontFamily = global::GreenApp.Droid.Resource.Styleable.FontFamily;
 			global::PhantomLib.Droid.Resource.Styleable.FontFamilyFont = global::GreenApp.Droid.Resource.Styleable.FontFamilyFont;
 			global::PhantomLib.Droid.Resource.Styleable.FontFamilyFont_android_font = global::GreenApp.Droid.Resource.Styleable.FontFamilyFont_android_font;
 			global::PhantomLib.Droid.Resource.Styleable.FontFamilyFont_android_fontStyle = global::GreenApp.Droid.Resource.Styleable.FontFamilyFont_android_fontStyle;
+			global::PhantomLib.Droid.Resource.Styleable.FontFamilyFont_android_fontVariationSettings = global::GreenApp.Droid.Resource.Styleable.FontFamilyFont_android_fontVariationSettings;
 			global::PhantomLib.Droid.Resource.Styleable.FontFamilyFont_android_fontWeight = global::GreenApp.Droid.Resource.Styleable.FontFamilyFont_android_fontWeight;
+			global::PhantomLib.Droid.Resource.Styleable.FontFamilyFont_android_ttcIndex = global::GreenApp.Droid.Resource.Styleable.FontFamilyFont_android_ttcIndex;
 			global::PhantomLib.Droid.Resource.Styleable.FontFamilyFont_font = global::GreenApp.Droid.Resource.Styleable.FontFamilyFont_font;
 			global::PhantomLib.Droid.Resource.Styleable.FontFamilyFont_fontStyle = global::GreenApp.Droid.Resource.Styleable.FontFamilyFont_fontStyle;
+			global::PhantomLib.Droid.Resource.Styleable.FontFamilyFont_fontVariationSettings = global::GreenApp.Droid.Resource.Styleable.FontFamilyFont_fontVariationSettings;
 			global::PhantomLib.Droid.Resource.Styleable.FontFamilyFont_fontWeight = global::GreenApp.Droid.Resource.Styleable.FontFamilyFont_fontWeight;
+			global::PhantomLib.Droid.Resource.Styleable.FontFamilyFont_ttcIndex = global::GreenApp.Droid.Resource.Styleable.FontFamilyFont_ttcIndex;
 			global::PhantomLib.Droid.Resource.Styleable.FontFamily_fontProviderAuthority = global::GreenApp.Droid.Resource.Styleable.FontFamily_fontProviderAuthority;
 			global::PhantomLib.Droid.Resource.Styleable.FontFamily_fontProviderCerts = global::GreenApp.Droid.Resource.Styleable.FontFamily_fontProviderCerts;
 			global::PhantomLib.Droid.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::GreenApp.Droid.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
@@ -9054,6 +9559,22 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Styleable.ForegroundLinearLayout_android_foreground = global::GreenApp.Droid.Resource.Styleable.ForegroundLinearLayout_android_foreground;
 			global::PhantomLib.Droid.Resource.Styleable.ForegroundLinearLayout_android_foregroundGravity = global::GreenApp.Droid.Resource.Styleable.ForegroundLinearLayout_android_foregroundGravity;
 			global::PhantomLib.Droid.Resource.Styleable.ForegroundLinearLayout_foregroundInsidePadding = global::GreenApp.Droid.Resource.Styleable.ForegroundLinearLayout_foregroundInsidePadding;
+			global::PhantomLib.Droid.Resource.Styleable.GradientColor = global::GreenApp.Droid.Resource.Styleable.GradientColor;
+			global::PhantomLib.Droid.Resource.Styleable.GradientColorItem = global::GreenApp.Droid.Resource.Styleable.GradientColorItem;
+			global::PhantomLib.Droid.Resource.Styleable.GradientColorItem_android_color = global::GreenApp.Droid.Resource.Styleable.GradientColorItem_android_color;
+			global::PhantomLib.Droid.Resource.Styleable.GradientColorItem_android_offset = global::GreenApp.Droid.Resource.Styleable.GradientColorItem_android_offset;
+			global::PhantomLib.Droid.Resource.Styleable.GradientColor_android_centerColor = global::GreenApp.Droid.Resource.Styleable.GradientColor_android_centerColor;
+			global::PhantomLib.Droid.Resource.Styleable.GradientColor_android_centerX = global::GreenApp.Droid.Resource.Styleable.GradientColor_android_centerX;
+			global::PhantomLib.Droid.Resource.Styleable.GradientColor_android_centerY = global::GreenApp.Droid.Resource.Styleable.GradientColor_android_centerY;
+			global::PhantomLib.Droid.Resource.Styleable.GradientColor_android_endColor = global::GreenApp.Droid.Resource.Styleable.GradientColor_android_endColor;
+			global::PhantomLib.Droid.Resource.Styleable.GradientColor_android_endX = global::GreenApp.Droid.Resource.Styleable.GradientColor_android_endX;
+			global::PhantomLib.Droid.Resource.Styleable.GradientColor_android_endY = global::GreenApp.Droid.Resource.Styleable.GradientColor_android_endY;
+			global::PhantomLib.Droid.Resource.Styleable.GradientColor_android_gradientRadius = global::GreenApp.Droid.Resource.Styleable.GradientColor_android_gradientRadius;
+			global::PhantomLib.Droid.Resource.Styleable.GradientColor_android_startColor = global::GreenApp.Droid.Resource.Styleable.GradientColor_android_startColor;
+			global::PhantomLib.Droid.Resource.Styleable.GradientColor_android_startX = global::GreenApp.Droid.Resource.Styleable.GradientColor_android_startX;
+			global::PhantomLib.Droid.Resource.Styleable.GradientColor_android_startY = global::GreenApp.Droid.Resource.Styleable.GradientColor_android_startY;
+			global::PhantomLib.Droid.Resource.Styleable.GradientColor_android_tileMode = global::GreenApp.Droid.Resource.Styleable.GradientColor_android_tileMode;
+			global::PhantomLib.Droid.Resource.Styleable.GradientColor_android_type = global::GreenApp.Droid.Resource.Styleable.GradientColor_android_type;
 			global::PhantomLib.Droid.Resource.Styleable.LinearLayoutCompat = global::GreenApp.Droid.Resource.Styleable.LinearLayoutCompat;
 			global::PhantomLib.Droid.Resource.Styleable.LinearLayoutCompat_android_baselineAligned = global::GreenApp.Droid.Resource.Styleable.LinearLayoutCompat_android_baselineAligned;
 			global::PhantomLib.Droid.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex = global::GreenApp.Droid.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex;
@@ -9072,6 +9593,59 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Styleable.ListPopupWindow = global::GreenApp.Droid.Resource.Styleable.ListPopupWindow;
 			global::PhantomLib.Droid.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset = global::GreenApp.Droid.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset;
 			global::PhantomLib.Droid.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset = global::GreenApp.Droid.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialButton = global::GreenApp.Droid.Resource.Styleable.MaterialButton;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialButton_android_insetBottom = global::GreenApp.Droid.Resource.Styleable.MaterialButton_android_insetBottom;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialButton_android_insetLeft = global::GreenApp.Droid.Resource.Styleable.MaterialButton_android_insetLeft;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialButton_android_insetRight = global::GreenApp.Droid.Resource.Styleable.MaterialButton_android_insetRight;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialButton_android_insetTop = global::GreenApp.Droid.Resource.Styleable.MaterialButton_android_insetTop;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialButton_backgroundTint = global::GreenApp.Droid.Resource.Styleable.MaterialButton_backgroundTint;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialButton_backgroundTintMode = global::GreenApp.Droid.Resource.Styleable.MaterialButton_backgroundTintMode;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialButton_cornerRadius = global::GreenApp.Droid.Resource.Styleable.MaterialButton_cornerRadius;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialButton_icon = global::GreenApp.Droid.Resource.Styleable.MaterialButton_icon;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialButton_iconGravity = global::GreenApp.Droid.Resource.Styleable.MaterialButton_iconGravity;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialButton_iconPadding = global::GreenApp.Droid.Resource.Styleable.MaterialButton_iconPadding;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialButton_iconSize = global::GreenApp.Droid.Resource.Styleable.MaterialButton_iconSize;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialButton_iconTint = global::GreenApp.Droid.Resource.Styleable.MaterialButton_iconTint;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialButton_iconTintMode = global::GreenApp.Droid.Resource.Styleable.MaterialButton_iconTintMode;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialButton_rippleColor = global::GreenApp.Droid.Resource.Styleable.MaterialButton_rippleColor;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialButton_strokeColor = global::GreenApp.Droid.Resource.Styleable.MaterialButton_strokeColor;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialButton_strokeWidth = global::GreenApp.Droid.Resource.Styleable.MaterialButton_strokeWidth;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialCardView = global::GreenApp.Droid.Resource.Styleable.MaterialCardView;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialCardView_strokeColor = global::GreenApp.Droid.Resource.Styleable.MaterialCardView_strokeColor;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialCardView_strokeWidth = global::GreenApp.Droid.Resource.Styleable.MaterialCardView_strokeWidth;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_bottomSheetDialogTheme = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_bottomSheetDialogTheme;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_bottomSheetStyle = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_bottomSheetStyle;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_chipGroupStyle = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_chipGroupStyle;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_chipStandaloneStyle = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_chipStandaloneStyle;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_chipStyle = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_chipStyle;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_colorAccent = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_colorAccent;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_colorBackgroundFloating = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_colorBackgroundFloating;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_colorPrimary = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_colorPrimary;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_colorPrimaryDark = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_colorPrimaryDark;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_colorSecondary = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_colorSecondary;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_editTextStyle = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_editTextStyle;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_floatingActionButtonStyle = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_floatingActionButtonStyle;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_materialButtonStyle = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_materialButtonStyle;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_materialCardViewStyle = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_materialCardViewStyle;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_navigationViewStyle = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_navigationViewStyle;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_scrimBackground = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_scrimBackground;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_snackbarButtonStyle = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_snackbarButtonStyle;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_tabStyle = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_tabStyle;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceBody1 = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceBody1;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceBody2 = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceBody2;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceButton = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceButton;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceCaption = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceCaption;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline1 = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline1;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline2 = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline2;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline3 = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline3;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline4 = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline4;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline5 = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline5;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline6 = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceHeadline6;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceOverline = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceOverline;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceSubtitle1 = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceSubtitle1;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceSubtitle2 = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_textAppearanceSubtitle2;
+			global::PhantomLib.Droid.Resource.Styleable.MaterialComponentsTheme_textInputStyle = global::GreenApp.Droid.Resource.Styleable.MaterialComponentsTheme_textInputStyle;
 			global::PhantomLib.Droid.Resource.Styleable.MenuGroup = global::GreenApp.Droid.Resource.Styleable.MenuGroup;
 			global::PhantomLib.Droid.Resource.Styleable.MenuGroup_android_checkableBehavior = global::GreenApp.Droid.Resource.Styleable.MenuGroup_android_checkableBehavior;
 			global::PhantomLib.Droid.Resource.Styleable.MenuGroup_android_enabled = global::GreenApp.Droid.Resource.Styleable.MenuGroup_android_enabled;
@@ -9120,6 +9694,8 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Styleable.NavigationView_elevation = global::GreenApp.Droid.Resource.Styleable.NavigationView_elevation;
 			global::PhantomLib.Droid.Resource.Styleable.NavigationView_headerLayout = global::GreenApp.Droid.Resource.Styleable.NavigationView_headerLayout;
 			global::PhantomLib.Droid.Resource.Styleable.NavigationView_itemBackground = global::GreenApp.Droid.Resource.Styleable.NavigationView_itemBackground;
+			global::PhantomLib.Droid.Resource.Styleable.NavigationView_itemHorizontalPadding = global::GreenApp.Droid.Resource.Styleable.NavigationView_itemHorizontalPadding;
+			global::PhantomLib.Droid.Resource.Styleable.NavigationView_itemIconPadding = global::GreenApp.Droid.Resource.Styleable.NavigationView_itemIconPadding;
 			global::PhantomLib.Droid.Resource.Styleable.NavigationView_itemIconTint = global::GreenApp.Droid.Resource.Styleable.NavigationView_itemIconTint;
 			global::PhantomLib.Droid.Resource.Styleable.NavigationView_itemTextAppearance = global::GreenApp.Droid.Resource.Styleable.NavigationView_itemTextAppearance;
 			global::PhantomLib.Droid.Resource.Styleable.NavigationView_itemTextColor = global::GreenApp.Droid.Resource.Styleable.NavigationView_itemTextColor;
@@ -9167,16 +9743,28 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Styleable.SearchView_submitBackground = global::GreenApp.Droid.Resource.Styleable.SearchView_submitBackground;
 			global::PhantomLib.Droid.Resource.Styleable.SearchView_suggestionRowLayout = global::GreenApp.Droid.Resource.Styleable.SearchView_suggestionRowLayout;
 			global::PhantomLib.Droid.Resource.Styleable.SearchView_voiceIcon = global::GreenApp.Droid.Resource.Styleable.SearchView_voiceIcon;
+			global::PhantomLib.Droid.Resource.Styleable.Snackbar = global::GreenApp.Droid.Resource.Styleable.Snackbar;
 			global::PhantomLib.Droid.Resource.Styleable.SnackbarLayout = global::GreenApp.Droid.Resource.Styleable.SnackbarLayout;
 			global::PhantomLib.Droid.Resource.Styleable.SnackbarLayout_android_maxWidth = global::GreenApp.Droid.Resource.Styleable.SnackbarLayout_android_maxWidth;
 			global::PhantomLib.Droid.Resource.Styleable.SnackbarLayout_elevation = global::GreenApp.Droid.Resource.Styleable.SnackbarLayout_elevation;
 			global::PhantomLib.Droid.Resource.Styleable.SnackbarLayout_maxActionInlineWidth = global::GreenApp.Droid.Resource.Styleable.SnackbarLayout_maxActionInlineWidth;
+			global::PhantomLib.Droid.Resource.Styleable.Snackbar_snackbarButtonStyle = global::GreenApp.Droid.Resource.Styleable.Snackbar_snackbarButtonStyle;
+			global::PhantomLib.Droid.Resource.Styleable.Snackbar_snackbarStyle = global::GreenApp.Droid.Resource.Styleable.Snackbar_snackbarStyle;
 			global::PhantomLib.Droid.Resource.Styleable.Spinner = global::GreenApp.Droid.Resource.Styleable.Spinner;
 			global::PhantomLib.Droid.Resource.Styleable.Spinner_android_dropDownWidth = global::GreenApp.Droid.Resource.Styleable.Spinner_android_dropDownWidth;
 			global::PhantomLib.Droid.Resource.Styleable.Spinner_android_entries = global::GreenApp.Droid.Resource.Styleable.Spinner_android_entries;
 			global::PhantomLib.Droid.Resource.Styleable.Spinner_android_popupBackground = global::GreenApp.Droid.Resource.Styleable.Spinner_android_popupBackground;
 			global::PhantomLib.Droid.Resource.Styleable.Spinner_android_prompt = global::GreenApp.Droid.Resource.Styleable.Spinner_android_prompt;
 			global::PhantomLib.Droid.Resource.Styleable.Spinner_popupTheme = global::GreenApp.Droid.Resource.Styleable.Spinner_popupTheme;
+			global::PhantomLib.Droid.Resource.Styleable.StateListDrawable = global::GreenApp.Droid.Resource.Styleable.StateListDrawable;
+			global::PhantomLib.Droid.Resource.Styleable.StateListDrawableItem = global::GreenApp.Droid.Resource.Styleable.StateListDrawableItem;
+			global::PhantomLib.Droid.Resource.Styleable.StateListDrawableItem_android_drawable = global::GreenApp.Droid.Resource.Styleable.StateListDrawableItem_android_drawable;
+			global::PhantomLib.Droid.Resource.Styleable.StateListDrawable_android_constantSize = global::GreenApp.Droid.Resource.Styleable.StateListDrawable_android_constantSize;
+			global::PhantomLib.Droid.Resource.Styleable.StateListDrawable_android_dither = global::GreenApp.Droid.Resource.Styleable.StateListDrawable_android_dither;
+			global::PhantomLib.Droid.Resource.Styleable.StateListDrawable_android_enterFadeDuration = global::GreenApp.Droid.Resource.Styleable.StateListDrawable_android_enterFadeDuration;
+			global::PhantomLib.Droid.Resource.Styleable.StateListDrawable_android_exitFadeDuration = global::GreenApp.Droid.Resource.Styleable.StateListDrawable_android_exitFadeDuration;
+			global::PhantomLib.Droid.Resource.Styleable.StateListDrawable_android_variablePadding = global::GreenApp.Droid.Resource.Styleable.StateListDrawable_android_variablePadding;
+			global::PhantomLib.Droid.Resource.Styleable.StateListDrawable_android_visible = global::GreenApp.Droid.Resource.Styleable.StateListDrawable_android_visible;
 			global::PhantomLib.Droid.Resource.Styleable.SwitchCompat = global::GreenApp.Droid.Resource.Styleable.SwitchCompat;
 			global::PhantomLib.Droid.Resource.Styleable.SwitchCompat_android_textOff = global::GreenApp.Droid.Resource.Styleable.SwitchCompat_android_textOff;
 			global::PhantomLib.Droid.Resource.Styleable.SwitchCompat_android_textOn = global::GreenApp.Droid.Resource.Styleable.SwitchCompat_android_textOn;
@@ -9200,8 +9788,15 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabBackground = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabBackground;
 			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabContentStart = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabContentStart;
 			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabGravity = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabGravity;
+			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabIconTint = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabIconTint;
+			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabIconTintMode = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabIconTintMode;
+			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabIndicator = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabIndicator;
+			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabIndicatorAnimationDuration = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabIndicatorAnimationDuration;
 			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabIndicatorColor = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabIndicatorColor;
+			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabIndicatorFullWidth = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabIndicatorFullWidth;
+			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabIndicatorGravity = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabIndicatorGravity;
 			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabIndicatorHeight = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabIndicatorHeight;
+			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabInlineLabel = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabInlineLabel;
 			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabMaxWidth = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabMaxWidth;
 			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabMinWidth = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabMinWidth;
 			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabMode = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabMode;
@@ -9210,9 +9805,11 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabPaddingEnd = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabPaddingEnd;
 			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabPaddingStart = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabPaddingStart;
 			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabPaddingTop = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabPaddingTop;
+			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabRippleColor = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabRippleColor;
 			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabSelectedTextColor = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabSelectedTextColor;
 			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabTextAppearance = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabTextAppearance;
 			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabTextColor = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabTextColor;
+			global::PhantomLib.Droid.Resource.Styleable.TabLayout_tabUnboundedRipple = global::GreenApp.Droid.Resource.Styleable.TabLayout_tabUnboundedRipple;
 			global::PhantomLib.Droid.Resource.Styleable.TextAppearance = global::GreenApp.Droid.Resource.Styleable.TextAppearance;
 			global::PhantomLib.Droid.Resource.Styleable.TextAppearance_android_fontFamily = global::GreenApp.Droid.Resource.Styleable.TextAppearance_android_fontFamily;
 			global::PhantomLib.Droid.Resource.Styleable.TextAppearance_android_shadowColor = global::GreenApp.Droid.Resource.Styleable.TextAppearance_android_shadowColor;
@@ -9230,12 +9827,24 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout = global::GreenApp.Droid.Resource.Styleable.TextInputLayout;
 			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_android_hint = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_android_hint;
 			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_android_textColorHint = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_android_textColorHint;
+			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_boxBackgroundColor = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_boxBackgroundColor;
+			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_boxBackgroundMode = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_boxBackgroundMode;
+			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_boxCollapsedPaddingTop = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_boxCollapsedPaddingTop;
+			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_boxCornerRadiusBottomEnd = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_boxCornerRadiusBottomEnd;
+			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_boxCornerRadiusBottomStart = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_boxCornerRadiusBottomStart;
+			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_boxCornerRadiusTopEnd = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_boxCornerRadiusTopEnd;
+			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_boxCornerRadiusTopStart = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_boxCornerRadiusTopStart;
+			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_boxStrokeColor = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_boxStrokeColor;
+			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_boxStrokeWidth = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_boxStrokeWidth;
 			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_counterEnabled = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_counterEnabled;
 			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_counterMaxLength = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_counterMaxLength;
 			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_counterOverflowTextAppearance = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_counterOverflowTextAppearance;
 			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_counterTextAppearance = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_counterTextAppearance;
 			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_errorEnabled = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_errorEnabled;
 			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_errorTextAppearance = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_errorTextAppearance;
+			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_helperText = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_helperText;
+			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_helperTextEnabled = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_helperTextEnabled;
+			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_helperTextTextAppearance = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_helperTextTextAppearance;
 			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_hintAnimationEnabled = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_hintAnimationEnabled;
 			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_hintEnabled = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_hintEnabled;
 			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_hintTextAppearance = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_hintTextAppearance;
@@ -9244,6 +9853,10 @@ namespace GreenApp.Droid
 			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_passwordToggleEnabled = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_passwordToggleEnabled;
 			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_passwordToggleTint = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_passwordToggleTint;
 			global::PhantomLib.Droid.Resource.Styleable.TextInputLayout_passwordToggleTintMode = global::GreenApp.Droid.Resource.Styleable.TextInputLayout_passwordToggleTintMode;
+			global::PhantomLib.Droid.Resource.Styleable.ThemeEnforcement = global::GreenApp.Droid.Resource.Styleable.ThemeEnforcement;
+			global::PhantomLib.Droid.Resource.Styleable.ThemeEnforcement_android_textAppearance = global::GreenApp.Droid.Resource.Styleable.ThemeEnforcement_android_textAppearance;
+			global::PhantomLib.Droid.Resource.Styleable.ThemeEnforcement_enforceMaterialTheme = global::GreenApp.Droid.Resource.Styleable.ThemeEnforcement_enforceMaterialTheme;
+			global::PhantomLib.Droid.Resource.Styleable.ThemeEnforcement_enforceTextAppearance = global::GreenApp.Droid.Resource.Styleable.ThemeEnforcement_enforceTextAppearance;
 			global::PhantomLib.Droid.Resource.Styleable.Toolbar = global::GreenApp.Droid.Resource.Styleable.Toolbar;
 			global::PhantomLib.Droid.Resource.Styleable.Toolbar_android_gravity = global::GreenApp.Droid.Resource.Styleable.Toolbar_android_gravity;
 			global::PhantomLib.Droid.Resource.Styleable.Toolbar_android_minHeight = global::GreenApp.Droid.Resource.Styleable.Toolbar_android_minHeight;
@@ -11339,6 +11952,7 @@ namespace GreenApp.Droid
 			global::Xamarin.Forms.Material.Android.Resource.Attribute.scrimAnimationDuration = global::GreenApp.Droid.Resource.Attribute.scrimAnimationDuration;
 			global::Xamarin.Forms.Material.Android.Resource.Attribute.scrimBackground = global::GreenApp.Droid.Resource.Attribute.scrimBackground;
 			global::Xamarin.Forms.Material.Android.Resource.Attribute.scrimVisibleHeightTrigger = global::GreenApp.Droid.Resource.Attribute.scrimVisibleHeightTrigger;
+			global::Xamarin.Forms.Material.Android.Resource.Attribute.scrollViewStyle = global::GreenApp.Droid.Resource.Attribute.scrollViewStyle;
 			global::Xamarin.Forms.Material.Android.Resource.Attribute.searchHintIcon = global::GreenApp.Droid.Resource.Attribute.searchHintIcon;
 			global::Xamarin.Forms.Material.Android.Resource.Attribute.searchIcon = global::GreenApp.Droid.Resource.Attribute.searchIcon;
 			global::Xamarin.Forms.Material.Android.Resource.Attribute.searchViewStyle = global::GreenApp.Droid.Resource.Attribute.searchViewStyle;
@@ -12487,7 +13101,6 @@ namespace GreenApp.Droid
 			global::Xamarin.Forms.Material.Android.Resource.Style.CardView = global::GreenApp.Droid.Resource.Style.CardView;
 			global::Xamarin.Forms.Material.Android.Resource.Style.CardView_Dark = global::GreenApp.Droid.Resource.Style.CardView_Dark;
 			global::Xamarin.Forms.Material.Android.Resource.Style.CardView_Light = global::GreenApp.Droid.Resource.Style.CardView_Light;
-			global::Xamarin.Forms.Material.Android.Resource.Style.collectionViewScrollBars = global::GreenApp.Droid.Resource.Style.collectionViewScrollBars;
 			global::Xamarin.Forms.Material.Android.Resource.Style.collectionViewTheme = global::GreenApp.Droid.Resource.Style.collectionViewTheme;
 			global::Xamarin.Forms.Material.Android.Resource.Style.MainTheme = global::GreenApp.Droid.Resource.Style.MainTheme;
 			global::Xamarin.Forms.Material.Android.Resource.Style.MainTheme_Base = global::GreenApp.Droid.Resource.Style.MainTheme_Base;
@@ -12522,6 +13135,8 @@ namespace GreenApp.Droid
 			global::Xamarin.Forms.Material.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text = global::GreenApp.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text;
 			global::Xamarin.Forms.Material.Android.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton = global::GreenApp.Droid.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton;
 			global::Xamarin.Forms.Material.Android.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = global::GreenApp.Droid.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow;
+			global::Xamarin.Forms.Material.Android.Resource.Style.scrollViewScrollBars = global::GreenApp.Droid.Resource.Style.scrollViewScrollBars;
+			global::Xamarin.Forms.Material.Android.Resource.Style.scrollViewTheme = global::GreenApp.Droid.Resource.Style.scrollViewTheme;
 			global::Xamarin.Forms.Material.Android.Resource.Style.TextAppearance_AppCompat = global::GreenApp.Droid.Resource.Style.TextAppearance_AppCompat;
 			global::Xamarin.Forms.Material.Android.Resource.Style.TextAppearance_AppCompat_Body1 = global::GreenApp.Droid.Resource.Style.TextAppearance_AppCompat_Body1;
 			global::Xamarin.Forms.Material.Android.Resource.Style.TextAppearance_AppCompat_Body2 = global::GreenApp.Droid.Resource.Style.TextAppearance_AppCompat_Body2;
@@ -13380,6 +13995,8 @@ namespace GreenApp.Droid
 			global::Xamarin.Forms.Material.Android.Resource.Styleable.ScrimInsetsFrameLayout_insetForeground = global::GreenApp.Droid.Resource.Styleable.ScrimInsetsFrameLayout_insetForeground;
 			global::Xamarin.Forms.Material.Android.Resource.Styleable.ScrollingViewBehavior_Layout = global::GreenApp.Droid.Resource.Styleable.ScrollingViewBehavior_Layout;
 			global::Xamarin.Forms.Material.Android.Resource.Styleable.ScrollingViewBehavior_Layout_behavior_overlapTop = global::GreenApp.Droid.Resource.Styleable.ScrollingViewBehavior_Layout_behavior_overlapTop;
+			global::Xamarin.Forms.Material.Android.Resource.Styleable.ScrollViewRendererTheme = global::GreenApp.Droid.Resource.Styleable.ScrollViewRendererTheme;
+			global::Xamarin.Forms.Material.Android.Resource.Styleable.ScrollViewRendererTheme_scrollViewStyle = global::GreenApp.Droid.Resource.Styleable.ScrollViewRendererTheme_scrollViewStyle;
 			global::Xamarin.Forms.Material.Android.Resource.Styleable.SearchView = global::GreenApp.Droid.Resource.Styleable.SearchView;
 			global::Xamarin.Forms.Material.Android.Resource.Styleable.SearchView_android_focusable = global::GreenApp.Droid.Resource.Styleable.SearchView_android_focusable;
 			global::Xamarin.Forms.Material.Android.Resource.Styleable.SearchView_android_imeOptions = global::GreenApp.Droid.Resource.Styleable.SearchView_android_imeOptions;
@@ -13924,6 +14541,7 @@ namespace GreenApp.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.scrimAnimationDuration = global::GreenApp.Droid.Resource.Attribute.scrimAnimationDuration;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.scrimBackground = global::GreenApp.Droid.Resource.Attribute.scrimBackground;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.scrimVisibleHeightTrigger = global::GreenApp.Droid.Resource.Attribute.scrimVisibleHeightTrigger;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.scrollViewStyle = global::GreenApp.Droid.Resource.Attribute.scrollViewStyle;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.searchHintIcon = global::GreenApp.Droid.Resource.Attribute.searchHintIcon;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.searchIcon = global::GreenApp.Droid.Resource.Attribute.searchIcon;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.searchViewStyle = global::GreenApp.Droid.Resource.Attribute.searchViewStyle;
@@ -15066,7 +15684,6 @@ namespace GreenApp.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Style.CardView = global::GreenApp.Droid.Resource.Style.CardView;
 			global::Xamarin.Forms.Platform.Android.Resource.Style.CardView_Dark = global::GreenApp.Droid.Resource.Style.CardView_Dark;
 			global::Xamarin.Forms.Platform.Android.Resource.Style.CardView_Light = global::GreenApp.Droid.Resource.Style.CardView_Light;
-			global::Xamarin.Forms.Platform.Android.Resource.Style.collectionViewScrollBars = global::GreenApp.Droid.Resource.Style.collectionViewScrollBars;
 			global::Xamarin.Forms.Platform.Android.Resource.Style.collectionViewTheme = global::GreenApp.Droid.Resource.Style.collectionViewTheme;
 			global::Xamarin.Forms.Platform.Android.Resource.Style.MainTheme = global::GreenApp.Droid.Resource.Style.MainTheme;
 			global::Xamarin.Forms.Platform.Android.Resource.Style.MainTheme_Base = global::GreenApp.Droid.Resource.Style.MainTheme_Base;
@@ -15101,6 +15718,8 @@ namespace GreenApp.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text = global::GreenApp.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text;
 			global::Xamarin.Forms.Platform.Android.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton = global::GreenApp.Droid.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton;
 			global::Xamarin.Forms.Platform.Android.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = global::GreenApp.Droid.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow;
+			global::Xamarin.Forms.Platform.Android.Resource.Style.scrollViewScrollBars = global::GreenApp.Droid.Resource.Style.scrollViewScrollBars;
+			global::Xamarin.Forms.Platform.Android.Resource.Style.scrollViewTheme = global::GreenApp.Droid.Resource.Style.scrollViewTheme;
 			global::Xamarin.Forms.Platform.Android.Resource.Style.TextAppearance_AppCompat = global::GreenApp.Droid.Resource.Style.TextAppearance_AppCompat;
 			global::Xamarin.Forms.Platform.Android.Resource.Style.TextAppearance_AppCompat_Body1 = global::GreenApp.Droid.Resource.Style.TextAppearance_AppCompat_Body1;
 			global::Xamarin.Forms.Platform.Android.Resource.Style.TextAppearance_AppCompat_Body2 = global::GreenApp.Droid.Resource.Style.TextAppearance_AppCompat_Body2;
@@ -15950,6 +16569,8 @@ namespace GreenApp.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.ScrimInsetsFrameLayout_insetForeground = global::GreenApp.Droid.Resource.Styleable.ScrimInsetsFrameLayout_insetForeground;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.ScrollingViewBehavior_Layout = global::GreenApp.Droid.Resource.Styleable.ScrollingViewBehavior_Layout;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.ScrollingViewBehavior_Layout_behavior_overlapTop = global::GreenApp.Droid.Resource.Styleable.ScrollingViewBehavior_Layout_behavior_overlapTop;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.ScrollViewRendererTheme = global::GreenApp.Droid.Resource.Styleable.ScrollViewRendererTheme;
+			global::Xamarin.Forms.Platform.Android.Resource.Styleable.ScrollViewRendererTheme_scrollViewStyle = global::GreenApp.Droid.Resource.Styleable.ScrollViewRendererTheme_scrollViewStyle;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.SearchView = global::GreenApp.Droid.Resource.Styleable.SearchView;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.SearchView_android_focusable = global::GreenApp.Droid.Resource.Styleable.SearchView_android_focusable;
 			global::Xamarin.Forms.Platform.Android.Resource.Styleable.SearchView_android_imeOptions = global::GreenApp.Droid.Resource.Styleable.SearchView_android_imeOptions;
@@ -16494,6 +17115,7 @@ namespace GreenApp.Droid
 			global::Xamarin.Forms.Platform.Resource.Attribute.scrimAnimationDuration = global::GreenApp.Droid.Resource.Attribute.scrimAnimationDuration;
 			global::Xamarin.Forms.Platform.Resource.Attribute.scrimBackground = global::GreenApp.Droid.Resource.Attribute.scrimBackground;
 			global::Xamarin.Forms.Platform.Resource.Attribute.scrimVisibleHeightTrigger = global::GreenApp.Droid.Resource.Attribute.scrimVisibleHeightTrigger;
+			global::Xamarin.Forms.Platform.Resource.Attribute.scrollViewStyle = global::GreenApp.Droid.Resource.Attribute.scrollViewStyle;
 			global::Xamarin.Forms.Platform.Resource.Attribute.searchHintIcon = global::GreenApp.Droid.Resource.Attribute.searchHintIcon;
 			global::Xamarin.Forms.Platform.Resource.Attribute.searchIcon = global::GreenApp.Droid.Resource.Attribute.searchIcon;
 			global::Xamarin.Forms.Platform.Resource.Attribute.searchViewStyle = global::GreenApp.Droid.Resource.Attribute.searchViewStyle;
@@ -17636,7 +18258,6 @@ namespace GreenApp.Droid
 			global::Xamarin.Forms.Platform.Resource.Style.CardView = global::GreenApp.Droid.Resource.Style.CardView;
 			global::Xamarin.Forms.Platform.Resource.Style.CardView_Dark = global::GreenApp.Droid.Resource.Style.CardView_Dark;
 			global::Xamarin.Forms.Platform.Resource.Style.CardView_Light = global::GreenApp.Droid.Resource.Style.CardView_Light;
-			global::Xamarin.Forms.Platform.Resource.Style.collectionViewScrollBars = global::GreenApp.Droid.Resource.Style.collectionViewScrollBars;
 			global::Xamarin.Forms.Platform.Resource.Style.collectionViewTheme = global::GreenApp.Droid.Resource.Style.collectionViewTheme;
 			global::Xamarin.Forms.Platform.Resource.Style.MainTheme = global::GreenApp.Droid.Resource.Style.MainTheme;
 			global::Xamarin.Forms.Platform.Resource.Style.MainTheme_Base = global::GreenApp.Droid.Resource.Style.MainTheme_Base;
@@ -17671,6 +18292,8 @@ namespace GreenApp.Droid
 			global::Xamarin.Forms.Platform.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text = global::GreenApp.Droid.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text;
 			global::Xamarin.Forms.Platform.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton = global::GreenApp.Droid.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton;
 			global::Xamarin.Forms.Platform.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = global::GreenApp.Droid.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow;
+			global::Xamarin.Forms.Platform.Resource.Style.scrollViewScrollBars = global::GreenApp.Droid.Resource.Style.scrollViewScrollBars;
+			global::Xamarin.Forms.Platform.Resource.Style.scrollViewTheme = global::GreenApp.Droid.Resource.Style.scrollViewTheme;
 			global::Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat = global::GreenApp.Droid.Resource.Style.TextAppearance_AppCompat;
 			global::Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Body1 = global::GreenApp.Droid.Resource.Style.TextAppearance_AppCompat_Body1;
 			global::Xamarin.Forms.Platform.Resource.Style.TextAppearance_AppCompat_Body2 = global::GreenApp.Droid.Resource.Style.TextAppearance_AppCompat_Body2;
@@ -18520,6 +19143,8 @@ namespace GreenApp.Droid
 			global::Xamarin.Forms.Platform.Resource.Styleable.ScrimInsetsFrameLayout_insetForeground = global::GreenApp.Droid.Resource.Styleable.ScrimInsetsFrameLayout_insetForeground;
 			global::Xamarin.Forms.Platform.Resource.Styleable.ScrollingViewBehavior_Layout = global::GreenApp.Droid.Resource.Styleable.ScrollingViewBehavior_Layout;
 			global::Xamarin.Forms.Platform.Resource.Styleable.ScrollingViewBehavior_Layout_behavior_overlapTop = global::GreenApp.Droid.Resource.Styleable.ScrollingViewBehavior_Layout_behavior_overlapTop;
+			global::Xamarin.Forms.Platform.Resource.Styleable.ScrollViewRendererTheme = global::GreenApp.Droid.Resource.Styleable.ScrollViewRendererTheme;
+			global::Xamarin.Forms.Platform.Resource.Styleable.ScrollViewRendererTheme_scrollViewStyle = global::GreenApp.Droid.Resource.Styleable.ScrollViewRendererTheme_scrollViewStyle;
 			global::Xamarin.Forms.Platform.Resource.Styleable.SearchView = global::GreenApp.Droid.Resource.Styleable.SearchView;
 			global::Xamarin.Forms.Platform.Resource.Styleable.SearchView_android_focusable = global::GreenApp.Droid.Resource.Styleable.SearchView_android_focusable;
 			global::Xamarin.Forms.Platform.Resource.Styleable.SearchView_android_imeOptions = global::GreenApp.Droid.Resource.Styleable.SearchView_android_imeOptions;
@@ -21859,451 +22484,454 @@ namespace GreenApp.Droid
 			public const int scrimVisibleHeightTrigger = 2130903386;
 			
 			// aapt resource value: 0x7F03015B
-			public const int searchHintIcon = 2130903387;
+			public const int scrollViewStyle = 2130903387;
 			
 			// aapt resource value: 0x7F03015C
-			public const int searchIcon = 2130903388;
+			public const int searchHintIcon = 2130903388;
 			
 			// aapt resource value: 0x7F03015D
-			public const int searchViewStyle = 2130903389;
+			public const int searchIcon = 2130903389;
 			
 			// aapt resource value: 0x7F03015E
-			public const int seekBarStyle = 2130903390;
+			public const int searchViewStyle = 2130903390;
 			
 			// aapt resource value: 0x7F03015F
-			public const int selectableItemBackground = 2130903391;
+			public const int seekBarStyle = 2130903391;
 			
 			// aapt resource value: 0x7F030160
-			public const int selectableItemBackgroundBorderless = 2130903392;
+			public const int selectableItemBackground = 2130903392;
 			
 			// aapt resource value: 0x7F030161
-			public const int showAsAction = 2130903393;
+			public const int selectableItemBackgroundBorderless = 2130903393;
 			
 			// aapt resource value: 0x7F030162
-			public const int showDividers = 2130903394;
+			public const int showAsAction = 2130903394;
 			
 			// aapt resource value: 0x7F030163
-			public const int showMotionSpec = 2130903395;
+			public const int showDividers = 2130903395;
 			
 			// aapt resource value: 0x7F030164
-			public const int showText = 2130903396;
+			public const int showMotionSpec = 2130903396;
 			
 			// aapt resource value: 0x7F030165
-			public const int showTitle = 2130903397;
+			public const int showText = 2130903397;
 			
 			// aapt resource value: 0x7F030166
-			public const int singleChoiceItemLayout = 2130903398;
+			public const int showTitle = 2130903398;
 			
 			// aapt resource value: 0x7F030167
-			public const int singleLine = 2130903399;
+			public const int singleChoiceItemLayout = 2130903399;
 			
 			// aapt resource value: 0x7F030168
-			public const int singleSelection = 2130903400;
+			public const int singleLine = 2130903400;
 			
 			// aapt resource value: 0x7F030169
-			public const int snackbarButtonStyle = 2130903401;
+			public const int singleSelection = 2130903401;
 			
 			// aapt resource value: 0x7F03016A
-			public const int snackbarStyle = 2130903402;
+			public const int snackbarButtonStyle = 2130903402;
 			
 			// aapt resource value: 0x7F03016B
-			public const int spanCount = 2130903403;
+			public const int snackbarStyle = 2130903403;
 			
 			// aapt resource value: 0x7F03016C
-			public const int spinBars = 2130903404;
+			public const int spanCount = 2130903404;
 			
 			// aapt resource value: 0x7F03016D
-			public const int spinnerDropDownItemStyle = 2130903405;
+			public const int spinBars = 2130903405;
 			
 			// aapt resource value: 0x7F03016E
-			public const int spinnerStyle = 2130903406;
+			public const int spinnerDropDownItemStyle = 2130903406;
 			
 			// aapt resource value: 0x7F03016F
-			public const int splitTrack = 2130903407;
+			public const int spinnerStyle = 2130903407;
 			
 			// aapt resource value: 0x7F030170
-			public const int srcCompat = 2130903408;
+			public const int splitTrack = 2130903408;
 			
 			// aapt resource value: 0x7F030171
-			public const int stackFromEnd = 2130903409;
+			public const int srcCompat = 2130903409;
 			
 			// aapt resource value: 0x7F030172
-			public const int state_above_anchor = 2130903410;
+			public const int stackFromEnd = 2130903410;
 			
 			// aapt resource value: 0x7F030173
-			public const int state_collapsed = 2130903411;
+			public const int state_above_anchor = 2130903411;
 			
 			// aapt resource value: 0x7F030174
-			public const int state_collapsible = 2130903412;
+			public const int state_collapsed = 2130903412;
 			
 			// aapt resource value: 0x7F030175
-			public const int state_liftable = 2130903413;
+			public const int state_collapsible = 2130903413;
 			
 			// aapt resource value: 0x7F030176
-			public const int state_lifted = 2130903414;
+			public const int state_liftable = 2130903414;
 			
 			// aapt resource value: 0x7F030177
-			public const int statusBarBackground = 2130903415;
+			public const int state_lifted = 2130903415;
 			
 			// aapt resource value: 0x7F030178
-			public const int statusBarScrim = 2130903416;
+			public const int statusBarBackground = 2130903416;
 			
 			// aapt resource value: 0x7F030179
-			public const int strokeColor = 2130903417;
+			public const int statusBarScrim = 2130903417;
 			
 			// aapt resource value: 0x7F03017A
-			public const int strokeWidth = 2130903418;
+			public const int strokeColor = 2130903418;
 			
 			// aapt resource value: 0x7F03017B
-			public const int subMenuArrow = 2130903419;
+			public const int strokeWidth = 2130903419;
 			
 			// aapt resource value: 0x7F03017C
-			public const int submitBackground = 2130903420;
+			public const int subMenuArrow = 2130903420;
 			
 			// aapt resource value: 0x7F03017D
-			public const int subtitle = 2130903421;
+			public const int submitBackground = 2130903421;
 			
 			// aapt resource value: 0x7F03017E
-			public const int subtitleTextAppearance = 2130903422;
+			public const int subtitle = 2130903422;
 			
 			// aapt resource value: 0x7F03017F
-			public const int subtitleTextColor = 2130903423;
+			public const int subtitleTextAppearance = 2130903423;
 			
 			// aapt resource value: 0x7F030180
-			public const int subtitleTextStyle = 2130903424;
+			public const int subtitleTextColor = 2130903424;
 			
 			// aapt resource value: 0x7F030181
-			public const int suggestionRowLayout = 2130903425;
+			public const int subtitleTextStyle = 2130903425;
 			
 			// aapt resource value: 0x7F030182
-			public const int switchMinWidth = 2130903426;
+			public const int suggestionRowLayout = 2130903426;
 			
 			// aapt resource value: 0x7F030183
-			public const int switchPadding = 2130903427;
+			public const int switchMinWidth = 2130903427;
 			
 			// aapt resource value: 0x7F030184
-			public const int switchStyle = 2130903428;
+			public const int switchPadding = 2130903428;
 			
 			// aapt resource value: 0x7F030185
-			public const int switchTextAppearance = 2130903429;
+			public const int switchStyle = 2130903429;
 			
 			// aapt resource value: 0x7F030186
-			public const int tabBackground = 2130903430;
+			public const int switchTextAppearance = 2130903430;
 			
 			// aapt resource value: 0x7F030187
-			public const int tabContentStart = 2130903431;
+			public const int tabBackground = 2130903431;
 			
 			// aapt resource value: 0x7F030188
-			public const int tabGravity = 2130903432;
+			public const int tabContentStart = 2130903432;
 			
 			// aapt resource value: 0x7F030189
-			public const int tabIconTint = 2130903433;
+			public const int tabGravity = 2130903433;
 			
 			// aapt resource value: 0x7F03018A
-			public const int tabIconTintMode = 2130903434;
+			public const int tabIconTint = 2130903434;
 			
 			// aapt resource value: 0x7F03018B
-			public const int tabIndicator = 2130903435;
+			public const int tabIconTintMode = 2130903435;
 			
 			// aapt resource value: 0x7F03018C
-			public const int tabIndicatorAnimationDuration = 2130903436;
+			public const int tabIndicator = 2130903436;
 			
 			// aapt resource value: 0x7F03018D
-			public const int tabIndicatorColor = 2130903437;
+			public const int tabIndicatorAnimationDuration = 2130903437;
 			
 			// aapt resource value: 0x7F03018E
-			public const int tabIndicatorFullWidth = 2130903438;
+			public const int tabIndicatorColor = 2130903438;
 			
 			// aapt resource value: 0x7F03018F
-			public const int tabIndicatorGravity = 2130903439;
+			public const int tabIndicatorFullWidth = 2130903439;
 			
 			// aapt resource value: 0x7F030190
-			public const int tabIndicatorHeight = 2130903440;
+			public const int tabIndicatorGravity = 2130903440;
 			
 			// aapt resource value: 0x7F030191
-			public const int tabInlineLabel = 2130903441;
+			public const int tabIndicatorHeight = 2130903441;
 			
 			// aapt resource value: 0x7F030192
-			public const int tabMaxWidth = 2130903442;
+			public const int tabInlineLabel = 2130903442;
 			
 			// aapt resource value: 0x7F030193
-			public const int tabMinWidth = 2130903443;
+			public const int tabMaxWidth = 2130903443;
 			
 			// aapt resource value: 0x7F030194
-			public const int tabMode = 2130903444;
+			public const int tabMinWidth = 2130903444;
 			
 			// aapt resource value: 0x7F030195
-			public const int tabPadding = 2130903445;
+			public const int tabMode = 2130903445;
 			
 			// aapt resource value: 0x7F030196
-			public const int tabPaddingBottom = 2130903446;
+			public const int tabPadding = 2130903446;
 			
 			// aapt resource value: 0x7F030197
-			public const int tabPaddingEnd = 2130903447;
+			public const int tabPaddingBottom = 2130903447;
 			
 			// aapt resource value: 0x7F030198
-			public const int tabPaddingStart = 2130903448;
+			public const int tabPaddingEnd = 2130903448;
 			
 			// aapt resource value: 0x7F030199
-			public const int tabPaddingTop = 2130903449;
+			public const int tabPaddingStart = 2130903449;
 			
 			// aapt resource value: 0x7F03019A
-			public const int tabRippleColor = 2130903450;
+			public const int tabPaddingTop = 2130903450;
 			
 			// aapt resource value: 0x7F03019B
-			public const int tabSelectedTextColor = 2130903451;
+			public const int tabRippleColor = 2130903451;
 			
 			// aapt resource value: 0x7F03019C
-			public const int tabStyle = 2130903452;
+			public const int tabSelectedTextColor = 2130903452;
 			
 			// aapt resource value: 0x7F03019D
-			public const int tabTextAppearance = 2130903453;
+			public const int tabStyle = 2130903453;
 			
 			// aapt resource value: 0x7F03019E
-			public const int tabTextColor = 2130903454;
+			public const int tabTextAppearance = 2130903454;
 			
 			// aapt resource value: 0x7F03019F
-			public const int tabUnboundedRipple = 2130903455;
+			public const int tabTextColor = 2130903455;
 			
 			// aapt resource value: 0x7F0301A0
-			public const int textAllCaps = 2130903456;
+			public const int tabUnboundedRipple = 2130903456;
 			
 			// aapt resource value: 0x7F0301A1
-			public const int textAppearanceBody1 = 2130903457;
+			public const int textAllCaps = 2130903457;
 			
 			// aapt resource value: 0x7F0301A2
-			public const int textAppearanceBody2 = 2130903458;
+			public const int textAppearanceBody1 = 2130903458;
 			
 			// aapt resource value: 0x7F0301A3
-			public const int textAppearanceButton = 2130903459;
+			public const int textAppearanceBody2 = 2130903459;
 			
 			// aapt resource value: 0x7F0301A4
-			public const int textAppearanceCaption = 2130903460;
+			public const int textAppearanceButton = 2130903460;
 			
 			// aapt resource value: 0x7F0301A5
-			public const int textAppearanceHeadline1 = 2130903461;
+			public const int textAppearanceCaption = 2130903461;
 			
 			// aapt resource value: 0x7F0301A6
-			public const int textAppearanceHeadline2 = 2130903462;
+			public const int textAppearanceHeadline1 = 2130903462;
 			
 			// aapt resource value: 0x7F0301A7
-			public const int textAppearanceHeadline3 = 2130903463;
+			public const int textAppearanceHeadline2 = 2130903463;
 			
 			// aapt resource value: 0x7F0301A8
-			public const int textAppearanceHeadline4 = 2130903464;
+			public const int textAppearanceHeadline3 = 2130903464;
 			
 			// aapt resource value: 0x7F0301A9
-			public const int textAppearanceHeadline5 = 2130903465;
+			public const int textAppearanceHeadline4 = 2130903465;
 			
 			// aapt resource value: 0x7F0301AA
-			public const int textAppearanceHeadline6 = 2130903466;
+			public const int textAppearanceHeadline5 = 2130903466;
 			
 			// aapt resource value: 0x7F0301AB
-			public const int textAppearanceLargePopupMenu = 2130903467;
+			public const int textAppearanceHeadline6 = 2130903467;
 			
 			// aapt resource value: 0x7F0301AC
-			public const int textAppearanceListItem = 2130903468;
+			public const int textAppearanceLargePopupMenu = 2130903468;
 			
 			// aapt resource value: 0x7F0301AD
-			public const int textAppearanceListItemSecondary = 2130903469;
+			public const int textAppearanceListItem = 2130903469;
 			
 			// aapt resource value: 0x7F0301AE
-			public const int textAppearanceListItemSmall = 2130903470;
+			public const int textAppearanceListItemSecondary = 2130903470;
 			
 			// aapt resource value: 0x7F0301AF
-			public const int textAppearanceOverline = 2130903471;
+			public const int textAppearanceListItemSmall = 2130903471;
 			
 			// aapt resource value: 0x7F0301B0
-			public const int textAppearancePopupMenuHeader = 2130903472;
+			public const int textAppearanceOverline = 2130903472;
 			
 			// aapt resource value: 0x7F0301B1
-			public const int textAppearanceSearchResultSubtitle = 2130903473;
+			public const int textAppearancePopupMenuHeader = 2130903473;
 			
 			// aapt resource value: 0x7F0301B2
-			public const int textAppearanceSearchResultTitle = 2130903474;
+			public const int textAppearanceSearchResultSubtitle = 2130903474;
 			
 			// aapt resource value: 0x7F0301B3
-			public const int textAppearanceSmallPopupMenu = 2130903475;
+			public const int textAppearanceSearchResultTitle = 2130903475;
 			
 			// aapt resource value: 0x7F0301B4
-			public const int textAppearanceSubtitle1 = 2130903476;
+			public const int textAppearanceSmallPopupMenu = 2130903476;
 			
 			// aapt resource value: 0x7F0301B5
-			public const int textAppearanceSubtitle2 = 2130903477;
+			public const int textAppearanceSubtitle1 = 2130903477;
 			
 			// aapt resource value: 0x7F0301B6
-			public const int textColorAlertDialogListItem = 2130903478;
+			public const int textAppearanceSubtitle2 = 2130903478;
 			
 			// aapt resource value: 0x7F0301B7
-			public const int textColorSearchUrl = 2130903479;
+			public const int textColorAlertDialogListItem = 2130903479;
 			
 			// aapt resource value: 0x7F0301B8
-			public const int textEndPadding = 2130903480;
+			public const int textColorSearchUrl = 2130903480;
 			
 			// aapt resource value: 0x7F0301B9
-			public const int textInputStyle = 2130903481;
+			public const int textEndPadding = 2130903481;
 			
 			// aapt resource value: 0x7F0301BA
-			public const int textStartPadding = 2130903482;
+			public const int textInputStyle = 2130903482;
 			
 			// aapt resource value: 0x7F0301BB
-			public const int theme = 2130903483;
+			public const int textStartPadding = 2130903483;
 			
 			// aapt resource value: 0x7F0301BC
-			public const int thickness = 2130903484;
+			public const int theme = 2130903484;
 			
 			// aapt resource value: 0x7F0301BD
-			public const int thumbTextPadding = 2130903485;
+			public const int thickness = 2130903485;
 			
 			// aapt resource value: 0x7F0301BE
-			public const int thumbTint = 2130903486;
+			public const int thumbTextPadding = 2130903486;
 			
 			// aapt resource value: 0x7F0301BF
-			public const int thumbTintMode = 2130903487;
+			public const int thumbTint = 2130903487;
 			
 			// aapt resource value: 0x7F0301C0
-			public const int tickMark = 2130903488;
+			public const int thumbTintMode = 2130903488;
 			
 			// aapt resource value: 0x7F0301C1
-			public const int tickMarkTint = 2130903489;
+			public const int tickMark = 2130903489;
 			
 			// aapt resource value: 0x7F0301C2
-			public const int tickMarkTintMode = 2130903490;
+			public const int tickMarkTint = 2130903490;
 			
 			// aapt resource value: 0x7F0301C3
-			public const int tint = 2130903491;
+			public const int tickMarkTintMode = 2130903491;
 			
 			// aapt resource value: 0x7F0301C4
-			public const int tintMode = 2130903492;
+			public const int tint = 2130903492;
 			
 			// aapt resource value: 0x7F0301C5
-			public const int title = 2130903493;
+			public const int tintMode = 2130903493;
 			
 			// aapt resource value: 0x7F0301C6
-			public const int titleEnabled = 2130903494;
+			public const int title = 2130903494;
 			
 			// aapt resource value: 0x7F0301C7
-			public const int titleMargin = 2130903495;
+			public const int titleEnabled = 2130903495;
 			
 			// aapt resource value: 0x7F0301C8
-			public const int titleMarginBottom = 2130903496;
+			public const int titleMargin = 2130903496;
 			
 			// aapt resource value: 0x7F0301C9
-			public const int titleMarginEnd = 2130903497;
-			
-			// aapt resource value: 0x7F0301CC
-			public const int titleMargins = 2130903500;
+			public const int titleMarginBottom = 2130903497;
 			
 			// aapt resource value: 0x7F0301CA
-			public const int titleMarginStart = 2130903498;
-			
-			// aapt resource value: 0x7F0301CB
-			public const int titleMarginTop = 2130903499;
+			public const int titleMarginEnd = 2130903498;
 			
 			// aapt resource value: 0x7F0301CD
-			public const int titleTextAppearance = 2130903501;
+			public const int titleMargins = 2130903501;
+			
+			// aapt resource value: 0x7F0301CB
+			public const int titleMarginStart = 2130903499;
+			
+			// aapt resource value: 0x7F0301CC
+			public const int titleMarginTop = 2130903500;
 			
 			// aapt resource value: 0x7F0301CE
-			public const int titleTextColor = 2130903502;
+			public const int titleTextAppearance = 2130903502;
 			
 			// aapt resource value: 0x7F0301CF
-			public const int titleTextStyle = 2130903503;
+			public const int titleTextColor = 2130903503;
 			
 			// aapt resource value: 0x7F0301D0
-			public const int toolbarId = 2130903504;
+			public const int titleTextStyle = 2130903504;
 			
 			// aapt resource value: 0x7F0301D1
-			public const int toolbarNavigationButtonStyle = 2130903505;
+			public const int toolbarId = 2130903505;
 			
 			// aapt resource value: 0x7F0301D2
-			public const int toolbarStyle = 2130903506;
+			public const int toolbarNavigationButtonStyle = 2130903506;
 			
 			// aapt resource value: 0x7F0301D3
-			public const int tooltipForegroundColor = 2130903507;
+			public const int toolbarStyle = 2130903507;
 			
 			// aapt resource value: 0x7F0301D4
-			public const int tooltipFrameBackground = 2130903508;
+			public const int tooltipForegroundColor = 2130903508;
 			
 			// aapt resource value: 0x7F0301D5
-			public const int tooltipText = 2130903509;
+			public const int tooltipFrameBackground = 2130903509;
 			
 			// aapt resource value: 0x7F0301D6
-			public const int track = 2130903510;
+			public const int tooltipText = 2130903510;
 			
 			// aapt resource value: 0x7F0301D7
-			public const int trackTint = 2130903511;
+			public const int track = 2130903511;
 			
 			// aapt resource value: 0x7F0301D8
-			public const int trackTintMode = 2130903512;
+			public const int trackTint = 2130903512;
 			
 			// aapt resource value: 0x7F0301D9
-			public const int ttcIndex = 2130903513;
+			public const int trackTintMode = 2130903513;
 			
 			// aapt resource value: 0x7F0301DA
-			public const int useCompatPadding = 2130903514;
+			public const int ttcIndex = 2130903514;
 			
 			// aapt resource value: 0x7F0301DB
-			public const int viewInflaterClass = 2130903515;
+			public const int useCompatPadding = 2130903515;
 			
 			// aapt resource value: 0x7F0301DC
-			public const int voiceIcon = 2130903516;
+			public const int viewInflaterClass = 2130903516;
 			
 			// aapt resource value: 0x7F0301DD
-			public const int vpiCentered = 2130903517;
+			public const int voiceIcon = 2130903517;
 			
 			// aapt resource value: 0x7F0301DE
-			public const int vpiCirclePageIndicatorStyle = 2130903518;
+			public const int vpiCentered = 2130903518;
 			
 			// aapt resource value: 0x7F0301DF
-			public const int vpiFillColor = 2130903519;
+			public const int vpiCirclePageIndicatorStyle = 2130903519;
 			
 			// aapt resource value: 0x7F0301E0
-			public const int vpiOrientation = 2130903520;
+			public const int vpiFillColor = 2130903520;
 			
 			// aapt resource value: 0x7F0301E1
-			public const int vpiPageColor = 2130903521;
+			public const int vpiOrientation = 2130903521;
 			
 			// aapt resource value: 0x7F0301E2
-			public const int vpiRadius = 2130903522;
+			public const int vpiPageColor = 2130903522;
 			
 			// aapt resource value: 0x7F0301E3
-			public const int vpiSnap = 2130903523;
+			public const int vpiRadius = 2130903523;
 			
 			// aapt resource value: 0x7F0301E4
-			public const int vpiStrokeColor = 2130903524;
+			public const int vpiSnap = 2130903524;
 			
 			// aapt resource value: 0x7F0301E5
-			public const int vpiStrokeWidth = 2130903525;
+			public const int vpiStrokeColor = 2130903525;
 			
 			// aapt resource value: 0x7F0301E6
-			public const int windowActionBar = 2130903526;
+			public const int vpiStrokeWidth = 2130903526;
 			
 			// aapt resource value: 0x7F0301E7
-			public const int windowActionBarOverlay = 2130903527;
+			public const int windowActionBar = 2130903527;
 			
 			// aapt resource value: 0x7F0301E8
-			public const int windowActionModeOverlay = 2130903528;
+			public const int windowActionBarOverlay = 2130903528;
 			
 			// aapt resource value: 0x7F0301E9
-			public const int windowFixedHeightMajor = 2130903529;
+			public const int windowActionModeOverlay = 2130903529;
 			
 			// aapt resource value: 0x7F0301EA
-			public const int windowFixedHeightMinor = 2130903530;
+			public const int windowFixedHeightMajor = 2130903530;
 			
 			// aapt resource value: 0x7F0301EB
-			public const int windowFixedWidthMajor = 2130903531;
+			public const int windowFixedHeightMinor = 2130903531;
 			
 			// aapt resource value: 0x7F0301EC
-			public const int windowFixedWidthMinor = 2130903532;
+			public const int windowFixedWidthMajor = 2130903532;
 			
 			// aapt resource value: 0x7F0301ED
-			public const int windowMinWidthMajor = 2130903533;
+			public const int windowFixedWidthMinor = 2130903533;
 			
 			// aapt resource value: 0x7F0301EE
-			public const int windowMinWidthMinor = 2130903534;
+			public const int windowMinWidthMajor = 2130903534;
 			
 			// aapt resource value: 0x7F0301EF
-			public const int windowNoTitle = 2130903535;
+			public const int windowMinWidthMinor = 2130903535;
+			
+			// aapt resource value: 0x7F0301F0
+			public const int windowNoTitle = 2130903536;
 			
 			static Attribute()
 			{
@@ -25827,10 +26455,7 @@ namespace GreenApp.Droid
 			public const int CardView_Light = 2131624137;
 			
 			// aapt resource value: 0x7F0E0207
-			public const int collectionViewScrollBars = 2131624455;
-			
-			// aapt resource value: 0x7F0E0208
-			public const int collectionViewTheme = 2131624456;
+			public const int collectionViewTheme = 2131624455;
 			
 			// aapt resource value: 0x7F0E00CA
 			public const int MainTheme = 2131624138;
@@ -25930,6 +26555,12 @@ namespace GreenApp.Droid
 			
 			// aapt resource value: 0x7F0E00EA
 			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131624170;
+			
+			// aapt resource value: 0x7F0E0208
+			public const int scrollViewScrollBars = 2131624456;
+			
+			// aapt resource value: 0x7F0E0209
+			public const int scrollViewTheme = 2131624457;
 			
 			// aapt resource value: 0x7F0E00EB
 			public const int TextAppearance_AppCompat = 2131624171;
@@ -26796,7 +27427,7 @@ namespace GreenApp.Droid
 		public partial class Styleable
 		{
 			
-			// aapt resource value: { 0x7F030031,0x7F030032,0x7F030033,0x7F030096,0x7F030097,0x7F030098,0x7F030099,0x7F03009A,0x7F03009B,0x7F0300A9,0x7F0300AE,0x7F0300AF,0x7F0300BA,0x7F0300E4,0x7F0300E9,0x7F0300EE,0x7F0300EF,0x7F0300F1,0x7F0300FB,0x7F030105,0x7F030128,0x7F030139,0x7F03014A,0x7F03014E,0x7F03014F,0x7F03017D,0x7F030180,0x7F0301C5,0x7F0301CF }
+			// aapt resource value: { 0x7F030031,0x7F030032,0x7F030033,0x7F030096,0x7F030097,0x7F030098,0x7F030099,0x7F03009A,0x7F03009B,0x7F0300A9,0x7F0300AE,0x7F0300AF,0x7F0300BA,0x7F0300E4,0x7F0300E9,0x7F0300EE,0x7F0300EF,0x7F0300F1,0x7F0300FB,0x7F030105,0x7F030128,0x7F030139,0x7F03014A,0x7F03014E,0x7F03014F,0x7F03017E,0x7F030181,0x7F0301C6,0x7F0301D0 }
 			public static int[] ActionBar = new int[] {
 					2130903089,
 					2130903090,
@@ -26823,10 +27454,10 @@ namespace GreenApp.Droid
 					2130903370,
 					2130903374,
 					2130903375,
-					2130903421,
-					2130903424,
-					2130903493,
-					2130903503};
+					2130903422,
+					2130903425,
+					2130903494,
+					2130903504};
 			
 			// aapt resource value: { 0x10100B3 }
 			public static int[] ActionBarLayout = new int[] {
@@ -26933,14 +27564,14 @@ namespace GreenApp.Droid
 			public static int[] ActionMenuView = new int[] {
 					-1};
 			
-			// aapt resource value: { 0x7F030031,0x7F030032,0x7F030082,0x7F0300E4,0x7F030180,0x7F0301CF }
+			// aapt resource value: { 0x7F030031,0x7F030032,0x7F030082,0x7F0300E4,0x7F030181,0x7F0301D0 }
 			public static int[] ActionMode = new int[] {
 					2130903089,
 					2130903090,
 					2130903170,
 					2130903268,
-					2130903424,
-					2130903503};
+					2130903425,
+					2130903504};
 			
 			// aapt resource value: 0
 			public const int ActionMode_background = 0;
@@ -26971,7 +27602,7 @@ namespace GreenApp.Droid
 			// aapt resource value: 1
 			public const int ActivityChooserView_initialActivityCount = 1;
 			
-			// aapt resource value: { 0x10100F2,0x7F030052,0x7F030053,0x7F03011F,0x7F030120,0x7F030136,0x7F030165,0x7F030166 }
+			// aapt resource value: { 0x10100F2,0x7F030052,0x7F030053,0x7F03011F,0x7F030120,0x7F030136,0x7F030166,0x7F030167 }
 			public static int[] AlertDialog = new int[] {
 					16842994,
 					2130903122,
@@ -26979,8 +27610,8 @@ namespace GreenApp.Droid
 					2130903327,
 					2130903328,
 					2130903350,
-					2130903397,
-					2130903398};
+					2130903398,
+					2130903399};
 			
 			// aapt resource value: 0
 			public const int AlertDialog_android_layout = 0;
@@ -27072,12 +27703,12 @@ namespace GreenApp.Droid
 					2130903232,
 					2130903322};
 			
-			// aapt resource value: { 0x7F030173,0x7F030174,0x7F030175,0x7F030176 }
+			// aapt resource value: { 0x7F030174,0x7F030175,0x7F030176,0x7F030177 }
 			public static int[] AppBarLayoutStates = new int[] {
-					2130903411,
 					2130903412,
 					2130903413,
-					2130903414};
+					2130903414,
+					2130903415};
 			
 			// aapt resource value: 0
 			public const int AppBarLayoutStates_state_collapsed = 0;
@@ -27120,12 +27751,12 @@ namespace GreenApp.Droid
 			// aapt resource value: 5
 			public const int AppBarLayout_liftOnScroll = 5;
 			
-			// aapt resource value: { 0x1010119,0x7F030170,0x7F0301C3,0x7F0301C4 }
+			// aapt resource value: { 0x1010119,0x7F030171,0x7F0301C4,0x7F0301C5 }
 			public static int[] AppCompatImageView = new int[] {
 					16843033,
-					2130903408,
-					2130903491,
-					2130903492};
+					2130903409,
+					2130903492,
+					2130903493};
 			
 			// aapt resource value: 0
 			public const int AppCompatImageView_android_src = 0;
@@ -27139,12 +27770,12 @@ namespace GreenApp.Droid
 			// aapt resource value: 3
 			public const int AppCompatImageView_tintMode = 3;
 			
-			// aapt resource value: { 0x1010142,0x7F0301C0,0x7F0301C1,0x7F0301C2 }
+			// aapt resource value: { 0x1010142,0x7F0301C1,0x7F0301C2,0x7F0301C3 }
 			public static int[] AppCompatSeekBar = new int[] {
 					16843074,
-					2130903488,
 					2130903489,
-					2130903490};
+					2130903490,
+					2130903491};
 			
 			// aapt resource value: 0
 			public const int AppCompatSeekBar_android_thumb = 0;
@@ -27189,7 +27820,7 @@ namespace GreenApp.Droid
 			// aapt resource value: 0
 			public const int AppCompatTextHelper_android_textAppearance = 0;
 			
-			// aapt resource value: { 0x1010034,0x7F03002C,0x7F03002D,0x7F03002E,0x7F03002F,0x7F030030,0x7F0300D3,0x7F0300D6,0x7F03010D,0x7F03011B,0x7F0301A0 }
+			// aapt resource value: { 0x1010034,0x7F03002C,0x7F03002D,0x7F03002E,0x7F03002F,0x7F030030,0x7F0300D3,0x7F0300D6,0x7F03010D,0x7F03011B,0x7F0301A1 }
 			public static int[] AppCompatTextView = new int[] {
 					16842804,
 					2130903084,
@@ -27201,7 +27832,7 @@ namespace GreenApp.Droid
 					2130903254,
 					2130903309,
 					2130903323,
-					2130903456};
+					2130903457};
 			
 			// aapt resource value: 0
 			public const int AppCompatTextView_android_textAppearance = 0;
@@ -27236,7 +27867,7 @@ namespace GreenApp.Droid
 			// aapt resource value: 10
 			public const int AppCompatTextView_textAllCaps = 10;
 			
-			// aapt resource value: { 0x1010057,0x10100AE,0x7F030000,0x7F030001,0x7F030002,0x7F030003,0x7F030004,0x7F030005,0x7F030006,0x7F030007,0x7F030008,0x7F030009,0x7F03000A,0x7F03000B,0x7F03000C,0x7F03000E,0x7F03000F,0x7F030010,0x7F030011,0x7F030012,0x7F030013,0x7F030014,0x7F030015,0x7F030016,0x7F030017,0x7F030018,0x7F030019,0x7F03001A,0x7F03001B,0x7F03001C,0x7F03001D,0x7F03001E,0x7F030021,0x7F030022,0x7F030023,0x7F030024,0x7F030025,0x7F03002B,0x7F03003E,0x7F03004C,0x7F03004D,0x7F03004E,0x7F03004F,0x7F030050,0x7F030054,0x7F030055,0x7F03005F,0x7F030064,0x7F030089,0x7F03008A,0x7F03008B,0x7F03008C,0x7F03008D,0x7F03008E,0x7F03008F,0x7F030090,0x7F030091,0x7F030093,0x7F0300A2,0x7F0300AB,0x7F0300AC,0x7F0300AD,0x7F0300B0,0x7F0300B2,0x7F0300B5,0x7F0300B6,0x7F0300B7,0x7F0300B8,0x7F0300B9,0x7F0300EE,0x7F0300FA,0x7F03011D,0x7F03011E,0x7F030121,0x7F030122,0x7F030123,0x7F030124,0x7F030125,0x7F030126,0x7F030127,0x7F030141,0x7F030142,0x7F030143,0x7F030149,0x7F03014B,0x7F030152,0x7F030153,0x7F030154,0x7F030155,0x7F03015D,0x7F03015E,0x7F03015F,0x7F030160,0x7F03016D,0x7F03016E,0x7F030184,0x7F0301AB,0x7F0301AC,0x7F0301AD,0x7F0301AE,0x7F0301B0,0x7F0301B1,0x7F0301B2,0x7F0301B3,0x7F0301B6,0x7F0301B7,0x7F0301D1,0x7F0301D2,0x7F0301D3,0x7F0301D4,0x7F0301DB,0x7F0301E6,0x7F0301E7,0x7F0301E8,0x7F0301E9,0x7F0301EA,0x7F0301EB,0x7F0301EC,0x7F0301ED,0x7F0301EE,0x7F0301EF }
+			// aapt resource value: { 0x1010057,0x10100AE,0x7F030000,0x7F030001,0x7F030002,0x7F030003,0x7F030004,0x7F030005,0x7F030006,0x7F030007,0x7F030008,0x7F030009,0x7F03000A,0x7F03000B,0x7F03000C,0x7F03000E,0x7F03000F,0x7F030010,0x7F030011,0x7F030012,0x7F030013,0x7F030014,0x7F030015,0x7F030016,0x7F030017,0x7F030018,0x7F030019,0x7F03001A,0x7F03001B,0x7F03001C,0x7F03001D,0x7F03001E,0x7F030021,0x7F030022,0x7F030023,0x7F030024,0x7F030025,0x7F03002B,0x7F03003E,0x7F03004C,0x7F03004D,0x7F03004E,0x7F03004F,0x7F030050,0x7F030054,0x7F030055,0x7F03005F,0x7F030064,0x7F030089,0x7F03008A,0x7F03008B,0x7F03008C,0x7F03008D,0x7F03008E,0x7F03008F,0x7F030090,0x7F030091,0x7F030093,0x7F0300A2,0x7F0300AB,0x7F0300AC,0x7F0300AD,0x7F0300B0,0x7F0300B2,0x7F0300B5,0x7F0300B6,0x7F0300B7,0x7F0300B8,0x7F0300B9,0x7F0300EE,0x7F0300FA,0x7F03011D,0x7F03011E,0x7F030121,0x7F030122,0x7F030123,0x7F030124,0x7F030125,0x7F030126,0x7F030127,0x7F030141,0x7F030142,0x7F030143,0x7F030149,0x7F03014B,0x7F030152,0x7F030153,0x7F030154,0x7F030155,0x7F03015E,0x7F03015F,0x7F030160,0x7F030161,0x7F03016E,0x7F03016F,0x7F030185,0x7F0301AC,0x7F0301AD,0x7F0301AE,0x7F0301AF,0x7F0301B1,0x7F0301B2,0x7F0301B3,0x7F0301B4,0x7F0301B7,0x7F0301B8,0x7F0301D2,0x7F0301D3,0x7F0301D4,0x7F0301D5,0x7F0301DC,0x7F0301E7,0x7F0301E8,0x7F0301E9,0x7F0301EA,0x7F0301EB,0x7F0301EC,0x7F0301ED,0x7F0301EE,0x7F0301EF,0x7F0301F0 }
 			public static int[] AppCompatTheme = new int[] {
 					16842839,
 					16842926,
@@ -27327,29 +27958,28 @@ namespace GreenApp.Droid
 					2130903379,
 					2130903380,
 					2130903381,
-					2130903389,
 					2130903390,
 					2130903391,
 					2130903392,
-					2130903405,
+					2130903393,
 					2130903406,
-					2130903428,
-					2130903467,
+					2130903407,
+					2130903429,
 					2130903468,
 					2130903469,
 					2130903470,
-					2130903472,
+					2130903471,
 					2130903473,
 					2130903474,
 					2130903475,
-					2130903478,
+					2130903476,
 					2130903479,
-					2130903505,
+					2130903480,
 					2130903506,
 					2130903507,
 					2130903508,
-					2130903515,
-					2130903526,
+					2130903509,
+					2130903516,
 					2130903527,
 					2130903528,
 					2130903529,
@@ -27358,7 +27988,8 @@ namespace GreenApp.Droid
 					2130903532,
 					2130903533,
 					2130903534,
-					2130903535};
+					2130903535,
+					2130903536};
 			
 			// aapt resource value: 2
 			public const int AppCompatTheme_actionBarDivider = 2;
@@ -27874,7 +28505,7 @@ namespace GreenApp.Droid
 			// aapt resource value: 12
 			public const int CardView_contentPaddingTop = 12;
 			
-			// aapt resource value: { 0x1010034,0x10100AB,0x101011F,0x101014F,0x10101E5,0x7F030061,0x7F030062,0x7F030063,0x7F030065,0x7F030066,0x7F030067,0x7F030069,0x7F03006A,0x7F03006B,0x7F03006C,0x7F03006D,0x7F03006E,0x7F030073,0x7F030074,0x7F030075,0x7F03007B,0x7F03007C,0x7F03007D,0x7F03007E,0x7F03007F,0x7F030080,0x7F030081,0x7F0300E8,0x7F0300F2,0x7F0300F6,0x7F030157,0x7F030163,0x7F0301B8,0x7F0301BA }
+			// aapt resource value: { 0x1010034,0x10100AB,0x101011F,0x101014F,0x10101E5,0x7F030061,0x7F030062,0x7F030063,0x7F030065,0x7F030066,0x7F030067,0x7F030069,0x7F03006A,0x7F03006B,0x7F03006C,0x7F03006D,0x7F03006E,0x7F030073,0x7F030074,0x7F030075,0x7F03007B,0x7F03007C,0x7F03007D,0x7F03007E,0x7F03007F,0x7F030080,0x7F030081,0x7F0300E8,0x7F0300F2,0x7F0300F6,0x7F030157,0x7F030164,0x7F0301B9,0x7F0301BB }
 			public static int[] Chip = new int[] {
 					16842804,
 					16842923,
@@ -27907,18 +28538,18 @@ namespace GreenApp.Droid
 					2130903282,
 					2130903286,
 					2130903383,
-					2130903395,
-					2130903480,
-					2130903482};
+					2130903396,
+					2130903481,
+					2130903483};
 			
-			// aapt resource value: { 0x7F030060,0x7F03006F,0x7F030070,0x7F030071,0x7F030167,0x7F030168 }
+			// aapt resource value: { 0x7F030060,0x7F03006F,0x7F030070,0x7F030071,0x7F030168,0x7F030169 }
 			public static int[] ChipGroup = new int[] {
 					2130903136,
 					2130903151,
 					2130903152,
 					2130903153,
-					2130903399,
-					2130903400};
+					2130903400,
+					2130903401};
 			
 			// aapt resource value: 0
 			public const int ChipGroup_checkedChip = 0;
@@ -28059,16 +28690,16 @@ namespace GreenApp.Droid
 			// aapt resource value: 3
 			public const int CircleImageView_civ_fill_color = 3;
 			
-			// aapt resource value: { 0x7F0301DD,0x7F0301DF,0x7F0301E0,0x7F0301E1,0x7F0301E2,0x7F0301E3,0x7F0301E4,0x7F0301E5 }
+			// aapt resource value: { 0x7F0301DE,0x7F0301E0,0x7F0301E1,0x7F0301E2,0x7F0301E3,0x7F0301E4,0x7F0301E5,0x7F0301E6 }
 			public static int[] CirclePageIndicator = new int[] {
-					2130903517,
-					2130903519,
+					2130903518,
 					2130903520,
 					2130903521,
 					2130903522,
 					2130903523,
 					2130903524,
-					2130903525};
+					2130903525,
+					2130903526};
 			
 			// aapt resource value: 0
 			public const int CirclePageIndicator_vpiCentered = 0;
@@ -28094,7 +28725,7 @@ namespace GreenApp.Droid
 			// aapt resource value: 7
 			public const int CirclePageIndicator_vpiStrokeWidth = 7;
 			
-			// aapt resource value: { 0x7F030085,0x7F030086,0x7F0300A1,0x7F0300C1,0x7F0300C2,0x7F0300C3,0x7F0300C4,0x7F0300C5,0x7F0300C6,0x7F0300C7,0x7F030158,0x7F03015A,0x7F030178,0x7F0301C5,0x7F0301C6,0x7F0301D0 }
+			// aapt resource value: { 0x7F030085,0x7F030086,0x7F0300A1,0x7F0300C1,0x7F0300C2,0x7F0300C3,0x7F0300C4,0x7F0300C5,0x7F0300C6,0x7F0300C7,0x7F030158,0x7F03015A,0x7F030179,0x7F0301C6,0x7F0301C7,0x7F0301D1 }
 			public static int[] CollapsingToolbarLayout = new int[] {
 					2130903173,
 					2130903174,
@@ -28108,10 +28739,10 @@ namespace GreenApp.Droid
 					2130903239,
 					2130903384,
 					2130903386,
-					2130903416,
-					2130903493,
+					2130903417,
 					2130903494,
-					2130903504};
+					2130903495,
+					2130903505};
 			
 			// aapt resource value: 0
 			public const int CollapsingToolbarLayout_collapsedTitleGravity = 0;
@@ -28202,10 +28833,10 @@ namespace GreenApp.Droid
 			// aapt resource value: 2
 			public const int CompoundButton_buttonTintMode = 2;
 			
-			// aapt resource value: { 0x7F03010B,0x7F030177 }
+			// aapt resource value: { 0x7F03010B,0x7F030178 }
 			public static int[] CoordinatorLayout = new int[] {
 					2130903307,
-					2130903415};
+					2130903416};
 			
 			// aapt resource value: 0
 			public const int CoordinatorLayout_keylines = 0;
@@ -28255,7 +28886,7 @@ namespace GreenApp.Droid
 			// aapt resource value: 1
 			public const int DesignTheme_bottomSheetStyle = 1;
 			
-			// aapt resource value: { 0x7F030029,0x7F03002A,0x7F030036,0x7F030088,0x7F0300B3,0x7F0300E1,0x7F03016C,0x7F0301BC }
+			// aapt resource value: { 0x7F030029,0x7F03002A,0x7F030036,0x7F030088,0x7F0300B3,0x7F0300E1,0x7F03016D,0x7F0301BD }
 			public static int[] DrawerArrowToggle = new int[] {
 					2130903081,
 					2130903082,
@@ -28263,8 +28894,8 @@ namespace GreenApp.Droid
 					2130903176,
 					2130903219,
 					2130903265,
-					2130903404,
-					2130903484};
+					2130903405,
+					2130903485};
 			
 			// aapt resource value: 0
 			public const int DrawerArrowToggle_arrowHeadLength = 0;
@@ -28290,7 +28921,7 @@ namespace GreenApp.Droid
 			// aapt resource value: 7
 			public const int DrawerArrowToggle_thickness = 7;
 			
-			// aapt resource value: { 0x7F030034,0x7F030035,0x7F03003D,0x7F0300BA,0x7F0300CC,0x7F0300CD,0x7F0300E8,0x7F0300F0,0x7F030133,0x7F03014D,0x7F030157,0x7F030163,0x7F0301DA }
+			// aapt resource value: { 0x7F030034,0x7F030035,0x7F03003D,0x7F0300BA,0x7F0300CC,0x7F0300CD,0x7F0300E8,0x7F0300F0,0x7F030133,0x7F03014D,0x7F030157,0x7F030164,0x7F0301DB }
 			public static int[] FloatingActionButton = new int[] {
 					2130903092,
 					2130903093,
@@ -28303,8 +28934,8 @@ namespace GreenApp.Droid
 					2130903347,
 					2130903373,
 					2130903383,
-					2130903395,
-					2130903514};
+					2130903396,
+					2130903515};
 			
 			// aapt resource value: 0
 			public const int FloatingActionButton_backgroundTint = 0;
@@ -28372,7 +29003,7 @@ namespace GreenApp.Droid
 					2130903259,
 					2130903260};
 			
-			// aapt resource value: { 0x1010532,0x1010533,0x101053F,0x101056F,0x1010570,0x7F0300D5,0x7F0300DD,0x7F0300DE,0x7F0300DF,0x7F0301D9 }
+			// aapt resource value: { 0x1010532,0x1010533,0x101053F,0x101056F,0x1010570,0x7F0300D5,0x7F0300DD,0x7F0300DE,0x7F0300DF,0x7F0301DA }
 			public static int[] FontFamilyFont = new int[] {
 					16844082,
 					16844083,
@@ -28383,7 +29014,7 @@ namespace GreenApp.Droid
 					2130903261,
 					2130903262,
 					2130903263,
-					2130903513};
+					2130903514};
 			
 			// aapt resource value: 0
 			public const int FontFamilyFont_android_font = 0;
@@ -28517,7 +29148,7 @@ namespace GreenApp.Droid
 			// aapt resource value: 0
 			public const int ItemsViewRendererTheme_collectionViewStyle = 0;
 			
-			// aapt resource value: { 0x10100AF,0x10100C4,0x1010126,0x1010127,0x1010128,0x7F0300AF,0x7F0300B1,0x7F030134,0x7F030162 }
+			// aapt resource value: { 0x10100AF,0x10100C4,0x1010126,0x1010127,0x1010128,0x7F0300AF,0x7F0300B1,0x7F030134,0x7F030163 }
 			public static int[] LinearLayoutCompat = new int[] {
 					16842927,
 					16842948,
@@ -28527,7 +29158,7 @@ namespace GreenApp.Droid
 					2130903215,
 					2130903217,
 					2130903348,
-					2130903394};
+					2130903395};
 			
 			// aapt resource value: 2
 			public const int LinearLayoutCompat_android_baselineAligned = 2;
@@ -28586,7 +29217,7 @@ namespace GreenApp.Droid
 			// aapt resource value: 1
 			public const int ListPopupWindow_android_dropDownVerticalOffset = 1;
 			
-			// aapt resource value: { 0x10101B7,0x10101B8,0x10101B9,0x10101BA,0x7F030034,0x7F030035,0x7F0300A4,0x7F0300F1,0x7F0300F3,0x7F0300F4,0x7F0300F5,0x7F0300F7,0x7F0300F8,0x7F030157,0x7F030179,0x7F03017A }
+			// aapt resource value: { 0x10101B7,0x10101B8,0x10101B9,0x10101BA,0x7F030034,0x7F030035,0x7F0300A4,0x7F0300F1,0x7F0300F3,0x7F0300F4,0x7F0300F5,0x7F0300F7,0x7F0300F8,0x7F030157,0x7F03017A,0x7F03017B }
 			public static int[] MaterialButton = new int[] {
 					16843191,
 					16843192,
@@ -28602,8 +29233,8 @@ namespace GreenApp.Droid
 					2130903287,
 					2130903288,
 					2130903383,
-					2130903417,
-					2130903418};
+					2130903418,
+					2130903419};
 			
 			// aapt resource value: 3
 			public const int MaterialButton_android_insetBottom = 3;
@@ -28653,10 +29284,10 @@ namespace GreenApp.Droid
 			// aapt resource value: 15
 			public const int MaterialButton_strokeWidth = 15;
 			
-			// aapt resource value: { 0x7F030179,0x7F03017A }
+			// aapt resource value: { 0x7F03017A,0x7F03017B }
 			public static int[] MaterialCardView = new int[] {
-					2130903417,
-					2130903418};
+					2130903418,
+					2130903419};
 			
 			// aapt resource value: 0
 			public const int MaterialCardView_strokeColor = 0;
@@ -28664,7 +29295,7 @@ namespace GreenApp.Droid
 			// aapt resource value: 1
 			public const int MaterialCardView_strokeWidth = 1;
 			
-			// aapt resource value: { 0x7F030041,0x7F030042,0x7F030068,0x7F030072,0x7F030076,0x7F030089,0x7F03008A,0x7F030090,0x7F030091,0x7F030092,0x7F0300B9,0x7F0300D4,0x7F03012A,0x7F03012B,0x7F03013A,0x7F030159,0x7F030169,0x7F03019C,0x7F0301A1,0x7F0301A2,0x7F0301A3,0x7F0301A4,0x7F0301A5,0x7F0301A6,0x7F0301A7,0x7F0301A8,0x7F0301A9,0x7F0301AA,0x7F0301AF,0x7F0301B4,0x7F0301B5,0x7F0301B9 }
+			// aapt resource value: { 0x7F030041,0x7F030042,0x7F030068,0x7F030072,0x7F030076,0x7F030089,0x7F03008A,0x7F030090,0x7F030091,0x7F030092,0x7F0300B9,0x7F0300D4,0x7F03012A,0x7F03012B,0x7F03013A,0x7F030159,0x7F03016A,0x7F03019D,0x7F0301A2,0x7F0301A3,0x7F0301A4,0x7F0301A5,0x7F0301A6,0x7F0301A7,0x7F0301A8,0x7F0301A9,0x7F0301AA,0x7F0301AB,0x7F0301B0,0x7F0301B5,0x7F0301B6,0x7F0301BA }
 			public static int[] MaterialComponentsTheme = new int[] {
 					2130903105,
 					2130903106,
@@ -28682,9 +29313,8 @@ namespace GreenApp.Droid
 					2130903339,
 					2130903354,
 					2130903385,
-					2130903401,
-					2130903452,
-					2130903457,
+					2130903402,
+					2130903453,
 					2130903458,
 					2130903459,
 					2130903460,
@@ -28694,10 +29324,11 @@ namespace GreenApp.Droid
 					2130903464,
 					2130903465,
 					2130903466,
-					2130903471,
-					2130903476,
+					2130903467,
+					2130903472,
 					2130903477,
-					2130903481};
+					2130903478,
+					2130903482};
 			
 			// aapt resource value: 0
 			public const int MaterialComponentsTheme_bottomSheetDialogTheme = 0;
@@ -28822,7 +29453,7 @@ namespace GreenApp.Droid
 			// aapt resource value: 2
 			public const int MenuGroup_android_visible = 2;
 			
-			// aapt resource value: { 0x1010002,0x101000E,0x10100D0,0x1010106,0x1010194,0x10101DE,0x10101DF,0x10101E1,0x10101E2,0x10101E3,0x10101E4,0x10101E5,0x101026F,0x7F03000D,0x7F03001F,0x7F030020,0x7F030028,0x7F030095,0x7F0300F7,0x7F0300F8,0x7F03013B,0x7F030161,0x7F0301D5 }
+			// aapt resource value: { 0x1010002,0x101000E,0x10100D0,0x1010106,0x1010194,0x10101DE,0x10101DF,0x10101E1,0x10101E2,0x10101E3,0x10101E4,0x10101E5,0x101026F,0x7F03000D,0x7F03001F,0x7F030020,0x7F030028,0x7F030095,0x7F0300F7,0x7F0300F8,0x7F03013B,0x7F030162,0x7F0301D6 }
 			public static int[] MenuItem = new int[] {
 					16842754,
 					16842766,
@@ -28845,8 +29476,8 @@ namespace GreenApp.Droid
 					2130903287,
 					2130903288,
 					2130903355,
-					2130903393,
-					2130903509};
+					2130903394,
+					2130903510};
 			
 			// aapt resource value: 13
 			public const int MenuItem_actionLayout = 13;
@@ -28917,7 +29548,7 @@ namespace GreenApp.Droid
 			// aapt resource value: 22
 			public const int MenuItem_tooltipText = 22;
 			
-			// aapt resource value: { 0x10100AE,0x101012C,0x101012D,0x101012E,0x101012F,0x1010130,0x1010131,0x7F03014C,0x7F03017B }
+			// aapt resource value: { 0x10100AE,0x101012C,0x101012D,0x101012E,0x101012F,0x1010130,0x1010131,0x7F03014C,0x7F03017C }
 			public static int[] MenuView = new int[] {
 					16842926,
 					16843052,
@@ -28927,7 +29558,7 @@ namespace GreenApp.Droid
 					16843056,
 					16843057,
 					2130903372,
-					2130903419};
+					2130903420};
 			
 			// aapt resource value: 4
 			public const int MenuView_android_headerBackground = 4;
@@ -29013,9 +29644,9 @@ namespace GreenApp.Droid
 					16843465,
 					2130903356};
 			
-			// aapt resource value: { 0x7F030172 }
+			// aapt resource value: { 0x7F030173 }
 			public static int[] PopupWindowBackgroundState = new int[] {
-					2130903410};
+					2130903411};
 			
 			// aapt resource value: 0
 			public const int PopupWindowBackgroundState_state_above_anchor = 0;
@@ -29040,7 +29671,7 @@ namespace GreenApp.Droid
 			// aapt resource value: 1
 			public const int RecycleListView_paddingTopNoTitle = 1;
 			
-			// aapt resource value: { 0x10100C4,0x10100F1,0x7F0300CE,0x7F0300CF,0x7F0300D0,0x7F0300D1,0x7F0300D2,0x7F03010F,0x7F030156,0x7F03016B,0x7F030171 }
+			// aapt resource value: { 0x10100C4,0x10100F1,0x7F0300CE,0x7F0300CF,0x7F0300D0,0x7F0300D1,0x7F0300D2,0x7F03010F,0x7F030156,0x7F03016C,0x7F030172 }
 			public static int[] RecyclerView = new int[] {
 					16842948,
 					16842993,
@@ -29051,8 +29682,8 @@ namespace GreenApp.Droid
 					2130903250,
 					2130903311,
 					2130903382,
-					2130903403,
-					2130903409};
+					2130903404,
+					2130903410};
 			
 			// aapt resource value: 1
 			public const int RecyclerView_android_descendantFocusability = 1;
@@ -29101,7 +29732,14 @@ namespace GreenApp.Droid
 			// aapt resource value: 0
 			public const int ScrollingViewBehavior_Layout_behavior_overlapTop = 0;
 			
-			// aapt resource value: { 0x10100DA,0x101011F,0x1010220,0x1010264,0x7F03007B,0x7F030094,0x7F0300AA,0x7F0300E2,0x7F0300F9,0x7F03010E,0x7F030150,0x7F030151,0x7F03015B,0x7F03015C,0x7F03017C,0x7F030181,0x7F0301DC }
+			// aapt resource value: { 0x7F03015B }
+			public static int[] ScrollViewRendererTheme = new int[] {
+					2130903387};
+			
+			// aapt resource value: 0
+			public const int ScrollViewRendererTheme_scrollViewStyle = 0;
+			
+			// aapt resource value: { 0x10100DA,0x101011F,0x1010220,0x1010264,0x7F03007B,0x7F030094,0x7F0300AA,0x7F0300E2,0x7F0300F9,0x7F03010E,0x7F030150,0x7F030151,0x7F03015C,0x7F03015D,0x7F03017D,0x7F030182,0x7F0301DD }
 			public static int[] SearchView = new int[] {
 					16842970,
 					16843039,
@@ -29115,11 +29753,11 @@ namespace GreenApp.Droid
 					2130903310,
 					2130903376,
 					2130903377,
-					2130903387,
 					2130903388,
-					2130903420,
-					2130903425,
-					2130903516};
+					2130903389,
+					2130903421,
+					2130903426,
+					2130903517};
 			
 			// aapt resource value: 0
 			public const int SearchView_android_focusable = 0;
@@ -29172,10 +29810,10 @@ namespace GreenApp.Droid
 			// aapt resource value: 16
 			public const int SearchView_voiceIcon = 16;
 			
-			// aapt resource value: { 0x7F030169,0x7F03016A }
+			// aapt resource value: { 0x7F03016A,0x7F03016B }
 			public static int[] Snackbar = new int[] {
-					2130903401,
-					2130903402};
+					2130903402,
+					2130903403};
 			
 			// aapt resource value: { 0x101011F,0x7F0300BA,0x7F030131 }
 			public static int[] SnackbarLayout = new int[] {
@@ -29255,22 +29893,22 @@ namespace GreenApp.Droid
 			// aapt resource value: 1
 			public const int StateListDrawable_android_visible = 1;
 			
-			// aapt resource value: { 0x1010124,0x1010125,0x1010142,0x7F030164,0x7F03016F,0x7F030182,0x7F030183,0x7F030185,0x7F0301BD,0x7F0301BE,0x7F0301BF,0x7F0301D6,0x7F0301D7,0x7F0301D8 }
+			// aapt resource value: { 0x1010124,0x1010125,0x1010142,0x7F030165,0x7F030170,0x7F030183,0x7F030184,0x7F030186,0x7F0301BE,0x7F0301BF,0x7F0301C0,0x7F0301D7,0x7F0301D8,0x7F0301D9 }
 			public static int[] SwitchCompat = new int[] {
 					16843044,
 					16843045,
 					16843074,
-					2130903396,
-					2130903407,
-					2130903426,
+					2130903397,
+					2130903408,
 					2130903427,
-					2130903429,
-					2130903485,
+					2130903428,
+					2130903430,
 					2130903486,
 					2130903487,
-					2130903510,
+					2130903488,
 					2130903511,
-					2130903512};
+					2130903512,
+					2130903513};
 			
 			// aapt resource value: 1
 			public const int SwitchCompat_android_textOff = 1;
@@ -29329,9 +29967,8 @@ namespace GreenApp.Droid
 			// aapt resource value: 2
 			public const int TabItem_android_text = 2;
 			
-			// aapt resource value: { 0x7F030186,0x7F030187,0x7F030188,0x7F030189,0x7F03018A,0x7F03018B,0x7F03018C,0x7F03018D,0x7F03018E,0x7F03018F,0x7F030190,0x7F030191,0x7F030192,0x7F030193,0x7F030194,0x7F030195,0x7F030196,0x7F030197,0x7F030198,0x7F030199,0x7F03019A,0x7F03019B,0x7F03019D,0x7F03019E,0x7F03019F }
+			// aapt resource value: { 0x7F030187,0x7F030188,0x7F030189,0x7F03018A,0x7F03018B,0x7F03018C,0x7F03018D,0x7F03018E,0x7F03018F,0x7F030190,0x7F030191,0x7F030192,0x7F030193,0x7F030194,0x7F030195,0x7F030196,0x7F030197,0x7F030198,0x7F030199,0x7F03019A,0x7F03019B,0x7F03019C,0x7F03019E,0x7F03019F,0x7F0301A0 }
 			public static int[] TabLayout = new int[] {
-					2130903430,
 					2130903431,
 					2130903432,
 					2130903433,
@@ -29353,9 +29990,10 @@ namespace GreenApp.Droid
 					2130903449,
 					2130903450,
 					2130903451,
-					2130903453,
+					2130903452,
 					2130903454,
-					2130903455};
+					2130903455,
+					2130903456};
 			
 			// aapt resource value: 0
 			public const int TabLayout_tabBackground = 0;
@@ -29432,7 +30070,7 @@ namespace GreenApp.Droid
 			// aapt resource value: 24
 			public const int TabLayout_tabUnboundedRipple = 24;
 			
-			// aapt resource value: { 0x1010095,0x1010096,0x1010097,0x1010098,0x101009A,0x101009B,0x1010161,0x1010162,0x1010163,0x1010164,0x10103AC,0x7F0300D6,0x7F0301A0 }
+			// aapt resource value: { 0x1010095,0x1010096,0x1010097,0x1010098,0x101009A,0x101009B,0x1010161,0x1010162,0x1010163,0x1010164,0x10103AC,0x7F0300D6,0x7F0301A1 }
 			public static int[] TextAppearance = new int[] {
 					16842901,
 					16842902,
@@ -29446,7 +30084,7 @@ namespace GreenApp.Droid
 					16843108,
 					16843692,
 					2130903254,
-					2130903456};
+					2130903457};
 			
 			// aapt resource value: 10
 			public const int TextAppearance_android_fontFamily = 10;
@@ -29617,7 +30255,7 @@ namespace GreenApp.Droid
 			// aapt resource value: 2
 			public const int ThemeEnforcement_enforceTextAppearance = 2;
 			
-			// aapt resource value: { 0x10100AF,0x1010140,0x7F030051,0x7F030083,0x7F030084,0x7F030096,0x7F030097,0x7F030098,0x7F030099,0x7F03009A,0x7F03009B,0x7F030128,0x7F030129,0x7F030132,0x7F030137,0x7F030138,0x7F03014A,0x7F03017D,0x7F03017E,0x7F03017F,0x7F0301C5,0x7F0301C7,0x7F0301C8,0x7F0301C9,0x7F0301CA,0x7F0301CB,0x7F0301CC,0x7F0301CD,0x7F0301CE }
+			// aapt resource value: { 0x10100AF,0x1010140,0x7F030051,0x7F030083,0x7F030084,0x7F030096,0x7F030097,0x7F030098,0x7F030099,0x7F03009A,0x7F03009B,0x7F030128,0x7F030129,0x7F030132,0x7F030137,0x7F030138,0x7F03014A,0x7F03017E,0x7F03017F,0x7F030180,0x7F0301C6,0x7F0301C8,0x7F0301C9,0x7F0301CA,0x7F0301CB,0x7F0301CC,0x7F0301CD,0x7F0301CE,0x7F0301CF }
 			public static int[] Toolbar = new int[] {
 					16842927,
 					16843072,
@@ -29636,18 +30274,18 @@ namespace GreenApp.Droid
 					2130903351,
 					2130903352,
 					2130903370,
-					2130903421,
 					2130903422,
 					2130903423,
-					2130903493,
-					2130903495,
+					2130903424,
+					2130903494,
 					2130903496,
 					2130903497,
 					2130903498,
 					2130903499,
 					2130903500,
 					2130903501,
-					2130903502};
+					2130903502,
+					2130903503};
 			
 			// aapt resource value: 0
 			public const int Toolbar_android_gravity = 0;
@@ -29736,13 +30374,13 @@ namespace GreenApp.Droid
 			// aapt resource value: 28
 			public const int Toolbar_titleTextColor = 28;
 			
-			// aapt resource value: { 0x1010000,0x10100DA,0x7F03013E,0x7F03013F,0x7F0301BB }
+			// aapt resource value: { 0x1010000,0x10100DA,0x7F03013E,0x7F03013F,0x7F0301BC }
 			public static int[] View = new int[] {
 					16842752,
 					16842970,
 					2130903358,
 					2130903359,
-					2130903483};
+					2130903484};
 			
 			// aapt resource value: { 0x10100D4,0x7F030034,0x7F030035 }
 			public static int[] ViewBackgroundHelper = new int[] {
@@ -29759,9 +30397,9 @@ namespace GreenApp.Droid
 			// aapt resource value: 2
 			public const int ViewBackgroundHelper_backgroundTintMode = 2;
 			
-			// aapt resource value: { 0x7F0301DE }
+			// aapt resource value: { 0x7F0301DF }
 			public static int[] ViewPagerIndicator = new int[] {
-					2130903518};
+					2130903519};
 			
 			// aapt resource value: 0
 			public const int ViewPagerIndicator_vpiCirclePageIndicatorStyle = 0;

@@ -23,7 +23,6 @@ namespace GreenApp.Activity
 
         protected override void OnDisappearing()
         {
-            CurrentOrderId = null;
             refresh = false;
         }
 
@@ -36,6 +35,8 @@ namespace GreenApp.Activity
                 OrdersList.ItemsSource = getorders;
                 OrderDetailsList.ItemsSource = null;
                 lblsum.Text = "Php. 0";
+                CurrentOrderId = null;
+                Selected_orderID = null;
             }
             catch
             {

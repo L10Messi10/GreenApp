@@ -60,7 +60,7 @@
       <Version>4.1.2</Version>
     </PackageReference>
     <PackageReference Include="PhantomLib">
-      <Version>2.0.6</Version>
+      <Version>2.0.7</Version>
     </PackageReference>
     <PackageReference Include="Refractored.Controls.CircleImageView">
       <Version>1.0.1</Version>
@@ -68,19 +68,22 @@
     <PackageReference Include="Toasts.Forms.Plugin">
       <Version>3.3.2</Version>
     </PackageReference>
+    <PackageReference Include="Xam.Plugins.Settings">
+      <Version>3.1.1</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading.Forms">
       <Version>2.4.11.982</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.FFImageLoading.Transformations">
       <Version>2.4.11.982</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1269" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
     <PackageReference Include="Xamarin.Forms.PancakeView">
       <Version>2.1.0.714</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms.Visual.Material">
-      <Version>4.8.0.1269</Version>
+      <Version>4.8.0.1451</Version>
     </PackageReference>
     <PackageReference Include="XForms.Plugin.AnimationNavigationPage">
       <Version>1.0.8</Version>
@@ -187,7 +190,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties XamarinHotReloadDebuggerTimeoutExceptionGreenAppAndroidHideInfoBar="True" XamarinHotReloadUnhandledDeviceExceptionGreenAppAndroidHideInfoBar="True" />
+      <UserProperties XamarinHotReloadUnhandledDeviceExceptionGreenAppAndroidHideInfoBar="True" XamarinHotReloadDebuggerTimeoutExceptionGreenAppAndroidHideInfoBar="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

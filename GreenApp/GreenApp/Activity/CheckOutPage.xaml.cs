@@ -129,6 +129,14 @@ namespace GreenApp.Activity
                         await DisplayAlert("Order cancelled", "Your order has been cancelled.", "OK");
                         await Navigation.PopToRootAsync(true);
                     }
+                    else
+                    {
+                        await DisplayAlert("No item selected", "Please select an item on your cart to remove!", "OK");
+                    }
+                }
+                else if (itemcount == 0)
+                {
+                    await DisplayAlert("Remove", "Nothing to remove", "OK");
                 }
                 else
                 {
@@ -146,49 +154,67 @@ namespace GreenApp.Activity
                         Selected_ProdId = null;
                         OnAppearing();
                     }
+                    else
+                    {
+                        await DisplayAlert("No item selected", "Please select an item on your cart to remove!", "OK");
+                    }
                 }
             }
             catch
             {
                 await DisplayAlert("Error", "Error processing your request, please check you internet connection.", "OK");
             }
-            
         }
 
         private async void Edititem_OnClicked(object sender, EventArgs e)
         {
-            if (itemid != null)
+            if (itemcount == 0)
             {
-                await Navigation.PushAsync(new AddtoCartPage(),true);
+                await DisplayAlert("Void", "Nothing to modify", "OK");
             }
             else
             {
-                await DisplayAlert("No item selected", "Please select an item on your cart to modify!", "OK");
+                if (itemid != null)
+                {
+                    await Navigation.PushAsync(new AddtoCartPage(), true);
+                }
+                else
+                {
+                    await DisplayAlert("No item selected", "Please select an item on your cart to modify!", "OK");
+                }
             }
+            
         }
 
         private async void Voiditem_OnClicked(object sender, EventArgs e)
         {
             try
             {
-                var answer = await DisplayAlert("Void", "Do you want to void this order?", "Yes", "No");
-                if (!answer) return;
-                var orderDetails = new TBL_Orders()
+                if (itemcount == 0)
                 {
-                    id = CurrentOrderId,
-                };
-                await TBL_Orders.Void(orderDetails);
-                itemid = null;
-                Selected_ProdId = null;
-                CurrentOrderId = null;
-                await DisplayAlert("Order cancelled", "Your order has been cancelled successfully.", "OK");
-                await Navigation.PopToRootAsync(true);
+                    await DisplayAlert("Void", "Nothing to void", "OK");
+                }
+                else
+                {
+                    var answer = await DisplayAlert("Void", "Do you want to void this order?", "Yes", "No");
+                    if (!answer) return;
+                    var orderDetails = new TBL_Orders()
+                    {
+                        id = CurrentOrderId,
+                    };
+                    await TBL_Orders.Void(orderDetails);
+                    itemid = null;
+                    Selected_ProdId = null;
+                    CurrentOrderId = null;
+                    await DisplayAlert("Order cancelled", "Your order has been cancelled successfully.", "OK");
+                    await Navigation.PopToRootAsync(true);
+                }
+                
             }
             catch
             {
                 await DisplayAlert("Error", "Error processing your request, please check you internet connection.", "OK");
             }
-            
         }
     }
 }
