@@ -27,13 +27,13 @@ namespace GreenApp.Activity
             if (checkout)
             {
                 CurrentOrderId = null;
-                refresh = false;
+                //refresh = false;
                 await Navigation.PopToRootAsync(true);
             }
             else
             {
                 CurrentOrderId = null;
-                refresh = false;
+                //refresh = false;
                 await Navigation.PopAsync(true);
             }
         }
@@ -81,13 +81,13 @@ namespace GreenApp.Activity
             if (checkout)
             {
                 CurrentOrderId = null;
-                refresh = false;
+                //refresh = false;
                 await Navigation.PopToRootAsync(true);
             }
             else
             {
                 CurrentOrderId = null;
-                refresh = false;
+                //refresh = false;
                 await Navigation.PopAsync(true);
             }
             //await Navigation.PushAsync(new MenuPage(),true);

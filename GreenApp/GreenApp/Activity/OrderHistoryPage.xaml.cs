@@ -23,7 +23,7 @@ namespace GreenApp.Activity
 
         protected override void OnDisappearing()
         {
-            refresh = false;
+            //refresh = false;
         }
 
         protected override async void OnAppearing()
@@ -37,6 +37,7 @@ namespace GreenApp.Activity
                 lblsum.Text = "Php. 0";
                 CurrentOrderId = null;
                 Selected_orderID = null;
+                OrdersList.SelectedItem = null;
             }
             catch
             {
