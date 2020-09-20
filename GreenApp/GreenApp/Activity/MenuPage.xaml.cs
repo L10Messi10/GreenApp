@@ -112,17 +112,16 @@ namespace GreenApp.Activity
         //}
         private async void ListCategories_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (ListCategories.SelectedItem != null)
-            {
-                Selected_CatID = (e.CurrentSelection.FirstOrDefault() as TBL_Category)?.category_name;
-                await Navigation.PushAsync(new ProductsPage(), true);
-            }
+            if (ListCategories.SelectedItem == null) return;
+            Selected_CatID = (e.CurrentSelection.FirstOrDefault() as TBL_Category)?.category_name;
+            await Navigation.PushAsync(new ProductsPage(), true);
         }
 
         private async void Logout_OnClicked(object sender, EventArgs e)
         {
-            Current.MainPage = new LoginPage();
+            Current.MainPage = new NavigationPage(new LoginPage());
             await Navigation.PushAsync(new LoginPage(),true);
+            //await Navigation.PopAsync(true);
         }
 
         private void Btnrefresh_OnClicked(object sender, EventArgs e)

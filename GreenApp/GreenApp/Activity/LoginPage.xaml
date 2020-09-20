@@ -50,9 +50,9 @@
                                 </Frame>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                                <CheckBox IsChecked="False" Color="{StaticResource Primary}" HorizontalOptions="Start"
+                                <CheckBox x:Name="chkremember" IsChecked="False" Color="{StaticResource Primary}" HorizontalOptions="Start"
                                           VerticalOptions="Center" />
-                                <Label x:Name="xtime" Text="Remember me" Margin="0" TextColor="{StaticResource PlaceHolderColor}"
+                                <Label x:Name="xtime" Text="Remember my email" Margin="0" TextColor="{StaticResource PlaceHolderColor}"
                                        HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
                             </StackLayout>
                             <ActivityIndicator x:Name="indicatorloader" Color="Black" IsVisible="False" IsRunning="True" />
@@ -65,7 +65,7 @@
                                 <Button x:Name="btnsignup" Text="Sign Up" Margin="0" TextColor="{StaticResource Primary}"
                                         BackgroundColor="Transparent" FontAttributes="Bold" Clicked="Btnsignup_OnClicked" />
                             </StackLayout>
-                            <StackLayout>
+                            <StackLayout IsVisible="False">
                                 <Grid>
                                     <BoxView BackgroundColor="{StaticResource Primary}" HeightRequest="1"
                                              HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"

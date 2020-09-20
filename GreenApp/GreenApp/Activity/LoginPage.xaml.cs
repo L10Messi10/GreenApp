@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GreenApp.Animation;
 using GreenApp.Models;
+using GreenApp.Utils;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -24,7 +25,8 @@ namespace GreenApp.Activity
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            
+            emailentry.Text = Settings.LastUsedEmail;
+            chkremember.IsChecked = emailentry.Text != "";
             var current = Connectivity.NetworkAccess;
             if (current == NetworkAccess.None)
             {
@@ -34,8 +36,8 @@ namespace GreenApp.Activity
 
         private async void Btnlogin_OnClicked(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
                 if (stat != null) MarketStatus = stat.status;
                 //await Navigation.PushModalAsync(new MenuPage(),true);
@@ -59,6 +61,14 @@ namespace GreenApp.Activity
                                 user_id = users.Id;
                                 refresh = false;
                                 indicatorloader.IsVisible = false;
+                                if (chkremember.IsChecked == true)
+                                {
+                                    Settings.LastUsedEmail = emailentry.Text;
+                                }
+                                else
+                                {
+                                    Settings.LastUsedEmail = "";
+                                }
                                 //await DisplayAlert("Success", "Email or password is incorrect!", "OK");
                                 Device.BeginInvokeOnMainThread(() =>
                                 {
@@ -84,16 +94,17 @@ namespace GreenApp.Activity
                         await DisplayAlert("Error", "There was an error logging you in! Please check the information you're entering.", "OK");
                     }
                 }
-            }
-            catch
-            {
-                indicatorloader.IsVisible = false;
-                await DisplayAlert("Error", "There was an error logging you in! Please check your internet connection.", "OK");
-            }
+            //}
+            //catch
+            //{
+            //    indicatorloader.IsVisible = false;
+            //    await DisplayAlert("Error", "There was an error logging you in! Please check your internet connection.", "OK");
+            //}
         }
 
         private async void Btnsignup_OnClicked(object sender, EventArgs e)
         {
+            //Settings.LastUsedEmail = emailentry.Text;
             await Navigation.PushAsync(new SignupPage(),true);
         }
     }
