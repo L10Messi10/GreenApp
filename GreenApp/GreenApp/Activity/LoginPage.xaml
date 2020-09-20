@@ -13,11 +13,11 @@
         <ScrollView>
             <Grid>
                 <StackLayout Margin="15,50,15,0" HeightRequest="500" >
-                    <Frame HasShadow="True" HeightRequest="460" CornerRadius="10" Opacity="0.8"
+                    <Frame HasShadow="True" HeightRequest="360" CornerRadius="10" Opacity="0.8"
                            BackgroundColor="{StaticResource BackgroundColor}"
                            HorizontalOptions="FillAndExpand">
                     </Frame>
-                    <StackLayout Margin="20,-450,20,0" x:Name="marketcontentlayout" >
+                    <StackLayout Margin="20,-410,20,0" x:Name="marketcontentlayout" >
                             <StackLayout HorizontalOptions="CenterAndExpand">
                                 <Label x:Name="lblmktid" Text="{Binding status}"/>
                                 <Label Text="SIGN IN" HorizontalOptions="CenterAndExpand" FontSize="Large"
