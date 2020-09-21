@@ -64,7 +64,16 @@ namespace GreenApp.Activity
 
         private void Qtystepper_OnValueChanged(object sender, ValueChangedEventArgs e)
         {
-            if (qtystepper != null) txtsubtotal.Text = (qtystepper.Value * double.Parse(txtprice.Text)).ToString(CultureInfo.InvariantCulture);
+            try
+            {
+                if (qtystepper != null) txtsubtotal.Text = (qtystepper.Value * double.Parse(txtprice.Text)).ToString(CultureInfo.InvariantCulture);
+            }
+            catch
+            {
+                //ignored
+            }
+                
+        
         }
 
         private async void Btnaddtocart_OnClicked(object sender, EventArgs e)
