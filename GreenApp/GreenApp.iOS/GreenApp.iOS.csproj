@@ -126,9 +126,6 @@
     <PackageReference Include="Microsoft.Azure.Mobile.Client">
       <Version>4.1.2</Version>
     </PackageReference>
-    <PackageReference Include="PhantomLib">
-      <Version>2.0.7</Version>
-    </PackageReference>
     <PackageReference Include="Toasts.Forms.Plugin">
       <Version>3.3.2</Version>
     </PackageReference>

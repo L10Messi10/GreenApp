@@ -27,7 +27,6 @@ namespace GreenApp.Activity
 
         protected override async void OnAppearing()
         {
-            //btnaddtocart.Clicked += Btnaddtocart_OnClicked;
             try
             {
                 if (CurrentOrderId == null)
@@ -70,18 +69,14 @@ namespace GreenApp.Activity
 
         private async void Btnaddtocart_OnClicked(object sender, EventArgs e)
         {
-            var answer = await DisplayAlert("Confirm", "Do you want to add this to your cart?", "Yes", "No");
-            if (answer)
+            if (CurrentOrderId == null)
             {
-                if (CurrentOrderId == null)
-                {
-                    await InsertOrder();
-                }
-                else
-                {
-                    await XGetOrderID();
-                    await InsertOrder_Details();
-                }
+                await InsertOrder();
+            }
+            else
+            {
+                await XGetOrderID();
+                await InsertOrder_Details();
             }
         }
 

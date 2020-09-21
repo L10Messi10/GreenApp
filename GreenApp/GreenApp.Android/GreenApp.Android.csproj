@@ -59,9 +59,6 @@
     <PackageReference Include="Microsoft.Azure.Mobile.Client">
       <Version>4.1.2</Version>
     </PackageReference>
-    <PackageReference Include="PhantomLib">
-      <Version>2.0.7</Version>
-    </PackageReference>
     <PackageReference Include="Refractored.Controls.CircleImageView">
       <Version>1.0.1</Version>
     </PackageReference>
@@ -132,21 +129,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\loginbg.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -194,7 +176,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties XamarinHotReloadDebuggerTimeoutExceptionGreenAppAndroidHideInfoBar="True" XamarinHotReloadUnhandledDeviceExceptionGreenAppAndroidHideInfoBar="True" />
+      <UserProperties XamarinHotReloadUnhandledDeviceExceptionGreenAppAndroidHideInfoBar="True" XamarinHotReloadDebuggerTimeoutExceptionGreenAppAndroidHideInfoBar="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

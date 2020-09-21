@@ -4,7 +4,6 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:cardView="clr-namespace:CardView;assembly=CardView"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              mc:Ignorable="d" BindingContext="{Binding TBL_Products}"
              BackgroundColor="{StaticResource BackgroundColor}" Title="Add to cart"
