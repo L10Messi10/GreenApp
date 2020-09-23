@@ -61,7 +61,6 @@ namespace GreenApp.Activity
                 await DisplayAlert("Error", "An error occured. Please check your internet connection.", "OK");
             }
         }
-
         private void Qtystepper_OnValueChanged(object sender, ValueChangedEventArgs e)
         {
             try
@@ -72,8 +71,6 @@ namespace GreenApp.Activity
             {
                 //ignored
             }
-                
-        
         }
 
         private async void Btnaddtocart_OnClicked(object sender, EventArgs e)

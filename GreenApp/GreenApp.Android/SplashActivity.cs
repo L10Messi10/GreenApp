@@ -17,6 +17,7 @@ namespace GreenApp.Droid
         NoHistory = true,
         Icon = "@drawable/logo",
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+
     public class SplashActivity : Android.App.Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -24,6 +25,7 @@ namespace GreenApp.Droid
             base.OnCreate(savedInstanceState);
             System.Threading.Thread.Sleep(500);
             StartActivity(typeof(MainActivity));
+
             // Create your application here
         }
     }
