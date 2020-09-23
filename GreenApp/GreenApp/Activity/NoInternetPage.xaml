@@ -7,7 +7,7 @@
             <Frame Padding="0" VerticalOptions="FillAndExpand" BackgroundColor="#FFFFFF"
                    Margin="0,-180,0,100" CornerRadius="180" HasShadow="True">
                 <StackLayout VerticalOptions="CenterAndExpand" Margin="0,180,0,0">
-                    <Image Source="nointernet"/>
+                    <Image Source="nointernet" HeightRequest="300" Margin="20" WidthRequest="300" Aspect="AspectFit"/>
                     <Label Text="Oops!" VerticalOptions="Center" FontAttributes="Bold" FontSize="Title"
                            HorizontalOptions="Center"/>
                     <Label Text="Your internet might be slow or you've lost your internet connection. Please try again later."

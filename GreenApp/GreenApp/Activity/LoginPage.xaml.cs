@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using GreenApp.Animation;
 using GreenApp.Models;
 using GreenApp.Utils;
+using Plugin.Connectivity;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -20,26 +21,22 @@ namespace GreenApp.Activity
         public LoginPage()
         {
             InitializeComponent();
+            //BindingContext = new CheckInternetModel();
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+
             emailentry.Text = Settings.LastUsedEmail;
             chkremember.IsChecked = emailentry.Text != "";
-            var current = Connectivity.NetworkAccess;
-            if (current == NetworkAccess.None)
-            {
-                await DisplayAlert("Internet", "Please check your internet connectivity!", "OK");
-            }
         }
 
         private async void Btnlogin_OnClicked(object sender, EventArgs e)
         {
-            //try
-            //{
-                var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
-                if (stat != null) MarketStatus = stat.status;
+            try
+            {
+                indicatorloader.IsVisible = true;
                 //await Navigation.PushModalAsync(new MenuPage(),true);
                 bool isemailempty = string.IsNullOrEmpty(emailentry.Text);
                 bool ispasswordempty = string.IsNullOrEmpty(passentry.Text);
@@ -51,6 +48,8 @@ namespace GreenApp.Activity
                 else
                 {
                     indicatorloader.IsVisible = true;
+                    var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
+                    if (stat != null) MarketStatus = stat.status;
                     var users = (await MobileService.GetTable<TBL_Users>().Where(mail => mail.emailadd == emailentry.Text).ToListAsync()).FirstOrDefault();
                     if (users != null)
                     {
@@ -61,19 +60,9 @@ namespace GreenApp.Activity
                                 user_id = users.Id;
                                 refresh = false;
                                 indicatorloader.IsVisible = false;
-                                if (chkremember.IsChecked == true)
-                                {
-                                    Settings.LastUsedEmail = emailentry.Text;
-                                }
-                                else
-                                {
-                                    Settings.LastUsedEmail = "";
-                                }
+                                Settings.LastUsedEmail = chkremember.IsChecked == true ? emailentry.Text : "";
                                 //await DisplayAlert("Success", "Email or password is incorrect!", "OK");
-                                Device.BeginInvokeOnMainThread(() =>
-                                {
-                                    Application.Current.MainPage = new AppShell();
-                                });
+                                Device.BeginInvokeOnMainThread(() => { Application.Current.MainPage = new AppShell(); });
                                 await Navigation.PushAsync(new MenuPage(), true);
                             }
                             else
@@ -94,12 +83,12 @@ namespace GreenApp.Activity
                         await DisplayAlert("Error", "There was an error logging you in! Please check the information you're entering.", "OK");
                     }
                 }
-            //}
-            //catch
-            //{
-            //    indicatorloader.IsVisible = false;
-            //    await DisplayAlert("Error", "There was an error logging you in! Please check your internet connection.", "OK");
-            //}
+            }
+            catch
+            {
+                indicatorloader.IsVisible = false;
+                await Navigation.PushAsync(new NoInternetPage(), true);
+            }
         }
 
         private async void Btnsignup_OnClicked(object sender, EventArgs e)
