@@ -19,10 +19,11 @@ namespace GreenApp.Activity
     {
         private bool _newprodorder;
         private string _orderdetailsId;
-
+        private double _defquantity = 1;
         public AddtoCartPage()
         {
             InitializeComponent();
+            qtystepper.Text = _defquantity.ToString(CultureInfo.CurrentCulture);
         }
 
         protected override async void OnAppearing()
@@ -33,7 +34,7 @@ namespace GreenApp.Activity
                 {
                     var selectedproduct = (await MobileService.GetTable<TBL_Products>().Where(id => id.id == Selected_ProdId).ToListAsync()).FirstOrDefault();
                     selectedproductcontainer.BindingContext = selectedproduct;
-                    txtsubtotal.Text = (qtystepper.Value * double.Parse(txtprice.Text)).ToString(CultureInfo.InvariantCulture);
+                    txtsubtotal.Text = (double.Parse(qtystepper.Text) * double.Parse(txtprice.Text)).ToString(CultureInfo.InvariantCulture);
                     _newprodorder = true;
                 }
                 else
@@ -43,15 +44,15 @@ namespace GreenApp.Activity
                     {
                         var newselectedproduct = (await MobileService.GetTable<TBL_Products>().Where(id => id.id == Selected_ProdId).ToListAsync()).FirstOrDefault();
                         selectedproductcontainer.BindingContext = newselectedproduct;
-                        txtsubtotal.Text = (qtystepper.Value * double.Parse(txtprice.Text)).ToString(CultureInfo.InvariantCulture);
+                        txtsubtotal.Text = (double.Parse(qtystepper.Text) * double.Parse(txtprice.Text)).ToString(CultureInfo.InvariantCulture);
                         _newprodorder = true;
                     }
                     else
                     {
                         selectedproductcontainer.BindingContext = existingseletedproduct;
-                        qtystepper.Value = double.Parse(existingseletedproduct.qty);
+                        qtystepper.Text = existingseletedproduct.qty;
                         _orderdetailsId = existingseletedproduct.id;
-                        txtsubtotal.Text = (qtystepper.Value * double.Parse(txtprice.Text)).ToString(CultureInfo.InvariantCulture);
+                        txtsubtotal.Text = (double.Parse(qtystepper.Text) * double.Parse(txtprice.Text)).ToString(CultureInfo.InvariantCulture);
                         _newprodorder = false;
                     }
                 }
@@ -62,18 +63,6 @@ namespace GreenApp.Activity
                 await Navigation.PushAsync(new NoInternetPage(), true);
             }
         }
-        private void Qtystepper_OnValueChanged(object sender, ValueChangedEventArgs e)
-        {
-            try
-            {
-                if (qtystepper != null) txtsubtotal.Text = (qtystepper.Value * double.Parse(txtprice.Text)).ToString(CultureInfo.InvariantCulture);
-            }
-            catch
-            {
-                //ignored
-            }
-        }
-
         private async void Btnaddtocart_OnClicked(object sender, EventArgs e)
         {
             if (CurrentOrderId == null)
@@ -150,7 +139,7 @@ namespace GreenApp.Activity
                     {
                         order_id = CurrentOrderId,
                         prod_id = Selected_ProdId,
-                        qty = qtystepper.Value.ToString(CultureInfo.InvariantCulture),
+                        qty = qtystepper.Text.ToString(CultureInfo.InvariantCulture),
                         sell_price = txtprice.Text,
                         cart_datetime = Now.ToString(CultureInfo.CurrentCulture),
                         sub_total = txtsubtotal.Text
@@ -167,7 +156,7 @@ namespace GreenApp.Activity
                         id = _orderdetailsId,
                         order_id = CurrentOrderId,
                         prod_id = Selected_ProdId,
-                        qty = qtystepper.Value.ToString(CultureInfo.InvariantCulture),
+                        qty = qtystepper.Text.ToString(CultureInfo.InvariantCulture),
                         sell_price = txtprice.Text,
                         cart_datetime = Now.ToString(CultureInfo.CurrentCulture),
                         sub_total = txtsubtotal.Text
@@ -190,6 +179,34 @@ namespace GreenApp.Activity
                 progressaddtocart.IsVisible = false;
                 //await Navigation.PushAsync(new NoInternetPage(), true);
             }
+        }
+
+        private void Btnincreaseqty_OnClicked(object sender, EventArgs e)
+        {
+           IncreaseQty(double.Parse(qtystepper.Text));
+        }
+
+        private void IncreaseQty(double qty)
+        {
+            qtystepper.Text = (qty + .5).ToString(CultureInfo.CurrentCulture);
+            txtsubtotal.Text = (double.Parse(qtystepper.Text) * double.Parse(txtprice.Text)).ToString(CultureInfo.InvariantCulture);
+        }
+        private void DecreaseQty(double qty)
+        {
+            if (qtystepper.Text == "1") return;
+            qtystepper.Text = (qty - .5).ToString(CultureInfo.CurrentCulture);
+            txtsubtotal.Text = (double.Parse(qtystepper.Text) * double.Parse(txtprice.Text)).ToString(CultureInfo.InvariantCulture);
+        }
+
+        private void Btndecreaseqty_OnClicked(object sender, EventArgs e)
+        {
+            DecreaseQty(double.Parse(qtystepper.Text));
+        }
+
+        private void Btnrefresh_OnClicked(object sender, EventArgs e)
+        {
+            qtystepper.Text = "1";
+            txtsubtotal.Text = (double.Parse(qtystepper.Text) * double.Parse(txtprice.Text)).ToString(CultureInfo.InvariantCulture);
         }
     }
 }

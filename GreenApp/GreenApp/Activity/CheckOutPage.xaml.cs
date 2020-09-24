@@ -72,20 +72,26 @@ namespace GreenApp.Activity
                     if (MarketStatus == "1")
                     {
                         var answer = await DisplayAlert("Confirm", "Do you want to confirm this order?", "Yes", "No");
-                        if (!answer) return;
-                        var orderDetails = new TBL_Orders()
+                        if (!answer)
                         {
-                            id = CurrentOrderId,
-                            users_id = user_id,
-                            order_date = Now.ToString("yyyy-MM-dd"),
-                            stat = "1",
-                            order_status = "Ordered",
-                            tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
-                        };
-                        await TBL_Orders.Update(orderDetails);
-                        checkout = true;
-                        progressplaceorder.IsVisible = false;
-                        await Navigation.PushAsync(new ConfirmationPage(), true);
+                            progressplaceorder.IsVisible = false;
+                        }
+                        else
+                        {
+                            var orderDetails = new TBL_Orders()
+                            {
+                                id = CurrentOrderId,
+                                users_id = user_id,
+                                order_date = Now.ToString("yyyy-MM-dd"),
+                                stat = "1",
+                                order_status = "Ordered",
+                                tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
+                            };
+                            await TBL_Orders.Update(orderDetails);
+                            checkout = true;
+                            progressplaceorder.IsVisible = false;
+                            await Navigation.PushAsync(new ConfirmationPage(), true);
+                        }
                     }
                     else
                     {

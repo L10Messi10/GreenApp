@@ -3,20 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GreenApp.Activity.NoInternetPage" BackgroundColor="{StaticResource Primary}">
     <StackLayout>
-        <Frame Padding="0" VerticalOptions="FillAndExpand" BackgroundColor="#FFFFFF"
-               Margin="0,-180,0,100" CornerRadius="160" HasShadow="True">
-            <StackLayout VerticalOptions="CenterAndExpand" Margin="10,180,10,0">
-                <Image Source="nointernet" HeightRequest="300" Margin="20" WidthRequest="300" Aspect="AspectFit" />
-                <Label Text="Oops! 😱😱" VerticalOptions="Center" FontAttributes="Bold" FontSize="Title"
-                       HorizontalOptions="Center" />
-                <Label
-                    Text="Your internet might be slow or you've lost your internet connection. Please try again later."
-                    VerticalOptions="Center" HorizontalTextAlignment="Center"
-                    HorizontalOptions="Center" />
-                <StackLayout Margin="100,40">
-                    <Button Text="Try again" Margin="0" CornerRadius="20" Clicked="Button_OnClicked"/>
+        <ScrollView>
+            <Frame Padding="0" VerticalOptions="FillAndExpand" BackgroundColor="#FFFFFF"
+                   Margin="0,-180,0,100" CornerRadius="160" HasShadow="True">
+                <StackLayout VerticalOptions="CenterAndExpand" Margin="10,180,10,0">
+                    <Image Source="nointernet" HeightRequest="200" Margin="20" WidthRequest="300" Aspect="AspectFit" />
+                    <Label Text="Oops! 😱😱" VerticalOptions="Center" FontAttributes="Bold" FontSize="Title"
+                           HorizontalOptions="Center" />
+                    <Label
+                        Text="Your internet might be slow or you've lost your internet connection. Please try again later."
+                        VerticalOptions="Center" HorizontalTextAlignment="Center"
+                        HorizontalOptions="Center" />
+                    <StackLayout Margin="100,40">
+                        <Button Text="Try again" Margin="0" CornerRadius="20" Clicked="Button_OnClicked"/>
+                    </StackLayout>
                 </StackLayout>
-            </StackLayout>
-        </Frame>
+            </Frame>
+        </ScrollView>
     </StackLayout>
 </ContentPage>
