@@ -11,7 +11,9 @@
         <ToolbarItem IconImageSource="cancel.png" Text="Void" x:Name="voiditem" Clicked="Voiditem_OnClicked" Order="Secondary"/>
     </ContentPage.ToolbarItems>
     <ScrollView>
-        <Grid VerticalOptions="End">
+        <AbsoluteLayout>
+            <Grid VerticalOptions="End" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                  AbsoluteLayout.LayoutFlags="All">
             <Grid.RowDefinitions>
                 <RowDefinition Height="330" />
                 <RowDefinition Height="Auto" />
@@ -165,5 +167,19 @@
                 </StackLayout>
             </StackLayout>
         </Grid>
+            <StackLayout
+                x:Name="progressplaceorder"
+                IsVisible="True"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                BackgroundColor="Black" Opacity="0.5">
+                <ActivityIndicator
+                    x:Name="ai"
+                    IsRunning="True" IsVisible="True"
+                    HorizontalOptions="CenterAndExpand"
+                    Color="Green" Margin="0,300,0,0"/>
+                <Label x:Name="lblorderstate" Text="Placing your order..." Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
+            </StackLayout>
+        </AbsoluteLayout>
     </ScrollView>
 </ContentPage>

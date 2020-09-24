@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace GreenApp.Activity
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NoInternetPage : ContentPage
+    public partial class MarketClosePage : ContentPage
     {
-        public NoInternetPage()
+        public MarketClosePage()
         {
             InitializeComponent();
         }

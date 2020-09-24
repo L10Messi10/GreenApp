@@ -46,7 +46,7 @@ namespace GreenApp.Activity
             }
             catch
             {
-                await DisplayAlert("Error", "Error processing your request, please check you internet connection.", "OK");
+                await Navigation.PushAsync(new NoInternetPage(), true);
             }
             
         }
@@ -77,9 +77,8 @@ namespace GreenApp.Activity
             }
             catch
             {
-                await DisplayAlert("Error", "Error processing your request, please check you internet connection.", "OK");
+                await Navigation.PushAsync(new NoInternetPage(), true);
             }
-            
         }
 
         private void AnimateAmount()

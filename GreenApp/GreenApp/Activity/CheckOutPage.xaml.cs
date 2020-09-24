@@ -27,6 +27,8 @@ namespace GreenApp.Activity
         {
             try
             {
+                progressplaceorder.IsVisible = true;
+                lblorderstate.Text = "Loading order . . .";
                 if (CurrentOrderId != null)
                 {
                     var getorders = await MobileService.GetTable<V_Orders>().Where(orders => orders.order_id == CurrentOrderId).ToListAsync();
@@ -38,9 +40,11 @@ namespace GreenApp.Activity
                     totalpayable.Text = totaSum.ToString(CultureInfo.InvariantCulture);
                     itemid = null;
                     Selected_ProdId = null;
+                    progressplaceorder.IsVisible = false;
                 }
                 else
                 {
+                    progressplaceorder.IsVisible = false;
                     lblsubtotal.Text = "0";
                     totalpayable.Text = "0";
                     itemid = null;
@@ -49,7 +53,8 @@ namespace GreenApp.Activity
             }
             catch
             {
-                await DisplayAlert("Error", "Error processing your request, please check you internet connection.", "OK");
+                progressplaceorder.IsVisible = false;
+                await Navigation.PushAsync(new NoInternetPage(), true);
             }
             
         }
@@ -60,6 +65,8 @@ namespace GreenApp.Activity
             {
                 if (totalpayable.Text != "0")
                 {
+                    progressplaceorder.IsVisible = true;
+                    lblorderstate.Text = "Placing your order . . .";
                     var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
                     if (stat != null) MarketStatus = stat.status;
                     if (MarketStatus == "1")
@@ -77,21 +84,24 @@ namespace GreenApp.Activity
                         };
                         await TBL_Orders.Update(orderDetails);
                         checkout = true;
+                        progressplaceorder.IsVisible = false;
                         await Navigation.PushAsync(new ConfirmationPage(), true);
                     }
                     else
                     {
-                        await DisplayAlert("Close", "Green Market is currently closed. Please try again later. You can place your order later when the Market is open. Thank you.", "OK");
+                        progressplaceorder.IsVisible = false;
+                        await Navigation.PushAsync(new MarketClosePage(), true);
                     }
                 }
                 else
                 {
+                    progressplaceorder.IsVisible = false;
                     await DisplayAlert("Cart empty", "Your cart is empty!", "OK");
                 }
             }
             catch
             {
-                await DisplayAlert("Error", "Error processing your request, please check you internet connection.", "OK");
+                await Navigation.PushAsync(new NoInternetPage(), true);
             }
         }
 
@@ -116,6 +126,8 @@ namespace GreenApp.Activity
                 {
                     if (itemid != null)
                     {
+                        progressplaceorder.IsVisible = true;
+                        lblorderstate.Text = "Voiding your order . . .";
                         var answer = await DisplayAlert("Void", "There's only one item remaining on the list. Do you want to void this transaction?", "Yes", "No");
                         if (!answer) return;
                         var orderDetails = new TBL_Orders()
@@ -126,6 +138,7 @@ namespace GreenApp.Activity
                         itemid = null;
                         Selected_ProdId = null;
                         CurrentOrderId = null;
+                        progressplaceorder.IsVisible = false;
                         await DisplayAlert("Order cancelled", "Your order has been cancelled.", "OK");
                         await Navigation.PopToRootAsync(true);
                     }
@@ -143,6 +156,8 @@ namespace GreenApp.Activity
                     //ordercollection.
                     if (itemid != null)
                     {
+                        progressplaceorder.IsVisible = true;
+                        lblorderstate.Text = "Removing item . . .";
                         var confirm = await DisplayAlert("Remove", "Do you really want to remove this item on your cart?", "Yes", "No");
                         if (!confirm) return;
                         var order_details = new TBL_Order_Details
@@ -152,6 +167,7 @@ namespace GreenApp.Activity
                         await TBL_Order_Details.Delete(order_details);
                         itemid = null;
                         Selected_ProdId = null;
+                        progressplaceorder.IsVisible = false;
                         OnAppearing();
                     }
                     else
@@ -162,7 +178,7 @@ namespace GreenApp.Activity
             }
             catch
             {
-                await DisplayAlert("Error", "Error processing your request, please check you internet connection.", "OK");
+                await Navigation.PushAsync(new NoInternetPage(), true);
             }
         }
 
@@ -196,6 +212,8 @@ namespace GreenApp.Activity
                 }
                 else
                 {
+                    progressplaceorder.IsVisible = true;
+                    lblorderstate.Text = "Voiding your order . . .";
                     var answer = await DisplayAlert("Void", "Do you want to void this order?", "Yes", "No");
                     if (!answer) return;
                     var orderDetails = new TBL_Orders()
@@ -206,14 +224,14 @@ namespace GreenApp.Activity
                     itemid = null;
                     Selected_ProdId = null;
                     CurrentOrderId = null;
+                    progressplaceorder.IsVisible = true;
                     await DisplayAlert("Order cancelled", "Your order has been cancelled successfully.", "OK");
                     await Navigation.PopToRootAsync(true);
                 }
-                
             }
             catch
             {
-                await DisplayAlert("Error", "Error processing your request, please check you internet connection.", "OK");
+                await Navigation.PushAsync(new NoInternetPage(), true);
             }
         }
     }

@@ -58,6 +58,7 @@ namespace GreenApp.Activity
             }
             catch
             {
+                progressaddtocart.IsVisible = false;
                 await Navigation.PushAsync(new NoInternetPage(), true);
             }
         }
@@ -77,10 +78,12 @@ namespace GreenApp.Activity
         {
             if (CurrentOrderId == null)
             {
+                progressaddtocart.IsVisible = true;
                 await InsertOrder();
             }
             else
             {
+                progressaddtocart.IsVisible = true;
                 await XGetOrderID();
                 await InsertOrder_Details();
             }
@@ -113,16 +116,25 @@ namespace GreenApp.Activity
             }
             catch
             {
+                progressaddtocart.IsVisible = false;
                 await Navigation.PushAsync(new NoInternetPage(), true);
             }
         }
 
         private async Task XGetOrderID()
         {
-            var getorderid = (await MobileService.GetTable<TBL_Orders>().Where(order => order.users_id == user_id && order.order_status == "Carted").ToListAsync()).FirstOrDefault();
-            if (getorderid != null)
+            try
             {
-                CurrentOrderId = getorderid.id;
+                var getorderid = (await MobileService.GetTable<TBL_Orders>().Where(order => order.users_id == user_id && order.order_status == "Carted").ToListAsync()).FirstOrDefault();
+                if (getorderid != null)
+                {
+                    CurrentOrderId = getorderid.id;
+                }
+            }
+            catch
+            {
+                progressaddtocart.IsVisible = false;
+                await Navigation.PushAsync(new NoInternetPage(), true);
             }
         }
 
@@ -144,6 +156,7 @@ namespace GreenApp.Activity
                         sub_total = txtsubtotal.Text
                     };
                     await TBL_Order_Details.Insert(orderDetails);
+                    progressaddtocart.IsVisible = false;
                     await DisplayAlert("Success", "Item successfully added to cart!", "OK");
                     await Navigation.PopAsync(true);
                 }
@@ -167,13 +180,15 @@ namespace GreenApp.Activity
                     //    Description = "Cart updated!"
                     //};
                     //await notificator.Notify(options);
+                    progressaddtocart.IsVisible = false;
                     await DisplayAlert("Success", "Cart successfully updated!", "OK");
                     await Navigation.PopAsync(true);
                 }
             }
             catch
             {
-                await Navigation.PushAsync(new NoInternetPage(), true);
+                progressaddtocart.IsVisible = false;
+                //await Navigation.PushAsync(new NoInternetPage(), true);
             }
         }
     }

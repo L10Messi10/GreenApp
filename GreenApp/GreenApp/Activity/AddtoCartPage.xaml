@@ -9,85 +9,101 @@
              BackgroundColor="{StaticResource BackgroundColor}" Title="Add to cart"
              x:Class="GreenApp.Activity.AddtoCartPage">
     <ScrollView VerticalScrollBarVisibility="Always">
-        <Grid x:Name="selectedproductcontainer" VerticalOptions="End">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="400" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <ff:CachedImage Grid.Row="0" Aspect="AspectFill"
-                   Grid.Column="0" Source="{Binding img_uri}"
-                   HorizontalOptions="FillAndExpand" />
-            <Frame Grid.Row="1" Margin="20,-130,20,0"
-                   BackgroundColor="{StaticResource FrameColor}" CornerRadius="10" HasShadow="True"
-                   HeightRequest="400" Opacity="1">
-                <StackLayout>
-                    <Label Text="{Binding prod_name }" TextColor="{StaticResource TextColor}"
-                           FontAttributes="Bold"
-                           FontSize="20" />
-                    <BoxView HeightRequest="1" BackgroundColor="Silver"
-                             Margin="0,-7,20,0" />
-                    <StackLayout Margin="0,10">
-                        <Label>
+        <AbsoluteLayout>
+            <Grid x:Name="selectedproductcontainer" VerticalOptions="End" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                  AbsoluteLayout.LayoutFlags="All" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="400" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ff:CachedImage Grid.Row="0" Aspect="AspectFill"
+                                Grid.Column="0" Source="{Binding img_uri}"
+                                HorizontalOptions="FillAndExpand" />
+                <Frame Grid.Row="1" Margin="20,-130,20,0"
+                       BackgroundColor="{StaticResource FrameColor}" CornerRadius="10" HasShadow="True"
+                       HeightRequest="400" Opacity="1">
+                    <StackLayout>
+                        <Label Text="{Binding prod_name }" TextColor="{StaticResource TextColor}"
+                               FontAttributes="Bold"
+                               FontSize="20" />
+                        <BoxView HeightRequest="1" BackgroundColor="Silver"
+                                 Margin="0,-7,20,0" />
+                        <StackLayout Margin="0,10">
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding prod_desc}" FontSize="Body"
+                                              TextColor="{StaticResource TextColor}" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <StackLayout Grid.Row="0">
+                    <Label Text="{Binding prod_price}" x:Name="txtprice" IsVisible="False" />
+                    <Frame VerticalOptions="Center" HorizontalOptions="End" HasShadow="True"
+                           BorderColor="{StaticResource Primary}" CornerRadius="10"
+                           Margin="0,240,30,0">
+                        <Label VerticalOptions="Center" FontAttributes="Bold" FontSize="Medium"
+                               TextColor="{StaticResource TextColor}" HorizontalTextAlignment="Center">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="{Binding prod_desc}" FontSize="Body"
-                                          TextColor="{StaticResource TextColor}" />
+                                    <Span Text="{Binding prod_price}" />
+                                    <Span Text=" / " />
+                                    <Span Text="{Binding unit_desc}" />
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
-                    </StackLayout>
+                    </Frame>
                 </StackLayout>
-            </Frame>
-            <StackLayout Grid.Row="0">
-                <Label Text="{Binding prod_price}" x:Name="txtprice" IsVisible="False" />
-                <Frame VerticalOptions="Center" HorizontalOptions="End" HasShadow="True"
-                       BorderColor="{StaticResource Primary}" CornerRadius="10"
-                       Margin="0,240,30,0">
-                    <Label VerticalOptions="Center" FontAttributes="Bold" FontSize="Medium"
-                           TextColor="{StaticResource TextColor}" HorizontalTextAlignment="Center">
+                <StackLayout Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"
+                             Margin="25,-20,25,-40">
+                    <StackLayout>
+                        <Frame BackgroundColor="WhiteSmoke" CornerRadius="50" HasShadow="True">
+                            <Label Text="1000" HorizontalOptions="Center" FontSize="40" x:Name="txtsubtotal"
+                                   TextColor="{StaticResource TextColor}" />
+                        </Frame>
+                    </StackLayout>
+
+                    <Stepper x:Name="qtystepper" Increment=".5" Minimum="1" Value="1"
+                             ValueChanged="Qtystepper_OnValueChanged"
+                             Maximum="10000" VerticalOptions="EndAndExpand" Visual="Material" />
+                    <Label HorizontalOptions="Center" TextColor="{StaticResource TextColor}"
+                           FontSize="Medium" FontAttributes="Bold">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="{Binding prod_price}" />
-                                <Span Text=" / " />
-                                <Span Text="{Binding unit_desc}" />
+                                <Span Text="Qty" />
+                                <Span Text=" - " />
+                                <Span Text="{Binding Source={x:Reference qtystepper}, Path=Value}" />
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
-                </Frame>
-            </StackLayout>
-            <StackLayout Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"
-                         Margin="25,-20,25,-40">
-                <StackLayout>
-                    <Frame BackgroundColor="WhiteSmoke" CornerRadius="50" HasShadow="True">
-                        <Label Text="1000" HorizontalOptions="Center" FontSize="40" x:Name="txtsubtotal"
-                               TextColor="{StaticResource TextColor}" />
-                    </Frame>
                 </StackLayout>
-               
-                <Stepper x:Name="qtystepper" Increment=".5" Minimum="1" Value="1"
-                         ValueChanged="Qtystepper_OnValueChanged"
-                         Maximum="10000" VerticalOptions="EndAndExpand" Visual="Material" />
-                <Label HorizontalOptions="Center" TextColor="{StaticResource TextColor}"
-                       FontSize="Medium" FontAttributes="Bold">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="Qty" />
-                            <Span Text=" - " />
-                            <Span Text="{Binding Source={x:Reference qtystepper}, Path=Value}" />
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
+                <StackLayout Grid.Row="3" VerticalOptions="End" Margin="40,-70,40,90" BackgroundColor="Transparent">
+                    <Button Text="ADD TO CART" BackgroundColor="#FFC42A"
+                            CornerRadius="20" TextColor="{StaticResource TextColor}"
+                            x:Name="btnaddtocart" Clicked="Btnaddtocart_OnClicked" />
+                </StackLayout>
+            </Grid>
+            <StackLayout
+                x:Name="progressaddtocart"
+                IsVisible="True"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                BackgroundColor="Black" Opacity="0.5">
+                <ActivityIndicator
+                    x:Name="ai"
+                    IsRunning="True" IsVisible="True"
+                    HorizontalOptions="CenterAndExpand"
+                    Color="Green" Margin="0,300,0,0"/>
+                <Label Text="Adding to cart..." Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
             </StackLayout>
-            <StackLayout Grid.Row="3" VerticalOptions="End" Margin="40,-70,40,90" BackgroundColor="Transparent">
-                <Button Text="ADD TO CART" BackgroundColor="#FFC42A"
-                        CornerRadius="20" TextColor="{StaticResource TextColor}" 
-                        x:Name="btnaddtocart" Clicked="Btnaddtocart_OnClicked"/>
-            </StackLayout>
-        </Grid>
+        </AbsoluteLayout>
     </ScrollView>
 </ContentPage>

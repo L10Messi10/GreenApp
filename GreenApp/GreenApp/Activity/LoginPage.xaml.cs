@@ -24,7 +24,7 @@ namespace GreenApp.Activity
             //BindingContext = new CheckInternetModel();
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
 
@@ -68,7 +68,7 @@ namespace GreenApp.Activity
                             else
                             {
                                 indicatorloader.IsVisible = false;
-                                await DisplayAlert("Close", "Green Market is currently closed. Please try again later ", "OK");
+                                await Navigation.PushAsync(new MarketClosePage(), true);
                             }
                         }
                         else
