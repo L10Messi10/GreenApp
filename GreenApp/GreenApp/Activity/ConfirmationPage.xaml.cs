@@ -26,7 +26,7 @@ namespace GreenApp.Activity
         {
             if (checkout)
             {
-                Selected_orderID = null;
+                CurrentOrderId = null;
                 //refresh = false;
                 await Navigation.PopToRootAsync(true);
             }
@@ -42,33 +42,67 @@ namespace GreenApp.Activity
         {
             try
             {
-                var barcode = new ZXingBarcodeImageView
+                if (!checkout)
                 {
-                    HorizontalOptions = CenterAndExpand,
-                    VerticalOptions = CenterAndExpand,
-                    AutomationId = "zxingBarcodeImageView"
-                };
-                barcode.BarcodeFormat = ZXing.BarcodeFormat.QR_CODE;
-                barcode.BarcodeValue = CurrentOrderId;
-                barcode.BarcodeOptions.Height = 300;
-                barcode.BarcodeOptions.Width = 300;
-                barcode.WidthRequest = 300;
-                barcode.HeightRequest = 300;
-                stackpanel.Children.Insert(0, barcode);
-                var getorders = (await MobileService.GetTable<V_Orders>().Where(orders => orders.order_id == Selected_orderID).ToListAsync()).FirstOrDefault();
-                mainlayout.BindingContext = getorders;
-                if (getorders != null)
-                {
-                    lblorderid.Text = getorders.order_id;
-                    lblfullname.Text = getorders.full_name;
-                    lbltotpayable.Text = getorders.tot_payable;
+                    var barcode = new ZXingBarcodeImageView
+                    {
+                        HorizontalOptions = CenterAndExpand,
+                        VerticalOptions = CenterAndExpand,
+                        AutomationId = "zxingBarcodeImageView"
+                    };
+                    barcode.BarcodeFormat = ZXing.BarcodeFormat.QR_CODE;
+                    barcode.BarcodeValue = Selected_orderID;
+                    barcode.BarcodeOptions.Height = 300;
+                    barcode.BarcodeOptions.Width = 300;
+                    barcode.WidthRequest = 300;
+                    barcode.HeightRequest = 300;
+                    stackpanel.Children.Insert(0, barcode);
+                    var getorders = (await MobileService.GetTable<V_Orders>().Where(orders => orders.order_id == Selected_orderID).ToListAsync()).FirstOrDefault();
+                    mainlayout.BindingContext = getorders;
+                    if (getorders != null)
+                    {
+                        lblorderid.Text = getorders.order_id;
+                        lblfullname.Text = getorders.full_name;
+                        lbltotpayable.Text = getorders.tot_payable;
+                    }
+                    else
+                    {
+                        lblorderid.Text = "Null";
+                        lblfullname.Text = "Null";
+                        lbltotpayable.Text = "Null";
+                    }
                 }
                 else
                 {
-                    lblorderid.Text = "Null";
-                    lblfullname.Text = "Null";
-                    lbltotpayable.Text = "Null";
+                    var barcode = new ZXingBarcodeImageView
+                    {
+                        HorizontalOptions = CenterAndExpand,
+                        VerticalOptions = CenterAndExpand,
+                        AutomationId = "zxingBarcodeImageView"
+                    };
+                    barcode.BarcodeFormat = ZXing.BarcodeFormat.QR_CODE;
+                    barcode.BarcodeValue = CurrentOrderId;
+                    barcode.BarcodeOptions.Height = 300;
+                    barcode.BarcodeOptions.Width = 300;
+                    barcode.WidthRequest = 300;
+                    barcode.HeightRequest = 300;
+                    stackpanel.Children.Insert(0, barcode);
+                    var getorders = (await MobileService.GetTable<V_Orders>().Where(orders => orders.order_id == CurrentOrderId).ToListAsync()).FirstOrDefault();
+                    mainlayout.BindingContext = getorders;
+                    if (getorders != null)
+                    {
+                        lblorderid.Text = getorders.order_id;
+                        lblfullname.Text = getorders.full_name;
+                        lbltotpayable.Text = getorders.tot_payable;
+                    }
+                    else
+                    {
+                        lblorderid.Text = "Null";
+                        lblfullname.Text = "Null";
+                        lbltotpayable.Text = "Null";
+                    }
                 }
+                
             }
             catch
             {

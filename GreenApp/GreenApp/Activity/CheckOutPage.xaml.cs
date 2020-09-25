@@ -65,19 +65,16 @@ namespace GreenApp.Activity
             {
                 if (totalpayable.Text != "0")
                 {
-                    progressplaceorder.IsVisible = true;
-                    lblorderstate.Text = "Placing your order . . .";
+                    
                     var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
                     if (stat != null) MarketStatus = stat.status;
                     if (MarketStatus == "1")
                     {
                         var answer = await DisplayAlert("Confirm", "Do you want to confirm this order?", "Yes", "No");
-                        if (!answer)
+                        if (answer)
                         {
-                            progressplaceorder.IsVisible = false;
-                        }
-                        else
-                        {
+                            progressplaceorder.IsVisible = true;
+                            lblorderstate.Text = "Placing your order . . .";
                             var orderDetails = new TBL_Orders()
                             {
                                 id = CurrentOrderId,
@@ -132,10 +129,10 @@ namespace GreenApp.Activity
                 {
                     if (itemid != null)
                     {
-                        progressplaceorder.IsVisible = true;
-                        lblorderstate.Text = "Voiding your order . . .";
                         var answer = await DisplayAlert("Void", "There's only one item remaining on the list. Do you want to void this transaction?", "Yes", "No");
                         if (!answer) return;
+                        progressplaceorder.IsVisible = true;
+                        lblorderstate.Text = "Voiding your order . . .";
                         var orderDetails = new TBL_Orders()
                         {
                             id = CurrentOrderId,
@@ -162,10 +159,11 @@ namespace GreenApp.Activity
                     //ordercollection.
                     if (itemid != null)
                     {
-                        progressplaceorder.IsVisible = true;
-                        lblorderstate.Text = "Removing item . . .";
+                        
                         var confirm = await DisplayAlert("Remove", "Do you really want to remove this item on your cart?", "Yes", "No");
                         if (!confirm) return;
+                        progressplaceorder.IsVisible = true;
+                        lblorderstate.Text = "Removing item . . .";
                         var order_details = new TBL_Order_Details
                         {
                             id = itemid,
@@ -218,10 +216,10 @@ namespace GreenApp.Activity
                 }
                 else
                 {
-                    progressplaceorder.IsVisible = true;
-                    lblorderstate.Text = "Voiding your order . . .";
                     var answer = await DisplayAlert("Void", "Do you want to void this order?", "Yes", "No");
                     if (!answer) return;
+                    progressplaceorder.IsVisible = true;
+                    lblorderstate.Text = "Voiding your order . . .";
                     var orderDetails = new TBL_Orders()
                     {
                         id = CurrentOrderId,
