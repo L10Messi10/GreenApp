@@ -16,7 +16,6 @@ namespace GreenApp.Activity
     public partial class OrderHistoryPage : ContentPage
     {
         public static bool loaded = false;
-        private string Selected_orderID;
         public OrderHistoryPage()
         {
             InitializeComponent();
@@ -56,7 +55,6 @@ namespace GreenApp.Activity
             try
             {
                 Selected_orderID = (e.CurrentSelection.FirstOrDefault() as TBL_Orders)?.id;
-                CurrentOrderId = Selected_orderID;
                 await XGetOrders();
             }
             catch

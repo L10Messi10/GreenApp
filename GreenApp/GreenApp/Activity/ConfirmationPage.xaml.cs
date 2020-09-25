@@ -26,13 +26,13 @@ namespace GreenApp.Activity
         {
             if (checkout)
             {
-                CurrentOrderId = null;
+                Selected_orderID = null;
                 //refresh = false;
                 await Navigation.PopToRootAsync(true);
             }
             else
             {
-                CurrentOrderId = null;
+                Selected_orderID = null;
                 //refresh = false;
                 await Navigation.PopAsync(true);
             }
@@ -55,7 +55,7 @@ namespace GreenApp.Activity
                 barcode.WidthRequest = 300;
                 barcode.HeightRequest = 300;
                 stackpanel.Children.Insert(0, barcode);
-                var getorders = (await MobileService.GetTable<V_Orders>().Where(orders => orders.order_id == CurrentOrderId).ToListAsync()).FirstOrDefault();
+                var getorders = (await MobileService.GetTable<V_Orders>().Where(orders => orders.order_id == Selected_orderID).ToListAsync()).FirstOrDefault();
                 mainlayout.BindingContext = getorders;
                 if (getorders != null)
                 {
@@ -80,13 +80,13 @@ namespace GreenApp.Activity
         {
             if (checkout)
             {
-                CurrentOrderId = null;
+                Selected_orderID = null;
                 //refresh = false;
                 await Navigation.PopToRootAsync(true);
             }
             else
             {
-                CurrentOrderId = null;
+                Selected_orderID = null;
                 //refresh = false;
                 await Navigation.PopAsync(true);
             }

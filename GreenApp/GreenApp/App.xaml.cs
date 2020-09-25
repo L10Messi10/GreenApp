@@ -18,6 +18,7 @@ namespace GreenApp
         public static string MarketStatus;
         public static bool checkout;
         public static bool _conn;
+        public static string Selected_orderID;
         public App()
         {
             InitializeComponent();
