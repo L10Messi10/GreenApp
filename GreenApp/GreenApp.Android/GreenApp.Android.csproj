@@ -180,15 +180,15 @@
     <AndroidResource Include="Resources\drawable\marketclosed.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\nointernet.png" />
+    <AndroidResource Include="Resources\drawable\eye.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\eye.png" />
+    <AndroidResource Include="Resources\drawable\nointernet.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties XamarinHotReloadDebuggerTimeoutExceptionGreenAppAndroidHideInfoBar="True" XamarinHotReloadUnhandledDeviceExceptionGreenAppAndroidHideInfoBar="True" />
+      <UserProperties XamarinHotReloadUnhandledDeviceExceptionGreenAppAndroidHideInfoBar="True" XamarinHotReloadDebuggerTimeoutExceptionGreenAppAndroidHideInfoBar="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
