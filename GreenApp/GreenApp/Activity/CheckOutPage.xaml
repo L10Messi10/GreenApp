@@ -4,7 +4,7 @@
              x:Class="GreenApp.Activity.CheckOutPage"
              BackgroundColor="{StaticResource BackgroundColor}" Visual="Material"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             Title="My Cart" NavigationPage.HasNavigationBar="True">
+             Title="My Cart" NavigationPage.HasNavigationBar="True" BackgroundImageSource="https://i.ibb.co/kMMn87y/checkoutbg.jpg">
     <ContentPage.ToolbarItems> 
         <ToolbarItem IconImageSource="trash.png" Text="Remove" x:Name="deleteitem" Clicked="Deleteitem_OnClicked" Order="Secondary"/>
         <ToolbarItem IconImageSource="edit.png" Text="Modify" x:Name="edititem" Clicked="Edititem_OnClicked" Order="Secondary"/>
@@ -12,11 +12,11 @@
     </ContentPage.ToolbarItems>
     <ScrollView>
         <AbsoluteLayout>
-            <Grid VerticalOptions="End" AbsoluteLayout.LayoutBounds="0,0,1,1"
+            <Grid VerticalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1"
                   AbsoluteLayout.LayoutFlags="All">
             <Grid.RowDefinitions>
                 <RowDefinition Height="330" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Frame Grid.Row="0" BackgroundColor="#BEC1BA" Margin="10" CornerRadius="10" Padding="0"
                    HasShadow="True">
