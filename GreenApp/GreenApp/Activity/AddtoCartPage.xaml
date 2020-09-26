@@ -31,18 +31,31 @@
                 </Frame>
                 <Frame VerticalOptions="Center" HorizontalOptions="End" HasShadow="True"
                        BorderColor="{StaticResource Primary}" CornerRadius="10"
-                       Margin="0,270,5,0" Grid.Row="0">
-                    <Label VerticalOptions="Center" FontAttributes="Bold" FontSize="20"
-                           TextColor="{StaticResource PriceBg}" HorizontalTextAlignment="Center">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="Php. " />
-                                <Span Text="{Binding prod_price}" />
-                                <Span Text=" / " />
-                                <Span Text="{Binding unit_desc}" />
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
+                       Margin="0,270,5,0" Grid.Row="0" Padding="5" Opacity="1">
+                    <StackLayout Orientation="Vertical" >
+                        <Label VerticalOptions="Center" FontAttributes="Bold" FontSize="20"
+                               TextColor="{StaticResource PriceBg}" HorizontalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Php. " />
+                                    <Span Text="{Binding prod_price}" />
+                                    <Span Text=" / " />
+                                    <Span Text="{Binding unit_desc}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <StackLayout Orientation="Horizontal">
+                            <ff:CachedImage Source="eye" HeightRequest="10" WidthRequest="10"/>
+                            <Label FontSize="10">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span x:Name="lblrndnumpeople" />
+                                        <Span Text=" People are currently watching this item." />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
                 </Frame>
                 <StackLayout Grid.Row="1" Margin="10,0,10,0">
                     <StackLayout Margin="0,20,0,0">

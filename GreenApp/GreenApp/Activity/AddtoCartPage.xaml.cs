@@ -22,8 +22,10 @@ namespace GreenApp.Activity
         private double _defquantity = 1;
         public AddtoCartPage()
         {
+            Random generator = new Random();
             InitializeComponent();
             qtystepper.Text = _defquantity.ToString(CultureInfo.CurrentCulture);
+            lblrndnumpeople.Text = generator.Next(0, 20).ToString();
         }
 
         protected override async void OnAppearing()
