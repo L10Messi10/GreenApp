@@ -79,7 +79,7 @@
                 </StackLayout>
                 <StackLayout Grid.Row="2" Orientation="Vertical" Spacing="0" VerticalOptions="End" Grid.RowSpan="2">
                     <BoxView HeightRequest="1" BackgroundColor="Silver"
-                             Margin="0,0,20,10" />
+                             Margin="10,0,30,10" />
                     <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="5,0,5,10">
                             <Grid>
                                 <Grid.ColumnDefinitions>

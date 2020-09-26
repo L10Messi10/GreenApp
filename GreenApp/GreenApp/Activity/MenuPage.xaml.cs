@@ -119,6 +119,7 @@ namespace GreenApp.Activity
 
         private async void Logout_OnClicked(object sender, EventArgs e)
         {
+            refresh = false;
             Current.MainPage = new NavigationPage(new LoginPage());
             await Navigation.PushAsync(new LoginPage(),true);
             //await Navigation.PopAsync(true);

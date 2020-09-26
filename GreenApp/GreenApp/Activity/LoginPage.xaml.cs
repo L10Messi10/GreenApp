@@ -68,7 +68,7 @@ namespace GreenApp.Activity
                             else
                             {
                                 indicatorloader.IsVisible = false;
-                                await Navigation.PushAsync(new MarketClosePage(), true);
+                                await Navigation.PushAsync(new MarketClosePage());
                             }
                         }
                         else
@@ -87,7 +87,7 @@ namespace GreenApp.Activity
             catch
             {
                 indicatorloader.IsVisible = false;
-                await Navigation.PushAsync(new NoInternetPage(), true);
+                await Navigation.PushAsync(new NoInternetPage());
             }
         }
 

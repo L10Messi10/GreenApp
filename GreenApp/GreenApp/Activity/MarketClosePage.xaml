@@ -16,7 +16,8 @@
                         VerticalOptions="Center" HorizontalTextAlignment="Center"
                         HorizontalOptions="Center" />
                     <StackLayout Margin="100,40">
-                        <Button Text="Try again" Margin="0" CornerRadius="20" Clicked="Button_OnClicked" />
+                        <Button Text="Try again" Margin="0" CornerRadius="20" Clicked="Button_OnClicked"
+                                BackgroundColor="Green" TextColor="White"/>
                     </StackLayout>
                 </StackLayout>
             </Frame>
