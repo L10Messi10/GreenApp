@@ -45,7 +45,7 @@
                             </Label.FormattedText>
                         </Label>
                         <StackLayout Orientation="Horizontal">
-                            <ff:CachedImage Source="eye" HeightRequest="10" WidthRequest="10"/>
+                            <ff:CachedImage Source="eye" HeightRequest="15" WidthRequest="15"/>
                             <Label FontSize="10">
                                 <Label.FormattedText>
                                     <FormattedString>
