@@ -33,7 +33,7 @@ namespace GreenApp.Activity
                     //categorycollection.ItemsSource = categories;
                     var categories = await TBL_Category.Read();
                     ListCategories.ItemsSource = categories;
-                    var samp = CurrentOrderId ;
+                    //var samp = CurrentOrderId ;
                     refresh = true;
                 }
                 
@@ -119,6 +119,8 @@ namespace GreenApp.Activity
 
         private async void Logout_OnClicked(object sender, EventArgs e)
         {
+            user_id = null;
+            CurrentOrderId = null;
             refresh = false;
             Current.MainPage = new NavigationPage(new LoginPage());
             await Navigation.PushAsync(new LoginPage(),true);
