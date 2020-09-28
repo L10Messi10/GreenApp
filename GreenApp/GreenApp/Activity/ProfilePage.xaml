@@ -10,18 +10,15 @@
         <!-- 2.0 Main structure-->
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!-- Here add the code that is being explained in the next block-->
         <ff:CachedImage Grid.Row="0" Source="https://i.ibb.co/N6Vg8Q2/v211batch10-aum-67-family-2.jpg" Aspect="AspectFill"
                         VerticalOptions="Start"/>
-        <Label Grid.Row="1" Text="User name" TextColor="Black" FontAttributes="Bold" FontSize="35" Margin="25,-80,0,0"/>
-        <Button Grid.Row="1" Text="Edit" HorizontalOptions="End" Margin="25,-100,0,0" BackgroundColor="Transparent"
-                TextColor="WhiteSmoke"/>
-        <Frame Grid.Row="2" CornerRadius="30" Margin="0,-40">
+        <Frame Grid.Row="2" CornerRadius="30" Margin="0,-150">
             <!-- Struture for the next block-->
-            <Grid Padding="0,20">
+            <Grid Padding="0" Margin="0,100,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
@@ -29,13 +26,15 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions> 
                 <!-- Here add the code that is being explained in the next block-->
-                <Label Grid.Row="0" Grid.Column="0" Text="Order History" FontAttributes="Bold" FontSize="18"/>
+                <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="User name" FontAttributes="Bold" FontSize="15"
+                       HorizontalOptions="Center"/>
                 <CollectionView ItemsSource="{Binding V_Orders}" 
                                VerticalOptions="Start" x:Name="OrdersList" HorizontalOptions="Fill"
-                               VerticalScrollBarVisibility="Never"
-                               Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                               VerticalScrollBarVisibility="Never" BackgroundColor="Gray"
+                               Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                                 <Frame HasShadow="False" BackgroundColor="#fef6f2" HeightRequest="70" CornerRadius="20"
@@ -66,7 +65,16 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </Grid>
-        </Frame> 
+        </Frame>
+        <ff:CachedImage Grid.Row="1" Source="marj.jpg" Aspect="AspectFit"
+                        HeightRequest="100" WidthRequest="200" HorizontalOptions="Center" Margin="0,-150,0,20">
+            <ff:CachedImage.Transformations>
+                <ffTrans:CircleTransformation/>
+            </ff:CachedImage.Transformations>
+        </ff:CachedImage>
+        <Button Grid.Row="1" HorizontalOptions="Center" WidthRequest="50" HeightRequest="50" Margin="25" CornerRadius="25" Padding="0"
+                ImageSource="camera" BorderWidth="2" BorderColor="DarkGray" BackgroundColor="Green">
+        </Button>
     </Grid>    
     </ScrollView>
     <!--<StackLayout>
