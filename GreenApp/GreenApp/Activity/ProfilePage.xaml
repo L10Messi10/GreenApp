@@ -5,14 +5,14 @@
              xmlns:ffTrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="GreenApp.Activity.ProfilePage" Title="Profile">
-    <Grid>
+    <ScrollView>
+        <Grid>
         <!-- 2.0 Main structure-->
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-            
         <!-- Here add the code that is being explained in the next block-->
         <ff:CachedImage Grid.Row="0" Source="https://i.ibb.co/N6Vg8Q2/v211batch10-aum-67-family-2.jpg" Aspect="AspectFill"
                         VerticalOptions="Start"/>
@@ -67,7 +67,8 @@
                 </CollectionView>
             </Grid>
         </Frame> 
-    </Grid>           
+    </Grid>    
+    </ScrollView>
     <!--<StackLayout>
         --><!-- Principal--><!--
         <StackLayout BackgroundColor="#FEB333" HeightRequest="400">
