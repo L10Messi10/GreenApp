@@ -58,6 +58,13 @@ namespace GreenApp.Activity
                             if (MarketStatus == "1")
                             {
                                 user_id = users.Id;
+                                fullname = users.full_name;
+                                address = users.address;
+                                mobilenum = users.mobile_num;
+                                emailadd = users.emailadd;
+                                password = users.password;
+                                datereg = users.datereg;
+                                propic = users.propic;
                                 refresh = false;
                                 indicatorloader.IsVisible = false;
                                 Settings.LastUsedEmail = chkremember.IsChecked == true ? emailentry.Text : "";

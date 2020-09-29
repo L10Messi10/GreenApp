@@ -76,7 +76,7 @@ namespace GreenApp.Activity
                     loadingindicator.IsVisible = true;
                     loadingindicator.IsRunning = true;
                     indicatornot.IsVisible = true;
-                    await App.MobileService.GetTable<TBL_Users>().InsertAsync(user);
+                    await TBL_Users.Insert(user);
                     await DisplayAlert("Success", "You've successfully signed up! Please login to your account now!", "OK");
                     indicatornot.IsVisible = false;
                     loadingindicator.IsVisible = false;

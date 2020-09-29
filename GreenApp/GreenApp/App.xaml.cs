@@ -19,6 +19,8 @@ namespace GreenApp
         public static bool checkout;
         public static bool _conn;
         public static string Selected_orderID;
+        public static string fullname, address, mobilenum, emailadd, password, propic;
+        public static DateTime datereg;
         public App()
         {
             InitializeComponent();
