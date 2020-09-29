@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Android;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
@@ -14,6 +14,12 @@ namespace GreenApp.Droid
     [Activity(Label = "GreenApp", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        private readonly string[] permissionGroup =
+        {
+            Manifest.Permission.ReadExternalStorage,
+            Manifest.Permission.WriteExternalStorage,
+            Manifest.Permission.Camera
+        };
         protected override void OnCreate(Bundle savedInstanceState)
         {
             TabLayoutResource = Resource.Layout.Tabbar;
@@ -26,9 +32,11 @@ namespace GreenApp.Droid
             Forms.SetFlags("UseLegacyRenderers");
             Forms.Init(this, savedInstanceState);
             FormsMaterial.Init(this,savedInstanceState);
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
             FormsControls.Droid.Main.Init(this);
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
+            RequestPermissions(permissionGroup,0);
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

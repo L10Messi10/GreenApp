@@ -24,13 +24,13 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions> 
                 <!-- Here add the code that is being explained in the next block-->
                 <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="User name" FontAttributes="Bold" FontSize="15"
-                       HorizontalOptions="Center"/>
+                       HorizontalOptions="Center" HeightRequest="50"/>
                 <CollectionView ItemsSource="{Binding V_Orders}" 
                                VerticalOptions="Start" x:Name="OrdersList" HorizontalOptions="Fill"
                                VerticalScrollBarVisibility="Never" BackgroundColor="Gray"
@@ -73,7 +73,7 @@
             </ff:CachedImage.Transformations>
         </ff:CachedImage>
         <Button Grid.Row="1" HorizontalOptions="Center" WidthRequest="50" HeightRequest="50" Margin="25" CornerRadius="25" Padding="0"
-                ImageSource="camera" BorderWidth="2" BorderColor="DarkGray" BackgroundColor="Green">
+                ImageSource="camera" BorderWidth="2" BorderColor="DarkGray" BackgroundColor="Green" x:Name="btnbrowseimage" Clicked="Btnbrowseimage_OnClicked">
         </Button>
     </Grid>    
     </ScrollView>

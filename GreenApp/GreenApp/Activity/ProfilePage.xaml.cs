@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GreenApp.Models;
+using Plugin.Media;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -28,6 +29,12 @@ namespace GreenApp.Activity
             {
                 await DisplayAlert("Error", "Error processing your request, please check you internet connection.", "OK");
             }
+        }
+
+        private async void Btnbrowseimage_OnClicked(object sender, EventArgs e)
+        {
+            await CrossMedia.Current.Initialize();
+
         }
     }
 }
