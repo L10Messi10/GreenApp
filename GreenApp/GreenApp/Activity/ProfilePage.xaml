@@ -6,7 +6,7 @@
              xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="GreenApp.Activity.ProfilePage" Title="Profile">
     <ScrollView>
-        <Grid>
+        <Grid x:Name="profilegrid">
         <!-- 2.0 Main structure-->
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>
@@ -29,7 +29,7 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions> 
                 <!-- Here add the code that is being explained in the next block-->
-                <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="User name" FontAttributes="Bold" FontSize="15"
+                <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding full_name}" FontAttributes="Bold" FontSize="15"
                        HorizontalOptions="Center" HeightRequest="50"/>
                 <CollectionView ItemsSource="{Binding V_Orders}" 
                                VerticalOptions="Start" x:Name="OrdersList" HorizontalOptions="Fill"
@@ -66,8 +66,9 @@
                 </CollectionView>
             </Grid>
         </Frame>
-        <ff:CachedImage Grid.Row="1" Source="marj.jpg" Aspect="AspectFit"
-                        HeightRequest="100" WidthRequest="200" HorizontalOptions="Center" Margin="0,-150,0,20" x:Name="profileimg">
+        <ff:CachedImage Grid.Row="1" Source="{Binding propic}" Aspect="AspectFit"
+                        HeightRequest="100" WidthRequest="200" HorizontalOptions="Center" Margin="0,-150,0,20" x:Name="profileimg"
+                        ErrorPlaceholder="person" LoadingPlaceholder="person" DownsampleToViewSize="True">
             <ff:CachedImage.Transformations>
                 <ffTrans:CircleTransformation/>
             </ff:CachedImage.Transformations>

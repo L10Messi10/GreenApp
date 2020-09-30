@@ -55,7 +55,7 @@
                       ContentTemplate="{DataTemplate local:MenuPage}"/>
     </FlyoutItem>
     <FlyoutItem Route="ProfilePage" FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Profile" Icon="person.png"
+        <ShellContent Title="Profile" Icon="person_1.png"
                       ContentTemplate="{DataTemplate local:ProfilePage}"/>
     </FlyoutItem>
     <FlyoutItem Route="OrderHistoryPage" FlyoutDisplayOptions="AsMultipleItems">

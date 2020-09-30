@@ -16,6 +16,7 @@ namespace GreenApp.Models
         public string password { get; set; }
         public DateTime datereg { get; set; }
         public string propic { get; set; }
+        public string picstr { get; set; }
 
         public static async Task Update(TBL_Users userdetails)
         {

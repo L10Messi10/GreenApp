@@ -65,6 +65,7 @@ namespace GreenApp.Activity
                                 password = users.password;
                                 datereg = users.datereg;
                                 propic = users.propic;
+                                picstr = users.picstr;
                                 refresh = false;
                                 indicatorloader.IsVisible = false;
                                 Settings.LastUsedEmail = chkremember.IsChecked == true ? emailentry.Text : "";

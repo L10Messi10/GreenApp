@@ -32,6 +32,9 @@ namespace GreenApp.Activity
             {
                 var getorders = (await MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id == user_id).ToListAsync());
                 OrdersList.ItemsSource = getorders;
+
+                var profile = (await MobileService.GetTable<TBL_Users>().Where(prof => prof.Id == user_id).ToListAsync()).FirstOrDefault();
+                profilegrid.BindingContext = profile;
             }
             catch
             {
@@ -80,8 +83,13 @@ namespace GreenApp.Activity
             var container = new BlobContainerClient(connectionString, containerName);
             await container.CreateIfNotExistsAsync();
             //*************************
+            //string a = "8b7b564b-4a34-4a34-aee7-5741b8f92ece.jpg";
+            BlobClient picuri = container.GetBlobClient(picstr);
+            if (picuri.Name != "")
+            {
+                await picuri.DeleteAsync();
+            }
             _imgId = Guid.NewGuid().ToString();
-            //container
             await container.UploadBlobAsync($"{_imgId}.jpg", File.OpenRead(filepath));
             _url = container.Uri.OriginalString;
             await Updateprofile();
@@ -97,8 +105,17 @@ namespace GreenApp.Activity
             var user = new TBL_Users
             {
                 Id = user_id,
-                propic = _url
+                full_name = fullname,
+                address = address,
+                mobile_num = mobilenum,
+                emailadd = emailadd,
+                password = password,
+                datereg = datereg,
+                propic = $"{_url}/{_imgId}.jpg",
+                picstr = $"{_imgId}.jpg"
             };
+            propic = user.propic;
+            picstr = user.picstr;
             await TBL_Users.Update(user);
         }
     }
