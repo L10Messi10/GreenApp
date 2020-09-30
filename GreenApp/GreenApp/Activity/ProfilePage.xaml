@@ -29,12 +29,42 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions> 
                 <!-- Here add the code that is being explained in the next block-->
-                <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding full_name}" FontAttributes="Bold" FontSize="15"
-                       HorizontalOptions="Center" HeightRequest="50"/>
-                <CollectionView ItemsSource="{Binding V_Orders}" 
-                               VerticalOptions="Start" x:Name="OrdersList" HorizontalOptions="Fill"
-                               VerticalScrollBarVisibility="Never" BackgroundColor="Gray"
-                               Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                             Spacing="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="20"/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="person_1"/>
+                        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="full name" FontAttributes="Bold" FontSize="15"
+                               HeightRequest="50"/>
+                        <Image Grid.Row="1" Grid.Column="0" Source="home"/>
+                        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="full name" FontAttributes="Bold" FontSize="15"
+                               HeightRequest="50"/>
+                        <Image Grid.Row="2" Grid.Column="0" Source="phone"/>
+                        <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="full name" FontAttributes="Bold" FontSize="15"
+                               HeightRequest="50"/>
+                        <Image Grid.Row="3" Grid.Column="0" Source="email_send"/>
+                        <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="full name" FontAttributes="Bold" FontSize="15"
+                               HeightRequest="50"/>
+                        <Image Grid.Row="4" Grid.Column="0" Source="history"/>
+                        <Label Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Text="full name" FontAttributes="Bold" FontSize="15"
+                               HeightRequest="50"/>
+                    </Grid>
+                </StackLayout>
+                <CollectionView ItemsSource="{Binding V_Orders}" BackgroundColor="Gray"
+                                VerticalOptions="Start" x:Name="OrdersList" HorizontalOptions="Fill"
+                                VerticalScrollBarVisibility="Never"
+                                Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                                 <Frame HasShadow="False" BackgroundColor="#fef6f2" HeightRequest="70" CornerRadius="20"
