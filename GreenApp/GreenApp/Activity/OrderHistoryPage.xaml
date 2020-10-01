@@ -132,6 +132,7 @@
                                                             </FormattedString>
                                                         </Label.FormattedText>
                                                     </Label> 
+
                                                 </Grid>
                                             </Frame>
                                         </StackLayout>

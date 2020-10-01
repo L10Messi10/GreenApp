@@ -92,7 +92,8 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Margin="0" Padding="0">
+                        <ContentView Padding="5">
+                            <Grid Margin="0" Padding="0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="100"/>
                             </Grid.RowDefinitions>
@@ -120,6 +121,7 @@
                                 
                             </StackLayout>
                         </Grid>
+                        </ContentView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

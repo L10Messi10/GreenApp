@@ -5,6 +5,10 @@
              xmlns:ffTrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:pancakeView="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="GreenApp.Activity.ProfilePage" Title="Profile">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edit profile" x:Name="btneditprofile" Order="Secondary"/>
+        <ToolbarItem Text="Security settings" x:Name="btnsecuritysettings" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
     <ScrollView>
         <Grid x:Name="profilegrid">
         <!-- 2.0 Main structure-->
@@ -29,9 +33,8 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions> 
                 <!-- Here add the code that is being explained in the next block-->
-                <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
-                             Spacing="0">
-                    <Grid>
+                <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                    <Grid ColumnSpacing="20">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="20"/>
                             <ColumnDefinition />
@@ -45,30 +48,30 @@
                             <RowDefinition Height="20"/>
                         </Grid.RowDefinitions>
                         <Image Grid.Row="0" Source="person_1"/>
-                        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="full name" FontAttributes="Bold" FontSize="15"
+                        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding full_name}" FontAttributes="Bold" FontSize="15"
                                HeightRequest="50"/>
                         <Image Grid.Row="1" Grid.Column="0" Source="home"/>
-                        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="full name" FontAttributes="Bold" FontSize="15"
+                        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding address}" FontSize="12"
                                HeightRequest="50"/>
                         <Image Grid.Row="2" Grid.Column="0" Source="phone"/>
-                        <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="full name" FontAttributes="Bold" FontSize="15"
+                        <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding mobile_num}" FontSize="12"
                                HeightRequest="50"/>
                         <Image Grid.Row="3" Grid.Column="0" Source="email_send"/>
-                        <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="full name" FontAttributes="Bold" FontSize="15"
+                        <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding emailadd}" FontSize="12"
                                HeightRequest="50"/>
                         <Image Grid.Row="4" Grid.Column="0" Source="history"/>
-                        <Label Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Text="full name" FontAttributes="Bold" FontSize="15"
+                        <Label Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding datereg, StringFormat='{0:MMMM, yyyy}'}" FontSize="12"
                                HeightRequest="50"/>
                     </Grid>
                 </StackLayout>
-                <CollectionView ItemsSource="{Binding V_Orders}" BackgroundColor="Gray"
-                                VerticalOptions="Start" x:Name="OrdersList" HorizontalOptions="Fill"
+                <CollectionView VerticalOptions="Start" x:Name="OrdersList" HorizontalOptions="Fill"
                                 VerticalScrollBarVisibility="Never"
-                                Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                                Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                                <Frame HasShadow="False" BackgroundColor="#fef6f2" HeightRequest="70" CornerRadius="20"
-                                       Margin="0,0,0,5">
+                            <ContentView Padding="3">
+                                <Frame HasShadow="True" HeightRequest="90" CornerRadius="10"
+                                       >
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto" />
@@ -79,18 +82,51 @@
                                             <RowDefinition Height="*" />
                                             <RowDefinition Height="*" />
                                             <RowDefinition Height="*" />
+                                            <RowDefinition />
                                         </Grid.RowDefinitions>
                                         <pancakeView:PancakeView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
                                                                  CornerRadius="12" Margin="0,0,10,0">
-                                            <Image Source="https://i.ibb.co/TmZxS1V/history.png" HeightRequest="100" WidthRequest="95"
+                                            <ff:CachedImage Source="https://i.ibb.co/dKzf30C/pngfuel-com.png" HeightRequest="100" WidthRequest="95"
                                                    Aspect="AspectFit" />
                                         </pancakeView:PancakeView>
-                                        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding tot_payable}"
-                                               FontSize="15" FontAttributes="Bold" />
+                                        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text=""
+                                               FontSize="15" FontAttributes="Bold">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Payable: " FontAttributes="Bold" />
+                                                    <Span Text="{Binding tot_payable}" TextColor="{StaticResource Primary}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
                                         <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
-                                               Text="{Binding cash_rendered}" FontSize="15" TextColor="#a4a7b6" />
+                                               FontSize="15" TextColor="#a4a7b6">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Payable: " />
+                                                    <Span Text="{Binding cash_rendered}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label Grid.Row="2" Grid.Column="1" TextColor="Black" FontAttributes="Bold">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Date: "  />
+                                                    <Span Text="{Binding order_date, StringFormat='{0:MMMM dd, yyyy}'}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                        <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"
+                                               FontSize="15" TextColor="#a4a7b6">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Status: " />
+                                                    <Span Text="{Binding order_status}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
                                     </Grid>
                                 </Frame>
+                            </ContentView>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
@@ -106,7 +142,7 @@
         <Button Grid.Row="1" HorizontalOptions="Center" WidthRequest="50" HeightRequest="50" Margin="25" CornerRadius="25" Padding="0"
                 ImageSource="camera" BorderWidth="2" BorderColor="DarkGray" BackgroundColor="Green" x:Name="btnbrowseimage" Clicked="Btnbrowseimage_OnClicked">
         </Button>
-    </Grid>    
+    </Grid>
     </ScrollView>
     <!--<StackLayout>
         --><!-- Principal--><!--
