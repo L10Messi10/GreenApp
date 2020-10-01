@@ -118,5 +118,10 @@ namespace GreenApp.Activity
             picstr = user.picstr;
             await TBL_Users.Update(user);
         }
+
+        private async void Btneditprofile_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new EditProfilePage());
+        }
     }
 }

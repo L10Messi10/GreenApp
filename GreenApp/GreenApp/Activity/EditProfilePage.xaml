@@ -6,42 +6,49 @@
              xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              BackgroundColor="#F6F5FA">
     <StackLayout BackgroundColor="#F6F5FA">
-        <Grid>
+        <Grid x:Name="profilelayout">
             <Grid.RowDefinitions>
-                <RowDefinition Height="200"/>
+                <RowDefinition Height="150"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Frame Grid.Row="0" HeightRequest="200" HasShadow="True"
-                   BackgroundColor="Gray">
-                <Frame.Background>
-                    <LinearGradientBrush StartPoint="0,1"
+            <StackLayout Grid.Row="0" Orientation="Horizontal">
+                <StackLayout.Background>
+                    <LinearGradientBrush StartPoint="0,0"
                                          EndPoint="1,0">
-                        <GradientStop Color="#AAFFA9"
-                                      Offset="2"/>
-                        <GradientStop Color="#11FFBD"
+                        <GradientStop Color="GreenYellow"
                                       Offset="0.1"/>
+                        <GradientStop Color="Green"
+                                      Offset="1.9"/>
                     </LinearGradientBrush>
-                </Frame.Background>
-                <StackLayout>
-                    <ff:CachedImage HeightRequest="130" WidthRequest="150" CacheDuration="30"
-                                    Aspect="AspectFit" HorizontalOptions="Center" RetryCount="5" LoadingPlaceholder="Profile picture"
-                                    ErrorPlaceholder="No image" RetryDelay="450" DownsampleToViewSize="True"
-                                    Source="https://i.pinimg.com/originals/6f/c7/22/6fc722d8edd788df1ea850edfe8b57d7.jpg">
-
-                        <ff:CachedImage.Transformations>
-                            <transformations:CircleTransformation  />
-                        </ff:CachedImage.Transformations>
-                    </ff:CachedImage>
-                    <ImageButton HeightRequest="50" BackgroundColor="Transparent" HorizontalOptions="End" WidthRequest="50"
-                                 Source="https://i.ibb.co/n8Bq2Sv/camera.png" Aspect="AspectFit" Padding="2"
-                                 Margin="0,-50,80,0">
-                    </ImageButton>
+                </StackLayout.Background>
+                <ff:CachedImage Source="{Binding propic}" Aspect="AspectFit"
+                                HeightRequest="150" WidthRequest="150" HorizontalOptions="Start" Margin="5,0,0,0" x:Name="profileimg"
+                                ErrorPlaceholder="person" LoadingPlaceholder="person" DownsampleToViewSize="True">
+                    <ff:CachedImage.Transformations>
+                        <transformations:CircleTransformation BorderHexColor="#FFFFFF" BorderSize="10"/>
+                    </ff:CachedImage.Transformations>
+                </ff:CachedImage>
+                <StackLayout VerticalOptions="Center" Spacing="0">
+                    <Label Text="Sasha May" FontFamily="Segoe Ui Light" FontSize="30" TextColor="{StaticResource Textcolor}"
+                           VerticalOptions="Center"/>
+                    <Label Text="email" FontFamily="Segoe Ui Light" FontSize="15" TextColor="{StaticResource Textcolor}"
+                           VerticalOptions="Center"/>
                 </StackLayout>
-            </Frame>
-            <Frame Grid.Row="1" Margin="10,-40" CornerRadius="20" >
+            </StackLayout>
+            <Frame Grid.Row="1" Margin="10,0" CornerRadius="20" HasShadow="True">
                 <ScrollView>
                     <StackLayout>
-                        <Label Text="General" BackgroundColor="#F6F5FA" HeightRequest="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <Label Text="General" HeightRequest="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White">
+                            <Label.Background>
+                                <LinearGradientBrush StartPoint="0,0"
+                                                     EndPoint="1,0">
+                                    <GradientStop Color="GreenYellow"
+                                                  Offset="0.1"/>
+                                    <GradientStop Color="Green"
+                                                  Offset="1.50"/>
+                                </LinearGradientBrush>
+                            </Label.Background>
+                        </Label>
                         <StackLayout  Orientation="Horizontal">
                             <ff:CachedImage Source="https://i.ibb.co/xD64L4K/kisspng-businessperson-computer-icons-clip-art-red-bus-icon-5b4affbff100c6-9827017415316417919872.png"
                                             WidthRequest="30" HeightRequest="30"/>
@@ -53,28 +60,30 @@
                             <Entry Margin="20,0" WidthRequest="300" Placeholder="Mobile no."/>
                         </StackLayout>
                         <StackLayout  Orientation="Horizontal">
-                            <ff:CachedImage Source="https://i.ibb.co/xD64L4K/kisspng-businessperson-computer-icons-clip-art-red-bus-icon-5b4affbff100c6-9827017415316417919872.png"
-                                            WidthRequest="30" HeightRequest="30"/>
-                            <Picker Margin="20,0" WidthRequest="300" Title="Select Gender">
-                                <Picker.Items>
-                                    <x:String>Male</x:String>
-                                    <x:String>Female</x:String>
-                                </Picker.Items>
-                            </Picker>
-                        </StackLayout>
-                        <StackLayout  Orientation="Horizontal">
                             <ff:CachedImage Source="https://i.ibb.co/NyYY2Gq/clipart523723.png"
                                             WidthRequest="30" HeightRequest="30"/>
                             <Editor Margin="20,0" WidthRequest="300" Placeholder="Address" MaxLength="200"/>
                         </StackLayout>
-                        <Label Text="Security" BackgroundColor="#F6F5FA" HeightRequest="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                        <Label Text="Security" BackgroundColor="#F6F5FA" HeightRequest="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                               TextColor="White">
+                            <Label.Background>
+                                <LinearGradientBrush StartPoint="0,0"
+                                                     EndPoint="1,0">
+                                    <GradientStop Color="GreenYellow"
+                                                  Offset="0.1"/>
+                                    <GradientStop Color="Green"
+                                                  Offset="1.50"/>
+                                </LinearGradientBrush>
+                            </Label.Background>
+                        </Label>
                         <StackLayout  Orientation="Horizontal">
                             <ff:CachedImage Source="https://i.ibb.co/NW0sM4W/email.png"
                                             WidthRequest="30" HeightRequest="30"/>
                             <Entry Margin="20,0" WidthRequest="300" Placeholder="email-address"/>
                         </StackLayout>
                         <Button BackgroundColor="{StaticResource ButtonColor}" Text="Save" TextColor="{StaticResource Textcolor}"
-                                CornerRadius="20" Margin="30,0" Clicked="Button_OnClicked"/>
+                                CornerRadius="20" Margin="30,0" Clicked="Button_OnClicked">
+                        </Button>
                     </StackLayout>
 
                 </ScrollView>
