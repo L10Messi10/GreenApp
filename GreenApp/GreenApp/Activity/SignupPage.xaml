@@ -27,7 +27,7 @@
 					</Grid.RowDefinitions>
 				<Entry  Grid.Row="0" x:Name="NameEntry" BackgroundColor="#E5E5E5" Visual="Material"
 						Placeholder="Full name" TextColor="{StaticResource TextColor}"
-						PlaceholderColor="{StaticResource PlaceHolderColor}"/>
+						PlaceholderColor="{StaticResource PlaceHolderColor}" MaxLength="30"/>
 				<Entry Grid.Row="1"  x:Name="mobileentry" BackgroundColor="#E5E5E5" Visual="Material"
 						Placeholder="Mobile #" TextColor="{StaticResource TextColor}"
 						Keyboard="Numeric"

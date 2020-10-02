@@ -5,7 +5,9 @@
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              BackgroundColor="#F6F5FA">
-    <StackLayout BackgroundColor="#F6F5FA">
+    <AbsoluteLayout>
+    <StackLayout BackgroundColor="#F6F5FA" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                 AbsoluteLayout.LayoutFlags="All">
         <Grid x:Name="profilelayout">
             <Grid.RowDefinitions>
                 <RowDefinition Height="150"/>
@@ -15,7 +17,7 @@
                 <StackLayout.Background>
                     <LinearGradientBrush StartPoint="0,0"
                                          EndPoint="1,0">
-                        <GradientStop Color="GreenYellow"
+                        <GradientStop Color="#559755"
                                       Offset="0.1"/>
                         <GradientStop Color="Green"
                                       Offset="1.9"/>
@@ -29,9 +31,9 @@
                     </ff:CachedImage.Transformations>
                 </ff:CachedImage>
                 <StackLayout VerticalOptions="Center" Spacing="0">
-                    <Label Text="Sasha May" FontFamily="Segoe Ui Light" FontSize="30" TextColor="{StaticResource Textcolor}"
+                    <Label Text="{Binding full_name}" FontFamily="TitleFontLight" FontSize="30" TextColor="{StaticResource Textcolor}"
                            VerticalOptions="Center"/>
-                    <Label Text="email" FontFamily="Segoe Ui Light" FontSize="15" TextColor="{StaticResource Textcolor}"
+                    <Label Text="{Binding emailadd}" FontFamily="TitleFontLight" FontSize="15" TextColor="{StaticResource Textcolor}"
                            VerticalOptions="Center"/>
                 </StackLayout>
             </StackLayout>
@@ -52,34 +54,20 @@
                         <StackLayout  Orientation="Horizontal">
                             <ff:CachedImage Source="https://i.ibb.co/xD64L4K/kisspng-businessperson-computer-icons-clip-art-red-bus-icon-5b4affbff100c6-9827017415316417919872.png"
                                             WidthRequest="30" HeightRequest="30"/>
-                            <Entry Margin="20,0" WidthRequest="300" Placeholder="Full name"/>
+                            <Entry x:Name="entryfullname" Margin="20,0" WidthRequest="300" Placeholder="Full name" MaxLength="50"
+                                   Text="{Binding full_name}"/>
                         </StackLayout>
                         <StackLayout  Orientation="Horizontal">
                             <ff:CachedImage Source="https://i.ibb.co/4ZxR49X/pngwing-com.png"
                                             WidthRequest="30" HeightRequest="30"/>
-                            <Entry Margin="20,0" WidthRequest="300" Placeholder="Mobile no."/>
+                            <Entry x:Name="entrymobile" Margin="20,0" WidthRequest="300" Placeholder="Mobile no." MaxLength="20"
+                                   Text="{Binding mobile_num}"/>
                         </StackLayout>
                         <StackLayout  Orientation="Horizontal">
                             <ff:CachedImage Source="https://i.ibb.co/NyYY2Gq/clipart523723.png"
                                             WidthRequest="30" HeightRequest="30"/>
-                            <Editor Margin="20,0" WidthRequest="300" Placeholder="Address" MaxLength="200"/>
-                        </StackLayout>
-                        <Label Text="Security" BackgroundColor="#F6F5FA" HeightRequest="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
-                               TextColor="White">
-                            <Label.Background>
-                                <LinearGradientBrush StartPoint="0,0"
-                                                     EndPoint="1,0">
-                                    <GradientStop Color="GreenYellow"
-                                                  Offset="0.1"/>
-                                    <GradientStop Color="Green"
-                                                  Offset="1.50"/>
-                                </LinearGradientBrush>
-                            </Label.Background>
-                        </Label>
-                        <StackLayout  Orientation="Horizontal">
-                            <ff:CachedImage Source="https://i.ibb.co/NW0sM4W/email.png"
-                                            WidthRequest="30" HeightRequest="30"/>
-                            <Entry Margin="20,0" WidthRequest="300" Placeholder="email-address"/>
+                            <Editor x:Name="entryaddress" Margin="20,0" WidthRequest="300" Placeholder="Address" MaxLength="200"
+                                    Text="{Binding address}" HeightRequest="150"/>
                         </StackLayout>
                         <Button BackgroundColor="{StaticResource ButtonColor}" Text="Save" TextColor="{StaticResource Textcolor}"
                                 CornerRadius="20" Margin="30,0" Clicked="Button_OnClicked">
@@ -90,4 +78,18 @@
             </Frame>
         </Grid>
     </StackLayout>
+    <StackLayout
+        x:Name="progresssave"
+        IsVisible="False"
+        AbsoluteLayout.LayoutBounds="0,0,1,1"
+        AbsoluteLayout.LayoutFlags="All"
+        BackgroundColor="Black" Opacity="0.5">
+        <ActivityIndicator
+            x:Name="ai"
+            IsRunning="True" IsVisible="True"
+            HorizontalOptions="CenterAndExpand"
+            Color="Green" Margin="0,300,0,0"/>
+        <Label x:Name="lblorderstate" Text="Saving" Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
+    </StackLayout>
+    </AbsoluteLayout>
 </ContentPage>

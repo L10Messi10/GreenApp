@@ -24,9 +24,49 @@ namespace GreenApp.Activity
             profilelayout.BindingContext = getprofile;
         }
 
-        private void Button_OnClicked(object sender, EventArgs e)
+        private async void Button_OnClicked(object sender, EventArgs e)
         {
-            
+            try
+            {
+                if (entryfullname.Text == "")
+                {
+                    await DisplayAlert("Error", "Please Enter your full name!", "Ok");
+                    entryfullname.Focus();
+                }
+                else if (entrymobile.Text == "")
+                {
+                    await DisplayAlert("Error", "Please Enter your mobile number!", "Ok");
+                    entrymobile.Focus();
+                }
+                else if (entryaddress.Text == "")
+                {
+                    await DisplayAlert("Error", "Please Enter your address!", "Ok");
+                    entryaddress.Focus();
+                }
+
+                progresssave.IsVisible = true;
+                var profile = new TBL_Users
+                {
+                    Id = user_id,
+                    full_name = entryfullname.Text,
+                    address = entryaddress.Text,
+                    mobile_num = entrymobile.Text,
+                    emailadd = emailadd,
+                    password = password,
+                    datereg = datereg,
+                    propic = propic,
+                    picstr = picstr
+                };
+                await TBL_Users.Update(profile);
+                progresssave.IsVisible = false;
+                await DisplayAlert("Info", "Profile information updated!", "Ok");
+                await Navigation.PopAsync(true);
+            }
+            catch
+            {
+                progresssave.IsVisible = false;
+                await Navigation.PushAsync(new NoInternetPage(), true);
+            }
         }
     }
 }

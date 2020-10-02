@@ -17,7 +17,7 @@
                 <Label.FormattedText>
                     <FormattedString>
                         <Span Text="Green" FontSize="40" FontFamily="TitleDesign" FontAttributes="Bold"
-                              TextColor="#37EBB7" />
+                              TextColor="{StaticResource Textcolor}" />
                         <Span Text=" Market" FontSize="25" FontFamily="TitleFontLight"
                               TextColor="{StaticResource Textcolor}" />
                     </FormattedString>
@@ -81,7 +81,7 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Padding="0" BackgroundColor="#D4D4D4" >
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Padding="0" BackgroundColor="#AAD4AA" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition  />
                 <ColumnDefinition Width="50" />
