@@ -41,6 +41,7 @@ namespace GreenApp.Activity
                 //Try to retrieve incomplete order if any.
                 //There might be a case of deleting the order
                 //When an error occured.
+                profpic.Source = propic;
                 var getorderid = (await App.MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id == App.user_id && orders.order_status == "Carted").ToListAsync()).FirstOrDefault();
                 if (getorderid != null) CurrentOrderId = getorderid.id;
                 if (CurrentOrderId != null)

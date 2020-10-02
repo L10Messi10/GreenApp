@@ -15,50 +15,48 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>
             <RowDefinition Height="100"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <!-- Here add the code that is being explained in the next block-->
         <StackLayout Grid.Row="0" VerticalOptions="StartAndExpand" HeightRequest="200">
             <StackLayout.Background>
                 <LinearGradientBrush StartPoint="0,0"
                                      EndPoint="1,0">
-                    <GradientStop Color="GreenYellow"
+                    <GradientStop Color="#559755"
                                   Offset="0.1"/>
                     <GradientStop Color="Green"
                                   Offset="1.9"/>
                 </LinearGradientBrush>
             </StackLayout.Background>
+            <Label Text="{Binding full_name}" FontFamily="TitleFontBold" FontSize="25"
+                   HeightRequest="50" Margin="10,70,0,0" TextColor="{StaticResource Textcolor}"/>
         </StackLayout>
-        <Frame Grid.Row="2" CornerRadius="30" Margin="0,-150">
+        <Frame Grid.Row="2" CornerRadius="30" Margin="0,-200">
             <!-- Struture for the next block-->
-            <Grid Padding="0" Margin="0,100,0,0">
+            <Grid Padding="0" Margin="0,0,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions> 
                 <!-- Here add the code that is being explained in the next block-->
-                <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-                    <Grid ColumnSpacing="20">
+                <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+                    <Grid ColumnSpacing="20" RowSpacing="10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="20"/>
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="5"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                             <RowDefinition Height="20"/>
                         </Grid.RowDefinitions>
-                        <Image Grid.Row="0" Source="person_1"/>
-                        <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding full_name}" FontAttributes="Bold" FontSize="15"
-                               HeightRequest="50"/>
                         <Image Grid.Row="1" Grid.Column="0" Source="home"/>
                         <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding address}" FontSize="12"
                                HeightRequest="50"/>
@@ -73,14 +71,13 @@
                                HeightRequest="50"/>
                     </Grid>
                 </StackLayout>
-                <CollectionView VerticalOptions="Start" x:Name="OrdersList" HorizontalOptions="Fill"
+                <CollectionView VerticalOptions="StartAndExpand" x:Name="OrdersList" HorizontalOptions="Fill"
                                 VerticalScrollBarVisibility="Never"
-                                Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
+                                Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" >
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <ContentView Padding="3">
-                                <Frame HasShadow="True" HeightRequest="90" CornerRadius="10"
-                                       >
+                                <Frame HasShadow="True" HeightRequest="90" CornerRadius="10">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto" />
@@ -91,7 +88,7 @@
                                             <RowDefinition Height="*" />
                                             <RowDefinition Height="*" />
                                             <RowDefinition Height="*" />
-                                            <RowDefinition />
+                                            <RowDefinition Height="*"/>
                                         </Grid.RowDefinitions>
                                         <pancakeView:PancakeView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
                                                                  CornerRadius="12" Margin="0,0,10,0">
@@ -142,36 +139,17 @@
             </Grid>
         </Frame>
         <ff:CachedImage Grid.Row="1" Source="{Binding propic}" Aspect="AspectFit"
-                        HeightRequest="100" WidthRequest="200" HorizontalOptions="Center" Margin="0,-150,0,20" x:Name="profileimg"
+                        HeightRequest="100" WidthRequest="150" HorizontalOptions="End"  Margin="0,-340,5,20" x:Name="profileimg"
                         ErrorPlaceholder="person" LoadingPlaceholder="person" DownsampleToViewSize="True">
             <ff:CachedImage.Transformations>
                 <ffTrans:CircleTransformation BorderHexColor="#FFFFFF" BorderSize="10"/>
             </ff:CachedImage.Transformations>
         </ff:CachedImage>
-        <Button Grid.Row="1" HorizontalOptions="Center" WidthRequest="50" HeightRequest="50" Margin="25" CornerRadius="25" Padding="0"
-                ImageSource="camera" BorderWidth="2" BorderColor="DarkGray" BackgroundColor="Green" x:Name="btnbrowseimage" Clicked="Btnbrowseimage_OnClicked">
+        <Button Grid.Row="1" HorizontalOptions="End" WidthRequest="50" HeightRequest="50" Margin="25,-100,15,0" CornerRadius="25" Padding="0"
+                ImageSource="camera" BorderWidth="2" VerticalOptions="Start"
+                BorderColor="DarkGray" BackgroundColor="Green"
+                x:Name="btnbrowseimage" Clicked="Btnbrowseimage_OnClicked">
         </Button>
     </Grid>
     </ScrollView>
-    <!--<StackLayout>
-        --><!-- Principal--><!--
-        <StackLayout BackgroundColor="#FEB333" HeightRequest="400">
-            --><!-- Main image--><!--
-            <ff:CachedImage Source="https://i.ibb.co/N6Vg8Q2/v211batch10-aum-67-family-2.jpg" 
-                   HorizontalOptions="Center" VerticalOptions="Center" Margin="0,30,0,0" HeightRequest="200"/>
-            --><!-- Place name & travel date--><!--
-            <Label Margin="30,0,0,0">
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="San Francisco &#10;" FontSize="28" FontAttributes="Bold" ForegroundColor="White" />
-                        <Span Text="17 November - 24 November" FontSize="17" ForegroundColor="White" />
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label> 
-            <Frame CornerRadius="35" Margin="0,0,0,-25" BackgroundColor="#FEB333" HasShadow="False" HeightRequest="25" VerticalOptions="EndAndExpand"/>
-        </StackLayout>
-        
-        --><!-- Here add the code that is being explained in the next block--><!--
-
-    </StackLayout>-->       
 </ContentPage>

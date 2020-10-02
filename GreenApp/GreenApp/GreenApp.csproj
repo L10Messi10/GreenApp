@@ -12,6 +12,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Fonts\KelseyScript.otf" />
+    <None Remove="Resources\Fonts\Lobster-Regular.ttf" />
+    <None Remove="Resources\Fonts\samantha.ttf" />
+    <None Remove="Resources\Fonts\segoeuibold.ttf" />
+    <None Remove="Resources\Fonts\segoeuil.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\KelseyScript.otf" />
+    <EmbeddedResource Include="Resources\Fonts\Lobster-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\samantha.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\segoeuibold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\segoeuil.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Azure.Storage.Blobs" Version="12.6.0" />
     <PackageReference Include="CarouselView.FormsPlugin" Version="5.2.0" />
     <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.1.2" />
