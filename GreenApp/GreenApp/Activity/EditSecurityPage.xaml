@@ -34,32 +34,15 @@
                          <Label Text="{Binding full_name}" FontFamily="TitleFontLight" FontSize="30"
                                 TextColor="{StaticResource Textcolor}"
                                 VerticalOptions="Center" />
+                         <Label Text="{Binding emailadd}" FontFamily="TitleFontLight" FontSize="30"
+                                TextColor="{StaticResource Textcolor}"
+                                VerticalOptions="Center" x:Name="lblemail" />
                      </StackLayout>
                  </StackLayout>
-                 <Frame Grid.Row="1" Margin="10,0" CornerRadius="20" HasShadow="True">
+                 <Frame Grid.Row="1" Margin="10,0" CornerRadius="20" HasShadow="True" VerticalOptions="Center">
                      <ScrollView>
                          <StackLayout>
-                             <Label Text="Email" HeightRequest="30" HorizontalTextAlignment="Center"
-                                    VerticalTextAlignment="Center" TextColor="White">
-                                 <Label.Background>
-                                     <LinearGradientBrush StartPoint="0,0"
-                                                          EndPoint="1,0">
-                                         <GradientStop Color="#559755"
-                                                       Offset="0.1" />
-                                         <GradientStop Color="Green"
-                                                       Offset="1.50" />
-                                     </LinearGradientBrush>
-                                 </Label.Background>
-                             </Label>
-                             <StackLayout Orientation="Horizontal">
-                                 <ff:CachedImage
-                                     Source="https://i.ibb.co/xD64L4K/kisspng-businessperson-computer-icons-clip-art-red-bus-icon-5b4affbff100c6-9827017415316417919872.png"
-                                     WidthRequest="30" HeightRequest="30" />
-                                 <Entry x:Name="entryemail" Margin="20,0" WidthRequest="300" Placeholder="Full name"
-                                        MaxLength="50"
-                                        Text="{Binding full_name}" />
-                             </StackLayout>
-                             <Label Text="Password" HeightRequest="30" HorizontalTextAlignment="Center"
+                             <Label Text="Security setting" HeightRequest="30" HorizontalTextAlignment="Center"
                                     VerticalTextAlignment="Center" TextColor="White">
                                  <Label.Background>
                                      <LinearGradientBrush StartPoint="0,0"
@@ -75,31 +58,30 @@
                                  <ff:CachedImage Source="https://i.ibb.co/4ZxR49X/pngwing-com.png"
                                                  WidthRequest="30" HeightRequest="30" />
                                  <Entry x:Name="entreyoldpass" Margin="20,0" WidthRequest="300"
-                                        Placeholder="Old Password" MaxLength="20" />
+                                        Placeholder="Old Password" MaxLength="20" IsPassword="True" />
                              </StackLayout>
-
                              <StackLayout Orientation="Horizontal">
                                  <ff:CachedImage Source="https://i.ibb.co/NyYY2Gq/clipart523723.png"
                                                  WidthRequest="30" HeightRequest="30" />
                                  <Entry x:Name="entrynewpass" Margin="20,0" WidthRequest="300"
-                                         Placeholder="New Password" MaxLength="200" />
+                                         Placeholder="New Password" MaxLength="200" IsPassword="True" />
                              </StackLayout>
                              <StackLayout Orientation="Horizontal">
                                  <ff:CachedImage Source="https://i.ibb.co/NyYY2Gq/clipart523723.png"
                                                  WidthRequest="30" HeightRequest="30" />
                                  <Entry x:Name="entrynewpassconfirm" Margin="20,0" WidthRequest="300"
-                                         Placeholder="Confirm new password" MaxLength="200" />
+                                         Placeholder="Confirm new password" MaxLength="200" IsPassword="True" />
                              </StackLayout>
                              <Button BackgroundColor="{StaticResource ButtonColor}" Text="Save"
                                      TextColor="{StaticResource Textcolor}"
-                                     CornerRadius="20" Margin="30,0">
+                                     CornerRadius="20" Margin="30,0" Clicked="Button_OnClicked">
                              </Button>
                          </StackLayout>
                      </ScrollView>
                  </Frame>
              </Grid>
          </StackLayout>
-         <StackLayout
+         <!--<StackLayout
              x:Name="progresssave"
              IsVisible="False"
              AbsoluteLayout.LayoutBounds="0,0,1,1"
@@ -111,6 +93,6 @@
                  HorizontalOptions="CenterAndExpand"
                  Color="Green" Margin="0,300,0,0"/>
              <Label x:Name="lblorderstate" Text="Saving. . ." Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
-         </StackLayout>
+         </StackLayout>-->
     </AbsoluteLayout>
 </ContentPage>

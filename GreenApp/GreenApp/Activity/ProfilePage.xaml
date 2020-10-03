@@ -7,7 +7,7 @@
              x:Class="GreenApp.Activity.ProfilePage" Title="Profile">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Edit profile" x:Name="btneditprofile" Clicked="Btneditprofile_OnClicked" Order="Secondary"/>
-        <ToolbarItem Text="Security settings" x:Name="btnsecuritysettings" Order="Secondary"/>
+        <ToolbarItem Text="Security settings" x:Name="btnsecuritysettings" Clicked="Btnsecuritysettings_OnClicked" Order="Secondary"/>
     </ContentPage.ToolbarItems>
     <ScrollView>
         <Grid x:Name="profilegrid">

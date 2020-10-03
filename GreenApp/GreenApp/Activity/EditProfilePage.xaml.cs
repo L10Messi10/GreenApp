@@ -57,6 +57,7 @@ namespace GreenApp.Activity
                     propic = propic,
                     picstr = picstr
                 };
+                address = entryaddress.Text;
                 await TBL_Users.Update(profile);
                 progresssave.IsVisible = false;
                 await DisplayAlert("Info", "Profile information updated!", "Ok");

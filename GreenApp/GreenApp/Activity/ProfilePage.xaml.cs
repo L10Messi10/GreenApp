@@ -121,7 +121,12 @@ namespace GreenApp.Activity
 
         private async void Btneditprofile_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new EditProfilePage());
+            await Navigation.PushAsync(new EditProfilePage(),true);
+        }
+
+        private async void Btnsecuritysettings_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new EditSecurityPage(), true);
         }
     }
 }
