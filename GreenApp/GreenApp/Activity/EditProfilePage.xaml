@@ -44,7 +44,7 @@
                             <Label.Background>
                                 <LinearGradientBrush StartPoint="0,0"
                                                      EndPoint="1,0">
-                                    <GradientStop Color="GreenYellow"
+                                    <GradientStop Color="#559755"
                                                   Offset="0.1"/>
                                     <GradientStop Color="Green"
                                                   Offset="1.50"/>
@@ -89,7 +89,7 @@
             IsRunning="True" IsVisible="True"
             HorizontalOptions="CenterAndExpand"
             Color="Green" Margin="0,300,0,0"/>
-        <Label x:Name="lblorderstate" Text="Saving" Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
+        <Label x:Name="lblorderstate" Text="Saving. . ." Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
     </StackLayout>
     </AbsoluteLayout>
 </ContentPage>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             x:Class="GreenApp.Activity.EditSecurityPage">
+     <AbsoluteLayout>
+         <StackLayout BackgroundColor="#F6F5FA" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                      AbsoluteLayout.LayoutFlags="All">
+             <Grid x:Name="profilelayout">
+                 <Grid.RowDefinitions>
+                     <RowDefinition Height="150" />
+                     <RowDefinition Height="*" />
+                 </Grid.RowDefinitions>
+                 <StackLayout Grid.Row="0" Orientation="Horizontal">
+                     <StackLayout.Background>
+                         <LinearGradientBrush StartPoint="0,0"
+                                              EndPoint="1,0">
+                             <GradientStop Color="#559755"
+                                           Offset="0.1" />
+                             <GradientStop Color="Green"
+                                           Offset="1.9" />
+                         </LinearGradientBrush>
+                     </StackLayout.Background>
+                     <ff:CachedImage Source="{Binding propic}" Aspect="AspectFit"
+                                     HeightRequest="150" WidthRequest="150" HorizontalOptions="Start" Margin="5,0,0,0"
+                                     x:Name="profileimg"
+                                     ErrorPlaceholder="person" LoadingPlaceholder="person" DownsampleToViewSize="True">
+                         <ff:CachedImage.Transformations>
+                             <transformations:CircleTransformation BorderHexColor="#FFFFFF" BorderSize="10" />
+                         </ff:CachedImage.Transformations>
+                     </ff:CachedImage>
+                     <StackLayout VerticalOptions="Center" Spacing="0">
+                         <Label Text="{Binding full_name}" FontFamily="TitleFontLight" FontSize="30"
+                                TextColor="{StaticResource Textcolor}"
+                                VerticalOptions="Center" />
+                     </StackLayout>
+                 </StackLayout>
+                 <Frame Grid.Row="1" Margin="10,0" CornerRadius="20" HasShadow="True">
+                     <ScrollView>
+                         <StackLayout>
+                             <Label Text="Email" HeightRequest="30" HorizontalTextAlignment="Center"
+                                    VerticalTextAlignment="Center" TextColor="White">
+                                 <Label.Background>
+                                     <LinearGradientBrush StartPoint="0,0"
+                                                          EndPoint="1,0">
+                                         <GradientStop Color="#559755"
+                                                       Offset="0.1" />
+                                         <GradientStop Color="Green"
+                                                       Offset="1.50" />
+                                     </LinearGradientBrush>
+                                 </Label.Background>
+                             </Label>
+                             <StackLayout Orientation="Horizontal">
+                                 <ff:CachedImage
+                                     Source="https://i.ibb.co/xD64L4K/kisspng-businessperson-computer-icons-clip-art-red-bus-icon-5b4affbff100c6-9827017415316417919872.png"
+                                     WidthRequest="30" HeightRequest="30" />
+                                 <Entry x:Name="entryemail" Margin="20,0" WidthRequest="300" Placeholder="Full name"
+                                        MaxLength="50"
+                                        Text="{Binding full_name}" />
+                             </StackLayout>
+                             <Label Text="Password" HeightRequest="30" HorizontalTextAlignment="Center"
+                                    VerticalTextAlignment="Center" TextColor="White">
+                                 <Label.Background>
+                                     <LinearGradientBrush StartPoint="0,0"
+                                                          EndPoint="1,0">
+                                         <GradientStop Color="#559755"
+                                                       Offset="0.1" />
+                                         <GradientStop Color="Green"
+                                                       Offset="1.50" />
+                                     </LinearGradientBrush>
+                                 </Label.Background>
+                             </Label>
+                             <StackLayout Orientation="Horizontal">
+                                 <ff:CachedImage Source="https://i.ibb.co/4ZxR49X/pngwing-com.png"
+                                                 WidthRequest="30" HeightRequest="30" />
+                                 <Entry x:Name="entreyoldpass" Margin="20,0" WidthRequest="300"
+                                        Placeholder="Old Password" MaxLength="20" />
+                             </StackLayout>
+
+                             <StackLayout Orientation="Horizontal">
+                                 <ff:CachedImage Source="https://i.ibb.co/NyYY2Gq/clipart523723.png"
+                                                 WidthRequest="30" HeightRequest="30" />
+                                 <Entry x:Name="entrynewpass" Margin="20,0" WidthRequest="300"
+                                         Placeholder="New Password" MaxLength="200" />
+                             </StackLayout>
+                             <StackLayout Orientation="Horizontal">
+                                 <ff:CachedImage Source="https://i.ibb.co/NyYY2Gq/clipart523723.png"
+                                                 WidthRequest="30" HeightRequest="30" />
+                                 <Entry x:Name="entrynewpassconfirm" Margin="20,0" WidthRequest="300"
+                                         Placeholder="Confirm new password" MaxLength="200" />
+                             </StackLayout>
+                             <Button BackgroundColor="{StaticResource ButtonColor}" Text="Save"
+                                     TextColor="{StaticResource Textcolor}"
+                                     CornerRadius="20" Margin="30,0">
+                             </Button>
+                         </StackLayout>
+                     </ScrollView>
+                 </Frame>
+             </Grid>
+         </StackLayout>
+         <StackLayout
+             x:Name="progresssave"
+             IsVisible="False"
+             AbsoluteLayout.LayoutBounds="0,0,1,1"
+             AbsoluteLayout.LayoutFlags="All"
+             BackgroundColor="Black" Opacity="0.5">
+             <ActivityIndicator
+                 x:Name="ai"
+                 IsRunning="True" IsVisible="True"
+                 HorizontalOptions="CenterAndExpand"
+                 Color="Green" Margin="0,300,0,0"/>
+             <Label x:Name="lblorderstate" Text="Saving. . ." Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
+         </StackLayout>
+    </AbsoluteLayout>
+</ContentPage>
