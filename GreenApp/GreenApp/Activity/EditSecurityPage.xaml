@@ -81,7 +81,7 @@
                  </Frame>
              </Grid>
          </StackLayout>
-         <!--<StackLayout
+         <StackLayout
              x:Name="progresssave"
              IsVisible="False"
              AbsoluteLayout.LayoutBounds="0,0,1,1"
@@ -92,7 +92,7 @@
                  IsRunning="True" IsVisible="True"
                  HorizontalOptions="CenterAndExpand"
                  Color="Green" Margin="0,300,0,0"/>
-             <Label x:Name="lblorderstate" Text="Saving. . ." Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
-         </StackLayout>-->
+             <Label x:Name="lblstat" Text="Saving. . ." Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
+         </StackLayout>
     </AbsoluteLayout>
 </ContentPage>

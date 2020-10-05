@@ -7,6 +7,7 @@
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:ffTrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              x:Class="GreenApp.Activity.LoginPage"
+             Padding="0"
              BackgroundImageSource="https://ded8b07dd9e637888fc2-e87978aaae5cf97349d88697fd53e4c9.ssl.cf1.rackcdn.com/0df3a215-baa7-4ffc-ade2-fbe6da167765.jpg"
              NavigationPage.HasNavigationBar="False">
     <StackLayout>

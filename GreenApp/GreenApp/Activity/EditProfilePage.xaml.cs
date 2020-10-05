@@ -20,31 +20,46 @@ namespace GreenApp.Activity
 
         protected override async void OnAppearing()
         {
-            var getprofile = (await MobileService.GetTable<TBL_Users>().Where(profile => profile.Id == user_id).ToListAsync()).FirstOrDefault();
-            profilelayout.BindingContext = getprofile;
+            try
+            {
+                progresssave.IsVisible = true;
+                lblprogressstat.Text = "Loading profile . . .";
+                var getprofile = (await MobileService.GetTable<TBL_Users>().Where(profile => profile.Id == user_id).ToListAsync()).FirstOrDefault();
+                profilelayout.BindingContext = getprofile;
+                progresssave.IsVisible = false;
+            }
+            catch
+            {
+                progresssave.IsVisible = false;
+                await Navigation.PushAsync(new NoInternetPage(), true);
+            }
+            
         }
 
         private async void Button_OnClicked(object sender, EventArgs e)
         {
             try
             {
-                if (entryfullname.Text == "")
+                if (entryfullname.Text == null)
                 {
                     await DisplayAlert("Error", "Please Enter your full name!", "Ok");
                     entryfullname.Focus();
+                    return;
                 }
-                else if (entrymobile.Text == "")
+                else if (entrymobile.Text == null)
                 {
                     await DisplayAlert("Error", "Please Enter your mobile number!", "Ok");
                     entrymobile.Focus();
+                    return;
                 }
-                else if (entryaddress.Text == "")
+                else if (entryaddress.Text == null)
                 {
                     await DisplayAlert("Error", "Please Enter your address!", "Ok");
                     entryaddress.Focus();
+                    return;
                 }
-
                 progresssave.IsVisible = true;
+                lblprogressstat.Text = "Saving profile . . .";
                 var profile = new TBL_Users
                 {
                     Id = user_id,

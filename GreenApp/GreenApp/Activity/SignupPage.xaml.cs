@@ -14,12 +14,7 @@ namespace GreenApp.Activity
     public partial class SignupPage
     {
         public SignupPage() => InitializeComponent();
-
-        protected override void OnAppearing()
-        {
-            
-        }
-
+        
         private void Btnlogin_OnClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new LoginPage());
@@ -40,6 +35,13 @@ namespace GreenApp.Activity
                 {
                     await DisplayAlert("Field required", "Please enter you mobile number.", "OK");
                     mobileentry.Focus();
+                    return;
+                }
+
+                if (addressentry.Text == null)
+                {
+                    await DisplayAlert("Field required", "Please enter your complete address", "OK");
+                    addressentry.Focus();
                     return;
                 }
 
@@ -69,6 +71,7 @@ namespace GreenApp.Activity
                     {
                         full_name = NameEntry.Text,
                         mobile_num = mobileentry.Text,
+                        address = addressentry.Text,
                         emailadd = emailentry.Text,
                         password = passentry.Text,
                         datereg = DateTime.Now

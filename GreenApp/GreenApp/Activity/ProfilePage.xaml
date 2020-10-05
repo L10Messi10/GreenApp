@@ -10,7 +10,9 @@
         <ToolbarItem Text="Security settings" x:Name="btnsecuritysettings" Clicked="Btnsecuritysettings_OnClicked" Order="Secondary"/>
     </ContentPage.ToolbarItems>
     <ScrollView>
-        <Grid x:Name="profilegrid">
+        <AbsoluteLayout>
+            <Grid x:Name="profilegrid" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                  AbsoluteLayout.LayoutFlags="All">
         <!-- 2.0 Main structure-->
         <Grid.RowDefinitions>
             <RowDefinition Height="200"/>
@@ -151,5 +153,19 @@
                 x:Name="btnbrowseimage" Clicked="Btnbrowseimage_OnClicked">
         </Button>
     </Grid>
+            <StackLayout
+                x:Name="progressload"
+                IsVisible="False"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                BackgroundColor="Black" Opacity="0.5">
+                <ActivityIndicator
+                    x:Name="ai"
+                    IsRunning="True" IsVisible="True"
+                    HorizontalOptions="CenterAndExpand"
+                    Color="Green" Margin="0,300,0,0"/>
+                <Label x:Name="lblprogressstat" Text="Loading profile. . ." Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
+            </StackLayout>
+        </AbsoluteLayout>
     </ScrollView>
 </ContentPage>

@@ -89,7 +89,7 @@
             IsRunning="True" IsVisible="True"
             HorizontalOptions="CenterAndExpand"
             Color="Green" Margin="0,300,0,0"/>
-        <Label x:Name="lblorderstate" Text="Saving. . ." Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
+        <Label x:Name="lblprogressstat" Text="Saving. . ." Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
     </StackLayout>
     </AbsoluteLayout>
 </ContentPage>

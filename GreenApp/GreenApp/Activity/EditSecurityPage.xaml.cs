@@ -17,28 +17,44 @@ namespace GreenApp.Activity
 
         protected override async void OnAppearing()
         {
-            var getprofile = (await MobileService.GetTable<TBL_Users>().Where(profile => profile.Id == user_id).ToListAsync()).FirstOrDefault();
-            profilelayout.BindingContext = getprofile;
+            try
+            {
+                progresssave.IsVisible = true;
+                lblstat.Text = "Loading security page. . .";
+                var getprofile = (await MobileService.GetTable<TBL_Users>().Where(profile => profile.Id == user_id).ToListAsync()).FirstOrDefault();
+                profilelayout.BindingContext = getprofile;
+                progresssave.IsVisible = false;
+            }
+            catch
+            {
+                progresssave.IsVisible = false;
+                await Navigation.PushAsync(new NoInternetPage(), true);
+            }
+            
         }
 
         private async void Button_OnClicked(object sender, EventArgs e)
         {
-            bool oldpass = string.IsNullOrEmpty(entreyoldpass.Text);
-            bool newpass = string.IsNullOrEmpty(entrynewpass.Text);
-            bool newpassconfirm = string.IsNullOrEmpty(entrynewpassconfirm.Text);
-            if (oldpass || newpass || newpassconfirm)
+            try
             {
-                await DisplayAlert("Error", "Please Enter your old password and confirm your new password!", "OK");
-                return;
-            }
-            if (entrynewpass.Text != entrynewpassconfirm.Text)
-            {
-                await DisplayAlert("Error confirming password", "Password did not match!", "OK");
-                return;
-            }
-            var users = (await MobileService.GetTable<TBL_Users>().Where(mail => mail.emailadd == lblemail.Text).ToListAsync()).FirstOrDefault();
-            if (users != null)
-            {
+                var oldpass = string.IsNullOrEmpty(entreyoldpass.Text);
+                var newpass = string.IsNullOrEmpty(entrynewpass.Text);
+                var newpassconfirm = string.IsNullOrEmpty(entrynewpassconfirm.Text);
+                if (oldpass || newpass || newpassconfirm)
+                {
+                    await DisplayAlert("Error", "Please Enter your old password and confirm your new password!", "OK");
+                    return;
+                }
+                if (entrynewpass.Text != entrynewpassconfirm.Text)
+                {
+                    await DisplayAlert("Confirm password", "New Password did not match!", "OK");
+                    return;
+                }
+
+                progresssave.IsVisible = true;
+                lblstat.Text = "Saving. . .";
+                var users = (await MobileService.GetTable<TBL_Users>().Where(usr => usr.emailadd == lblemail.Text).ToListAsync()).FirstOrDefault();
+                if (users == null) return;
                 if (users.password == entreyoldpass.Text)
                 {
                     var newusersecurity = new TBL_Users
@@ -54,14 +70,21 @@ namespace GreenApp.Activity
                         picstr = picstr
                     };
                     await TBL_Users.Update(newusersecurity);
+                    progresssave.IsVisible = false;
                     await DisplayAlert("Info", "Security setting saved!", "OK");
                     await Navigation.PopAsync(true);
                 }
                 else
                 {
-                    //indicatorloader.IsVisible = false;
+                    progresssave.IsVisible = false;
                     await DisplayAlert("Error", "Old password is incorrect!", "OK");
+                    entreyoldpass.Focus();
                 }
+            }
+            catch
+            {
+                progresssave.IsVisible = false;
+                await Navigation.PushAsync(new NoInternetPage(), true);
             }
         }
     }

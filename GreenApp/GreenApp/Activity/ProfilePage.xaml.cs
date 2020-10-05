@@ -19,7 +19,7 @@ namespace GreenApp.Activity
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfilePage : ContentPage
     {
-        private string _imgId;
+        //private string _imgId;
         private string _url;
         public ProfilePage()
         {
@@ -30,15 +30,18 @@ namespace GreenApp.Activity
         {
             try
             {
+                progressload.IsVisible = true;
                 var getorders = (await MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id == user_id).ToListAsync());
                 OrdersList.ItemsSource = getorders;
 
                 var profile = (await MobileService.GetTable<TBL_Users>().Where(prof => prof.Id == user_id).ToListAsync()).FirstOrDefault();
                 profilegrid.BindingContext = profile;
+                progressload.IsVisible = false;
             }
             catch
             {
-                await DisplayAlert("Error", "Error processing your request, please check you internet connection.", "OK");
+                progressload.IsVisible = false;
+                await Navigation.PushAsync(new NoInternetPage(), true);
             }
         }
 
@@ -77,46 +80,62 @@ namespace GreenApp.Activity
         //}
         private async Task UploadImage(string getPath)
         {
-            var connectionString = "DefaultEndpointsProtocol=https;AccountName=imarketimagestorage;AccountKey=oQsfLFmDDr+FAKDyzKTeccautiNEJJDsfG4fzMJwbK2tO2q2gUrpaVowrfz7Q+dWWLAASPbdtCvMpEpE9/R8/A==;EndpointSuffix=core.windows.net";
-            var containerName = "imagecontainer";
-            var filepath = getPath;
-            var container = new BlobContainerClient(connectionString, containerName);
-            await container.CreateIfNotExistsAsync();
-            //*************************
-            //string a = "8b7b564b-4a34-4a34-aee7-5741b8f92ece.jpg";
-            BlobClient picuri = container.GetBlobClient(picstr);
-            if (picuri.Name != "")
+            try
             {
-                await picuri.DeleteAsync();
+                //Uploading pictures to image container in azure
+                progressload.IsVisible = true;
+                lblprogressstat.Text = "Uploading profile picture . . .";
+                var connectionString = "DefaultEndpointsProtocol=https;AccountName=imarketimagestorage;AccountKey=oQsfLFmDDr+FAKDyzKTeccautiNEJJDsfG4fzMJwbK2tO2q2gUrpaVowrfz7Q+dWWLAASPbdtCvMpEpE9/R8/A==;EndpointSuffix=core.windows.net";
+                var containerName = "imagecontainer";
+                var filepath = getPath;
+                var container = new BlobContainerClient(connectionString, containerName);
+                await container.CreateIfNotExistsAsync();
+                //Upon updating, the existing image must be deleted to avoid duplication in the container
+                BlobClient picuri = container.GetBlobClient(picstr);
+                if (picuri.Name != "")
+                {
+                    await picuri.DeleteAsync();
+                }
+                //_imgId = Guid.NewGuid().ToString();
+                await container.UploadBlobAsync($"{user_id}.jpg", File.OpenRead(filepath));
+                _url = container.Uri.OriginalString;
+                await Updateprofile();
             }
-            _imgId = Guid.NewGuid().ToString();
-            await container.UploadBlobAsync($"{_imgId}.jpg", File.OpenRead(filepath));
-            _url = container.Uri.OriginalString;
-            await Updateprofile();
+            catch
+            {
+                progressload.IsVisible = false;
+                await Navigation.PushAsync(new NoInternetPage(), true);
+            }
         }
-        //public static async Task<bool> DeleteFileAsync(ContainerType containerType, string name)
-        //{
-        //    var container = GetContainer(containerType);
-        //    var blob = container.GetBlobReference(name);
-        //    return await blob.DeleteIfExistsAsync();
-        //}
         private async Task Updateprofile()
         {
-            var user = new TBL_Users
+            try
             {
-                Id = user_id,
-                full_name = fullname,
-                address = address,
-                mobile_num = mobilenum,
-                emailadd = emailadd,
-                password = password,
-                datereg = datereg,
-                propic = $"{_url}/{_imgId}.jpg",
-                picstr = $"{_imgId}.jpg"
-            };
-            propic = user.propic;
-            picstr = user.picstr;
-            await TBL_Users.Update(user);
+                progressload.IsVisible = true;
+                lblprogressstat.Text = "Saving profile . . .";
+                var user = new TBL_Users
+                {
+                    Id = user_id,
+                    full_name = fullname,
+                    address = address,
+                    mobile_num = mobilenum,
+                    emailadd = emailadd,
+                    password = password,
+                    datereg = datereg,
+                    propic = $"{_url}/{user_id}.jpg",
+                    picstr = $"{user_id}.jpg"
+                };
+                propic = user.propic;
+                picstr = user.picstr;
+                await TBL_Users.Update(user);
+                progressload.IsVisible = false;
+            }
+            catch
+            {
+                progressload.IsVisible = false;
+                await Navigation.PushAsync(new NoInternetPage(), true);
+            }
+            
         }
 
         private async void Btneditprofile_OnClicked(object sender, EventArgs e)
