@@ -9,7 +9,7 @@
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
-             x:Class="GreenApp.Activity.MenuPage" BackgroundColor="{StaticResource BackgroundColor}">
+             x:Class="GreenApp.Activity.MenuPage" BackgroundColor="#E2F0E2">
     <Shell.TitleView>
         <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Spacing="10">
             <Label Text="Green Market" VerticalOptions="Center"
@@ -81,7 +81,7 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Padding="0" BackgroundColor="#AAD4AA" >
+            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Padding="0" BackgroundColor="#E2F0E2" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition  />
                 <ColumnDefinition Width="50" />
@@ -117,31 +117,28 @@
                         <ContentView Padding="5">
                             <Grid Margin="0" Padding="0">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="200"/>
+                                <RowDefinition Height="250"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <StackLayout Grid.Row="0" Margin="5,0,5,0" Padding="0" Grid.Column="0">
-                                <!--<ActivityIndicator IsRunning="{Binding Source={x:Reference prodimg}, Path=IsLoading}"
-                                                   IsVisible="{Binding Source={x:Reference prodimg}, Path=IsLoading}"
-                                                   Color="Black"/>-->
-                                <Label VerticalOptions="Center" Padding="0" FontAttributes="Bold">
-                                    <Label.FormattedText>
-                                        <FormattedString>
-                                            <Span Text="{Binding category_name}" FontSize="Medium"
-                                                  TextColor="{StaticResource TextColor}" />
-                                        </FormattedString>
-                                    </Label.FormattedText>
-                                </Label>
-                                <Frame Padding="0" CornerRadius="10" IsClippedToBounds="True"
-                                       HorizontalOptions="FillAndExpand">
-                                    <ff:CachedImage x:Name="prodimg" Source="{Binding catimg_uri}"
-                                                    HeightRequest="150" Aspect="AspectFill"
-                                                    LoadingPlaceholder="Image section" ErrorPlaceholder="Error loading image"/>
+                                <Frame Grid.Row="0" Margin="0" Padding="0" Grid.Column="0" CornerRadius="10">
+                                    <StackLayout Padding="0">
+                                        <ff:CachedImage x:Name="prodimg" Source="{Binding catimg_uri}"
+                                                        HeightRequest="220" Aspect="AspectFill"
+                                                        LoadingPlaceholder="notfound.png"
+                                                        ErrorPlaceholder="notfound.png" />
+                                        <Label VerticalOptions="Center" FontAttributes="Bold" Margin="5,0,0,5">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding category_name}" FontSize="18"
+                                                          TextColor="Green"
+                                                          FontFamily="TitleFontBold" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
                                 </Frame>
-                                
-                            </StackLayout>
                         </Grid>
                         </ContentView>
                     </DataTemplate>
