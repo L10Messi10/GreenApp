@@ -19,7 +19,7 @@ namespace GreenApp.Activity
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfilePage : ContentPage
     {
-        //private string _imgId;
+        private string _imgId;
         private string _url;
         public ProfilePage()
         {
@@ -96,8 +96,8 @@ namespace GreenApp.Activity
                 {
                     await picuri.DeleteAsync();
                 }
-                //_imgId = Guid.NewGuid().ToString();
-                await container.UploadBlobAsync($"{user_id}.jpg", File.OpenRead(filepath));
+                _imgId = Guid.NewGuid().ToString();
+                await container.UploadBlobAsync($"{_imgId}.jpg", File.OpenRead(filepath));
                 _url = container.Uri.OriginalString;
                 await Updateprofile();
             }
@@ -122,8 +122,8 @@ namespace GreenApp.Activity
                     emailadd = emailadd,
                     password = password,
                     datereg = datereg,
-                    propic = $"{_url}/{user_id}.jpg",
-                    picstr = $"{user_id}.jpg"
+                    propic = $"{_url}/{_imgId}.jpg",
+                    picstr = $"{_imgId}.jpg"
                 };
                 propic = user.propic;
                 picstr = user.picstr;

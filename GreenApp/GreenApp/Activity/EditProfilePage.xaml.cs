@@ -46,13 +46,14 @@ namespace GreenApp.Activity
                     entryfullname.Focus();
                     return;
                 }
-                else if (entrymobile.Text == null)
+
+                if (entrymobile.Text == null)
                 {
                     await DisplayAlert("Error", "Please Enter your mobile number!", "Ok");
                     entrymobile.Focus();
                     return;
                 }
-                else if (entryaddress.Text == null)
+                if (entryaddress.Text == null)
                 {
                     await DisplayAlert("Error", "Please Enter your address!", "Ok");
                     entryaddress.Focus();
