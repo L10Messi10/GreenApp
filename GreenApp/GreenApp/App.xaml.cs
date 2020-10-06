@@ -21,6 +21,8 @@ namespace GreenApp
         public static string Selected_orderID;
         public static string fullname, address, mobilenum, emailadd, password, propic,picstr;
         public static DateTime datereg;
+        public static bool historyloaded = false;
+
         public App()
         {
             InitializeComponent();

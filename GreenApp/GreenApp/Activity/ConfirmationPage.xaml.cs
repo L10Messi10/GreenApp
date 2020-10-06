@@ -26,6 +26,7 @@ namespace GreenApp.Activity
         {
             if (checkout)
             {
+                historyloaded = false;
                 CurrentOrderId = null;
                 //refresh = false;
                 await Navigation.PopToRootAsync(true);
@@ -114,6 +115,7 @@ namespace GreenApp.Activity
         {
             if (checkout)
             {
+                historyloaded = false;
                 Selected_orderID = null;
                 //refresh = false;
                 await Navigation.PopToRootAsync(true);

@@ -15,7 +15,6 @@ namespace GreenApp.Activity
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class OrderHistoryPage : ContentPage
     {
-        public static bool loaded = false;
         public OrderHistoryPage()
         {
             InitializeComponent();
@@ -31,11 +30,11 @@ namespace GreenApp.Activity
             try
             {
                 string ord = "1";
-                if (loaded == false)
+                if (historyloaded == false)
                 {
                     var getorders = await MobileService.GetTable<TBL_Orders>().Where(orders => orders.stat.Contains(ord) && orders.users_id.ToLower().Contains(user_id)).ToListAsync();
                     OrdersList.ItemsSource = getorders;
-                    loaded = true;
+                    historyloaded = true;
                 }
                 OrderDetailsList.ItemsSource = null;
                 lblsum.Text = "Php. 0.00";
@@ -92,7 +91,7 @@ namespace GreenApp.Activity
 
         private void Reload_OnClicked(object sender, EventArgs e)
         {
-            loaded = false;
+            historyloaded = false;
             OnAppearing();
         }
 
