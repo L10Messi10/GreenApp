@@ -139,7 +139,7 @@
                                         </Label>
                                     </StackLayout>
                                 </Frame>
-                        </Grid>
+                            </Grid>
                         </ContentView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
