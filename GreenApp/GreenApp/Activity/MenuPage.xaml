@@ -12,7 +12,7 @@
              x:Class="GreenApp.Activity.MenuPage" BackgroundColor="#E2F0E2">
     <Shell.TitleView>
         <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Spacing="10">
-            <Label Text="Green Market" VerticalOptions="Center"
+            <Label VerticalOptions="Center"
                    HorizontalOptions="Center">
                 <Label.FormattedText>
                     <FormattedString>

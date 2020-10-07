@@ -61,10 +61,19 @@
                 </Grid.ColumnDefinitions>
                 <StackLayout Grid.Column="0" HeightRequest="50" WidthRequest="50" VerticalOptions="Center" HorizontalOptions="Start"
                              Margin="5,0,0,0">
-                    <Image Source="logo" HeightRequest="50" WidthRequest="50"/>
+                    <Image Source="logoflyout" HeightRequest="50" WidthRequest="50"/>
                 </StackLayout>
-                <Label Grid.Column="0" Grid.ColumnSpan="2" Text="Green Market" VerticalOptions="Center" HorizontalOptions="Center"
-                       TextColor="White" FontFamily="TitleFontLight" FontSize="Large"/>
+                <Label Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center"
+                       HorizontalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Green" FontSize="40" FontFamily="TitleDesign" FontAttributes="Bold"
+                                  TextColor="{StaticResource Textcolor}" />
+                            <Span Text=" Market" FontSize="25" FontFamily="TitleFontLight"
+                                  TextColor="{StaticResource Textcolor}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
             </Grid>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
