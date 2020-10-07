@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:ffTrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
-             x:Class="GreenApp.Activity.FeedBackPage">
+             x:Class="GreenApp.Activity.FeedBackPage" Title="Feedback">
     <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
@@ -11,7 +11,7 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <ff:CachedImage Source="feedback.jpg" Margin="0" ErrorPlaceholder="Error loading image"
+            <ff:CachedImage Source="feedback.jpg" Margin="0"
                             LoadingPriority="High" Aspect="AspectFill"/>
             <Frame Grid.Row="1" Margin="20,-140" CornerRadius="20" HasShadow="True">
                 <Grid>
@@ -25,13 +25,14 @@
                     </Grid.ColumnDefinitions>
                     <ff:CachedImage Grid.Row="0" Grid.Column="1"/>
                     <Label Grid.Row="0" Grid.Column="1" Text="We'd love to hear from you to improve the application."/>
-                    <Editor Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
-                            Placeholder="A descriptive and informative statements about your feedback.." PlaceholderColor="Silver"/>
+                    <Editor Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="entryfeedback"
+                            Placeholder="A descriptive and informative statements about your feedback.."
+                            PlaceholderColor="Silver" MaxLength="1000"/>
                 </Grid>
             </Frame>
             <StackLayout Grid.Row="2" Grid.Column="0" Margin="20,155">
                 <Button BackgroundColor="{StaticResource Primary}" TextColor="White"
-                        Text="Submit feedback" CornerRadius="20"/>
+                        Text="Submit feedback" CornerRadius="20" Clicked="Button_OnClicked"/>
             </StackLayout>
         </Grid>
     </ScrollView>

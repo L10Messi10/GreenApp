@@ -89,4 +89,8 @@
         <ShellContent Title="Pending Orders" Icon="history"
                       ContentTemplate="{DataTemplate local:OrderHistoryPage}"/>
     </FlyoutItem>
+    <FlyoutItem Route="FeedBackPage" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Feedback" Icon="comments"
+                      ContentTemplate="{DataTemplate local:FeedBackPage}"/>
+    </FlyoutItem>
 </Shell>

@@ -18,7 +18,7 @@
                 <Color x:Key="TextBackColor">#333337</Color>
                 <Color x:Key="PlaceHolderColor">#869797</Color>
                 <Color x:Key="BackgroundColor">WhiteSmoke</Color>
-                <Color x:Key="Primary">#29B700</Color>
+            <Color x:Key="Primary">Green</Color>
                 <Color x:Key="TextColor">Black</Color>
                 <Color x:Key="PrimaryDark">#176802</Color>
                 <Color x:Key="Accent">#208204</Color>
