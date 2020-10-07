@@ -116,12 +116,13 @@ namespace GreenApp.Activity
             if (checkout)
             {
                 historyloaded = false;
-                Selected_orderID = null;
+                CurrentOrderId = null;
                 //refresh = false;
                 await Navigation.PopToRootAsync(true);
             }
             else
             {
+
                 Selected_orderID = null;
                 //refresh = false;
                 await Navigation.PopAsync(true);
