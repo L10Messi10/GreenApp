@@ -36,6 +36,7 @@ namespace GreenApp.Activity
         {
             try
             {
+                if (indicatorloader.IsVisible) return;
                 indicatorloader.IsVisible = true;
                 //await Navigation.PushModalAsync(new MenuPage(),true);
                 bool isemailempty = string.IsNullOrEmpty(emailentry.Text);

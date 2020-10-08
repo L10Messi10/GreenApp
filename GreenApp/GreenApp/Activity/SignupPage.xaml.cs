@@ -73,6 +73,8 @@ namespace GreenApp.Activity
                     emailentry.Focus();
                     return;
                 }
+
+                if (loadingindicator.IsVisible) return;
                 if (passentry.Text == confirmpassentry.Text)
                 {
                     var user = new TBL_Users
@@ -98,6 +100,7 @@ namespace GreenApp.Activity
                     await DisplayAlert("Confirm password", "Password did not match!", "OK");
                     confirmpassentry.Focus();
                 }
+
             }
             catch
             {
