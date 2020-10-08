@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using GreenApp.Animation;
 using GreenApp.Models;
@@ -65,6 +66,13 @@ namespace GreenApp.Activity
                     confirmpassentry.Focus();
                     return;
                 }
+
+                if (lblerror.IsVisible)
+                {
+                    await DisplayAlert("Error", "Invalid email address!", "OK");
+                    emailentry.Focus();
+                    return;
+                }
                 if (passentry.Text == confirmpassentry.Text)
                 {
                     var user = new TBL_Users
@@ -98,6 +106,23 @@ namespace GreenApp.Activity
                 await DisplayAlert("Error", "There was an error processing your request. " +
                                             "The email address you've entered already exist. Please try another one. " +
                                             "Please check you internet connectivity as well.", "OK");
+            }
+        }
+
+        private void Emailentry_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            var email = emailentry.Text;
+
+            var emailPattern = @"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$";
+            if (Regex.IsMatch(email, emailPattern))
+            {
+
+                lblerror.IsVisible = false;
+            }
+            else
+            {
+
+                lblerror.IsVisible = true;
             }
         }
     }

@@ -27,8 +27,10 @@
 						   PlaceholderColor="{StaticResource PlaceHolderColor}" />
 					<Entry x:Name="emailentry" BackgroundColor="#E5E5E5"
 						   Placeholder="Email address" TextColor="{StaticResource TextColor}"
-						   Keyboard="Email"
+						   Keyboard="Email" TextChanged="Emailentry_OnTextChanged"
 						   PlaceholderColor="{StaticResource PlaceHolderColor}" />
+					<Label IsVisible="False" x:Name="lblerror" Text="Invalid email address!" TextColor="Red"
+						   FontSize="12"/>
 					<Entry x:Name="passentry" BackgroundColor="#E5E5E5"
 						   Placeholder="Password" TextColor="{StaticResource TextColor}"
 						   IsPassword="True"
