@@ -14,11 +14,10 @@
         <ScrollView>
             <Grid>
                 <StackLayout Margin="15,50,15,0" HeightRequest="500" >
-                    <Frame HasShadow="True" HeightRequest="360" CornerRadius="10" Opacity="0.8"
+                    <Frame HasShadow="True" CornerRadius="10" Opacity="0.9"
                            BackgroundColor="{StaticResource BackgroundColor}"
-                           HorizontalOptions="FillAndExpand">
-                    </Frame>
-                    <StackLayout Margin="20,-410,20,0" x:Name="marketcontentlayout" >
+                           HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                        <StackLayout Margin="10" x:Name="marketcontentlayout" >
                             <StackLayout HorizontalOptions="CenterAndExpand">
                                 <Label x:Name="lblmktid" Text="{Binding status}"/>
                                 <Label Text="SIGN IN" HorizontalOptions="CenterAndExpand" FontSize="Large"
@@ -41,7 +40,7 @@
                                        HeightRequest="50" BackgroundColor="Transparent">
                                     <StackLayout Orientation="Horizontal">
                                         <Frame VerticalOptions="Center" HeightRequest="35" WidthRequest="35" CornerRadius="50" Padding="0" HorizontalOptions="Start" Margin="7">
-                                        <ff:CachedImage Source="https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/windows_online_social_media_operating_system-512.png"
+                                            <ff:CachedImage Source="https://cdn2.iconfinder.com/data/icons/black-white-social-media/32/windows_online_social_media_operating_system-512.png"
                                                Aspect="AspectFill"/>
                                         </Frame>
                                         <Entry x:Name="passentry" Placeholder="Password" PlaceholderColor="Gray" HorizontalOptions="FillAndExpand"
@@ -99,6 +98,9 @@
                                 </StackLayout>
                             </StackLayout>
                         </StackLayout>
+
+                    </Frame>
+
                 </StackLayout>
             </Grid>
         </ScrollView>
