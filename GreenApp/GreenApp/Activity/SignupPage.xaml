@@ -9,64 +9,64 @@
 			 x:Class="GreenApp.Activity.SignupPage">
 	<ScrollView FlowDirection="MatchParent" VerticalScrollBarVisibility="Always">
 		<StackLayout VerticalOptions="Center" Margin="5">
-            <Frame CornerRadius="10" Opacity="0.9">
+			<Frame CornerRadius="10" Opacity="0.9">
 				<StackLayout Margin="10,0,10,0" Visual="Material">
-                    <Label Text="Registration Form" FontAttributes="Bold"
-                           FontSize="Large"  TextColor="{StaticResource TextColor}"
-                           HorizontalOptions="CenterAndExpand" />
-                    <Entry x:Name="NameEntry" BackgroundColor="#E5E5E5" 
-                           Placeholder="Full name" TextColor="{StaticResource TextColor}"
-                           PlaceholderColor="{StaticResource PlaceHolderColor}" MaxLength="30" />
-				<Entry x:Name="mobileentry" BackgroundColor="#E5E5E5" 
-					   Placeholder="Mobile #" TextColor="{StaticResource TextColor}"
-					   Keyboard="Numeric"
-					   PlaceholderColor="{StaticResource PlaceHolderColor}" />
-				<Entry x:Name="addressentry" BackgroundColor="#E5E5E5" 
-					   Placeholder="Address" TextColor="{StaticResource TextColor}"
-					   Keyboard="Chat"
-					   PlaceholderColor="{StaticResource PlaceHolderColor}" />
-				<Entry x:Name="emailentry" BackgroundColor="#E5E5E5" 
-					   Placeholder="Email address" TextColor="{StaticResource TextColor}"
-					   Keyboard="Email"
-					   PlaceholderColor="{StaticResource PlaceHolderColor}" />
-				<Entry x:Name="passentry" BackgroundColor="#E5E5E5" 
-					   Placeholder="Password" TextColor="{StaticResource TextColor}"
-					   IsPassword="True"
-					   PlaceholderColor="{StaticResource PlaceHolderColor}" />
-				<Entry x:Name="confirmpassentry" BackgroundColor="#E5E5E5"
-					   Placeholder="Confirm Password" TextColor="{StaticResource TextColor}"
-					   IsPassword="True"
-					   PlaceholderColor="{StaticResource PlaceHolderColor}" />
-				<ActivityIndicator Grid.Row="8" x:Name="loadingindicator" Color="Black" IsVisible="False"
-								   IsRunning="False" />
-				<Label x:Name="indicatornot" Text="Please wait. Your request is being processed."
-					   HorizontalTextAlignment="Center" TextColor="Red" IsVisible="False" />
-                <StackLayout HorizontalOptions="Fill" Margin="10,0">
-                    <Label Text="By registering, you agree to our terms of services and privacy policy."
-                           HorizontalTextAlignment="Center" TextColor="Black" />
-                    <Button x:Name="btnregister"
-                            Text="register"
-                            CornerRadius="10"
-                            FontSize="15"
-                            BackgroundColor="{StaticResource Primary}"
-                            Clicked="Btnregister_OnClicked" />
-                    <BoxView
-                        BackgroundColor="Green"
-                        HeightRequest="1"
-                        Margin="0" />
-                </StackLayout>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                    <Label Text="Already have an account? Login now."
-                           FontSize="13" VerticalOptions="Center"
-                           HorizontalOptions="End"
-                           TextColor="Gray" />
-                    <Button x:Name="btnlogin" BackgroundColor="Transparent"
-                            Text="login" Margin="0,-7" Padding="0" Visual="None"
-                            TextColor="{StaticResource Primary}"
-                            Clicked="Btnlogin_OnClicked" />
-                </StackLayout>
-                </StackLayout>
-            </Frame>
-        </StackLayout>
+					<Label Text="Registration Form" FontAttributes="Bold"
+						   FontSize="Large" TextColor="{StaticResource Primary}"
+						   HorizontalOptions="CenterAndExpand" />
+					<Entry x:Name="NameEntry" BackgroundColor="#E5E5E5"
+						   Placeholder="Full name" TextColor="{StaticResource TextColor}"
+						   PlaceholderColor="{StaticResource PlaceHolderColor}" MaxLength="30" />
+					<Entry x:Name="mobileentry" BackgroundColor="#E5E5E5"
+						   Placeholder="Mobile #" TextColor="{StaticResource TextColor}"
+						   Keyboard="Numeric"
+						   PlaceholderColor="{StaticResource PlaceHolderColor}" />
+					<Entry x:Name="addressentry" BackgroundColor="#E5E5E5"
+						   Placeholder="Address" TextColor="{StaticResource TextColor}"
+						   Keyboard="Chat"
+						   PlaceholderColor="{StaticResource PlaceHolderColor}" />
+					<Entry x:Name="emailentry" BackgroundColor="#E5E5E5"
+						   Placeholder="Email address" TextColor="{StaticResource TextColor}"
+						   Keyboard="Email"
+						   PlaceholderColor="{StaticResource PlaceHolderColor}" />
+					<Entry x:Name="passentry" BackgroundColor="#E5E5E5"
+						   Placeholder="Password" TextColor="{StaticResource TextColor}"
+						   IsPassword="True"
+						   PlaceholderColor="{StaticResource PlaceHolderColor}" />
+					<Entry x:Name="confirmpassentry" BackgroundColor="#E5E5E5"
+						   Placeholder="Confirm Password" TextColor="{StaticResource TextColor}"
+						   IsPassword="True"
+						   PlaceholderColor="{StaticResource PlaceHolderColor}" />
+					<ActivityIndicator Grid.Row="8" x:Name="loadingindicator" Color="Black" IsVisible="False"
+									   IsRunning="False" />
+					<Label x:Name="indicatornot" Text="Please wait. Your request is being processed."
+						   HorizontalTextAlignment="Center" TextColor="Red" IsVisible="False" />
+					<StackLayout HorizontalOptions="Fill" Margin="10,0">
+						<Label Text="By registering, you agree to our terms of services and privacy policy."
+							   HorizontalTextAlignment="Center" TextColor="Black" />
+						<Button x:Name="btnregister"
+								Text="register"
+								CornerRadius="10"
+								FontSize="15"
+								BackgroundColor="{StaticResource Primary}"
+								Clicked="Btnregister_OnClicked" />
+						<BoxView
+							BackgroundColor="Green"
+							HeightRequest="1"
+							Margin="0" />
+					</StackLayout>
+					<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+						<Label Text="Already have an account? Login now."
+							   FontSize="13" VerticalOptions="Center"
+							   HorizontalOptions="End"
+							   TextColor="Gray" />
+						<Button x:Name="btnlogin" BackgroundColor="Transparent"
+								Text="login" Margin="0,-7" Padding="0" Visual="None"
+								TextColor="{StaticResource Primary}"
+								Clicked="Btnlogin_OnClicked" />
+					</StackLayout>
+				</StackLayout>
+			</Frame>
+		</StackLayout>
 	</ScrollView>
 </ContentPage>

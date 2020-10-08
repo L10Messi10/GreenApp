@@ -21,7 +21,7 @@
                             <StackLayout HorizontalOptions="CenterAndExpand">
                                 <Label x:Name="lblmktid" Text="{Binding status}"/>
                                 <Label Text="SIGN IN" HorizontalOptions="CenterAndExpand" FontSize="Large"
-                                       TextColor="{StaticResource TextColor}" FontAttributes="Bold" />
+                                       TextColor="{StaticResource Primary}" FontAttributes="Bold" />
                             </StackLayout>
                             <StackLayout Margin="0,15,0,0">
                                 <Frame CornerRadius="50" BorderColor="Gray" Padding="0" Margin="0"
