@@ -23,7 +23,8 @@
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
-            <ff:CachedImage x:Name="profpic" HeightRequest="50" WidthRequest="50" HorizontalOptions="EndAndExpand">
+            <ff:CachedImage x:Name="profpic" HeightRequest="50" WidthRequest="50" HorizontalOptions="EndAndExpand"
+                            LoadingPlaceholder="notfound.png" ErrorPlaceholder="notfound.png">
                 <ff:CachedImage.Transformations>
                     <transformations:CircleTransformation BorderHexColor="#FFFFFF" BorderSize="10"/>
                 </ff:CachedImage.Transformations>

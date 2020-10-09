@@ -48,7 +48,7 @@
 							   HorizontalTextAlignment="Center" TextColor="Black" />
 						<Button x:Name="btnregister"
 								Text="register"
-								CornerRadius="10"
+								CornerRadius="10" TextColor="{StaticResource Textcolor}"
 								FontSize="15"
 								BackgroundColor="{StaticResource Primary}"
 								Clicked="Btnregister_OnClicked" />

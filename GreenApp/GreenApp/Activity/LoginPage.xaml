@@ -57,7 +57,7 @@
                             </StackLayout>
                             <ActivityIndicator x:Name="indicatorloader" Color="Green" IsVisible="False" IsRunning="True" />
                             <Button x:Name="btnlogin" Text="SIGN IN" CornerRadius="20" HeightRequest="40" BackgroundColor="{StaticResource Primary}"
-                                    TextColor="{StaticResource TextColor}" Clicked="Btnlogin_OnClicked"/>
+                                    TextColor="{StaticResource Textcolor}" Clicked="Btnlogin_OnClicked"/>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0">
                                 <Label Text="Don't have an account yet?" Margin="0"
                                        TextColor="{StaticResource TextColor}"

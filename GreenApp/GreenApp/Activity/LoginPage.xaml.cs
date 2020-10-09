@@ -27,7 +27,6 @@ namespace GreenApp.Activity
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
             emailentry.Text = Settings.LastUsedEmail;
             chkremember.IsChecked = emailentry.Text != "";
         }
