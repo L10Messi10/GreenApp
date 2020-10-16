@@ -25,7 +25,7 @@ namespace GreenApp.Activity
             Random generator = new Random();
             InitializeComponent();
             qtystepper.Text = _defquantity.ToString(CultureInfo.CurrentCulture);
-            lblrndnumpeople.Text = generator.Next(0, 20).ToString();
+            lblrndnumpeople.Text = generator.Next(1, 20).ToString();
         }
 
         protected override async void OnAppearing()
