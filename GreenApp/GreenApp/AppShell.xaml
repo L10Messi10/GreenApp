@@ -62,4 +62,8 @@
         <ShellContent Title="Feedback" Icon="comments"
                       ContentTemplate="{DataTemplate local:FeedBackPage}"/>
     </FlyoutItem>
+    <FlyoutItem Route="AboutPage" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="About" Icon="about"
+                      ContentTemplate="{DataTemplate local:AboutPage}"/>
+    </FlyoutItem>
 </Shell>

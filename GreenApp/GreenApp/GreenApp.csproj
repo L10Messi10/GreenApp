@@ -54,6 +54,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Activity\AboutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Activity\AddtoCartPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
