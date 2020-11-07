@@ -2,11 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GreenApp.Activity.AboutPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+    <StackLayout BackgroundColor="{StaticResource Primary}" HeightRequest="300" VerticalOptions="Start" Padding="0">
+        <StackLayout  VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+            <Image Source="logoflyout" HeightRequest="100"/>
+            <Label Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center"
+                   HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Green" FontSize="40" FontFamily="TitleDesign" FontAttributes="Bold"
+                              TextColor="{StaticResource Textcolor}" />
+                        <Span Text=" Market" FontSize="25" FontFamily="TitleFontLight"
+                              TextColor="{StaticResource Textcolor}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
         </StackLayout>
-    </ContentPage.Content>
+        
+    </StackLayout>
 </ContentPage>
