@@ -28,8 +28,9 @@ namespace GreenApp.Activity
                 if (getorderid != null) CurrentOrderId = getorderid.id;
                 if (CurrentOrderId != null)
                 {
-                    var totalorders = await TBL_Order_Details.Read();
-                    lblcartcount.Text = totalorders.Count(p => p.order_id.Equals(CurrentOrderId)).ToString();
+                    //var totalorders = await TBL_Order_Details.Read();
+                    var getorders = await MobileService.GetTable<V_Orders>().Where(orders => orders.order_id == CurrentOrderId).ToListAsync();
+                    lblcartcount.Text = getorders.Count.ToString(); //totalorders.Count(p => p.order_id.Equals(CurrentOrderId)).ToString();
                 }
                 else
                 {

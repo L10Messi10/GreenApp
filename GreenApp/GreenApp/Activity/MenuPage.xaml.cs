@@ -42,13 +42,17 @@ namespace GreenApp.Activity
                 //There might be a case of deleting the order
                 //When an error occured.
                 profpic.Source = propic;
-                var getorderid = (await App.MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id == App.user_id && orders.order_status == "Carted").ToListAsync()).FirstOrDefault();
+                var getorderid = (await MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id == App.user_id && orders.order_status == "Carted").ToListAsync()).FirstOrDefault();
                 if (getorderid != null) CurrentOrderId = getorderid.id;
                 if (CurrentOrderId != null)
                 {
-                    var totalorders = await TBL_Order_Details.Read();
-                    lblcartcount.Text = totalorders.Count(p => p.order_id.Equals(CurrentOrderId)).ToString();
-                    string a = totalorders.Count(p => p.order_id.Equals(CurrentOrderId)).ToString();
+                    //var totalorders = await TBL_Order_Details.Read();
+                    var getorders = await MobileService.GetTable<V_Orders>().Where(orders => orders.order_id == CurrentOrderId).ToListAsync();
+                    lblcartcount.Text = getorders.Count.ToString(); //totalorders.Count(p => p.order_id.Contains(CurrentOrderId)).ToString();
+                    //double a = totalorders.Count(p => p.order_id.Equals(CurrentOrderId));
+                    //double b=0;
+                    //double e = a + b;
+                    //await DisplayAlert("S", e.ToString() + user_id, "OK");
                 }
                 else
                 {
