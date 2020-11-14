@@ -71,9 +71,6 @@
                                                        </Label.FormattedText>
                                                    </Label>
                                                    <Label Grid.Column="0" Grid.Row="3" Text="{Binding order_status}" TextColor="White"/>
-                                                   <Button Grid.Column="1" Grid.Row="2" Text="Refresh" BorderColor="#534d44" BorderWidth="1" TextColor="#534d44"
-                                                           BackgroundColor="Transparent" CornerRadius="13" WidthRequest="26"
-                                                           HeightRequest="26" FontSize="{OnPlatform iOS='14', Android='7'}"/>
                                                 </Grid> 
                                             </Frame>
                                         </StackLayout>
