@@ -9,7 +9,8 @@
              x:Class="GreenApp.Activity.LoginPage"
              Padding="0"
              BackgroundImageSource="https://ded8b07dd9e637888fc2-e87978aaae5cf97349d88697fd53e4c9.ssl.cf1.rackcdn.com/0df3a215-baa7-4ffc-ade2-fbe6da167765.jpg"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False">
     <StackLayout>
         <ScrollView>
             <Grid>
@@ -21,8 +22,8 @@
                         <StackLayout Margin="10" x:Name="marketcontentlayout" >
                             <StackLayout HorizontalOptions="CenterAndExpand">
                                 <Label x:Name="lblmktid" Text="{Binding status}"/>
-                                <Label Text="SIGN IN" HorizontalOptions="CenterAndExpand" FontSize="Large"
-                                       TextColor="{StaticResource Primary}" FontAttributes="Bold" />
+                                <Label Text="Sign In" HorizontalOptions="CenterAndExpand" FontSize="25"
+                                       TextColor="{StaticResource Primary}" FontFamily="TitleFontLight" />
                             </StackLayout>
                             <StackLayout Margin="0,15,0,0">
                                 <Frame CornerRadius="50" BorderColor="Gray" Padding="0" Margin="0"

@@ -66,4 +66,7 @@
         <ShellContent Title="About" Icon="about"
                       ContentTemplate="{DataTemplate local:AboutPage}"/>
     </FlyoutItem>
+    <MenuItem Text="Logout"
+              IconImageSource="logout"
+              Command="{Binding OnLogoutCommand}"/>
 </Shell>

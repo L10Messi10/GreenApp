@@ -123,16 +123,6 @@ namespace GreenApp.Activity
             await Navigation.PushAsync(new ProductsPage(), true);
         }
 
-        private async void Logout_OnClicked(object sender, EventArgs e)
-        {
-            user_id = null;
-            CurrentOrderId = null;
-            refresh = false;
-            Current.MainPage = new NavigationPage(new LoginPage());
-            await Navigation.PushAsync(new LoginPage(),true);
-            //await Navigation.PopAsync(true);
-        }
-
         private void Btnrefresh_OnClicked(object sender, EventArgs e)
         { 
             refresh = false;

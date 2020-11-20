@@ -66,9 +66,11 @@ namespace GreenApp.Activity
                                 datereg = users.datereg;
                                 propic = users.propic;
                                 picstr = users.picstr;
+                                //user_id = null;
+                                CurrentOrderId = null;
                                 refresh = false;
                                 indicatorloader.IsVisible = false;
-                                Settings.LastUsedEmail = chkremember.IsChecked == true ? emailentry.Text : "";
+                                Settings.LastUsedEmail = chkremember.IsChecked ? emailentry.Text : "";
                                 //await DisplayAlert("Success", "Email or password is incorrect!", "OK");
                                 Device.BeginInvokeOnMainThread(() => { Application.Current.MainPage = new AppShell(); });
                                 await Navigation.PushAsync(new MenuPage(), true);

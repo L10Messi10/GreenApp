@@ -34,7 +34,6 @@
     </Shell.TitleView>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Refresh" x:Name="btnrefresh" Clicked="Btnrefresh_OnClicked" Order="Secondary"/>
-        <ToolbarItem Text="Logout" x:Name="logout" Clicked="Logout_OnClicked" Order="Secondary"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Resources>
         <Style TargetType="Grid">
