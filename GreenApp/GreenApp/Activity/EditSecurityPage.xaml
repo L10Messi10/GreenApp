@@ -55,19 +55,19 @@
                                  </Label.Background>
                              </Label>
                              <StackLayout Orientation="Horizontal">
-                                 <ff:CachedImage Source="https://i.ibb.co/4ZxR49X/pngwing-com.png"
+                                <ff:CachedImage Source="https://i.ibb.co/3c1LH61/key-50px.png"
                                                  WidthRequest="30" HeightRequest="30" />
                                  <Entry x:Name="entreyoldpass" Margin="20,0" WidthRequest="300"
                                         Placeholder="Old Password" MaxLength="20" IsPassword="True" />
                              </StackLayout>
                              <StackLayout Orientation="Horizontal">
-                                 <ff:CachedImage Source="https://i.ibb.co/NyYY2Gq/clipart523723.png"
+                                <ff:CachedImage Source="https://i.ibb.co/3c1LH61/key-50px.png"
                                                  WidthRequest="30" HeightRequest="30" />
                                  <Entry x:Name="entrynewpass" Margin="20,0" WidthRequest="300"
                                          Placeholder="New Password" MaxLength="200" IsPassword="True" />
                              </StackLayout>
                              <StackLayout Orientation="Horizontal">
-                                 <ff:CachedImage Source="https://i.ibb.co/NyYY2Gq/clipart523723.png"
+                                <ff:CachedImage Source="https://i.ibb.co/3c1LH61/key-50px.png"
                                                  WidthRequest="30" HeightRequest="30" />
                                  <Entry x:Name="entrynewpassconfirm" Margin="20,0" WidthRequest="300"
                                          Placeholder="Confirm new password" MaxLength="200" IsPassword="True" />
