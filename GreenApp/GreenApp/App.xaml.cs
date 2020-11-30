@@ -29,7 +29,7 @@ namespace GreenApp
             Device.SetFlags(new []{"Brush_Experimental"});
             MainPage = new NavigationPage(new LoginPage());
         }
-        
+
         protected override void OnStart()
         {
             base.OnStart();

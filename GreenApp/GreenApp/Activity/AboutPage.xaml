@@ -2,33 +2,32 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GreenApp.Activity.AboutPage"
-             xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              Title="About">
     <ScrollView>
-    <StackLayout>
-        <StackLayout HorizontalOptions="Fill"  BackgroundColor="{StaticResource Primary}" 
-                     HeightRequest="200" VerticalOptions="Start" Padding="20">
-            <Image Source="logoflyout" HeightRequest="100"/>
-            <Label VerticalOptions="Center"
-                   HorizontalOptions="Center">
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="Green" FontSize="40" FontFamily="TitleDesign" FontAttributes="Bold"
-                              TextColor="{StaticResource Textcolor}" />
-                        <Span Text=" Market" FontSize="25" FontFamily="TitleFontLight"
-                              TextColor="{StaticResource Textcolor}" />
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
-        </StackLayout>
-        <StackLayout Margin="20">
-            <Label
-                Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet leo ut justo sagittis iaculis. Maecenas ac erat euismod, posuere nibh sit amet, mollis ligula. Mauris cursus facilisis erat, nec rhoncus est. Cras vel ante hendrerit." 
-                TextColor="Black"/>
-        </StackLayout>
-        <ff:CachedImage Source="aboutimg" HeightRequest="300" WidthRequest="300"
-                        HorizontalOptions="CenterAndExpand" Aspect="AspectFit"/>
+        <StackLayout>
+            <StackLayout HorizontalOptions="Fill"  BackgroundColor="{StaticResource Primary}" 
+                         HeightRequest="200" VerticalOptions="Start" Padding="20">
+                <Image Source="logoflyout" HeightRequest="100"/>
+                <Label VerticalOptions="Center"
+                       HorizontalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Green" FontSize="40" FontFamily="TitleDesign" FontAttributes="Bold"
+                                  TextColor="{StaticResource Textcolor}" />
+                            <Span Text=" Market" FontSize="25" FontFamily="TitleFontLight"
+                                  TextColor="{StaticResource Textcolor}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </StackLayout>
+            <StackLayout Margin="20">
+                <Label
+                    Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet leo ut justo sagittis iaculis. Maecenas ac erat euismod, posuere nibh sit amet, mollis ligula. Mauris cursus facilisis erat, nec rhoncus est. Cras vel ante hendrerit." 
+                    TextColor="Black"/>
+            </StackLayout>
+            <ff:CachedImage Source="aboutimg" HeightRequest="300" WidthRequest="300"
+                            HorizontalOptions="CenterAndExpand" Aspect="AspectFit"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>

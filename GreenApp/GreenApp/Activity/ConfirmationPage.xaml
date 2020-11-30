@@ -33,14 +33,14 @@
                              HeightRequest="0.1" Color="Gray" />
                 </Grid>
             </StackLayout>
-            <StackLayout>
-                <Label Text="Take a Screen-shot and present this to claim your order." Margin="0,0,0,30" Padding="0"
+            <StackLayout Margin="20">
+                <Label Text="Please note, that if this order isn't claimed on the day you ordered it, we will cancel this order." Margin="0,0,0,30" Padding="0"
                        FontSize="Small"
                        HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-                <Button Text="Close" Margin="0" BackgroundColor="{StaticResource Primary}"
-                        HeightRequest="50" Visual="Material" TextColor="{StaticResource Textcolor}" 
-                        Clicked="Button_OnClicked"/>
             </StackLayout>
+            <Button Text="Close" BackgroundColor="{StaticResource Primary}"
+                    HeightRequest="50" Visual="Material" TextColor="{StaticResource Textcolor}" 
+                    Clicked="Button_OnClicked"/>
         </StackLayout>
     </ScrollView>
 </ContentPage>

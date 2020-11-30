@@ -19,13 +19,17 @@ namespace GreenApp.Activity
     {
         private bool _newprodorder;
         private string _orderdetailsId;
-        private double _defquantity = 1;
+        private readonly double _defquantity = 1;
         public AddtoCartPage()
         {
             Random generator = new Random();
             InitializeComponent();
             qtystepper.Text = _defquantity.ToString(CultureInfo.CurrentCulture);
             lblrndnumpeople.Text = generator.Next(1, 20).ToString();
+            if (!DesignMode.IsDesignModeEnabled)
+            {
+
+            }
         }
 
         protected override async void OnAppearing()

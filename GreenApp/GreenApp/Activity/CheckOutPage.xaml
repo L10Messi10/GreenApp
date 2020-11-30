@@ -5,15 +5,6 @@
              BackgroundColor="{StaticResource BackgroundColor}" Visual="Material"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              Title="My Cart" NavigationPage.HasNavigationBar="True">
-    <ContentPage.Background>
-        <LinearGradientBrush StartPoint="0,0"
-                             EndPoint="1,0">
-            <GradientStop Color="#559755"
-                          Offset="0.1"/>
-            <GradientStop Color="Green"
-                          Offset="1.9"/>
-        </LinearGradientBrush>
-    </ContentPage.Background>
     <ContentPage.ToolbarItems> 
         <ToolbarItem IconImageSource="trash.png" Text="Remove" x:Name="deleteitem" Clicked="Deleteitem_OnClicked" Order="Secondary"/>
         <ToolbarItem IconImageSource="edit.png" Text="Modify" x:Name="edititem" Clicked="Edititem_OnClicked" Order="Secondary"/>

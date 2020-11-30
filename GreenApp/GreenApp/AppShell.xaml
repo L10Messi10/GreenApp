@@ -6,14 +6,14 @@
        FlyoutBackgroundImageAspect="AspectFill">
     <Shell.Resources>
         <ResourceDictionary>
-            <Color x:Key="NavigationPrimary">Green</Color>
+            <Color x:Key="NavigationPrimary">#00C95D</Color>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="DarkGreen" />
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
                 <Setter Property="Shell.ForegroundColor" Value="WhiteSmoke" />
                 <Setter Property="Shell.TitleColor" Value="WhiteSmoke" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.FlyoutBackgroundColor" Value="Green" />
+                <Setter Property="Shell.FlyoutBackgroundColor" Value="{StaticResource Primary}" />
             </Style>
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>

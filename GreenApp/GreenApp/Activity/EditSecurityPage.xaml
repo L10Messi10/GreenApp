@@ -5,7 +5,7 @@
              xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              x:Class="GreenApp.Activity.EditSecurityPage">
      <AbsoluteLayout>
-         <StackLayout BackgroundColor="#F6F5FA" AbsoluteLayout.LayoutBounds="0,0,1,1"
+         <StackLayout BackgroundColor="{StaticResource Primary}" AbsoluteLayout.LayoutBounds="0,0,1,1"
                       AbsoluteLayout.LayoutFlags="All">
              <Grid x:Name="profilelayout">
                  <Grid.RowDefinitions>
@@ -13,15 +13,6 @@
                      <RowDefinition Height="*" />
                  </Grid.RowDefinitions>
                  <StackLayout Grid.Row="0" Orientation="Horizontal">
-                     <StackLayout.Background>
-                         <LinearGradientBrush StartPoint="0,0"
-                                              EndPoint="1,0">
-                             <GradientStop Color="#559755"
-                                           Offset="0.1" />
-                             <GradientStop Color="Green"
-                                           Offset="1.9" />
-                         </LinearGradientBrush>
-                     </StackLayout.Background>
                      <ff:CachedImage Source="{Binding propic}" Aspect="AspectFit"
                                      HeightRequest="150" WidthRequest="150" HorizontalOptions="Start" Margin="5,0,0,0"
                                      x:Name="profileimg"
@@ -43,18 +34,9 @@
                      <ScrollView>
                          <StackLayout>
                              <Label Text="Security setting" HeightRequest="30" HorizontalTextAlignment="Center"
-                                    VerticalTextAlignment="Center" TextColor="White">
-                                 <Label.Background>
-                                     <LinearGradientBrush StartPoint="0,0"
-                                                          EndPoint="1,0">
-                                         <GradientStop Color="#559755"
-                                                       Offset="0.1" />
-                                         <GradientStop Color="Green"
-                                                       Offset="1.50" />
-                                     </LinearGradientBrush>
-                                 </Label.Background>
-                             </Label>
-                             <StackLayout Orientation="Horizontal">
+                                    VerticalTextAlignment="Center" TextColor="White"
+                                    BackgroundColor="{StaticResource Primary}"/>
+                                 <StackLayout Orientation="Horizontal">
                                 <ff:CachedImage Source="https://i.ibb.co/3c1LH61/key-50px.png"
                                                  WidthRequest="30" HeightRequest="30" />
                                  <Entry x:Name="entreyoldpass" Margin="20,0" WidthRequest="300"
@@ -72,7 +54,7 @@
                                  <Entry x:Name="entrynewpassconfirm" Margin="20,0" WidthRequest="300"
                                          Placeholder="Confirm new password" MaxLength="200" IsPassword="True" />
                              </StackLayout>
-                             <Button BackgroundColor="{StaticResource ButtonColor}" Text="Save"
+                             <Button BackgroundColor="{StaticResource Primary}" Text="Save"
                                      TextColor="{StaticResource Textcolor}"
                                      CornerRadius="20" Margin="30,0" Clicked="Button_OnClicked">
                              </Button>

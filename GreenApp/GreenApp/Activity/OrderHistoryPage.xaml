@@ -9,12 +9,30 @@
         <ToolbarItem Text="Refresh" x:Name="reload" Clicked="Reload_OnClicked" Order="Secondary" />
         <ToolbarItem Text="Confirmation" x:Name="viewcode" Order="Secondary" Clicked="Viewcode_OnClicked"/>
     </ContentPage.ToolbarItems>
-    <Grid BackgroundColor="DarkGreen">
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor"
+                                        Value="LightSkyBlue" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <Grid BackgroundColor="{StaticResource Primary}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/> 
             <RowDefinition Height="90"/>
         </Grid.RowDefinitions> 
-        <Frame Grid.Row="0" BackgroundColor="WhiteSmoke" CornerRadius="50" Margin="0,-40" IsClippedToBounds="False" HorizontalOptions="FillAndExpand">
+        <Frame Grid.Row="0" BackgroundColor="{StaticResource BackgroundColor}" CornerRadius="50" Margin="0,-40" 
+               IsClippedToBounds="False" HorizontalOptions="FillAndExpand">
             <ScrollView VerticalScrollBarVisibility="Never">
                 <Grid Padding="0,50,0,0">
                     <Grid.ColumnDefinitions>
@@ -33,7 +51,7 @@
                     <!-- 2. Header-->
 
                     <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Text="Pending Orders" FontSize="30" FontAttributes="Bold" Padding="20,0"/>
-                    <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Text="Here are the list of your unclaimed / pending orders." FontSize="15" TextColor="Gray" Padding="20,0"/>
+                    <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Text="Here are the list of your unclaimed orders." FontSize="15" TextColor="Gray" Padding="20,0"/>
                     <!-- 3. Fruit list--> 
                         <CollectionView Grid.Column="0"
                                 HorizontalScrollBarVisibility="Never"
@@ -41,15 +59,15 @@
                                 Margin="20" x:Name="OrdersList" SelectionMode="Single"
                                 ItemsSource="{Binding TBL_Orders}"
                                 VerticalOptions="StartAndExpand"
-                                ItemsLayout="HorizontalList" 
+                                ItemsLayout="HorizontalList"
                                 HeightRequest="270" SelectionChanged="OrdersList_OnSelectionChanged"> 
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>
-                                        <StackLayout Margin="8,0"> 
-                                            <Frame HasShadow="False" CornerRadius="20" BackgroundColor="#8DB98D" WidthRequest="130" 
-                                                   VerticalOptions="FillAndExpand" Margin="0,5"
+                                        <ContentView Padding="5"> 
+                                            <Frame HasShadow="True" CornerRadius="10" BackgroundColor="{StaticResource Primary}" WidthRequest="150" 
+                                                   VerticalOptions="FillAndExpand" Margin="2,0" Padding="10"
                                                    HorizontalOptions="Center">
-                                                <Grid HorizontalOptions="Center">
+                                                <Grid HorizontalOptions="CenterAndExpand">
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition Height="*"/>
                                                         <RowDefinition Height="Auto"/>
@@ -62,7 +80,7 @@
                                                     </Grid.ColumnDefinitions>
                                                    <ff:CachedImage Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"  HorizontalOptions="Center" Source="https://i.ibb.co/dKzf30C/pngfuel-com.png"/>
                                                    <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding order_date, StringFormat='{0:MMMM dd, yyyy}'}" FontAttributes="Bold" TextColor="#48423c" FontSize="18"/>
-                                                   <Label Grid.Column="0" Grid.Row="2"  TextColor="DarkGreen">
+                                                   <Label Grid.Column="0" Grid.Row="2"  TextColor="{StaticResource BackgroundColor}" FontSize="Medium">
                                                        <Label.FormattedText>
                                                            <FormattedString>
                                                                <Span Text="Php. " />
@@ -73,63 +91,64 @@
                                                    <Label Grid.Column="0" Grid.Row="3" Text="{Binding order_status}" TextColor="White"/>
                                                 </Grid> 
                                             </Frame>
-                                        </StackLayout>
+                                        </ContentView>
                                     </DataTemplate>
                                 </CollectionView.ItemTemplate>
-                            </CollectionView>
+                        </CollectionView>
                     <!-- 4. Market list -->
-                        <Label Grid.Row="3" Grid.Column="0" Padding="20,0" Text="Order details" FontSize="30" TextColor="#332f2e" FontAttributes="Bold"/>
+                        <Label Grid.Row="3" Grid.Column="0" Padding="20,0" Text="Details" FontSize="30" TextColor="#332f2e" FontAttributes="Bold"/>
                         <Label Grid.Row="4" Grid.Column="0" Padding="20,0" Text="Here are the content(s) of your order." FontSize="15" TextColor="#a1a0a0"/> 
                         <CollectionView Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="0"
                                         VerticalScrollBarVisibility="Never"
                                         Margin="10" x:Name="OrderDetailsList"
-                                        VerticalOptions="CenterAndExpand" ItemsLayout="HorizontalList"
+                                        VerticalOptions="CenterAndExpand" ItemsLayout="VerticalList"
                                         HeightRequest="260"> 
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate> 
-                                        <StackLayout Margin="8,0">
-                                            <Frame BackgroundColor="#C6DCC6" CornerRadius="10" 
-                                                   Margin="0" VerticalOptions="FillAndExpand"
-                                                   WidthRequest="100" HeightRequest="50" IsClippedToBounds="True" Padding="0">
+                                        <StackLayout Margin="0,8">
+                                            <Frame BackgroundColor="{StaticResource BackgroundColor}" CornerRadius="10" 
+                                                   Margin="0,2" VerticalOptions="FillAndExpand" Padding="0"
+                                                   WidthRequest="100" HeightRequest="110" IsClippedToBounds="True">
                                                 <Grid>
                                                     <Grid.RowDefinitions>
-                                                        <RowDefinition Height="100"/>
-                                                        <RowDefinition Height="Auto"/>
-                                                        <RowDefinition Height="Auto"/>
-                                                        <RowDefinition Height="Auto"/>
+                                                        <RowDefinition Height="200"/>
                                                     </Grid.RowDefinitions>
                                                     <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="150"/>
                                                         <ColumnDefinition Width="Auto"/>
                                                         <ColumnDefinition Width="Auto"/>
-                                                    </Grid.ColumnDefinitions>
-                                                    <ff:CachedImage Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Source="{Binding img_uri}" Aspect="AspectFill" />
-                                                    <Label Grid.Row="1" Grid.Column="0" FontAttributes="Bold" TextColor="Gray">
-                                                        <Label.FormattedText>
-                                                            <FormattedString>
-                                                                <Span Text="P. name: " />
-                                                                <Span Text="{Binding prod_name}" />
-                                                            </FormattedString>
-                                                        </Label.FormattedText>
-                                                    </Label>
-                                                    <Label Grid.Row="2" Grid.Column="0" TextColor="Silver" FontAttributes="Bold">
-                                                        <Label.FormattedText>
-                                                            <FormattedString>
-                                                                <Span Text="Qty: " />
-                                                                <Span Text="{Binding qty}" />
-                                                                <Span Text=" " />
-                                                                <Span Text="{Binding unit_desc}" />
-                                                            </FormattedString>
-                                                        </Label.FormattedText>
-                                                    </Label>
-                                                    <Label Grid.Row="3" Grid.Column="0" TextColor="Black" FontAttributes="Bold">
-                                                        <Label.FormattedText>
-                                                            <FormattedString>
-                                                                <Span Text="Php. "  />
-                                                                <Span Text="{Binding sub_total}" />
-                                                            </FormattedString>
-                                                        </Label.FormattedText>
-                                                    </Label> 
-
+                                            </Grid.ColumnDefinitions>
+                                                    <ff:CachedImage Grid.Row="0" Grid.Column="0" Source="{Binding img_uri}" 
+                                                                    Aspect="AspectFill" HorizontalOptions="FillAndExpand"/>
+                                                    <StackLayout Grid.Column="1" Margin="5">
+                                                        <Label FontAttributes="Bold" FontSize="Medium"
+                                                               TextColor="{StaticResource TextColor}">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="{Binding prod_name}" />
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+                                                        <BoxView WidthRequest="5" HeightRequest="1" BackgroundColor="Gray"/>
+                                                        <Label TextColor="{StaticResource PlaceHolderColor}" FontAttributes="Bold">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="{Binding qty}" />
+                                                                    <Span Text=" " />
+                                                                    <Span Text="{Binding unit_desc}" />
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+                                                        <Label TextColor="{StaticResource Primary}"
+                                                               FontAttributes="Bold" FontSize="Medium">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="Php. " />
+                                                                    <Span Text="{Binding sub_total}" />
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+                                                    </StackLayout>
                                                 </Grid>
                                             </Frame>
                                         </StackLayout>
@@ -139,7 +158,7 @@
                 </Grid>
             </ScrollView>  
         </Frame>
-        <Grid Grid.Row="1" Margin="20,30" VerticalOptions="End">
+        <Grid Grid.Row="1" Margin="20,10" VerticalOptions="End">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
@@ -148,7 +167,7 @@
             <!-- Here add the code that is being explained in the "Market bar" block-->
             <Label Grid.Column="1" HorizontalOptions="End" x:Name="lblsum" FontAttributes="Bold" TextColor="#FFD71B" FontSize="25"/>
             <Label Grid.Column="1" Text="Total Payable :" FontAttributes="Bold" FontSize="20" HorizontalOptions="Start"
-                   TextColor="Silver"/>
+                   TextColor="{StaticResource BackgroundColor}"/>
         </Grid>
     </Grid>
 </ContentPage>

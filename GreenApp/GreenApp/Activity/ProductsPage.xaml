@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" Title="Products"
-             x:Class="GreenApp.Activity.ProductsPage" BackgroundColor="#E2F0E2">
+             x:Class="GreenApp.Activity.ProductsPage" BackgroundColor="{StaticResource BackgroundColor}">
     <ContentPage.Resources>
         <Style TargetType="Grid">
             <Setter Property="VisualStateManager.VisualStateGroups">
@@ -87,7 +87,6 @@
                                                    IsVisible="{Binding Source={x:Reference prodimg}, Path=IsLoading}"
                                                    Color="Black"/>-->
                                         <StackLayout>
-                                            
                                             <ff:CachedImage x:Name="prodimg" Source="{Binding img_uri}" Aspect="AspectFill"
                                                             BitmapOptimizations="True" HeightRequest="170"
                                                             CacheDuration="30" LoadingPlaceholder="notfound.png" ErrorPlaceholder="notfound.png" />
@@ -95,7 +94,7 @@
                                             <Label VerticalOptions="Center" Padding="0" FontAttributes="Bold">
                                             <Label.FormattedText>
                                                 <FormattedString>
-                                                            <Span Text="{Binding prod_name}" FontSize="16" FontFamily="TitleFontLight"
+                                                            <Span Text="{Binding prod_name}" FontSize="16" FontFamily="TitleFontBold"
                                                           TextColor="{StaticResource TextColor}" />
                                                 </FormattedString>
                                             </Label.FormattedText>
@@ -105,10 +104,10 @@
                                                         <Label.FormattedText>
                                                             <FormattedString>
                                                                 <Span Text="{Binding prod_price}" FontSize="20"
-                                                                      TextColor="Black" FontFamily="TitleFontBold"/>
-                                                                <Span Text=" / " FontSize="20" TextColor="Black" FontFamily="TitleFontBold"/>
+                                                                      TextColor="{StaticResource Primary}" FontFamily="TitleFontLight"/>
+                                                                <Span Text=" / " FontSize="20" TextColor="{StaticResource Primary}" FontFamily="TitleFontLight"/>
                                                                 <Span Text="{Binding unit_desc}" FontSize="15"
-                                                                      TextColor="Black" FontFamily="TitleFontBold"/>
+                                                                      TextColor="{StaticResource Primary}" FontFamily="TitleFontLight"/>
                                                             </FormattedString>
                                                         </Label.FormattedText>
                                                     </Label>
