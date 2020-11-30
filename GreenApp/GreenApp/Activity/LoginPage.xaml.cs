@@ -18,12 +18,12 @@ namespace GreenApp.Activity
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
+
         public LoginPage()
         {
             InitializeComponent();
             //BindingContext = new CheckInternetModel();
         }
-
         protected override void OnAppearing()
         {
             base.OnAppearing();

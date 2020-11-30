@@ -37,8 +37,8 @@
                 <Label Text="Take a Screen-shot and present this to claim your order." Margin="0,0,0,30" Padding="0"
                        FontSize="Small"
                        HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-                <Button Text="Close" Margin="0" BackgroundColor="{StaticResource ButtonCart}"
-                        HeightRequest="50" Visual="Material" TextColor="{StaticResource TextColor}" 
+                <Button Text="Close" Margin="0" BackgroundColor="{StaticResource Primary}"
+                        HeightRequest="50" Visual="Material" TextColor="{StaticResource Textcolor}" 
                         Clicked="Button_OnClicked"/>
             </StackLayout>
         </StackLayout>

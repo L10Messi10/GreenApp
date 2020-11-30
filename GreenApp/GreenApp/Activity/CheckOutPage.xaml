@@ -169,8 +169,8 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <Button Grid.Column="0" Grid.ColumnSpan="3" Text="Place order now"
-                                TextColor="{StaticResource TextColor}"
-                                BackgroundColor="{StaticResource ButtonCart}"
+                                TextColor="{StaticResource Textcolor}"
+                                BackgroundColor="{StaticResource Primary}"
                                 x:Name="btncheckout" Clicked="Btncheckout_OnClicked" />
                     </Grid>
                 </StackLayout>

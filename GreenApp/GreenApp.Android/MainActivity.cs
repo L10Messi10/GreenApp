@@ -1,6 +1,7 @@
 ﻿using System;
 using Android;
 using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.Views;
@@ -29,6 +30,7 @@ namespace GreenApp.Droid
             // If you are using Android you must pass through the activity
             ToastNotification.Init(this);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            //Initialize(ApplicationContext, "ca-app-pub-7879306170422036/6877254608");
             Forms.SetFlags("UseLegacyRenderers");
             Forms.Init(this, savedInstanceState);
             FormsMaterial.Init(this,savedInstanceState);

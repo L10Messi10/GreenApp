@@ -103,7 +103,7 @@
                         </StackLayout>
                     <StackLayout Orientation="Horizontal" Spacing="0">
                         <Button ImageSource="refresh" VerticalOptions="FillAndExpand" BackgroundColor="DarkRed" x:Name="btnrefresh" Clicked="Btnrefresh_OnClicked"/>
-                        <Button Text="ADD TO CART" BackgroundColor="#FFC42A" TextColor="{StaticResource TextColor}" HorizontalOptions="FillAndExpand"
+                        <Button Text="ADD TO CART" BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource Textcolor}" HorizontalOptions="FillAndExpand"
                                 x:Name="btnaddtocart" Clicked="Btnaddtocart_OnClicked" />
                     </StackLayout>
                    
