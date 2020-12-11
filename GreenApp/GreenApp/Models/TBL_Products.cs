@@ -11,6 +11,7 @@ namespace GreenApp.Models
 {
     public class TBL_Products
     {
+        //needs to insert color field 
         public string id { get; set; }
         public string prod_name { get; set; }
         public string prod_desc { get; set; }

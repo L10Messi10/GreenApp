@@ -24,7 +24,6 @@ namespace GreenApp.Activity
         
         protected override async void OnAppearing()
         {
-            base.OnAppearing();
             try
             {
                 if (!refresh)

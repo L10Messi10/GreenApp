@@ -104,6 +104,7 @@ namespace GreenApp.Activity
             }
             catch
             {
+                progressplaceorder.IsVisible = false;
                 await Navigation.PushAsync(new NoInternetPage(), true);
             }
         }
@@ -142,7 +143,7 @@ namespace GreenApp.Activity
                         Selected_ProdId = null;
                         CurrentOrderId = null;
                         progressplaceorder.IsVisible = false;
-                        await DisplayAlert("Order cancelled", "Your order has been cancelled.", "OK");
+                        await DisplayAlert("Order cancelled", "Your successfully cancelled your order", "OK");
                         await Navigation.PopToRootAsync(true);
                     }
                     else
@@ -182,6 +183,7 @@ namespace GreenApp.Activity
             }
             catch
             {
+                progressplaceorder.IsVisible = false;
                 await Navigation.PushAsync(new NoInternetPage(), true);
             }
         }
@@ -235,6 +237,7 @@ namespace GreenApp.Activity
             }
             catch
             {
+                progressplaceorder.IsVisible = false;
                 await Navigation.PushAsync(new NoInternetPage(), true);
             }
         }

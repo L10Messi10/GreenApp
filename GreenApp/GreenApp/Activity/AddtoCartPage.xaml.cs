@@ -183,7 +183,7 @@ namespace GreenApp.Activity
             catch
             {
                 progressaddtocart.IsVisible = false;
-                //await Navigation.PushAsync(new NoInternetPage(), true);
+                await Navigation.PushAsync(new NoInternetPage(), true);
             }
         }
 

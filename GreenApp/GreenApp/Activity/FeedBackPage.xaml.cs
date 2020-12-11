@@ -19,20 +19,27 @@ namespace GreenApp.Activity
 
         private async void Button_OnClicked(object sender, EventArgs e)
         {
-            if (entryfeedback.Text != null)
+            try
             {
-                var feedback = new TBL_Feedback
+                if (entryfeedback.Text != null)
                 {
-                    response = entryfeedback.Text
-                };
-                await TBL_Feedback.Insert(feedback);
-                await DisplayAlert("Info", "Your feedback has been successfully submitted, We'll review your feedback to improve the application. Thank you!!", "OK");
-                entryfeedback.Text = "";
+                    var feedback = new TBL_Feedback
+                    {
+                        response = entryfeedback.Text
+                    };
+                    await TBL_Feedback.Insert(feedback);
+                    await DisplayAlert("Info", "Your feedback has been successfully submitted, We'll review your feedback to improve the application. Thank you!!", "OK");
+                    entryfeedback.Text = "";
+                }
+                else
+                {
+                    await DisplayAlert("Error", "Please Enter your feedback!", "OK");
+                    entryfeedback.Focus();
+                }
             }
-            else
+            catch
             {
-                await DisplayAlert("Error", "Please Enter your feedback!", "OK");
-                entryfeedback.Focus();
+                await Navigation.PushAsync(new NoInternetPage(),true);
             }
         }
     }

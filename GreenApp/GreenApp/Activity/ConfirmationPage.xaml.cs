@@ -107,7 +107,7 @@ namespace GreenApp.Activity
             }
             catch
             {
-                await DisplayAlert("Error", "An unexpected error occured. Please check your internet connection.", "OK");
+                await Navigation.PushAsync(new NoInternetPage(), true);
             }
         }
 
