@@ -18,7 +18,7 @@
                 <Color x:Key="TextBackColor">#333337</Color>
                 <Color x:Key="PlaceHolderColor">#869797</Color>
                 <Color x:Key="BackgroundColor">White</Color>
-            <Color x:Key="Primary">#00C95D</Color>
+                <Color x:Key="Primary">#00C95D</Color>
                 <Color x:Key="TextColor">Black</Color>
                 <Color x:Key="PrimaryDark">#176802</Color>
                 <Color x:Key="Accent">#208204</Color>

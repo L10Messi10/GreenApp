@@ -20,6 +20,7 @@ namespace GreenApp.Models
         public string prod_av { get; set; }
         public string category_name { get; set; }
         public string img_uri { get; set; }
+        public string p_color_scheme { get; set; }
 
         public static async Task<List<TBL_Products>> Read()
         {
