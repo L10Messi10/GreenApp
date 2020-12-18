@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:essentials="clr-namespace:Xamarin.Essentials;assembly=Xamarin.Essentials"
              x:Class="GreenApp.Activity.TrackOrderPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Track Order Page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    <maps:Map x:Name="LocationsMap"  HorizontalOptions ="FillAndExpand"
+              VerticalOptions="FillAndExpand"
+              IsShowingUser ="True"
+              MapType="Hybrid" IsVisible="True"/>
 </ContentPage>

@@ -12,7 +12,7 @@
                         <VisualState x:Name="Selected">
                             <VisualState.Setters>
                                 <Setter Property="BackgroundColor"
-                                        Value="LightSkyBlue" />
+                                        Value="{StaticResource Primary}" />
                             </VisualState.Setters>
                         </VisualState>
                     </VisualStateGroup>
@@ -49,8 +49,8 @@
                     <SearchBar Grid.Column="0" CancelButtonColor="{StaticResource TextColor}"
                                IsVisible="True" HorizontalOptions="Start"
                                PlaceholderColor="Gray" Placeholder="Search products. . . ."
-                               Visual="Material" TextColor="{StaticResource TextColor}" x:Name="prosearh" TextChanged="Prosearh_OnTextChanged"
-                               />
+                               Visual="Material" TextColor="{StaticResource TextColor}" x:Name="prosearh"
+                               TextChanged="Prosearh_OnTextChanged" />
                     <Image Grid.Row="0" Grid.Column="1" Source="cart.png" Aspect="AspectFit"
                            HorizontalOptions="FillAndExpand">
                         <Image.GestureRecognizers>
@@ -64,7 +64,7 @@
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Text="Products" HeightRequest="15"
                            FontSize="20" FontAttributes="Bold" />
-                    <CollectionView Grid.Row="0" ItemsSource="{Binding TBL_Products}" HorizontalOptions="Fill"
+                    <CollectionView Grid.Row="0" HorizontalOptions="Fill"
                                     Margin="0,25,0,0" x:Name="ListProducts" SelectionMode="Single"
                                     VerticalOptions="Fill" SelectionChanged="ListProducts_OnSelectionChanged">
                         <CollectionView.ItemsLayout>
@@ -80,30 +80,40 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Frame Grid.Row="0" Margin="5,0,5,0" Padding="0" Grid.Column="0" IsClippedToBounds="True"
-                                           HasShadow="False" CornerRadius="10" BackgroundColor="{Binding p_color_scheme}">
+                                    <Frame Grid.Row="0" Margin="5,0,5,0" Padding="0" Grid.Column="0"
+                                           IsClippedToBounds="True"
+                                           HasShadow="True"  CornerRadius="8"
+                                           BackgroundColor="{Binding p_color_scheme}">
                                         <StackLayout>
-                                            <ff:CachedImage x:Name="prodimg" Source="{Binding img_uri}" Aspect="AspectFill"
-                                                            BitmapOptimizations="True" HeightRequest="170" BackgroundColor="{Binding p_color_scheme}"
-                                                            CacheDuration="30" LoadingPlaceholder="notfound.png" ErrorPlaceholder="notfound.png" />
+                                            <ff:CachedImage x:Name="prodimg" Source="{Binding img_uri}"
+                                                            Aspect="AspectFit"
+                                                            BitmapOptimizations="True" HeightRequest="170"
+                                                            BackgroundColor="{Binding p_color_scheme}"
+                                                            CacheDuration="30" LoadingPlaceholder="notfound.png"
+                                                            ErrorPlaceholder="notfound.png" />
                                             <StackLayout Orientation="Vertical" Margin="5" Spacing="0">
-                                            <Label VerticalOptions="Center" Padding="0" FontAttributes="Bold">
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                            <Span Text="{Binding prod_name}" FontSize="16" FontFamily="TitleFontBold"
-                                                          TextColor="{StaticResource TextColor}" />
-                                                </FormattedString>
-                                            </Label.FormattedText>
+                                                <Label VerticalOptions="Center" Padding="0" FontAttributes="Bold">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{Binding prod_name}" FontSize="16"
+                                                                  FontFamily="TitleFontBold"
+                                                                  TextColor="{StaticResource TextColor}" />
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
                                                 </Label>
                                                 <StackLayout>
                                                     <Label HorizontalOptions="Start">
                                                         <Label.FormattedText>
                                                             <FormattedString>
                                                                 <Span Text="{Binding prod_price}" FontSize="20"
-                                                                      TextColor="{StaticResource Primary}" FontFamily="TitleFontLight"/>
-                                                                <Span Text=" / " FontSize="20" TextColor="{StaticResource Primary}" FontFamily="TitleFontLight"/>
+                                                                      TextColor="{StaticResource Primary}"
+                                                                      FontFamily="TitleFontLight" />
+                                                                <Span Text=" / " FontSize="20"
+                                                                      TextColor="{StaticResource Primary}"
+                                                                      FontFamily="TitleFontLight" />
                                                                 <Span Text="{Binding unit_desc}" FontSize="15"
-                                                                      TextColor="{StaticResource Primary}" FontFamily="TitleFontLight"/>
+                                                                      TextColor="{StaticResource Primary}"
+                                                                      FontFamily="TitleFontLight" />
                                                             </FormattedString>
                                                         </Label.FormattedText>
                                                     </Label>
@@ -126,11 +136,11 @@
                    VerticalOptions="CenterAndExpand"
                    x:Name="lblcartcount">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped"/>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped" />
                 </Label.GestureRecognizers>
             </Label>
             <Frame.GestureRecognizers>
-                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped"/>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped" />
             </Frame.GestureRecognizers>
         </Frame>
     </AbsoluteLayout>
