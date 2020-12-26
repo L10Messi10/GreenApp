@@ -12,7 +12,7 @@
                     <Label Text="Oops! 😱😱" VerticalOptions="Center" FontAttributes="Bold" FontSize="Title"
                            HorizontalOptions="Center" />
                     <Label
-                        Text="Your internet might be slow or you may have lost your internet connection. Please try again later."
+                        Text="Your internet might be slow or you may have lost your internet connection or there might be a problem with the Web service. Please try again later."
                         VerticalOptions="Center" HorizontalTextAlignment="Center"
                         HorizontalOptions="Center" />
                     <StackLayout Margin="100,40">
