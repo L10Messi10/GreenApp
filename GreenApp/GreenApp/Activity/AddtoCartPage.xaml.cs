@@ -26,10 +26,6 @@ namespace GreenApp.Activity
             InitializeComponent();
             qtystepper.Text = _defquantity.ToString(CultureInfo.CurrentCulture);
             lblrndnumpeople.Text = generator.Next(1, 20).ToString();
-            if (!DesignMode.IsDesignModeEnabled)
-            {
-
-            }
         }
 
         protected override async void OnAppearing()

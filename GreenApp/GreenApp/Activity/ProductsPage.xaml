@@ -84,11 +84,10 @@
                                     for the color scheme to give it a color-->
                                     <Frame Grid.Row="0" Margin="5,0,5,0" Padding="0" Grid.Column="0"
                                            IsClippedToBounds="True"
-                                           HasShadow="True"  CornerRadius="8"
-                                           BackgroundColor="{Binding p_color_scheme}">
+                                           HasShadow="True"  CornerRadius="8">
                                         <StackLayout>
                                             <ff:CachedImage x:Name="prodimg" Source="{Binding img_uri}"
-                                                            Aspect="AspectFit"
+                                                            Aspect="AspectFill"
                                                             BitmapOptimizations="True" HeightRequest="170"
                                                             BackgroundColor="{Binding p_color_scheme}"
                                                             CacheDuration="30" LoadingPlaceholder="notfound.png"

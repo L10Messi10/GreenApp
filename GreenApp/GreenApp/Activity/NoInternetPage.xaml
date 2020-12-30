@@ -9,14 +9,14 @@
                    Margin="0,-180,0,100" CornerRadius="160" HasShadow="True">
                 <StackLayout VerticalOptions="CenterAndExpand" Margin="10,180,10,0">
                     <Image Source="nointernet" HeightRequest="200" Margin="20" WidthRequest="300" Aspect="AspectFit" />
-                    <Label Text="Oops! 😱😱" VerticalOptions="Center" FontAttributes="Bold" FontSize="Title"
+                    <Label Text="Oops! 😒😒" VerticalOptions="Center" FontAttributes="Bold" FontSize="Title"
                            HorizontalOptions="Center" />
                     <Label
                         Text="Your internet might be slow or you may have lost your internet connection or there might be a problem with the Web service. Please try again later."
                         VerticalOptions="Center" HorizontalTextAlignment="Center"
                         HorizontalOptions="Center" />
                     <StackLayout Margin="100,40">
-                        <Button Text="Try again" Margin="0" CornerRadius="20" Clicked="Button_OnClicked" BackgroundColor="Green"
+                        <Button Text="Try again" Margin="0" CornerRadius="20" Clicked="Button_OnClicked" BackgroundColor="{StaticResource Primary}"
                                 TextColor="White"/>
                     </StackLayout>
                 </StackLayout>

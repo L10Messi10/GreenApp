@@ -9,7 +9,7 @@ namespace GreenApp
 {
     public partial class App
     {
-        public static readonly MobileServiceClient MobileService = new MobileServiceClient("https://imarketresource.azurewebsites.net");
+        public static readonly MobileServiceClient MobileService = new MobileServiceClient("https://greenmarketwebapp.azurewebsites.net");
         public static string Selected_ProdId;
         public static string Selected_CatID;
         public static string user_id;
@@ -28,6 +28,7 @@ namespace GreenApp
             InitializeComponent();
             Device.SetFlags(new []{"Brush_Experimental"});
             MainPage = new NavigationPage(new LoginPage());
+
         }
 
         protected override void OnStart()

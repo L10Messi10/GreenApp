@@ -123,28 +123,37 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition />
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Row="0" Text="SUB TOTAL" TextColor="WhiteSmoke" />
-                        <Label x:Name="lblsubtotal" Grid.Row="0" Grid.Column="2" Text="$ 0"
+                        <Picker Grid.Row="0" Title="Order options" Grid.ColumnSpan="3" TitleColor="{StaticResource Primary}">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Pickup</x:String>
+                                    <x:String>Delivery</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                            </Picker>
+                        <Label Grid.Row="1" Grid.Column="0" Text="SUB TOTAL" TextColor="WhiteSmoke" />
+                        <Label x:Name="lblsubtotal" Grid.Row="1" Grid.Column="2" Text="0"
                                HorizontalOptions="EndAndExpand"
                                FontSize="Medium" TextColor="White" FontAttributes="Bold" />
-                        <BoxView Grid.Row="1" Grid.Column="0" HeightRequest="1" BackgroundColor="WhiteSmoke"
+                        <BoxView Grid.Row="2" Grid.Column="0" HeightRequest="1" BackgroundColor="WhiteSmoke"
                                  Grid.ColumnSpan="3" />
-                        <BoxView Grid.Row="2" Grid.Column="0" HeightRequest="20" />
-                        <Label Grid.Row="3" Grid.Column="0" Text="DELIVERY FEE" TextColor="WhiteSmoke" />
-                        <Label Grid.Row="3" Grid.Column="2" Text="$ 0" HorizontalOptions="End"
+                        <BoxView Grid.Row="3" Grid.Column="0" HeightRequest="20" />
+                        <Label Grid.Row="4" Grid.Column="0" Text="DELIVERY FEE" TextColor="WhiteSmoke" />
+                        <Label Grid.Row="4" Grid.Column="2" Text="0" HorizontalOptions="End"
                                FontSize="Medium" TextColor="White" FontAttributes="Bold" />
-                        <BoxView Grid.Row="4" Grid.Column="0" HeightRequest="1" BackgroundColor="WhiteSmoke"
+                        <BoxView Grid.Row="5" Grid.Column="0" HeightRequest="1" BackgroundColor="WhiteSmoke"
                                  Grid.ColumnSpan="3" />
-                        <BoxView Grid.Row="5" Grid.Column="0" HeightRequest="30" />
-                        <Label Grid.Row="6" Grid.Column="0" Text="TOTAL" TextColor="{StaticResource TextColor}"
+                        <BoxView Grid.Row="6" Grid.Column="0" HeightRequest="30" />
+                        <Label Grid.Row="7" Grid.Column="0" Text="TOTAL" TextColor="{StaticResource TextColor}"
                                FontSize="Large" />
-                        <Label Grid.Row="6" Grid.Column="2" Text="$ 0" HorizontalOptions="EndAndExpand"
+                        <Label Grid.Row="7" Grid.Column="2" Text="0" HorizontalOptions="EndAndExpand"
                                x:Name="totalpayable"
                                FontSize="Medium" TextColor="{StaticResource TextColor}" FontAttributes="Bold" />
                     </Grid>
@@ -159,7 +168,7 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0" Grid.ColumnSpan="3" Text="Place order now"
+                        <Button Grid.Column="0" Grid.ColumnSpan="3" Text="Bag it!"
                                 TextColor="{StaticResource Textcolor}"
                                 BackgroundColor="{StaticResource Primary}"
                                 x:Name="btncheckout" Clicked="Btncheckout_OnClicked" />
@@ -178,7 +187,7 @@
                     IsRunning="True" IsVisible="True"
                     HorizontalOptions="CenterAndExpand"
                     Color="Green" Margin="0,300,0,0"/>
-                <Label x:Name="lblorderstate" Text="Placing your order..." Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
+                <Label x:Name="lblorderstate" Text="Bagging your order..." Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
             </StackLayout>
         </AbsoluteLayout>
     </ScrollView>
