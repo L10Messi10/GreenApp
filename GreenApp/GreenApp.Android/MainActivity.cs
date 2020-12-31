@@ -7,8 +7,12 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Plugin.CurrentActivity;
+using Plugin.Permissions;
 using Plugin.Toasts;
 using Xamarin.Forms;
+using Xamarin.Forms.GoogleMaps.Android;
+using static Plugin.CurrentActivity.CrossCurrentActivity;
 
 namespace GreenApp.Droid
 {
@@ -30,6 +34,8 @@ namespace GreenApp.Droid
             // If you are using Android you must pass through the activity
             ToastNotification.Init(this);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);
+            Current.Init(this, savedInstanceState);
             //Initialize(ApplicationContext, "ca-app-pub-7879306170422036/6877254608");
             Forms.SetFlags("UseLegacyRenderers");
             Forms.Init(this, savedInstanceState);
@@ -40,6 +46,10 @@ namespace GreenApp.Droid
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
             RequestPermissions(permissionGroup,0);
             LoadApplication(new App());
+        }
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }

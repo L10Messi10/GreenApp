@@ -85,8 +85,8 @@ namespace GreenApp.Activity
                 //Uploading pictures to image container in azure
                 progressload.IsVisible = true;
                 lblprogressstat.Text = "Uploading profile picture . . .";
-                var connectionString = "DefaultEndpointsProtocol=https;AccountName=imarketimagestorage;AccountKey=oQsfLFmDDr+FAKDyzKTeccautiNEJJDsfG4fzMJwbK2tO2q2gUrpaVowrfz7Q+dWWLAASPbdtCvMpEpE9/R8/A==;EndpointSuffix=core.windows.net";
-                var containerName = "imagecontainer";
+                var connectionString = "DefaultEndpointsProtocol=https;AccountName=greenmareetimagesstorage;AccountKey=fZO7MmX5iz9TWoet4B3ItpLwDdHB9NamxNC8Pw0vbIIP3kHys174yopRszz837VglA9dKEFum8iH6M1WiiNugQ==;EndpointSuffix=core.windows.net";
+                var containerName = "greenmareetimagesstorage";
                 var filepath = getPath;
                 var container = new BlobContainerClient(connectionString, containerName);
                 await container.CreateIfNotExistsAsync();
