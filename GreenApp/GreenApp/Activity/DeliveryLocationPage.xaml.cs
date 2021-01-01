@@ -47,8 +47,7 @@ namespace GreenApp.Activity
 
         protected override async void OnAppearing()
         {
-           
-
+            //This gets the current location of the user's device.
             base.OnAppearing();
             var locator = CrossGeolocator.Current;
             locator.PositionChanged += Locator_PositionChanged;
@@ -67,15 +66,17 @@ namespace GreenApp.Activity
                 IsDraggable = true
             };
             map.Pins.Add(locationPin);
-            map.MoveToRegion(span);
+            map.MoveToRegion(MapSpan.FromCenterAndRadius(center, Distance.FromMeters(500)));
         }
 
         private void Locator_PositionChanged(object sender, Plugin.Geolocator.Abstractions.PositionEventArgs e)
         {
             var center = new Position(e.Position.Latitude, e.Position.Longitude);
             var span = new MapSpan(center, 2, 2);
-            map.MoveToRegion(span);
+            map.MoveToRegion(MapSpan.FromCenterAndRadius(center,Distance.FromMeters(500)));
         }
+
+        //This will let the user drag the pin and put it where he/she wants the idem to be delivered.
         private async void Map_OnPinDragEnd(object sender, PinDragEventArgs e)
         {
            var position = new Position(e.Pin.Position.Latitude,e.Pin.Position.Longitude);
