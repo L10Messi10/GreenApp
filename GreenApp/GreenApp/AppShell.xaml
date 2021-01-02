@@ -1,7 +1,6 @@
 ﻿<Shell xmlns="http://xamarin.com/schemas/2014/forms"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:GreenApp.Activity"
-       xmlns:magicGradients="clr-namespace:MagicGradients;assembly=MagicGradients"
        x:Class="GreenApp.AppShell"
        FlyoutBackgroundImageAspect="AspectFill">
     <Shell.Resources>

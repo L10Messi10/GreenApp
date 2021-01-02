@@ -13,7 +13,7 @@ using Xamarin.Forms.Xaml;
 namespace GreenApp.Activity
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DeliveryLocationPage : ContentPage
+    public partial class DeliveryLocationPage
     {
         public DeliveryLocationPage()
         {

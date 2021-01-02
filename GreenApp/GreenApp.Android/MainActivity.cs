@@ -9,7 +9,6 @@ using Android.Widget;
 using Android.OS;
 using Plugin.CurrentActivity;
 using Plugin.Permissions;
-using Plugin.Toasts;
 using Xamarin.Forms;
 using Xamarin.Forms.GoogleMaps.Android;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
@@ -29,10 +28,7 @@ namespace GreenApp.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-            base.OnCreate(savedInstanceState);
-            DependencyService.Register<ToastNotification>(); // Register your dependency
-            // If you are using Android you must pass through the activity
-            ToastNotification.Init(this);
+            base.OnCreate(savedInstanceState);;
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);
             Current.Init(this, savedInstanceState);
@@ -42,7 +38,7 @@ namespace GreenApp.Droid
             FormsMaterial.Init(this,savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
-            FormsControls.Droid.Main.Init(this);
+            Xamarin.Essentials.Platform.Init(Application);
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
             RequestPermissions(permissionGroup,0);
             LoadApplication(new App());
@@ -50,6 +46,8 @@ namespace GreenApp.Droid
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            
         }
+        
     }
 }
