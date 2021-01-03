@@ -45,15 +45,15 @@ namespace GreenApp.Activity
 
         private async void ListProducts_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 Selected_ProdId = (e.CurrentSelection.FirstOrDefault() as TBL_Products)?.id;
                 await Navigation.PushAsync(new AddtoCartPage());
-            }
-            catch
-            {
-                //ignored
-            }
+            //}
+            //catch
+            //{
+            //    //ignored
+            //}
         }
 
         private async void TapGestureRecognizer_OnTapped(object sender, EventArgs e)

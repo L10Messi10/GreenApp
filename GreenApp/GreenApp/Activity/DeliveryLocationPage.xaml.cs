@@ -15,6 +15,8 @@ namespace GreenApp.Activity
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DeliveryLocationPage
     {
+        public static double del_lat;
+        public static double del_long;
         public DeliveryLocationPage()
         {
             InitializeComponent();
@@ -80,6 +82,11 @@ namespace GreenApp.Activity
            var position = new Position(e.Pin.Position.Latitude,e.Pin.Position.Longitude);
            map.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMeters(500)));
            await DisplayAlert("Alert", "Pickup location: Latitude: " + e.Pin.Position.Latitude + " Longitude: " + e.Pin.Position.Longitude, "OK");
+        }
+
+        private void Btnsetdelivery_OnClicked(object sender, EventArgs e)
+        {
+            
         }
     }
 }

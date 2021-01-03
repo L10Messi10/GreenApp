@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using static GreenApp.App;
@@ -8,6 +9,8 @@ namespace GreenApp.Models
 {
     public class TBL_Orders
     {
+        #region Fieldnames
+
         public string id { get; set; }
         public string users_id { get; set; }
         public string tot_payable { get; set; }
@@ -16,6 +19,13 @@ namespace GreenApp.Models
         public string order_date { get; set; }
         public string order_status { get; set; }
         public string stat { get; set; }
+        public string order_choice { get; set; }
+        public string del_rcvr { get; set; }
+        public string delvry_address { get; set; }
+        public string del_lat { get; set; }
+        public string del_long { get; set; }
+
+        #endregion
 
         public static async Task Insert(TBL_Orders order)
         {

@@ -63,43 +63,49 @@ namespace GreenApp.Activity
         {
             try
             {
-                if (totalpayable.Text != "0")
+                if (picker.SelectedItem != null)
                 {
-                    
-                    var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
-                    if (stat != null) MarketStatus = stat.status;
-                    if (MarketStatus == "1")
+                    if (totalpayable.Text != "0")
                     {
-                        var answer = await DisplayAlert("Confirm", "Do you want to confirm this order?", "Yes", "No");
-                        if (answer)
+                        var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
+                        if (stat != null) MarketStatus = stat.status;
+                        if (MarketStatus == "1")
                         {
-                            progressplaceorder.IsVisible = true;
-                            lblorderstate.Text = "Placing your order . . .";
-                            var orderDetails = new TBL_Orders()
+                            var answer = await DisplayAlert("Confirm", "Do you want to confirm this order?", "Yes", "No");
+                            if (answer)
                             {
-                                id = CurrentOrderId,
-                                users_id = user_id,
-                                order_date = Now.ToString("yyyy-MM-dd"),
-                                stat = "1",
-                                order_status = "Ordered",
-                                tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
-                            };
-                            await TBL_Orders.Update(orderDetails);
-                            checkout = true;
+                                progressplaceorder.IsVisible = true;
+                                lblorderstate.Text = "Placing your order . . .";
+                                var orderDetails = new TBL_Orders()
+                                {
+                                    id = CurrentOrderId,
+                                    users_id = user_id,
+                                    order_date = Now.ToString("yyyy-MM-dd"),
+                                    stat = "1",
+                                    order_status = "Ordered",
+                                    tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
+                                };
+                                await TBL_Orders.Update(orderDetails);
+                                checkout = true;
+                                progressplaceorder.IsVisible = false;
+                                await Navigation.PushAsync(new ConfirmationPage(), true);
+                            }
+                        }
+                        else
+                        {
                             progressplaceorder.IsVisible = false;
-                            await Navigation.PushAsync(new ConfirmationPage(), true);
+                            await Navigation.PushAsync(new MarketClosePage(), true);
                         }
                     }
                     else
                     {
                         progressplaceorder.IsVisible = false;
-                        await Navigation.PushAsync(new MarketClosePage(), true);
+                        await DisplayAlert("Cart empty", "Your cart is empty!", "OK");
                     }
                 }
                 else
                 {
-                    progressplaceorder.IsVisible = false;
-                    await DisplayAlert("Cart empty", "Your cart is empty!", "OK");
+                    await DisplayAlert("Alert", "Please select order option!", "OK");
                 }
             }
             catch
@@ -239,6 +245,22 @@ namespace GreenApp.Activity
             {
                 progressplaceorder.IsVisible = false;
                 await Navigation.PushAsync(new NoInternetPage(), true);
+            }
+        }
+
+        private async void Picker_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selected;
+            var picker = (Picker)sender;
+            int selectedIndex = picker.SelectedIndex;
+
+            if (selectedIndex != -1)
+            {
+                selected = (string)picker.ItemsSource[selectedIndex];
+                if (selected == "Delivery")
+                {
+                    await Navigation.PushAsync(new DeliveryLocationPage(), true);
+                }
             }
         }
     }

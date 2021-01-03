@@ -18,10 +18,10 @@
                 <RowDefinition Height="330" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Frame Grid.Row="0" BackgroundColor="#BEC1BA" Margin="10" CornerRadius="10" Padding="0"
-                   HasShadow="True">
+            <Frame Grid.Row="0" BackgroundColor="Transparent" Margin="10" CornerRadius="10" Padding="0"
+                   HasShadow="False">
                 <CollectionView x:Name="ordercollection" ItemsSource="{Binding TBL_Order_Details}"
-                                ItemsLayout="HorizontalList" BackgroundColor="#BEC1BA"
+                                ItemsLayout="HorizontalList" BackgroundColor="Transparent"
                                 SelectionMode="Single" HorizontalScrollBarVisibility="Always"
                                 SelectionChanged="Ordercollection_OnSelectionChanged">
                     <CollectionView.ItemTemplate>
@@ -112,7 +112,7 @@
                 </CollectionView>
             </Frame>
             <StackLayout Grid.Row="1" VerticalOptions="End">
-                <Frame BackgroundColor="#BEC1BA" Margin="10,0" HeightRequest="205"
+                <Frame BackgroundColor="{StaticResource Frame}" Margin="10,0"
                        CornerRadius="10" HasShadow="True">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -130,7 +130,8 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <Picker Grid.Row="0" Title="Order options" Grid.ColumnSpan="3" TitleColor="{StaticResource Primary}">
+                        <Picker x:Name="picker" Grid.Row="0" Title="Order options" Grid.ColumnSpan="3"
+                                TitleColor="{StaticResource Primary}" SelectedIndexChanged="Picker_OnSelectedIndexChanged">
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
                                     <x:String>Pickup</x:String>
@@ -138,16 +139,16 @@
                                 </x:Array>
                             </Picker.ItemsSource>
                             </Picker>
-                        <Label Grid.Row="1" Grid.Column="0" Text="SUB TOTAL" TextColor="WhiteSmoke" />
+                            <Label Grid.Row="1" Grid.Column="0" Text="SUB TOTAL" TextColor="{StaticResource PriceColor}"/>
                         <Label x:Name="lblsubtotal" Grid.Row="1" Grid.Column="2" Text="0"
                                HorizontalOptions="EndAndExpand"
-                               FontSize="Medium" TextColor="White" FontAttributes="Bold" />
+                               FontSize="Medium" TextColor="{StaticResource PriceColor}" FontAttributes="Bold" />
                         <BoxView Grid.Row="2" Grid.Column="0" HeightRequest="1" BackgroundColor="WhiteSmoke"
                                  Grid.ColumnSpan="3" />
                         <BoxView Grid.Row="3" Grid.Column="0" HeightRequest="20" />
-                        <Label Grid.Row="4" Grid.Column="0" Text="DELIVERY FEE" TextColor="WhiteSmoke" />
+                        <Label Grid.Row="4" Grid.Column="0" Text="DELIVERY FEE" TextColor="{StaticResource PriceColor}" />
                         <Label Grid.Row="4" Grid.Column="2" Text="0" HorizontalOptions="End"
-                               FontSize="Medium" TextColor="White" FontAttributes="Bold" />
+                               FontSize="Medium" TextColor="{StaticResource TextColor}" FontAttributes="Bold" />
                         <BoxView Grid.Row="5" Grid.Column="0" HeightRequest="1" BackgroundColor="WhiteSmoke"
                                  Grid.ColumnSpan="3" />
                         <BoxView Grid.Row="6" Grid.Column="0" HeightRequest="30" />
@@ -168,9 +169,9 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0" Grid.ColumnSpan="3" Text="Bag it!"
+                        <Button Grid.Column="0" Grid.ColumnSpan="3" Text="Checkout!"
                                 TextColor="{StaticResource Textcolor}"
-                                BackgroundColor="{StaticResource Primary}"
+                                BackgroundColor="{StaticResource Primary}" CornerRadius="0"
                                 x:Name="btncheckout" Clicked="Btncheckout_OnClicked" />
                     </Grid>
                 </StackLayout>

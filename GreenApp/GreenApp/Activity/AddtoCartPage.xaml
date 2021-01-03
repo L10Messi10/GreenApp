@@ -35,7 +35,7 @@
                        Margin="0,270,5,0" Grid.Row="0" Padding="5" Opacity="1">
                     <StackLayout Orientation="Vertical" >
                         <Label VerticalOptions="Center" FontAttributes="Bold" FontSize="20"
-                               TextColor="{StaticResource PriceBg}" HorizontalTextAlignment="Center">
+                               TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center">
                             <Label.FormattedText>
                                 <FormattedString>
                                     <Span Text="Php. " />
@@ -104,7 +104,7 @@
                     <StackLayout Orientation="Horizontal" Spacing="0">
                         <Button ImageSource="refresh" VerticalOptions="FillAndExpand" BackgroundColor="DarkRed" x:Name="btnrefresh" Clicked="Btnrefresh_OnClicked"/>
                         <Button Text="ADD TO CART" BackgroundColor="{StaticResource Primary}" TextColor="{StaticResource Textcolor}" HorizontalOptions="FillAndExpand"
-                                x:Name="btnaddtocart" Clicked="Btnaddtocart_OnClicked" />
+                                x:Name="btnaddtocart" Clicked="Btnaddtocart_OnClicked" CornerRadius="0"/>
                     </StackLayout>
                    
                 </StackLayout>
