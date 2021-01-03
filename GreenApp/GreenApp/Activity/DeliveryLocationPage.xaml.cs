@@ -48,7 +48,7 @@ namespace GreenApp.Activity
         protected override async void OnAppearing()
         {
             //This gets the current location of the user's device.
-            base.OnAppearing();
+            await DisplayAlert("Info", "The app will detect your current location.", "OK");
             var locator = CrossGeolocator.Current;
             locator.PositionChanged += Locator_PositionChanged;
             await locator.StartListeningAsync(new TimeSpan(0), 100);
@@ -56,7 +56,6 @@ namespace GreenApp.Activity
 
             var position = await locator.GetPositionAsync();
             var center = new Position(position.Latitude, position.Longitude);
-            var span = new MapSpan(center, 2, 2);
             Pin locationPin = new Pin()
             {
                 Label = "My location",
@@ -72,8 +71,7 @@ namespace GreenApp.Activity
         private void Locator_PositionChanged(object sender, Plugin.Geolocator.Abstractions.PositionEventArgs e)
         {
             var center = new Position(e.Position.Latitude, e.Position.Longitude);
-            var span = new MapSpan(center, 2, 2);
-            map.MoveToRegion(MapSpan.FromCenterAndRadius(center,Distance.FromMeters(500)));
+            map.MoveToRegion(MapSpan.FromCenterAndRadius(center, Distance.FromMeters(500)));
         }
 
         //This will let the user drag the pin and put it where he/she wants the idem to be delivered.
