@@ -10,7 +10,8 @@
         <ToolbarItem IconImageSource="edit.png" Text="Modify" x:Name="edititem" Clicked="Edititem_OnClicked" Order="Secondary"/>
         <ToolbarItem IconImageSource="cancel.png" Text="Void" x:Name="voiditem" Clicked="Voiditem_OnClicked" Order="Secondary"/>
     </ContentPage.ToolbarItems>
-    <ScrollView>
+    <StackLayout Padding="0">
+        <ScrollView>
         <AbsoluteLayout>
             <Grid VerticalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1"
                   AbsoluteLayout.LayoutFlags="All">
@@ -114,10 +115,10 @@
             <StackLayout Grid.Row="1" VerticalOptions="End">
                 <Frame BackgroundColor="{StaticResource Frame}" Margin="10,0"
                        CornerRadius="10" HasShadow="True">
-                    <Grid>
+                    <Grid RowSpacing="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="100" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
@@ -126,11 +127,11 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
+                            <ColumnDefinition Width="150"/>
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <Picker x:Name="picker" Grid.Row="0" Title="Order options" Grid.ColumnSpan="3"
+                        <Picker x:Name="picker" Grid.Row="0" Title="Order options" Grid.ColumnSpan="1"
                                 TitleColor="{StaticResource Primary}" SelectedIndexChanged="Picker_OnSelectedIndexChanged">
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
@@ -138,43 +139,19 @@
                                     <x:String>Delivery</x:String>
                                 </x:Array>
                             </Picker.ItemsSource>
-                            </Picker>
-                            <Label Grid.Row="1" Grid.Column="0" Text="SUB TOTAL" TextColor="{StaticResource PriceColor}"/>
-                        <Label x:Name="lblsubtotal" Grid.Row="1" Grid.Column="2" Text="0"
-                               HorizontalOptions="EndAndExpand"
+                        </Picker>
+                        <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+
+                        </StackLayout>
+                        <Label Grid.Row="3" Grid.Column="0" Text="SUB TOTAL" TextColor="{StaticResource PriceColor}"/>
+                        <Label x:Name="lblsubtotal" Grid.Row="3" Grid.Column="2" Text="0"
+                               HorizontalOptions="EndAndExpand" VerticalOptions="Center"
                                FontSize="Medium" TextColor="{StaticResource PriceColor}" FontAttributes="Bold" />
-                        <BoxView Grid.Row="2" Grid.Column="0" HeightRequest="1" BackgroundColor="WhiteSmoke"
-                                 Grid.ColumnSpan="3" />
-                        <BoxView Grid.Row="3" Grid.Column="0" HeightRequest="20" />
                         <Label Grid.Row="4" Grid.Column="0" Text="DELIVERY FEE" TextColor="{StaticResource PriceColor}" />
                         <Label Grid.Row="4" Grid.Column="2" Text="0" HorizontalOptions="End"
-                               FontSize="Medium" TextColor="{StaticResource TextColor}" FontAttributes="Bold" />
-                        <BoxView Grid.Row="5" Grid.Column="0" HeightRequest="1" BackgroundColor="WhiteSmoke"
-                                 Grid.ColumnSpan="3" />
-                        <BoxView Grid.Row="6" Grid.Column="0" HeightRequest="30" />
-                        <Label Grid.Row="7" Grid.Column="0" Text="TOTAL" TextColor="{StaticResource TextColor}"
-                               FontSize="Large" />
-                        <Label Grid.Row="7" Grid.Column="2" Text="0" HorizontalOptions="EndAndExpand"
-                               x:Name="totalpayable"
-                               FontSize="Medium" TextColor="{StaticResource TextColor}" FontAttributes="Bold" />
+                               FontSize="Medium" TextColor="{StaticResource PriceColor}" FontAttributes="Bold" />
                     </Grid>
                 </Frame>
-                <StackLayout Visual="Material" Margin="0">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="50" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0" Grid.ColumnSpan="3" Text="Checkout!"
-                                TextColor="{StaticResource Textcolor}"
-                                BackgroundColor="{StaticResource Primary}" CornerRadius="0"
-                                x:Name="btncheckout" Clicked="Btncheckout_OnClicked" />
-                    </Grid>
-                </StackLayout>
             </StackLayout>
         </Grid>
             <StackLayout
@@ -188,8 +165,36 @@
                     IsRunning="True" IsVisible="True"
                     HorizontalOptions="CenterAndExpand"
                     Color="Green" Margin="0,300,0,0"/>
-                <Label x:Name="lblorderstate" Text="Bagging your order..." Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
+                <Label x:Name="lblorderstate" Text="Bagging your order, please wait..." Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
             </StackLayout>
         </AbsoluteLayout>
     </ScrollView>
+    <StackLayout Visual="Material" Margin="0" Padding="0" VerticalOptions="EndAndExpand"
+                 BackgroundColor="{StaticResource Primary}">
+        <Grid Margin="10" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="10" />
+                </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+                <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Vertical">
+                    <Label Text="0" HorizontalOptions="Start"
+                           x:Name="totalpayable"
+                           FontSize="Medium" TextColor="{StaticResource Textcolor}" FontAttributes="Bold" />
+                    <Label x:Name="totItems" TextColor="{StaticResource Textcolor}" FontAttributes="Italic"
+                           FontSize="14"/>
+                </StackLayout>
+                <Button Grid.Column="2" Text="Checkout!" Grid.Row="1" Grid.ColumnSpan="2"
+                    TextColor="{StaticResource Primary}"
+                    BackgroundColor="{StaticResource BackgroundColor}" CornerRadius="5"
+                    x:Name="btncheckout" Clicked="Btncheckout_OnClicked" />
+        </Grid>
+    </StackLayout>
+    </StackLayout>
 </ContentPage>

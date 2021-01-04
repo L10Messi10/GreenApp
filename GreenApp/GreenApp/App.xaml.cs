@@ -10,6 +10,7 @@ namespace GreenApp
     public partial class App
     {
         public static readonly MobileServiceClient MobileService = new MobileServiceClient("https://greenmarketwebapp.azurewebsites.net");
+        //Transaction info
         public static string Selected_ProdId;
         public static string Selected_CatID;
         public static string user_id;
@@ -17,11 +18,18 @@ namespace GreenApp
         public static bool refresh;
         public static string MarketStatus;
         public static bool checkout;
-        public static bool _conn;
         public static string Selected_orderID;
+        //Customer info
         public static string fullname, address, mobilenum, emailadd, password, propic,picstr;
         public static DateTime datereg;
         public static bool historyloaded = false;
+        //Order delivery info
+        public static double del_lat;
+        public static double del_long;
+        public static string order_choice;
+        public static string order_rcvr_name;
+        public static string order_rcvr_add;
+        public static string order_rcvr_num;
 
         public App()
         {

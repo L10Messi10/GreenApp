@@ -37,10 +37,11 @@ namespace GreenApp.Activity
                     //ordercollection.ItemsSource.re
                     totaSum = getorders.AsQueryable().Sum(ord => ord.sub_total);
                     lblsubtotal.Text = totaSum.ToString(CultureInfo.InvariantCulture);
-                    totalpayable.Text = totaSum.ToString(CultureInfo.InvariantCulture);
+                    totalpayable.Text ="Php "+ totaSum.ToString(CultureInfo.InvariantCulture);
                     itemid = null;
                     Selected_ProdId = null;
                     progressplaceorder.IsVisible = false;
+                    totItems.Text = "Your order (" + itemcount + ") items";
                 }
                 else
                 {

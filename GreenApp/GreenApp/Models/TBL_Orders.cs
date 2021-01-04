@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using static GreenApp.App;
@@ -22,6 +23,7 @@ namespace GreenApp.Models
         public string order_choice { get; set; }
         public string del_rcvr { get; set; }
         public string delvry_address { get; set; }
+        public string del_rcvr_num { get; set; }
         public string del_lat { get; set; }
         public string del_long { get; set; }
 
