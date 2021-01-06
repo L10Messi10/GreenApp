@@ -4,7 +4,7 @@ using System.Linq;
 using Xamarin.Forms;
 using Foundation;
 using GreenApp.Constants;
-using Google.Maps;
+//using Google.Maps;
 using UIKit;
 
 namespace GreenApp.iOS
@@ -26,7 +26,7 @@ namespace GreenApp.iOS
         {
             ZXing.Net.Mobile.Forms.iOS.Platform.Init();
             Xamarin.Forms.Forms.Init();
-            Xamarin.FormsGoogleMaps.Init(AppConstants.GoogleMapsApiKey);
+            //Xamarin.FormsGoogleMaps.Init(AppConstants.GoogleMapsApiKey);
             Xamarin.Forms.FormsMaterial.Init();
             //FormsControls.Touch.Main.Init(this);
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();

@@ -53,8 +53,12 @@
         <ShellContent Title="Profile" Icon="person_1.png"
                       ContentTemplate="{DataTemplate local:ProfilePage}"/>
     </FlyoutItem>
+    <FlyoutItem Route="AddressesPage" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Addresses" Icon="locationpin"
+                      ContentTemplate="{DataTemplate local:AddressesPage}"/>
+    </FlyoutItem>
     <FlyoutItem Route="OrderHistoryPage" FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Pending Orders" Icon="history"
+        <ShellContent Title="Orders" Icon="history"
                       ContentTemplate="{DataTemplate local:OrderHistoryPage}"/>
     </FlyoutItem>
     <FlyoutItem Route="FeedBackPage" FlyoutDisplayOptions="AsMultipleItems">

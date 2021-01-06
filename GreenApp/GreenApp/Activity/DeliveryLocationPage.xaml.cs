@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using GreenApp.Models;
 using GreenApp.ViewModels;
 using Plugin.Geolocator;
 using Xamarin.Forms;
-using Xamarin.Forms.GoogleMaps;
+using Xamarin.Forms.Maps;
+using Xamarin.Forms.Markup;
 using Xamarin.Forms.Xaml;
 using static GreenApp.App;
 
@@ -16,6 +19,7 @@ namespace GreenApp.Activity
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DeliveryLocationPage
     {
+        private string _label;
         public DeliveryLocationPage()
         {
             InitializeComponent();
@@ -32,29 +36,40 @@ namespace GreenApp.Activity
             //map.Pins.Add(pin);
             //map.MoveToRegion(MapSpan.FromCenterAndRadius(pin.Position, Distance.FromMeters(5000)));
             //ApplyMapTheme();
+            map.PropertyChanged += Map_PropertyChanged;
+            //map.CameraIdled += Map_CameraIdled;
         }
 
-        private void ApplyMapTheme()
+        private async void Map_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            var assembly = typeof(DeliveryLocationPage).GetTypeInfo().Assembly;
-            var stream = assembly.GetManifestResourceStream($"GreenApp.MapResources.MapTheme.json");
-            string themeFile;
-            using (var reader = new System.IO.StreamReader(stream))
+            Geocoder geoCoder = new Geocoder();
+            var m = (Map) sender;
+
+            if (m.VisibleRegion != null)
             {
-                themeFile = reader.ReadToEnd();
-                map.MapStyle=MapStyle.FromJson(themeFile);
+                var center = new Position(m.VisibleRegion.Center.Latitude, m.VisibleRegion.Center.Longitude);
+                IEnumerable<string> possibleAddresses = await geoCoder.GetAddressesForPositionAsync(center);
+                var enumerable = possibleAddresses as string[] ?? possibleAddresses.ToArray();
+                picker.ItemsSource = enumerable.ToList();
+                picker.SelectedIndex = 1;
+                order_lat = m.VisibleRegion.Center.Latitude;
+                order_long = m.VisibleRegion.Center.Longitude;
+                //await DisplayAlert ("Alert","Lat: " + m.VisibleRegion.Center.Latitude.ToString() + " Lon:" + m.VisibleRegion.Center.Longitude.ToString() + " ","OK");
             }
+        }
+        
+        protected override async void OnDisappearing()
+        {
+            var locator = CrossGeolocator.Current;
+            Geocoder geoCoder = new Geocoder();
+            locator.PositionChanged -= Locator_PositionChanged;
+            await locator.StopListeningAsync();
         }
 
         protected override async void OnAppearing()
         {
             //This gets the current location of the user's device.
-            del_long = 0;
-            del_lat = 0;
-            txtrecvrname.Text = fullname;
-            txtrecvraddress.Text = address;
-            txtrecvrnum.Text = mobilenum;
-            await DisplayAlert("Info", "The app will detect your current location. Please allow the app to access your location.", "OK");
+            //await DisplayAlert("Info", "The app will detect your current location. Please allow the app to access your location.", "OK");
             var locator = CrossGeolocator.Current;
             locator.PositionChanged += Locator_PositionChanged;
             await locator.StartListeningAsync(new TimeSpan(0), 200);
@@ -62,65 +77,94 @@ namespace GreenApp.Activity
 
             var position = await locator.GetPositionAsync();
             var center = new Position(position.Latitude, position.Longitude);
-            Pin locationPin = new Pin()
-            {
-                Label = "My location",
-                Type = PinType.Place,
-                Icon = (Device.RuntimePlatform == Device.Android ? BitmapDescriptorFactory.FromBundle("marker.png") : BitmapDescriptorFactory.FromView(new Image() { Source = "marker.png", WidthRequest = 30, HeightRequest = 30 })),
-                Position = center,
-                IsDraggable = true
-            };
-            map.Pins.Add(locationPin);
+            
             map.MoveToRegion(MapSpan.FromCenterAndRadius(center, Distance.FromMeters(200)));
         }
 
         private void Locator_PositionChanged(object sender, Plugin.Geolocator.Abstractions.PositionEventArgs e)
         {
-            del_lat = e.Position.Latitude;
-            del_long = e.Position.Longitude;
+            order_lat = e.Position.Latitude;
+            order_long = e.Position.Longitude;
             var center = new Position(e.Position.Latitude, e.Position.Longitude);
             map.MoveToRegion(MapSpan.FromCenterAndRadius(center, Distance.FromMeters(200)));
         }
 
-        //This will let the user drag the pin and put it where he/she wants the idem to be delivered.
-        private async void Map_OnPinDragEnd(object sender, PinDragEventArgs e)
-        {
-           var position = new Position(e.Pin.Position.Latitude,e.Pin.Position.Longitude);
-           map.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromMeters(100)));
-           await DisplayAlert("Alert", "Delivery location: Latitude: " + e.Pin.Position.Latitude + " Longitude: " + e.Pin.Position.Longitude, "OK");
-           del_lat = e.Pin.Position.Latitude;
-           del_long = e.Pin.Position.Longitude;
-        }
-
         private async void Btnsetdelivery_OnClicked(object sender, EventArgs e)
         {
-            if (del_long == 0 || del_lat == 0)
-            {
-                await DisplayAlert("Alert", "Delivery location wasn't set.", "OK");
-                return;
-            }
+            string c_add;
+            int selectedIndex = picker.SelectedIndex;
 
-            if (txtrecvrname.Text == null)
+            c_add = "" + txtstreet.Text + ", " + txtfloor.Text + " "+ (string)picker.ItemsSource[selectedIndex];
+            if (_label != null)
             {
-                await DisplayAlert("Alert", "Please enter receiver's name!", "OK");
-                return;
-            }
-            if (txtrecvrname.Text == null)
-            {
-                await DisplayAlert("Alert", "Please enter receiver's address!", "OK");
-                return;
+                if (txtstreet != null && txtfloor.Text != null && txtnotes.Text != null)
+                {
+                    progressplaceorder.IsVisible = true;
+                    var addrress = new TBL_Addresses
+                    {
+                        user_id = user_id,
+                        Address = c_add,
+                        add_lat = order_lat,
+                        add_long = order_long,
+                        Label = _label,
+                        Notes = txtnotes.Text
+                    };
+                    await TBL_Addresses.Insert(addrress);
+                }
+                else
+                {
+                    progressplaceorder.IsVisible = true;
+                    var addrress = new TBL_Addresses
+                    {
+                        user_id = user_id,
+                        Address = (string)picker.ItemsSource[selectedIndex],
+                        add_lat = order_lat,
+                        add_long = order_long,
+                        Label = _label,
+                    };
+                    await TBL_Addresses.Insert(addrress);
+                }
+                
+                await DisplayAlert("Info", "New address added. You can now choose this address where you want the items to be delivered.", "OK");
+                await Navigation.PopAsync(true);
             }
             else
             {
-                if (await DisplayAlert("Confirm Delivery info", "Are you sure this delivery infos are correct?", "Yes", "No"))
-                {
-                    order_choice = "Delivery";
-                    order_rcvr_name = txtrecvrname.Text;
-                    order_rcvr_add = txtrecvraddress.Text;
-                    order_rcvr_num = txtrecvrnum.Text;
-                    await Navigation.PopAsync(true);
-                }
+                await DisplayAlert("Alert", "Please select a label for this address.", "OK");
             }
+        }
+
+        private void Btnhome_OnClicked(object sender, EventArgs e)
+        {
+            _label = "Home";
+            btnhome.BackgroundColor = Color.FromRgb(0, 158, 73);
+            btnhome.TextColor=Color.White;
+            btnwork.TextColor=Color.Black;
+            btnothers.TextColor=Color.Black;
+            btnwork.BackgroundColor=Color.Transparent;
+            btnothers.BackgroundColor=Color.Transparent;
+        }
+
+        private void Btnwork_OnClicked(object sender, EventArgs e)
+        {
+            _label = "Work";
+            btnwork.BackgroundColor = Color.FromRgb(0, 158, 73);
+            btnhome.TextColor = Color.Black;
+            btnwork.TextColor = Color.White;
+            btnothers.TextColor = Color.Black;
+            btnhome.BackgroundColor = Color.Transparent;
+            btnothers.BackgroundColor = Color.Transparent;
+        }
+
+        private void Btnothers_OnClicked(object sender, EventArgs e)
+        {
+            _label = "Others";
+            btnothers.BackgroundColor = Color.FromRgb(0, 158, 73);
+            btnhome.TextColor = Color.Black;
+            btnwork.TextColor = Color.Black;
+            btnothers.TextColor = Color.White;
+            btnwork.BackgroundColor = Color.Transparent;
+            btnhome.BackgroundColor = Color.Transparent;
         }
     }
 }

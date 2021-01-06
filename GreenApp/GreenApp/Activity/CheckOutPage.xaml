@@ -20,7 +20,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Frame Grid.Row="0" BackgroundColor="Transparent" Margin="10" CornerRadius="10" Padding="0"
-                   HasShadow="False">
+                   HasShadow="False" VerticalOptions="StartAndExpand">
                 <CollectionView x:Name="ordercollection" ItemsSource="{Binding TBL_Order_Details}"
                                 ItemsLayout="HorizontalList" BackgroundColor="Transparent"
                                 SelectionMode="Single" HorizontalScrollBarVisibility="Always"
@@ -112,7 +112,7 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </Frame>
-            <StackLayout Grid.Row="1" VerticalOptions="End">
+            <StackLayout Grid.Row="1" VerticalOptions="EndAndExpand">
                 <Frame BackgroundColor="{StaticResource Frame}" Margin="10,0"
                        CornerRadius="10" HasShadow="True">
                     <Grid RowSpacing="0">

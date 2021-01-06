@@ -41,7 +41,7 @@
     <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1821" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.0" />
-    <PackageReference Include="Xamarin.Forms.GoogleMaps" Version="3.3.0" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="4.8.0.1821" />
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
     <PackageReference Include="Xamarin.Forms.Visual.Material" Version="4.8.0.1821" />
     <PackageReference Include="XForms.Plugin.AnimationNavigationPage" Version="1.0.8" />
@@ -57,6 +57,9 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Activity\AboutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Activity\AddressesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Activity\AddtoCartPage.xaml">

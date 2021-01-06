@@ -24,8 +24,8 @@ namespace GreenApp
         public static DateTime datereg;
         public static bool historyloaded = false;
         //Order delivery info
-        public static double del_lat;
-        public static double del_long;
+        public static double order_lat;
+        public static double order_long;
         public static string order_choice;
         public static string order_rcvr_name;
         public static string order_rcvr_add;

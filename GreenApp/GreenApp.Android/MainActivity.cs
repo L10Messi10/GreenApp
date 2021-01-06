@@ -10,7 +10,6 @@ using Android.OS;
 using Plugin.CurrentActivity;
 using Plugin.Permissions;
 using Xamarin.Forms;
-using Xamarin.Forms.GoogleMaps.Android;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
 
 namespace GreenApp.Droid
@@ -30,13 +29,13 @@ namespace GreenApp.Droid
             ToolbarResource = Resource.Layout.Toolbar;
             base.OnCreate(savedInstanceState);;
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            Xamarin.FormsGoogleMaps.Init(this, savedInstanceState);
             Current.Init(this, savedInstanceState);
             //Initialize(ApplicationContext, "ca-app-pub-7879306170422036/6877254608");
             Forms.SetFlags("UseLegacyRenderers");
             Forms.Init(this, savedInstanceState);
             FormsMaterial.Init(this,savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            Xamarin.FormsMaps.Init(this, savedInstanceState);
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
             Xamarin.Essentials.Platform.Init(Application);
             ZXing.Net.Mobile.Forms.Android.Platform.Init();

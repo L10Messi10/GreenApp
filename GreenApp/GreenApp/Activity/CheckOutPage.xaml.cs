@@ -15,6 +15,7 @@ namespace GreenApp.Activity
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CheckOutPage : ContentPage
     {
+        private string selected_order;
         private double totaSum;
         private string itemid;
         private int itemcount;
@@ -62,8 +63,8 @@ namespace GreenApp.Activity
 
         private async void Btncheckout_OnClicked(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 if (picker.SelectedItem != null)
                 {
                     if (totalpayable.Text != "0")
@@ -84,6 +85,12 @@ namespace GreenApp.Activity
                                     order_date = Now.ToString("yyyy-MM-dd"),
                                     stat = "1",
                                     order_status = "Ordered",
+                                    order_choice = selected_order,
+                                    del_rcvr = order_rcvr_name,
+                                    delvry_address = order_rcvr_add,
+                                    del_lat = order_lat.ToString(CultureInfo.InvariantCulture),
+                                    del_long = order_long.ToString(CultureInfo.InvariantCulture),
+                                    del_rcvr_num = order_rcvr_num,
                                     tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
                                 };
                                 await TBL_Orders.Update(orderDetails);
@@ -108,12 +115,12 @@ namespace GreenApp.Activity
                 {
                     await DisplayAlert("Alert", "Please select order option!", "OK");
                 }
-            }
-            catch
-            {
-                progressplaceorder.IsVisible = false;
-                await Navigation.PushAsync(new NoInternetPage(), true);
-            }
+            //}
+            //catch
+            //{
+            //    progressplaceorder.IsVisible = false;
+            //    await Navigation.PushAsync(new NoInternetPage(), true);
+            //}
         }
 
         private void Ordercollection_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -251,18 +258,17 @@ namespace GreenApp.Activity
 
         private async void Picker_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            string selected;
-            var picker = (Picker)sender;
-            int selectedIndex = picker.SelectedIndex;
+            //var picker = (Picker)sender;
+            //int selectedIndex = picker.SelectedIndex;
 
-            if (selectedIndex != -1)
-            {
-                selected = (string)picker.ItemsSource[selectedIndex];
-                if (selected == "Delivery")
-                {
-                    await Navigation.PushAsync(new DeliveryLocationPage(), true);
-                }
-            }
+            //if (selectedIndex != -1)
+            //{
+            //    selected_order = (string)picker.ItemsSource[selectedIndex];
+            //    if (selected_order == "Delivery")
+            //    {
+            //        await Navigation.PushAsync(new DeliveryLocationPage(), true);
+            //    }
+            //}
         }
     }
 }
