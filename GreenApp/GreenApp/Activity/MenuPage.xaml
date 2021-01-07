@@ -32,9 +32,6 @@
         </StackLayout>
         
     </Shell.TitleView>
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Refresh" x:Name="btnrefresh" Clicked="Btnrefresh_OnClicked" Order="Secondary"/>
-    </ContentPage.ToolbarItems>
     <ContentPage.Resources>
         <Style TargetType="Grid">
             <Setter Property="VisualStateManager.VisualStateGroups">
@@ -90,46 +87,48 @@
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Text="Sections" HeightRequest="15"
                    FontSize="20" FontAttributes="Bold" />
-            <CollectionView Grid.Row="0" ItemsSource="{Binding TBL_Category}"
-                            Margin="0,25,0,0" x:Name="ListCategories" SelectionMode="Single"
-                            HorizontalScrollBarVisibility="Always" x:FieldModifier="public"
-                            VerticalOptions="Fill" SelectionChanged="ListCategories_OnSelectionChanged" >
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical"
-                                     Span="2" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <ContentView Padding="5">
-                            <Grid Margin="0" Padding="0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="250"/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                                <Frame Grid.Row="0" Margin="0" Padding="0" Grid.Column="0" CornerRadius="10">
-                                    <StackLayout Padding="0">
-                                        <ff:CachedImage x:Name="prodimg" Source="{Binding catimg_uri}"
-                                                        HeightRequest="220" Aspect="AspectFill"
-                                                        LoadingPlaceholder="notfound.png"
-                                                        ErrorPlaceholder="notfound.png" />
-                                        <Label VerticalOptions="Center" FontAttributes="Bold" Margin="5,0,0,5">
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="{Binding category_name}" FontSize="18"
-                                                          TextColor="{StaticResource Primary}"
-                                                          FontFamily="TitleFontBold" />
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                    </StackLayout>
-                                </Frame>
-                            </Grid>
-                        </ContentView>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+            <RefreshView Grid.Row="0" x:Name="RefreshView" Refreshing="RefreshView_OnRefreshing">
+                <CollectionView  ItemsSource="{Binding TBL_Category}"
+                                 Margin="0,25,0,0" x:Name="ListCategories" SelectionMode="Single"
+                                 HorizontalScrollBarVisibility="Always" x:FieldModifier="public"
+                                 VerticalOptions="Fill" SelectionChanged="ListCategories_OnSelectionChanged" >
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"
+                                         Span="2" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <ContentView Padding="5">
+                                <Grid Margin="0" Padding="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="250"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                    <Frame Grid.Row="0" Margin="0" Padding="0" Grid.Column="0" CornerRadius="10">
+                                        <StackLayout Padding="0">
+                                            <ff:CachedImage x:Name="prodimg" Source="{Binding catimg_uri}"
+                                                            HeightRequest="220" Aspect="AspectFill"
+                                                            LoadingPlaceholder="notfound.png"
+                                                            ErrorPlaceholder="notfound.png" />
+                                            <Label VerticalOptions="Center" FontAttributes="Bold" Margin="5,0,0,5">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="{Binding category_name}" FontSize="18"
+                                                              TextColor="{StaticResource Primary}"
+                                                              FontFamily="TitleFontBold" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </ContentView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
         </Grid>
     </Grid>
         <Frame AbsoluteLayout.LayoutBounds="0.9,0,30,30" BackgroundColor="Red" AbsoluteLayout.LayoutFlags="PositionProportional"

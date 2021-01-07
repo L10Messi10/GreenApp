@@ -9,7 +9,7 @@
               AbsoluteLayout.LayoutFlags="All">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="300"/>
+            <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
         <AbsoluteLayout Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <!--<maps:Map x:Name="map" BackgroundColor="Gray"

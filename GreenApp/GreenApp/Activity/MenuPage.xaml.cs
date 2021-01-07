@@ -24,19 +24,25 @@ namespace GreenApp.Activity
         
         protected override async void OnAppearing()
         {
+            await GetSections();
+        }
+
+        private async Task GetSections()
+        {
             try
             {
+                RefreshView.IsRefreshing = true;
                 if (!refresh)
                 {
                     //var categories = await TBL_Category.Read();
                     //categorycollection.ItemsSource = categories;
+                    
                     var categories = await TBL_Category.Read();
                     ListCategories.ItemsSource = categories;
                     //var samp = CurrentOrderId ;
                     refresh = true;
+                    RefreshView.IsRefreshing = false;
                 }
-                
-                
                 //Try to retrieve incomplete order if any.
                 //There might be a case of deleting the order
                 //When an error occured.
@@ -48,6 +54,7 @@ namespace GreenApp.Activity
                     //var totalorders = await TBL_Order_Details.Read();
                     var getorders = await MobileService.GetTable<V_Orders>().Where(orders => orders.order_id == CurrentOrderId).ToListAsync();
                     lblcartcount.Text = getorders.Count.ToString(); //totalorders.Count(p => p.order_id.Contains(CurrentOrderId)).ToString();
+                    RefreshView.IsRefreshing = false;
                     //double a = totalorders.Count(p => p.order_id.Equals(CurrentOrderId));
                     //double b=0;
                     //double e = a + b;
@@ -57,15 +64,15 @@ namespace GreenApp.Activity
                 {
                     lblcartcount.Text = "0";
                 }
+                RefreshView.IsRefreshing = false;
                 ListCategories.SelectedItem = null;
             }
             catch
             {
+                RefreshView.IsRefreshing = false;
                 await Navigation.PushAsync(new NoInternetPage(), true);
             }
-
         }
-
         private async Task XSearch(string query)
         {
             try
@@ -122,10 +129,9 @@ namespace GreenApp.Activity
             await Navigation.PushAsync(new ProductsPage(), true);
         }
 
-        private void Btnrefresh_OnClicked(object sender, EventArgs e)
-        { 
-            refresh = false;
-            OnAppearing();
+        private async void RefreshView_OnRefreshing(object sender, EventArgs e)
+        {
+            await GetSections();
         }
     }
 }

@@ -10,7 +10,6 @@ using GreenApp.ViewModels;
 using Plugin.Geolocator;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
-using Xamarin.Forms.Markup;
 using Xamarin.Forms.Xaml;
 using static GreenApp.App;
 
@@ -20,6 +19,7 @@ namespace GreenApp.Activity
     public partial class DeliveryLocationPage
     {
         private string _label;
+        public static bool _newAdd;
         public DeliveryLocationPage()
         {
             InitializeComponent();
@@ -68,6 +68,14 @@ namespace GreenApp.Activity
 
         protected override async void OnAppearing()
         {
+            if (_newAdd)
+            {
+                //new address
+            }
+            else
+            {
+                //modify address
+            }
             //This gets the current location of the user's device.
             //await DisplayAlert("Info", "The app will detect your current location. Please allow the app to access your location.", "OK");
             var locator = CrossGeolocator.Current;

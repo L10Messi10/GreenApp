@@ -2,60 +2,85 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GreenApp.Activity.AddressesPage" Title="Addresses">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="trash.png" Text="Remove" x:Name="deleteitem" Order="Secondary"
+                     Clicked="Deleteitem_OnClicked"/>
+        <ToolbarItem IconImageSource="edit.png" Text="Modify" x:Name="edititem" Order="Secondary"
+                     Clicked="Edititem_OnClicked"/>
+    </ContentPage.ToolbarItems>
     <StackLayout Margin="5" Spacing="0">
         <Label Text="Your Addresses" FontAttributes="Bold" FontSize="18"/>
-        <RefreshView x:Name="RefreshView" Refreshing="RefreshView_OnRefreshing">
-            <CollectionView x:Name="ListAddress" SelectionMode="Single" x:FieldModifier="public"
-                            VerticalOptions="FillAndExpand">
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical"
+        <AbsoluteLayout>
+            <RefreshView x:Name="RefreshView" Refreshing="RefreshView_OnRefreshing" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                         AbsoluteLayout.LayoutFlags="All">
+                <CollectionView x:Name="ListAddress" SelectionMode="Single" x:FieldModifier="public"
+                                VerticalOptions="FillAndExpand" SelectionChanged="ListAddress_OnSelectionChanged">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"
                                          Span="1" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <ContentView Padding="5">
-                            <Grid Margin="0" Padding="0" RowSpacing="0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="100" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Frame Grid.Row="0" Margin="0" Padding="0" Grid.Column="0" CornerRadius="10" HasShadow="True">
-                                    <StackLayout Padding="0" Margin="5" Spacing="0">
-                                        <Label VerticalOptions="Center" FontAttributes="Bold" Margin="5,0,0,5" LineBreakMode="TailTruncation">
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="{Binding Label}" FontSize="20"
-                                                          TextColor="{StaticResource Primary}" FontAttributes="Bold" />
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                        <Label VerticalOptions="Center" FontAttributes="Bold" Margin="5,0,0,5" LineBreakMode="TailTruncation">
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="{Binding Address}" FontSize="18"
-                                                          TextColor="{StaticResource Primary}" />
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                        <Label VerticalOptions="Center" FontAttributes="Bold" Margin="5,0,0,5" LineBreakMode="TailTruncation">
-                                            <Label.FormattedText>
-                                                <FormattedString>
-                                                    <Span Text="Notes: "/>
-                                                    <Span Text="{Binding Notes}" FontSize="15"
-                                                          TextColor="{StaticResource Primary}"/>
-                                                </FormattedString>
-                                            </Label.FormattedText>
-                                        </Label>
-                                    </StackLayout>
-                                </Frame>
-                            </Grid>
-                        </ContentView>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </RefreshView>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <ContentView Padding="5">
+                                <Grid Margin="0" Padding="0" RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Frame Grid.Row="0" Margin="0" Padding="0" Grid.Column="0" CornerRadius="10"
+                                           HasShadow="True">
+                                        <StackLayout Padding="0" Margin="5" Spacing="0">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label VerticalOptions="Center" FontAttributes="Bold" Margin="5,0,0,5"
+                                                       LineBreakMode="TailTruncation" HorizontalOptions="Start">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{Binding Label}" FontSize="20"
+                                                                  TextColor="{StaticResource Primary}"
+                                                                  FontAttributes="Bold" />
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                                <!--<StackLayout Orientation="Horizontal" HeightRequest="20" HorizontalOptions="EndAndExpand" Spacing="20">
+                                                <ImageButton Source="edit" HeightRequest="20" WidthRequest="20" BackgroundColor="Transparent"/>
+                                                <ImageButton Source="trash" HeightRequest="20" WidthRequest="20" BackgroundColor="Transparent" x:Name="btndeleteaddress"
+                                                             Clicked="Delete"/>
+                                            </StackLayout>-->
+                                            </StackLayout>
+                                            <Label VerticalOptions="Center" FontAttributes="Bold" Margin="5,0,0,5"
+                                                   LineBreakMode="TailTruncation">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="{Binding Address}" FontSize="18"
+                                                              TextColor="{StaticResource Primary}" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <Label VerticalOptions="Center" FontAttributes="Bold" Margin="5,0,0,5"
+                                                   LineBreakMode="TailTruncation">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="Notes: " />
+                                                        <Span Text="{Binding Notes}" FontSize="15"
+                                                              TextColor="{StaticResource Primary}" />
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </ContentView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+            <Image Source="nothingfound.jpg" VerticalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                   AbsoluteLayout.LayoutFlags="All" IsVisible="False"
+                   x:Name="imgnofound"
+                   HeightRequest="300" WidthRequest="300"/>
+        </AbsoluteLayout>
         <Button BackgroundColor="{StaticResource Primary}" Text="Add New Address" 
                 TextColor="{StaticResource Textcolor}" CornerRadius="10" Margin="5" Clicked="Button_OnClicked"/>
     </StackLayout>
