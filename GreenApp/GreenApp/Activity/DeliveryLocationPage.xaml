@@ -15,12 +15,11 @@
             <!--<maps:Map x:Name="map" BackgroundColor="Gray"
                             MapType="Hybrid" 
                             VerticalOptions="FillAndExpand"/>-->
-
             <maps:Map x:Name="map" AbsoluteLayout.LayoutBounds="0,0,1,1"
-                      AbsoluteLayout.LayoutFlags="All" MapType="Hybrid" IsShowingUser="True"
+                      AbsoluteLayout.LayoutFlags="All" IsShowingUser="True" MapType="Hybrid"
                       MoveToLastRegionOnLayoutChange="False" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
-                <Image Source="marker" HeightRequest="30" AbsoluteLayout.LayoutBounds="0,0,1,1"
-                   AbsoluteLayout.LayoutFlags="All" Aspect="AspectFit"
+                <Image Source="marker" HeightRequest="30" AbsoluteLayout.LayoutBounds="0.5,0.5,40,40"
+                   AbsoluteLayout.LayoutFlags="PositionProportional" Aspect="AspectFit"
                    WidthRequest="30" VerticalOptions="Center" HorizontalOptions="Center"/>
         </AbsoluteLayout>
         <Frame Grid.Row="1" BackgroundColor="{StaticResource Frame}"
@@ -28,7 +27,7 @@
                VerticalOptions="FillAndExpand" Padding="0">
             <StackLayout>
                 <ScrollView>
-                    <Grid>
+                    <Grid x:Name="addressInfo">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
@@ -37,15 +36,16 @@
                             <Picker x:Name="picker" Grid.Row="0" Title="Select your address" Grid.ColumnSpan="1"
                                     TitleColor="{StaticResource Textcolor}" />
                             <Frame CornerRadius="10">
-                                <StackLayout Margin="5">
+                                    <StackLayout Margin="5">
                                     <Entry x:Name="txtstreet" Placeholder="Street number/Purok" MaxLength="50"
-                                           PlaceholderColor="Gray" />
+                                           PlaceholderColor="Gray" Text="{Binding street}"/>
                                     <Entry x:Name="txtfloor" Placeholder="Floor/unit/Room #" PlaceholderColor="Gray"
-                                           MaxLength="100" />
+                                           MaxLength="100" Text="{Binding floor}"/>
+                                    <Label x:Name="labelas" IsVisible="False" Text="{Binding Label}"/>
                                 </StackLayout>
                             </Frame>
                             <Frame CornerRadius="10">
-                                <StackLayout Margin="5">
+                                    <StackLayout Margin="5">
                                     <StackLayout>
                                         <Label Text="Label as" TextColor="{StaticResource TextColor}" FontAttributes="Bold" />
                                     </StackLayout>
@@ -59,6 +59,8 @@
                                     </StackLayout>
                                     <Entry x:Name="txtnotes" Placeholder="Notes" PlaceholderColor="Gray"
                                            MaxLength="100"/>
+                                    <Label x:Name="txtlat" IsVisible="True" Text="{Binding add_lat}"/>
+                                    <Label x:Name="txtlong" IsVisible="True" Text="{Binding add_long}"/>
                                 </StackLayout>
                             </Frame>
                         </StackLayout>

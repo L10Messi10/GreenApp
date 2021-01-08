@@ -11,6 +11,7 @@ using Plugin.Geolocator;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
+using static GreenApp.Activity.AddressesPage;
 using static GreenApp.App;
 
 namespace GreenApp.Activity
@@ -42,24 +43,35 @@ namespace GreenApp.Activity
 
         private async void Map_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            Geocoder geoCoder = new Geocoder();
-            var m = (Map) sender;
-
-            if (m.VisibleRegion != null)
+            try
             {
-                var center = new Position(m.VisibleRegion.Center.Latitude, m.VisibleRegion.Center.Longitude);
-                IEnumerable<string> possibleAddresses = await geoCoder.GetAddressesForPositionAsync(center);
-                var enumerable = possibleAddresses as string[] ?? possibleAddresses.ToArray();
-                picker.ItemsSource = enumerable.ToList();
-                picker.SelectedIndex = 1;
-                order_lat = m.VisibleRegion.Center.Latitude;
-                order_long = m.VisibleRegion.Center.Longitude;
-                //await DisplayAlert ("Alert","Lat: " + m.VisibleRegion.Center.Latitude.ToString() + " Lon:" + m.VisibleRegion.Center.Longitude.ToString() + " ","OK");
+                Geocoder geoCoder = new Geocoder();
+                var m = map;
+                if (m.VisibleRegion != null)
+                {
+                    var center = new Position(m.VisibleRegion.Center.Latitude, m.VisibleRegion.Center.Longitude);
+                    //var span = new MapSpan(center, 0.001, 0.001);
+                    //map.MoveToRegion(span);
+                    IEnumerable<string> possibleAddresses = await geoCoder.GetAddressesForPositionAsync(center);
+                    var enumerable = possibleAddresses as string[] ?? possibleAddresses.ToArray();
+                    picker.ItemsSource = enumerable.ToList();
+                    picker.SelectedIndex = 1;
+                    order_lat = m.VisibleRegion.Center.Latitude;
+                    order_long = m.VisibleRegion.Center.Longitude;
+                    //await DisplayAlert ("Alert","Lat: " + m.VisibleRegion.Center.Latitude.ToString() + " Lon:" + m.VisibleRegion.Center.Longitude.ToString() + " ","OK");
+                }
+            }
+            catch
+            {
+                //ignored
             }
         }
         
         protected override async void OnDisappearing()
         {
+            _selectedAddressId = "";
+            order_lat = 0;
+            order_long = 0;
             var locator = CrossGeolocator.Current;
             Geocoder geoCoder = new Geocoder();
             locator.PositionChanged -= Locator_PositionChanged;
@@ -70,23 +82,74 @@ namespace GreenApp.Activity
         {
             if (_newAdd)
             {
-                //new address
+                _label = "Home";
+                btnhome.BackgroundColor = Color.FromRgb(0, 158, 73);
+                btnhome.TextColor = Color.White;
+                btnwork.TextColor = Color.Black;
+                btnothers.TextColor = Color.Black;
+                btnwork.BackgroundColor = Color.Transparent;
+                btnothers.BackgroundColor = Color.Transparent;
+                var locator = CrossGeolocator.Current;
+                locator.PositionChanged += Locator_PositionChanged;
+                await locator.StartListeningAsync(new TimeSpan(0), 200);
+                var position = await locator.GetPositionAsync();
+                var center = new Position(position.Latitude, position.Longitude);
+                var span = new MapSpan(center, 0.001, 0.001);
+                map.MoveToRegion(span);
             }
             else
             {
-                //modify address
+                await modifyAddress();
             }
             //This gets the current location of the user's device.
             //await DisplayAlert("Info", "The app will detect your current location. Please allow the app to access your location.", "OK");
-            var locator = CrossGeolocator.Current;
-            locator.PositionChanged += Locator_PositionChanged;
-            await locator.StartListeningAsync(new TimeSpan(0), 200);
-
-
-            var position = await locator.GetPositionAsync();
-            var center = new Position(position.Latitude, position.Longitude);
             
-            map.MoveToRegion(MapSpan.FromCenterAndRadius(center, Distance.FromMeters(200)));
+        }
+
+        private async Task modifyAddress()
+        {
+            var getAddresseses = (await MobileService.GetTable<TBL_Addresses>().Where(add => add.id == _selectedAddressId).ToListAsync()).FirstOrDefault();
+            addressInfo.BindingContext = getAddresseses;
+            order_long = double.Parse(txtlong.Text);
+            order_lat = double.Parse(txtlat.Text);
+            var center = new Position(order_lat, order_long);
+            var span = new MapSpan(center, 0.001, 0.001);
+            map.MoveToRegion(span);
+
+            btnaddnewaddress.Text = "Modify Address";
+            if (labelas.Text == "Home")
+            {
+                _label = "Home";
+                btnhome.BackgroundColor = Color.FromRgb(0, 158, 73);
+                btnhome.TextColor = Color.White;
+                btnwork.TextColor = Color.Black;
+                btnothers.TextColor = Color.Black;
+                btnwork.BackgroundColor = Color.Transparent;
+                btnothers.BackgroundColor = Color.Transparent;
+            }
+
+            if (labelas.Text == "Work")
+            {
+                _label = "Work";
+                btnwork.BackgroundColor = Color.FromRgb(0, 158, 73);
+                btnhome.TextColor = Color.Black;
+                btnwork.TextColor = Color.White;
+                btnothers.TextColor = Color.Black;
+                btnhome.BackgroundColor = Color.Transparent;
+                btnothers.BackgroundColor = Color.Transparent;
+            }
+
+            if (labelas.Text == "Others")
+            {
+                _label = "Others";
+                btnothers.BackgroundColor = Color.FromRgb(0, 158, 73);
+                btnhome.TextColor = Color.Black;
+                btnwork.TextColor = Color.Black;
+                btnothers.TextColor = Color.White;
+                btnwork.BackgroundColor = Color.Transparent;
+                btnhome.BackgroundColor = Color.Transparent;
+            }
+            //ListAddress.ItemsSource = getAddresseses;
         }
 
         private void Locator_PositionChanged(object sender, Plugin.Geolocator.Abstractions.PositionEventArgs e)
@@ -94,51 +157,105 @@ namespace GreenApp.Activity
             order_lat = e.Position.Latitude;
             order_long = e.Position.Longitude;
             var center = new Position(e.Position.Latitude, e.Position.Longitude);
-            map.MoveToRegion(MapSpan.FromCenterAndRadius(center, Distance.FromMeters(200)));
+            var span = new MapSpan(center, 0.001, 0.001);
+            map.MoveToRegion(span);
         }
 
         private async void Btnsetdelivery_OnClicked(object sender, EventArgs e)
         {
-            string c_add;
-            int selectedIndex = picker.SelectedIndex;
-
-            c_add = "" + txtstreet.Text + ", " + txtfloor.Text + " "+ (string)picker.ItemsSource[selectedIndex];
-            if (_label != null)
+            if (btnaddnewaddress.Text != "Modify Address")
             {
-                if (txtstreet != null && txtfloor.Text != null && txtnotes.Text != null)
+                ///add address
+                string c_add;
+                int selectedIndex = picker.SelectedIndex;
+                c_add = "" + txtstreet.Text + ", " + txtfloor.Text + " " + (string)picker.ItemsSource[selectedIndex];
+                if (_label != null)
                 {
-                    progressplaceorder.IsVisible = true;
-                    var addrress = new TBL_Addresses
+                    if (txtstreet != null && txtfloor.Text != null)
                     {
-                        user_id = user_id,
-                        Address = c_add,
-                        add_lat = order_lat,
-                        add_long = order_long,
-                        Label = _label,
-                        Notes = txtnotes.Text
-                    };
-                    await TBL_Addresses.Insert(addrress);
+                        progressplaceorder.IsVisible = true;
+                        var addrress = new TBL_Addresses
+                        {
+                            user_id = user_id,
+                            street = txtstreet.Text,
+                            floor = txtfloor.Text,
+                            Address = c_add,
+                            add_lat = order_lat,
+                            add_long = order_long,
+                            Label = _label,
+                            Notes = txtnotes.Text
+                        };
+                        await TBL_Addresses.Insert(addrress);
+                    }
+                    else
+                    {
+                        progressplaceorder.IsVisible = true;
+                        var addrress = new TBL_Addresses
+                        {
+                            user_id = user_id,
+                            Address = (string)picker.ItemsSource[selectedIndex],
+                            add_lat = order_lat,
+                            add_long = order_long,
+                            Label = _label,
+                        };
+                        await TBL_Addresses.Insert(addrress);
+                    }
+
+                    await DisplayAlert("Info", "New address added. You can now choose this address where you want the items to be delivered.", "OK");
+                    await Navigation.PopAsync(true);
                 }
                 else
                 {
-                    progressplaceorder.IsVisible = true;
-                    var addrress = new TBL_Addresses
-                    {
-                        user_id = user_id,
-                        Address = (string)picker.ItemsSource[selectedIndex],
-                        add_lat = order_lat,
-                        add_long = order_long,
-                        Label = _label,
-                    };
-                    await TBL_Addresses.Insert(addrress);
+                    await DisplayAlert("Alert", "Please select a label for this address.", "OK");
                 }
-                
-                await DisplayAlert("Info", "New address added. You can now choose this address where you want the items to be delivered.", "OK");
-                await Navigation.PopAsync(true);
             }
             else
             {
-                await DisplayAlert("Alert", "Please select a label for this address.", "OK");
+                //modify address
+                string c_add;
+                var selectedIndex = picker.SelectedIndex;
+                c_add = "" + txtstreet.Text + ", " + txtfloor.Text + " " + (string)picker.ItemsSource[selectedIndex];
+                if (_label != null)
+                {
+                    if (txtstreet != null && txtfloor.Text != null)
+                    {
+                        progressplaceorder.IsVisible = true;
+                        var addrress = new TBL_Addresses
+                        {
+                            id=_selectedAddressId,
+                            user_id = user_id,
+                            street = txtstreet.Text,
+                            floor = txtfloor.Text,
+                            Address = c_add,
+                            add_lat = order_lat,
+                            add_long = order_long,
+                            Label = _label,
+                            Notes = txtnotes.Text
+                        };
+                        await TBL_Addresses.Update(addrress);
+                    }
+                    else
+                    {
+                        progressplaceorder.IsVisible = true;
+                        var addrress = new TBL_Addresses
+                        {
+                            id=_selectedAddressId,
+                            user_id = user_id,
+                            Address = (string)picker.ItemsSource[selectedIndex],
+                            add_lat = order_lat,
+                            add_long = order_long,
+                            Label = _label,
+                        };
+                        await TBL_Addresses.Update(addrress);
+                    }
+
+                    await DisplayAlert("Info", "Address updated successfully.", "OK");
+                    await Navigation.PopAsync(true);
+                }
+                else
+                {
+                    await DisplayAlert("Alert", "Please select a label for this address.", "OK");
+                }
             }
         }
 

@@ -14,7 +14,7 @@ namespace GreenApp.Activity
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddressesPage : ContentPage
     {
-        private string _selectedAddressId;
+        public static string _selectedAddressId;
         public AddressesPage()
         {
             InitializeComponent();

@@ -11,6 +11,8 @@ namespace GreenApp.Models
         public string id { get; set; }
         public string user_id { get; set; }
         public string Label { get; set; }
+        public string street { get; set; }
+        public string floor { get; set; }
         public string Address { get; set; }
         public double add_lat { get; set; }
         public double add_long { get; set; }
