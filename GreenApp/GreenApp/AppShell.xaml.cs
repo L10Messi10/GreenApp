@@ -21,6 +21,8 @@ namespace GreenApp
             BindingContext = this;
         }
         public ICommand OnLogoutCommand => new Command(OnLogout);
+        public ICommand OnProfileCommand => new Command(OnProfile);
+        public ICommand OnAddressCommand => new Command(OnAddress);
 
         private async void OnLogout()
         {
@@ -29,6 +31,18 @@ namespace GreenApp
             refresh = false;
             Application.Current.MainPage = new NavigationPage(new LoginPage());
             await Navigation.PushAsync(new LoginPage(), true);
+        }
+        private async void OnProfile()
+        {
+            Current.FlyoutIsPresented = false;
+            await Navigation.PushAsync(new ProfilePage(), true);
+
+        }
+        private async void OnAddress()
+        {
+            Current.FlyoutIsPresented = false;
+            await Navigation.PushAsync(new AddressesPage(), true);
+
         }
     }
 }

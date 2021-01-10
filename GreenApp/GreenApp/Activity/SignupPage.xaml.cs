@@ -16,9 +16,9 @@ namespace GreenApp.Activity
     {
         public SignupPage() => InitializeComponent();
         
-        private void Btnlogin_OnClicked(object sender, EventArgs e)
+        private async void Btnlogin_OnClicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new LoginPage());
+            await Navigation.PopAsync(true);
         }
 
         private async void Btnregister_OnClicked(object sender, EventArgs e)
