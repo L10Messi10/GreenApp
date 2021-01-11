@@ -16,7 +16,10 @@ namespace GreenApp.Activity
         {
             InitializeComponent();
         }
-
+        protected override async void OnDisappearing()
+        {
+            await Navigation.PopToRootAsync(true);
+        }
         private async void Button_OnClicked(object sender, EventArgs e)
         {
             try

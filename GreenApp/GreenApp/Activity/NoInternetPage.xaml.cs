@@ -19,7 +19,7 @@ namespace GreenApp.Activity
 
         private async void Button_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PopAsync(true);
+            await Navigation.PopToRootAsync(true);
         }
     }
 }

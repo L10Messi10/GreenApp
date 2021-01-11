@@ -20,9 +20,9 @@ namespace GreenApp.Activity
             InitializeComponent();
         }
 
-        protected override void OnDisappearing()
+        protected override async void OnDisappearing()
         {
-            //refresh = false;
+            await Navigation.PopToRootAsync(true);
         }
 
         protected override async void OnAppearing()

@@ -5,10 +5,16 @@ using System.Text;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Content.Res;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using GreenApp.Activity;
+using GreenApp.Models;
+using GreenApp.Utils;
+using Xamarin.Forms;
+using static GreenApp.App;
 
 namespace GreenApp.Droid
 {
@@ -25,8 +31,8 @@ namespace GreenApp.Droid
             base.OnCreate(savedInstanceState);
             System.Threading.Thread.Sleep(500);
             StartActivity(typeof(MainActivity));
-
             // Create your application here
         }
+        
     }
 }

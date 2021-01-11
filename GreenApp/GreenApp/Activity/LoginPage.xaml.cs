@@ -24,13 +24,14 @@ namespace GreenApp.Activity
             InitializeComponent();
             //BindingContext = new CheckInternetModel();
         }
+        
         protected override void OnAppearing()
         {
             base.OnAppearing();
             emailentry.Text = Settings.LastUsedEmail;
             chkremember.IsChecked = emailentry.Text != "";
         }
-
+        
         private async void Btnlogin_OnClicked(object sender, EventArgs e)
         {
             try
@@ -93,13 +94,13 @@ namespace GreenApp.Activity
                         await DisplayAlert("Error", "There was an error logging you in! Please check the information you're entering.", "OK");
                     }
                 }
-        }
+            }
             catch
             {
                 indicatorloader.IsVisible = false;
                 await Navigation.PushAsync(new NoInternetPage());
             }
-}
+        }
 
         private async void Btnsignup_OnClicked(object sender, EventArgs e)
         {

@@ -8,9 +8,9 @@
             <Color x:Key="NavigationPrimary">#00C95D</Color>
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.ForegroundColor" Value="WhiteSmoke" />
-                <Setter Property="Shell.TitleColor" Value="WhiteSmoke" />
-                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="White" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
                 <Setter Property="Shell.FlyoutBackgroundColor" Value="{StaticResource Primary}" />
             </Style>
@@ -45,28 +45,25 @@
             </Grid>
         </DataTemplate>
     </Shell.FlyoutHeaderTemplate>
-    <FlyoutItem Route="MenuPage" FlyoutDisplayOptions="AsMultipleItems">
+    <FlyoutItem Route="MenuPage" FlyoutDisplayOptions="AsMultipleItems" IsVisible="False">
         <ShellContent Title="Home" Icon="home.png"
                       ContentTemplate="{DataTemplate local:MenuPage}"/>
     </FlyoutItem>
-    <MenuItem Text="Profile"
+    <MenuItem Text="Profile" 
               IconImageSource="person_1"
               Command="{Binding OnProfileCommand}"/>
     <MenuItem Text="Addresses"
               IconImageSource="locationpin"
               Command="{Binding OnAddressCommand}"/>
-    <FlyoutItem Route="OrderHistoryPage" FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Orders" Icon="history"
-                      ContentTemplate="{DataTemplate local:OrderHistoryPage}"/>
-    </FlyoutItem>
-    <FlyoutItem Route="FeedBackPage" FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Feedback" Icon="comments"
-                      ContentTemplate="{DataTemplate local:FeedBackPage}"/>
-    </FlyoutItem>
-    <FlyoutItem Route="AboutPage" FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="About" Icon="about"
-                      ContentTemplate="{DataTemplate local:AboutPage}"/>
-    </FlyoutItem>
+    <MenuItem Text="Orders"
+              IconImageSource="history"
+              Command="{Binding OnOrdersCommand}"/>
+    <MenuItem Text="Feedback"
+              IconImageSource="comments"
+              Command="{Binding OnFeedBackCommand}"/>
+    <MenuItem Text="About"
+              IconImageSource="about"
+              Command="{Binding OnAboutCommand}"/>
     <MenuItem Text="Logout"
               IconImageSource="logout"
               Command="{Binding OnLogoutCommand}"/>

@@ -23,7 +23,9 @@ namespace GreenApp
         public ICommand OnLogoutCommand => new Command(OnLogout);
         public ICommand OnProfileCommand => new Command(OnProfile);
         public ICommand OnAddressCommand => new Command(OnAddress);
-
+        public ICommand OnOrdersCommand => new Command(OnOrders);
+        public ICommand OnFeedBackCommand => new Command(OnFeedback);
+        public ICommand OnAboutCommand => new Command(OnAbout);
         private async void OnLogout()
         {
             user_id = null;
@@ -42,6 +44,24 @@ namespace GreenApp
         {
             Current.FlyoutIsPresented = false;
             await Navigation.PushAsync(new AddressesPage(), true);
+
+        }
+        private async void OnOrders()
+        {
+            Current.FlyoutIsPresented = false;
+            await Navigation.PushAsync(new OrderHistoryPage(), true);
+
+        }
+        private async void OnFeedback()
+        {
+            Current.FlyoutIsPresented = false;
+            await Navigation.PushAsync(new FeedBackPage(), true);
+
+        }
+        private async void OnAbout()
+        {
+            Current.FlyoutIsPresented = false;
+            await Navigation.PushAsync(new AboutPage(), true);
 
         }
     }

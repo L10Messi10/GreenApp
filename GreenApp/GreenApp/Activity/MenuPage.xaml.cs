@@ -47,7 +47,7 @@ namespace GreenApp.Activity
                 //There might be a case of deleting the order
                 //When an error occured.
                 profpic.Source = propic;
-                var getorderid = (await MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id == App.user_id && orders.order_status == "Carted").ToListAsync()).FirstOrDefault();
+                var getorderid = (await MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id == user_id && orders.order_status == "Carted").ToListAsync()).FirstOrDefault();
                 if (getorderid != null) CurrentOrderId = getorderid.id;
                 if (CurrentOrderId != null)
                 {
@@ -131,6 +131,7 @@ namespace GreenApp.Activity
 
         private async void RefreshView_OnRefreshing(object sender, EventArgs e)
         {
+            refresh = false;
             await GetSections();
         }
     }

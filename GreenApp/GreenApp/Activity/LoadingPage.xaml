@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GreenApp.Activity.LoadingPage" BackgroundColor="#00863E"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <Label VerticalOptions="Center"
+                   HorizontalOptions="CenterAndExpand">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Green" FontSize="40" FontFamily="TitleDesign" FontAttributes="Bold"
+                              TextColor="{StaticResource Textcolor}" />
+                        <Span Text=" Market" FontSize="25" FontFamily="TitleFontLight"
+                              TextColor="{StaticResource Textcolor}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <ActivityIndicator Color="{StaticResource Textcolor}" IsRunning="True" VerticalOptions="Center"/>
+            <Label Text="Checking security details. Please wait..." HorizontalOptions="CenterAndExpand" TextColor="Yellow"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
