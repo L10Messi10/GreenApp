@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using GreenApp.Models;
+using GreenApp.Utils;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
@@ -19,19 +20,26 @@ namespace GreenApp.Activity
         public MenuPage()
         {
             InitializeComponent();
-            
+
         }
         
         protected override async void OnAppearing()
         {
             await GetSections();
+            
         }
 
+        private void GetProfileImage()
+        {
+            profpic.Source = propic;
+        }
+        
         private async Task GetSections()
         {
             try
             {
-                RefreshView.IsRefreshing = true;
+                //RefreshView.IsRefreshing = true;
+                progressLoading.IsVisible = true;
                 if (!refresh)
                 {
                     //var categories = await TBL_Category.Read();
@@ -42,11 +50,12 @@ namespace GreenApp.Activity
                     //var samp = CurrentOrderId ;
                     refresh = true;
                     RefreshView.IsRefreshing = false;
+                    progressLoading.IsVisible = false;
                 }
                 //Try to retrieve incomplete order if any.
                 //There might be a case of deleting the order
                 //When an error occured.
-                profpic.Source = propic;
+                
                 var getorderid = (await MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id == user_id && orders.order_status == "Carted").ToListAsync()).FirstOrDefault();
                 if (getorderid != null) CurrentOrderId = getorderid.id;
                 if (CurrentOrderId != null)
@@ -65,6 +74,7 @@ namespace GreenApp.Activity
                     lblcartcount.Text = "0";
                 }
                 RefreshView.IsRefreshing = false;
+                progressLoading.IsVisible = false;
                 ListCategories.SelectedItem = null;
             }
             catch
@@ -133,6 +143,11 @@ namespace GreenApp.Activity
         {
             refresh = false;
             await GetSections();
+        }
+
+        private async void TapMenu_OnTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MenuTrayPage(),true);
         }
     }
 }

@@ -29,10 +29,46 @@ namespace GreenApp.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            System.Threading.Thread.Sleep(500);
+            System.Threading.Thread.Sleep(1000);
             StartActivity(typeof(MainActivity));
             // Create your application here
+            CheckForAutoLogin();
         }
-        
+        private async void CheckForAutoLogin()
+        {
+            if (Settings.LastUsedEmail != string.Empty)
+            {
+                var users = (await MobileService.GetTable<TBL_Users>().Where(mail => mail.emailadd == Settings.LastUsedEmail).ToListAsync()).FirstOrDefault();
+                if (users != null)
+                {
+                    user_id = users.Id;
+                    fullname = users.full_name;
+                    address = users.address;
+                    mobilenum = users.mobile_num;
+                    emailadd = users.emailadd;
+                    password = users.password;
+                    datereg = users.datereg;
+                    propic = users.propic;
+                    picstr = users.picstr;
+                    //user_id = null;
+                    CurrentOrderId = null;
+                    refresh = false;
+                    SignedIn = true;
+                    //indicatorloader.IsVisible = false;
+                    //Settings.LastUsedEmail = chkremember.IsChecked ? emailentry.Text : "";
+                    //await DisplayAlert("Success", "Email or password is incorrect!", "OK");
+                    //Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.MainPage = new AppShell(); });
+                    //await Navigation.PushAsync(new MenuPage(), true);
+                    //var page = MenuPage as NavigationPage;
+                }
+            }
+            else
+            {
+                SignedIn = false;
+                //Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.MainPage = new LoginPage(); });
+                //await Navigation.PushAsync(new LoginPage(), true);
+            }
+        }
+
     }
 }

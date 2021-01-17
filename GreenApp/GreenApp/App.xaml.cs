@@ -18,6 +18,7 @@ namespace GreenApp
         public static bool refresh;
         public static string MarketStatus;
         public static bool checkout;
+        public static bool SignedIn;
         public static string Selected_orderID;
         //Customer info
         public static string fullname, address, mobilenum, emailadd, password, propic,picstr;
@@ -35,10 +36,10 @@ namespace GreenApp
         {
             InitializeComponent();
             Device.SetFlags(new []{"Brush_Experimental"});
-            MainPage = new NavigationPage(new LoadingPage());
-
+            //Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.MainPage = new AppShell(); });
+            MainPage = new NavigationPage(new MenuPage());
         }
-
+        
         protected override void OnStart()
         {
             base.OnStart();

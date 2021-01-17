@@ -49,13 +49,14 @@
         <ShellContent Title="Home" Icon="home.png"
                       ContentTemplate="{DataTemplate local:MenuPage}"/>
     </FlyoutItem>
-    <MenuItem Text="Profile" 
+
+    <MenuItem x:Name="menuProfile" Text="Profile" 
               IconImageSource="person_1"
               Command="{Binding OnProfileCommand}"/>
-    <MenuItem Text="Addresses"
+    <MenuItem x:Name="menuAddresses" Text="Addresses"
               IconImageSource="locationpin"
               Command="{Binding OnAddressCommand}"/>
-    <MenuItem Text="Orders"
+    <MenuItem x:Name="menuOrders" Text="Orders"
               IconImageSource="history"
               Command="{Binding OnOrdersCommand}"/>
     <MenuItem Text="Feedback"
@@ -64,7 +65,7 @@
     <MenuItem Text="About"
               IconImageSource="about"
               Command="{Binding OnAboutCommand}"/>
-    <MenuItem Text="Logout"
+    <MenuItem x:Name="menuLogout" Text="Logout"
               IconImageSource="logout"
               Command="{Binding OnLogoutCommand}"/>
 </Shell>

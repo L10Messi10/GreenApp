@@ -5,6 +5,7 @@
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand">
+            <Image Source="logoflyout" HeightRequest="50" WidthRequest="50"/>
             <Label VerticalOptions="Center"
                    HorizontalOptions="CenterAndExpand">
                 <Label.FormattedText>

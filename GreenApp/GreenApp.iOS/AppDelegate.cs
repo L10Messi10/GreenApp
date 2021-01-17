@@ -4,6 +4,7 @@ using System.Linq;
 using Xamarin.Forms;
 using Foundation;
 using GreenApp.Constants;
+using TouchEffect.iOS;
 //using Google.Maps;
 using UIKit;
 
@@ -30,6 +31,7 @@ namespace GreenApp.iOS
             Xamarin.Forms.FormsMaterial.Init();
             //FormsControls.Touch.Main.Init(this);
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            TouchEffectPreserver.Preserve();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

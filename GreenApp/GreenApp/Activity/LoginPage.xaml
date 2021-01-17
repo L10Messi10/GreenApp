@@ -51,8 +51,6 @@
                                 </Frame>
                             </StackLayout>
                             <StackLayout Orientation="Horizontal">
-                                <CheckBox x:Name="chkremember" IsChecked="False" Color="{StaticResource Primary}" HorizontalOptions="Start"
-                                          VerticalOptions="Center" />
                                 <Label x:Name="xtime" Text="Remember my email" Margin="0" TextColor="{StaticResource PlaceHolderColor}"
                                        HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
                             </StackLayout>

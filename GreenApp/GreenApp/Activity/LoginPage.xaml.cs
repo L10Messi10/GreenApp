@@ -29,7 +29,6 @@ namespace GreenApp.Activity
         {
             base.OnAppearing();
             emailentry.Text = Settings.LastUsedEmail;
-            chkremember.IsChecked = emailentry.Text != "";
         }
         
         private async void Btnlogin_OnClicked(object sender, EventArgs e)
@@ -71,10 +70,12 @@ namespace GreenApp.Activity
                                 CurrentOrderId = null;
                                 refresh = false;
                                 indicatorloader.IsVisible = false;
-                                Settings.LastUsedEmail = chkremember.IsChecked ? emailentry.Text : "";
-                                //await DisplayAlert("Success", "Email or password is incorrect!", "OK");
-                                Device.BeginInvokeOnMainThread(() => { Application.Current.MainPage = new AppShell(); });
-                                await Navigation.PushAsync(new MenuPage(), true);
+                                Settings.LastUsedEmail = emailentry.Text;
+                                SignedIn = true;
+                                await Navigation.PopToRootAsync(true);
+                                //Device.BeginInvokeOnMainThread(() => { Application.Current.MainPage = new MenuPage(); });
+                                ////PROBLEM HERE LOGING OUT AND NOT REMEMBERING EMAIL
+                                //await Navigation.PushAsync(new MenuPage(), true);
                             }
                             else
                             {

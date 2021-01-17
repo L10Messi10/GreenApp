@@ -9,29 +9,57 @@
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
-             x:Class="GreenApp.Activity.MenuPage" BackgroundColor="{StaticResource BackgroundColor}">
-    <Shell.TitleView>
-        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Spacing="10">
-            <Label VerticalOptions="Center"
+             x:Class="GreenApp.Activity.MenuPage">
+    <!--<NavigationPage.TitleView BackgroundColor="{StaticResource Primary}">
+        <Image Source="menu" HeightRequest="15" x:Name="menuTray"
+                   Margin="5,0,0,0" WidthRequest="30" Aspect="AspectFit">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapMenu_OnTapped"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Label VerticalOptions="Center" Margin="10,0,0,0"
                    HorizontalOptions="Center">
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="Green" FontSize="40" FontFamily="TitleDesign" FontAttributes="Bold"
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Green" FontSize="40" FontFamily="TitleDesign" FontAttributes="Bold"
                               TextColor="{StaticResource Textcolor}" />
-                        <Span Text=" Market" FontSize="25" FontFamily="TitleFontLight"
+                    <Span Text=" Market" FontSize="25" FontFamily="TitleFontLight"
                               TextColor="{StaticResource Textcolor}" />
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
-            <ff:CachedImage x:Name="profpic" HeightRequest="50" WidthRequest="50" HorizontalOptions="EndAndExpand"
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <ff:CachedImage x:Name="profpic" HeightRequest="50" WidthRequest="50" HorizontalOptions="EndAndExpand"
                             LoadingPlaceholder="notfound.png" ErrorPlaceholder="notfound.png">
-                <ff:CachedImage.Transformations>
-                    <transformations:CircleTransformation BorderHexColor="#FFFFFF" BorderSize="10"/>
-                </ff:CachedImage.Transformations>
-            </ff:CachedImage>
+            <ff:CachedImage.Transformations>
+                <transformations:CircleTransformation BorderHexColor="#FFFFFF" BorderSize="10"/>
+            </ff:CachedImage.Transformations>
+        </ff:CachedImage>
+        <StackLayout HorizontalOptions="End">
+            <AbsoluteLayout>
+                <Image Source="cart.png" Aspect="AspectFit" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                           AbsoluteLayout.LayoutFlags="All"
+                           HorizontalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Frame BackgroundColor="Transparent" HorizontalOptions="End" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                           AbsoluteLayout.LayoutFlags="All" BorderColor="Transparent" HasShadow="False"
+                           HeightRequest="40" WidthRequest="40" CornerRadius="25" Margin="0" Padding="0">
+                    <Label Text="0" TextColor="WhiteSmoke" HorizontalOptions="Center" FontSize="15"
+                               VerticalOptions="Center" HorizontalTextAlignment="Center"
+                               x:Name="lblcartcount">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </AbsoluteLayout>
         </StackLayout>
-        
-    </Shell.TitleView>
+    </NavigationPage.TitleView>-->
     <ContentPage.Resources>
         <Style TargetType="Grid">
             <Setter Property="VisualStateManager.VisualStateGroups">
@@ -50,99 +78,150 @@
         </Style>
         
     </ContentPage.Resources>
-    <AbsoluteLayout>
-        <Grid AbsoluteLayout.LayoutBounds="0,0,1,1"
-              AbsoluteLayout.LayoutFlags="SizeProportional">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Padding="0" BackgroundColor="#E2F0E2" >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition  />
-                <ColumnDefinition Width="50" />
-            </Grid.ColumnDefinitions>
-            <SearchBar Grid.Column="0"  CancelButtonColor="{StaticResource TextColor}"
-                       IsVisible="True" HorizontalOptions="Start"
-                       PlaceholderColor="Gray" Placeholder="Search sections. . . ."
-                       Visual="Material" TextColor="{StaticResource TextColor}" x:Name="prosearh" TextChanged="Prosearh_OnTextChanged"/>
-            <Image Grid.Column="1" Source="cart.png" Aspect="AspectFit" HeightRequest="40"
-                   HorizontalOptions="FillAndExpand">
+    <NavigationPage.TitleView >
+        <StackLayout Orientation="Horizontal">
+            <Image Source="menu" HeightRequest="15" x:Name="menuTray"
+                   Margin="5,0,0,0" WidthRequest="30" Aspect="AspectFit" BackgroundColor="Transparent">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" NumberOfTapsRequired="1"/>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapMenu_OnTapped"/>
                 </Image.GestureRecognizers>
             </Image>
-        </Grid>
-        <Grid Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="3" Grid.Column="0" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Label Grid.Row="0" Text="Sections" HeightRequest="15"
-                   FontSize="20" FontAttributes="Bold" />
-            <RefreshView Grid.Row="0" x:Name="RefreshView" Refreshing="RefreshView_OnRefreshing">
-                <CollectionView  ItemsSource="{Binding TBL_Category}"
-                                 Margin="0,25,0,0" x:Name="ListCategories" SelectionMode="Single"
-                                 HorizontalScrollBarVisibility="Always" x:FieldModifier="public"
-                                 VerticalOptions="Fill" SelectionChanged="ListCategories_OnSelectionChanged" >
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical"
-                                         Span="2" />
-                    </CollectionView.ItemsLayout>
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <ContentView Padding="5">
-                                <Grid Margin="0" Padding="0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="250"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                    <Frame Grid.Row="0" Margin="0" Padding="0" Grid.Column="0" CornerRadius="10">
-                                        <StackLayout Padding="0">
-                                            <ff:CachedImage x:Name="prodimg" Source="{Binding catimg_uri}"
-                                                            HeightRequest="220" Aspect="AspectFill"
-                                                            LoadingPlaceholder="notfound.png"
-                                                            ErrorPlaceholder="notfound.png" />
-                                            <Label VerticalOptions="Center" FontAttributes="Bold" Margin="5,0,0,5">
-                                                <Label.FormattedText>
-                                                    <FormattedString>
-                                                        <Span Text="{Binding category_name}" FontSize="18"
-                                                              TextColor="{StaticResource Primary}"
-                                                              FontFamily="TitleFontBold" />
-                                                    </FormattedString>
-                                                </Label.FormattedText>
-                                            </Label>
-                                        </StackLayout>
-                                    </Frame>
-                                </Grid>
-                            </ContentView>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </RefreshView>
-        </Grid>
-    </Grid>
-        <Frame AbsoluteLayout.LayoutBounds="0.9,0,30,30" BackgroundColor="Red" AbsoluteLayout.LayoutFlags="PositionProportional"
-               HeightRequest="20" WidthRequest="20" CornerRadius="25" Margin="0" Padding="0">
-            <Label Text="0" TextColor="WhiteSmoke" HorizontalOptions="Center" FontSize="15"
-                   VerticalOptions="CenterAndExpand"
-                   x:Name="lblcartcount">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped"/>
-                </Label.GestureRecognizers>
+            <Label VerticalOptions="Center" Margin="10,0,0,0"
+                   HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Green" FontSize="40" FontFamily="TitleDesign" FontAttributes="Bold"
+                              TextColor="{StaticResource Textcolor}" />
+                        <Span Text=" Market" FontSize="25" FontFamily="TitleFontLight"
+                              TextColor="{StaticResource Textcolor}" />
+                    </FormattedString>
+                </Label.FormattedText>
             </Label>
-            <Frame.GestureRecognizers>
-                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped"/>
-            </Frame.GestureRecognizers>
-        </Frame>
+            <ff:CachedImage x:Name="profpic" HeightRequest="50" WidthRequest="50" HorizontalOptions="EndAndExpand"
+                            LoadingPlaceholder="notfound.png" ErrorPlaceholder="notfound.png">
+                <ff:CachedImage.Transformations>
+                    <transformations:CircleTransformation BorderHexColor="#FFFFFF" BorderSize="10"/>
+                </ff:CachedImage.Transformations>
+            </ff:CachedImage>
+            <StackLayout HorizontalOptions="End">
+                <AbsoluteLayout>
+                    <Image Source="cart.png" Aspect="AspectFit" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                           AbsoluteLayout.LayoutFlags="All"
+                           HorizontalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Frame BackgroundColor="Transparent" HorizontalOptions="End" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                           AbsoluteLayout.LayoutFlags="All" BorderColor="Transparent" HasShadow="False"
+                           HeightRequest="40" WidthRequest="40" CornerRadius="25" Margin="0" Padding="0">
+                        <Label Text="0" TextColor="WhiteSmoke" HorizontalOptions="Center" FontSize="15"
+                               VerticalOptions="Center" HorizontalTextAlignment="Center"
+                               x:Name="lblcartcount">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </AbsoluteLayout>
+            </StackLayout>
+        </StackLayout>
+        
+    </NavigationPage.TitleView>
+    <AbsoluteLayout>
+        <Grid RowSpacing="0" AbsoluteLayout.LayoutBounds="0,0,1,1"
+              AbsoluteLayout.LayoutFlags="All">
+        <!--Custom AppBar-->
+        <StackLayout>
+            <Grid RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <!--Search Bar-->
+                <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Padding="0" BackgroundColor="#E2F0E2">
+                    <SearchBar Grid.Column="0" CancelButtonColor="{StaticResource TextColor}"
+                               IsVisible="True" HorizontalOptions="FillAndExpand"
+                               PlaceholderColor="Gray" Placeholder="Search sections. . . ."
+                               Visual="Material" TextColor="{StaticResource TextColor}" x:Name="prosearh"
+                               TextChanged="Prosearh_OnTextChanged" />
+                </Grid>
+                <!--Menu Tray-->
+                <Grid Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="0">
+                    <!--<Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Text="Sections" 
+                       FontSize="20" FontAttributes="Bold" />-->
+                    <RefreshView x:Name="RefreshView" RefreshColor="{StaticResource Textcolor}"
+                                 BackgroundColor="{StaticResource Primary}" Refreshing="RefreshView_OnRefreshing">
+                        <CollectionView ItemsSource="{Binding TBL_Category}"
+                                        x:Name="ListCategories" SelectionMode="Single"
+                                        HorizontalScrollBarVisibility="Always" x:FieldModifier="public"
+                                        VerticalOptions="Fill" SelectionChanged="ListCategories_OnSelectionChanged">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical"
+                                                 Span="2" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <ContentView Padding="5">
+                                        <Grid Margin="0" Padding="0">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="250" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Frame Grid.Row="0" Margin="0" Padding="0" Grid.Column="0" CornerRadius="0">
+                                                <StackLayout Padding="0">
+                                                    <ff:CachedImage x:Name="prodimg" Source="{Binding catimg_uri}"
+                                                                    HeightRequest="220" Aspect="AspectFill"
+                                                                    LoadingPlaceholder="notfound.png"
+                                                                    ErrorPlaceholder="notfound.png" />
+                                                    <Label VerticalOptions="Center" FontAttributes="Bold"
+                                                           Margin="5,0,0,5">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="{Binding category_name}" FontSize="18"
+                                                                      TextColor="{StaticResource Primary}"
+                                                                      FontFamily="TitleFontBold" />
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                </StackLayout>
+                                            </Frame>
+                                        </Grid>
+                                    </ContentView>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </RefreshView>
+                </Grid>
+            </Grid>
+        </StackLayout>
+    </Grid>
+        <StackLayout
+            x:Name="progressLoading"
+            IsVisible="False"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            BackgroundColor="Transparent">
+            <ActivityIndicator
+                x:Name="ai"
+                IsRunning="True" IsVisible="True"
+                HorizontalOptions="CenterAndExpand"
+                Color="{StaticResource Primary}" Margin="0,300,0,0"/>
+            <!--<Label x:Name="lblorderstate" Text="Bagging your order, please wait..." Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>-->
+        </StackLayout>
     </AbsoluteLayout>
 </ContentPage>

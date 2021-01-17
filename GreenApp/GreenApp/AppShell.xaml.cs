@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using GreenApp.Activity;
+using GreenApp.Models;
+using GreenApp.Utils;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static GreenApp.App;
@@ -19,6 +21,8 @@ namespace GreenApp
         {
             InitializeComponent();
             BindingContext = this;
+            //Navigation.PushAsync(new MenuPage());
+            //GetProfile();
         }
         public ICommand OnLogoutCommand => new Command(OnLogout);
         public ICommand OnProfileCommand => new Command(OnProfile);
@@ -26,6 +30,7 @@ namespace GreenApp
         public ICommand OnOrdersCommand => new Command(OnOrders);
         public ICommand OnFeedBackCommand => new Command(OnFeedback);
         public ICommand OnAboutCommand => new Command(OnAbout);
+
         private async void OnLogout()
         {
             user_id = null;

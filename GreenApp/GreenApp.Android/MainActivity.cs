@@ -9,6 +9,7 @@ using Android.Widget;
 using Android.OS;
 using Plugin.CurrentActivity;
 using Plugin.Permissions;
+using TouchEffect.Android;
 using Xamarin.Forms;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
 
@@ -34,6 +35,7 @@ namespace GreenApp.Droid
             Forms.SetFlags("UseLegacyRenderers");
             Forms.Init(this, savedInstanceState);
             FormsMaterial.Init(this,savedInstanceState);
+            TouchEffectPreserver.Preserve();
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Xamarin.FormsMaps.Init(this, savedInstanceState);
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);

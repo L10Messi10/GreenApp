@@ -2,8 +2,8 @@
 <resources>
 
   <style name="Theme.Splash"
-         parent="android:Theme">
-        <item name="android:windowBackground">@drawable/splashscreen</item>
+         parent="android:Theme.Holo.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/backgroundstylexml</item>
         <item name="android:windowNoTitle">true</item>
   </style>
   <style name="MainTheme" parent="MainTheme.Base">

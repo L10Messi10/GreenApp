@@ -157,7 +157,7 @@ namespace GreenApp.Activity
                         Selected_ProdId = null;
                         CurrentOrderId = null;
                         progressplaceorder.IsVisible = false;
-                        await DisplayAlert("Order cancelled", "Your successfully cancelled your order", "OK");
+                        await DisplayAlert("Order cancelled", "You have successfully cancelled your order.", "OK");
                         await Navigation.PopToRootAsync(true);
                     }
                     else
