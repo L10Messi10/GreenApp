@@ -22,18 +22,11 @@ namespace GreenApp.Activity
             InitializeComponent();
 
         }
-        
         protected override async void OnAppearing()
         {
             await GetSections();
             
         }
-
-        private void GetProfileImage()
-        {
-            profpic.Source = propic;
-        }
-        
         private async Task GetSections()
         {
             try
@@ -97,8 +90,9 @@ namespace GreenApp.Activity
             
         }
         
-        private async void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
+        private async void Checkout_OnTapped(object sender, EventArgs e)
         {
+            if (progressLoading.IsVisible) return;
             await Navigation.PushAsync(new CheckOutPage(), true);
         }
 
@@ -147,6 +141,7 @@ namespace GreenApp.Activity
 
         private async void TapMenu_OnTapped(object sender, EventArgs e)
         {
+            if (progressLoading.IsVisible) return;
             await Navigation.PushAsync(new MenuTrayPage(),true);
         }
     }

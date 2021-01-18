@@ -78,7 +78,7 @@
         </Style>
         
     </ContentPage.Resources>
-    <NavigationPage.TitleView >
+    <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
             <Image Source="menu" HeightRequest="15" x:Name="menuTray"
                    Margin="5,0,0,0" WidthRequest="30" Aspect="AspectFit" BackgroundColor="Transparent">
@@ -109,21 +109,21 @@
                            AbsoluteLayout.LayoutFlags="All"
                            HorizontalOptions="Center">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" NumberOfTapsRequired="1"/>
+                            <TapGestureRecognizer Tapped="Checkout_OnTapped" NumberOfTapsRequired="1"/>
                         </Image.GestureRecognizers>
                     </Image>
-                    <Frame BackgroundColor="Transparent" HorizontalOptions="End" AbsoluteLayout.LayoutBounds="0,0,1,1"
-                           AbsoluteLayout.LayoutFlags="All" BorderColor="Transparent" HasShadow="False"
+                    <Frame BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                           AbsoluteLayout.LayoutFlags="All" VerticalOptions="EndAndExpand" BorderColor="Transparent" HasShadow="False"
                            HeightRequest="40" WidthRequest="40" CornerRadius="25" Margin="0" Padding="0">
                         <Label Text="0" TextColor="WhiteSmoke" HorizontalOptions="Center" FontSize="15"
                                VerticalOptions="Center" HorizontalTextAlignment="Center"
                                x:Name="lblcartcount">
                             <Label.GestureRecognizers>
-                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped"/>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Checkout_OnTapped"/>
                             </Label.GestureRecognizers>
                         </Label>
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped"/>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Checkout_OnTapped"/>
                         </Frame.GestureRecognizers>
                     </Frame>
                 </AbsoluteLayout>

@@ -50,10 +50,6 @@
                                     </StackLayout>
                                 </Frame>
                             </StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Label x:Name="xtime" Text="Remember my email" Margin="0" TextColor="{StaticResource PlaceHolderColor}"
-                                       HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
-                            </StackLayout>
                             <ActivityIndicator x:Name="indicatorloader" Color="Green" IsVisible="False" IsRunning="True" />
                             <Button x:Name="btnlogin" Text="SIGN IN" CornerRadius="20" HeightRequest="40" BackgroundColor="{StaticResource Primary}"
                                     TextColor="{StaticResource Textcolor}" Clicked="Btnlogin_OnClicked"/>

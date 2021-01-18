@@ -44,7 +44,7 @@
                              touchEffect:TouchEff.PressedOpacity="0.6"
                              Orientation="Horizontal" x:Name="menuProfile">
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1"/>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Profile_OnTapped"/>
                     </StackLayout.GestureRecognizers>
                     <Image Source="person_1" WidthRequest="30" Margin="10,0,0,0"/>
                     <Label Text="Profile" VerticalOptions="Center" FontSize="15" TextColor="{StaticResource Textcolor}"/>
@@ -58,7 +58,7 @@
                              touchEffect:TouchEff.PressedOpacity="0.6"
                              Orientation="Horizontal" x:Name="menuAddresses">
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1"/>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Addresses_OnTapped"/>
                     </StackLayout.GestureRecognizers>
                     <Image Source="locationpin" WidthRequest="30" Margin="10,0,0,0"/>
                     <Label Text="Addresses" VerticalOptions="Center" FontSize="15" TextColor="{StaticResource Textcolor}"/>
@@ -72,7 +72,7 @@
                              touchEffect:TouchEff.PressedOpacity="0.6"
                              Orientation="Horizontal" x:Name="menuOrders">
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1"/>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Orders_OnTapped"/>
                     </StackLayout.GestureRecognizers>
                     <Image Source="history" WidthRequest="30" Margin="10,0,0,0"/>
                     <Label Text="Orders" VerticalOptions="Center" FontSize="15" TextColor="{StaticResource Textcolor}"/>
@@ -84,7 +84,9 @@
                              touchEffect:TouchEff.PressedScale="0.9"
                              touchEffect:TouchEff.PressedOpacity="0.6"
                              Orientation="Horizontal">
-
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Feedback_OnTapped"/>
+                    </StackLayout.GestureRecognizers>
                     <Image Source="comments" WidthRequest="30" Margin="10,0,0,0"/>
                     <Label Text="Feedback" VerticalOptions="Center" FontSize="15" TextColor="{StaticResource Textcolor}"/>
                 </StackLayout>
@@ -96,7 +98,7 @@
                              touchEffect:TouchEff.PressedOpacity="0.6"
                              Orientation="Horizontal" x:Name="menuAbout">
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1"/>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="About_OnTapped"/>
                     </StackLayout.GestureRecognizers>
                     <Image Source="about" WidthRequest="30" Margin="10,0,0,0"/>
                     <Label Text="About Us" VerticalOptions="Center" FontSize="15" TextColor="{StaticResource Textcolor}"/>
@@ -110,7 +112,7 @@
                              touchEffect:TouchEff.PressedOpacity="0.6"
                              Orientation="Horizontal" x:Name="menuLogout">
                     <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1"/>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Logout_OnTapped"/>
                     </StackLayout.GestureRecognizers>
                     <Image Source="logout" WidthRequest="30" Margin="10,0,0,0"/>
                     <Label Text="Logout" VerticalOptions="Center" FontSize="15" TextColor="{StaticResource Textcolor}"/>

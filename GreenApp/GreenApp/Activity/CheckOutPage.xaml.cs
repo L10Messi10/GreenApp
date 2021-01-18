@@ -256,7 +256,7 @@ namespace GreenApp.Activity
             }
         }
 
-        private async void Picker_OnSelectedIndexChanged(object sender, EventArgs e)
+        private void Picker_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             //var picker = (Picker)sender;
             //int selectedIndex = picker.SelectedIndex;
