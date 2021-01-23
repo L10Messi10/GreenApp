@@ -53,19 +53,12 @@ namespace GreenApp.Activity
                     entrymobile.Focus();
                     return;
                 }
-                if (entryaddress.Text == null)
-                {
-                    await DisplayAlert("Error", "Please Enter your address!", "Ok");
-                    entryaddress.Focus();
-                    return;
-                }
                 progresssave.IsVisible = true;
                 lblprogressstat.Text = "Saving profile . . .";
                 var profile = new TBL_Users
                 {
                     Id = user_id,
                     full_name = entryfullname.Text,
-                    address = entryaddress.Text,
                     mobile_num = entrymobile.Text,
                     emailadd = emailadd,
                     password = password,
@@ -73,7 +66,7 @@ namespace GreenApp.Activity
                     propic = propic,
                     picstr = picstr
                 };
-                address = entryaddress.Text;
+                fullname = entryfullname.Text;
                 await TBL_Users.Update(profile);
                 progresssave.IsVisible = false;
                 await DisplayAlert("Info", "Profile information updated!", "Ok");

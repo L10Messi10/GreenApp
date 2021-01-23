@@ -10,7 +10,6 @@ namespace GreenApp.Models
     {
         public string Id { get; set; }
         public string full_name { get; set; }
-        public string address { get; set; }  
         public string mobile_num { get; set; }
         public string emailadd { get; set; }
         public string password { get; set; }

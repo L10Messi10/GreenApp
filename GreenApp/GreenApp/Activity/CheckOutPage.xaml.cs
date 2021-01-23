@@ -29,6 +29,10 @@ namespace GreenApp.Activity
             try
             {
                 progressplaceorder.IsVisible = true;
+                pickupTime.Time = Now.TimeOfDay;
+                lblchoice.Text = "Delivery Address";
+                deliveryAddLayout.IsVisible = true;
+                pickUpLayout.IsVisible = false;
                 lblorderstate.Text = "Loading order . . .";
                 if (CurrentOrderId != null)
                 {
@@ -65,56 +69,50 @@ namespace GreenApp.Activity
         {
             //try
             //{
-                if (picker.SelectedItem != null)
+            if (totalpayable.Text != "0")
+            {
+                var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
+                if (stat != null) MarketStatus = stat.status;
+                if (MarketStatus == "1")
                 {
-                    if (totalpayable.Text != "0")
+                    var answer = await DisplayAlert("Confirm", "Do you want to confirm this order?", "Yes", "No");
+                    if (answer)
                     {
-                        var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
-                        if (stat != null) MarketStatus = stat.status;
-                        if (MarketStatus == "1")
+                        progressplaceorder.IsVisible = true;
+                        lblorderstate.Text = "Placing your order . . .";
+                        var orderDetails = new TBL_Orders()
                         {
-                            var answer = await DisplayAlert("Confirm", "Do you want to confirm this order?", "Yes", "No");
-                            if (answer)
-                            {
-                                progressplaceorder.IsVisible = true;
-                                lblorderstate.Text = "Placing your order . . .";
-                                var orderDetails = new TBL_Orders()
-                                {
-                                    id = CurrentOrderId,
-                                    users_id = user_id,
-                                    order_date = Now.ToString("yyyy-MM-dd"),
-                                    stat = "1",
-                                    order_status = "Ordered",
-                                    order_choice = selected_order,
-                                    del_rcvr = order_rcvr_name,
-                                    delvry_address = order_rcvr_add,
-                                    del_lat = order_lat.ToString(CultureInfo.InvariantCulture),
-                                    del_long = order_long.ToString(CultureInfo.InvariantCulture),
-                                    del_rcvr_num = order_rcvr_num,
-                                    tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
-                                };
-                                await TBL_Orders.Update(orderDetails);
-                                checkout = true;
-                                progressplaceorder.IsVisible = false;
-                                await Navigation.PushAsync(new ConfirmationPage(), true);
-                            }
-                        }
-                        else
-                        {
-                            progressplaceorder.IsVisible = false;
-                            await Navigation.PushAsync(new MarketClosePage(), true);
-                        }
-                    }
-                    else
-                    {
+                            id = CurrentOrderId,
+                            users_id = user_id,
+                            order_date = Now.ToString("yyyy-MM-dd"),
+                            stat = "1",
+                            order_status = "Ordered",
+                            order_choice = selected_order,
+                            del_rcvr = order_rcvr_name,
+                            delvry_address = order_rcvr_add,
+                            del_lat = order_lat.ToString(CultureInfo.InvariantCulture),
+                            del_long = order_long.ToString(CultureInfo.InvariantCulture),
+                            del_rcvr_num = order_rcvr_num,
+                            tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
+                        };
+                        await TBL_Orders.Update(orderDetails);
+                        checkout = true;
                         progressplaceorder.IsVisible = false;
-                        await DisplayAlert("Cart empty", "Your cart is empty!", "OK");
+                        await Navigation.PushAsync(new ConfirmationPage(), true);
                     }
                 }
                 else
                 {
-                    await DisplayAlert("Alert", "Please select order option!", "OK");
+                    progressplaceorder.IsVisible = false;
+                    await Navigation.PushAsync(new MarketClosePage(), true);
                 }
+            }
+            else
+            {
+                progressplaceorder.IsVisible = false;
+                await DisplayAlert("Cart empty", "Your cart is empty!", "OK");
+            }
+
             //}
             //catch
             //{
@@ -269,6 +267,24 @@ namespace GreenApp.Activity
             //        await Navigation.PushAsync(new DeliveryLocationPage(), true);
             //    }
             //}
+        }
+
+        private void Switch_OnToggled(object sender, ToggledEventArgs e)
+        {
+            if (Switch.IsToggled)
+            {
+                
+                lblchoice.Text = "Delivery Address";
+                deliveryAddLayout.IsVisible = true;
+                pickUpLayout.IsVisible = false;
+            }
+            else
+            {
+                pickupTime.Time = Now.TimeOfDay;
+                lblchoice.Text = "Pickup time: ";
+                deliveryAddLayout.IsVisible = false;
+                pickUpLayout.IsVisible = true;
+            }
         }
     }
 }

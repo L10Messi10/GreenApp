@@ -131,17 +131,48 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <Picker x:Name="picker" Grid.Row="0" Title="Order options" Grid.ColumnSpan="1"
-                                TitleColor="{StaticResource Primary}" SelectedIndexChanged="Picker_OnSelectedIndexChanged">
-                            <Picker.ItemsSource>
-                                <x:Array Type="{x:Type x:String}">
-                                    <x:String>Pickup</x:String>
-                                    <x:String>Delivery</x:String>
-                                </x:Array>
-                            </Picker.ItemsSource>
-                        </Picker>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.ColumnSpan="3">
+                            <Label Text="Delivery?" HorizontalOptions="Start" VerticalOptions="Center" FontSize="15" FontAttributes="Bold"/>
+                            <Switch HorizontalOptions="EndAndExpand" OnColor="{StaticResource Primary}" 
+                                    ThumbColor="{StaticResource Primary}" IsToggled="True"
+                                    Toggled="Switch_OnToggled"
+                                    x:Name="Switch"/>
+                        </StackLayout>
+                        
                         <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
-
+                            <BoxView HeightRequest="1" WidthRequest="300" BackgroundColor="WhiteSmoke"/>
+                            <StackLayout>
+                                <Label x:Name="lblchoice" Text="Delivery Address:" FontAttributes="Bold"/>
+                                <Grid x:Name="deliveryAddLayout">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label x:Name="lblDelAddress" Grid.Column="0" Grid.ColumnSpan="2"
+                                           >
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Home: "
+                                                      FontAttributes="Bold"
+                                                      TextColor="{StaticResource TextBackColor}" />
+                                                <Span Text="Datu Abdul dadia Panabo City"
+                                                      TextColor="{StaticResource TextColor}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                            </Label>
+                                    <Button x:Name="btnchange" Grid.Column="2" BorderColor="{StaticResource Primary}" 
+                                            BorderWidth="1" BackgroundColor="Transparent"
+                                            HeightRequest="35" Text="Change" FontSize="12"/>
+                                </Grid>
+                                <StackLayout x:Name="pickUpLayout">
+                                    <Label Text="Pickup time of item."/>
+                                    <TimePicker FontSize="10" HeightRequest="40" x:Name="pickupTime"
+                                                BackgroundColor="White" TextColor="WhiteSmoke"
+                                                />
+                                </StackLayout>
+                            </StackLayout>
+                            
                         </StackLayout>
                         <Label Grid.Row="3" Grid.Column="0" Text="SUB TOTAL" TextColor="{StaticResource PriceColor}"/>
                         <Label x:Name="lblsubtotal" Grid.Row="3" Grid.Column="2" Text="0"
@@ -191,7 +222,7 @@
                            FontSize="14"/>
                 </StackLayout>
                 <Button Grid.Column="2" Text="Checkout!" Grid.Row="1" Grid.ColumnSpan="2"
-                    TextColor="{StaticResource Primary}"
+                    TextColor="{StaticResource Primary}" FontSize="15"
                     BackgroundColor="{StaticResource BackgroundColor}" CornerRadius="5"
                     x:Name="btncheckout" Clicked="Btncheckout_OnClicked" />
         </Grid>

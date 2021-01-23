@@ -63,20 +63,29 @@ namespace GreenApp.Activity
                 progressaddtocart.IsVisible = false;
                 await Navigation.PushAsync(new NoInternetPage(), true);
             }
-        }
+}
         private async void Btnaddtocart_OnClicked(object sender, EventArgs e)
         {
-            if (CurrentOrderId == null)
+            if (SignedIn)
             {
-                progressaddtocart.IsVisible = true;
-                await InsertOrder();
+                if (CurrentOrderId == null)
+                {
+                    progressaddtocart.IsVisible = true;
+                    await InsertOrder();
+                }
+                else
+                {
+                    progressaddtocart.IsVisible = true;
+                    await XGetOrderID();
+                    await InsertOrder_Details();
+                }
             }
             else
             {
-                progressaddtocart.IsVisible = true;
-                await XGetOrderID();
-                await InsertOrder_Details();
+                await DisplayAlert("Login", "Please login or create an account first before doing any transaction in the market! It's FREE!", "OK");
+                await Navigation.PushAsync(new LoginPage());
             }
+            
         }
 
         private async Task InsertOrder()

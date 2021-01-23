@@ -39,13 +39,6 @@ namespace GreenApp.Activity
                     return;
                 }
 
-                if (addressentry.Text == null)
-                {
-                    await DisplayAlert("Field required", "Please enter your complete address", "OK");
-                    addressentry.Focus();
-                    return;
-                }
-
                 if (emailentry.Text == null)
                 {
                     await DisplayAlert("Field required", "Please enter your email address", "OK");
@@ -81,7 +74,6 @@ namespace GreenApp.Activity
                     {
                         full_name = NameEntry.Text,
                         mobile_num = mobileentry.Text,
-                        address = addressentry.Text,
                         emailadd = emailentry.Text,
                         password = passentry.Text,
                         datereg = DateTime.Now
@@ -100,7 +92,6 @@ namespace GreenApp.Activity
                     await DisplayAlert("Confirm password", "Password did not match!", "OK");
                     confirmpassentry.Focus();
                 }
-
             }
             catch
             {

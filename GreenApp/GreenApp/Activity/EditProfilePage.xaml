@@ -39,20 +39,13 @@
                             <Entry x:Name="entryfullname" Margin="20,0" WidthRequest="300" Placeholder="Full name" MaxLength="50"
                                    Text="{Binding full_name}"/>
                         </StackLayout>
-                        <StackLayout  Orientation="Horizontal">
-                            <ff:CachedImage Source="https://i.ibb.co/4ZxR49X/pngwing-com.png"
+                            <StackLayout  Orientation="Horizontal">
+                                <ff:CachedImage Source="https://i.ibb.co/4ZxR49X/pngwing-com.png"
                                             WidthRequest="30" HeightRequest="30"/>
-                            <Entry x:Name="entrymobile" Margin="20,0" WidthRequest="300" Placeholder="Mobile no." MaxLength="20"
+                                <Entry x:Name="entrymobile" Margin="20,0" WidthRequest="300" Placeholder="Mobile no." MaxLength="20"
                                    Text="{Binding mobile_num}"/>
-                        </StackLayout>
-                        <StackLayout  Orientation="Horizontal">
-                            <ff:CachedImage Source="https://i.ibb.co/NyYY2Gq/clipart523723.png"
-                                            WidthRequest="30" HeightRequest="30"/>
-                            <Editor x:Name="entryaddress" Margin="20,0" WidthRequest="300" Placeholder="Address" MaxLength="200"
-                                    Text="{Binding address}" AutoSize="TextChanges"
-                                    Keyboard="Chat" HeightRequest="150"/>
-                        </StackLayout>
-                        <Button BackgroundColor="{StaticResource Primary}" Text="Save" TextColor="{StaticResource Textcolor}"
+                            </StackLayout>
+                            <Button BackgroundColor="{StaticResource Primary}" Text="Save" TextColor="{StaticResource Textcolor}"
                                 CornerRadius="20" Margin="30,0" Clicked="Button_OnClicked">
                         </Button>
                     </StackLayout>

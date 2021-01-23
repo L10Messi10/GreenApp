@@ -20,11 +20,59 @@ namespace GreenApp.Activity
         public MenuPage()
         {
             InitializeComponent();
+            getUserDetails();
 
         }
         protected override async void OnAppearing()
         {
             await GetSections();
+        }
+
+        private async void getUserDetails()
+        {
+            try
+            {
+                if (hasnetwork)
+                {
+                    if (SignedIn) return;
+                    if (Settings.LastUsedEmail != string.Empty)
+                    {
+                        var users = (await MobileService.GetTable<TBL_Users>().Where(mail => mail.emailadd == Settings.LastUsedEmail).ToListAsync()).FirstOrDefault();
+                        if (users == null) return;
+                        user_id = users.Id;
+                        fullname = users.full_name;
+                        mobilenum = users.mobile_num;
+                        emailadd = users.emailadd;
+                        password = users.password;
+                        datereg = users.datereg;
+                        propic = users.propic;
+                        picstr = users.picstr;
+                        //user_id = null;
+                        CurrentOrderId = null;
+                        refresh = false;
+                        SignedIn = true;
+                        hasnetwork = true;
+                        //indicatorloader.IsVisible = false;
+                        //Settings.LastUsedEmail = chkremember.IsChecked ? emailentry.Text : "";
+                        //await DisplayAlert("Success", "Email or password is incorrect!", "OK");
+                        //Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.MainPage = new AppShell(); });
+                        //await Navigation.PushAsync(new MenuPage(), true);
+                        //var page = MenuPage as NavigationPage;
+                    }
+                    else
+                    {
+                        hasnetwork = true;
+                        SignedIn = false;
+                        //Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.MainPage = new LoginPage(); });
+                        //await Navigation.PushAsync(new LoginPage(), true);
+                    }
+                }
+            }
+            catch
+            {
+                hasnetwork = false;
+                SignedIn = false;
+            }
             
         }
         private async Task GetSections()
@@ -32,12 +80,11 @@ namespace GreenApp.Activity
             try
             {
                 //RefreshView.IsRefreshing = true;
+                ListCategories.IsVisible = true;
+                ErrorLayout.IsVisible = false;
                 progressLoading.IsVisible = true;
                 if (!refresh)
                 {
-                    //var categories = await TBL_Category.Read();
-                    //categorycollection.ItemsSource = categories;
-                    
                     var categories = await TBL_Category.Read();
                     ListCategories.ItemsSource = categories;
                     //var samp = CurrentOrderId ;
@@ -73,31 +120,45 @@ namespace GreenApp.Activity
             catch
             {
                 RefreshView.IsRefreshing = false;
-                await Navigation.PushAsync(new NoInternetPage(), true);
+                ListCategories.SelectedItem = null;
+                //await Navigation.PushAsync(new NoInternetPage(), true);
+                progressLoading.IsVisible = false;
+                ListCategories.IsVisible = false;
+                ErrorLayout.IsVisible = true;
             }
         }
         private async Task XSearch(string query)
         {
             try
             {
+                ListCategories.IsVisible = true;
+                ErrorLayout.IsVisible = false;
+                progressLoading.IsVisible = true;
                 var products = (await MobileService.GetTable<TBL_Category>().ToListAsync());
                 ListCategories.ItemsSource = products.Where(p => p.category_name.ToLower().Contains(query.ToLower())).ToList();
+                RefreshView.IsRefreshing = false;
+                progressLoading.IsVisible = false;
             }
             catch
             {
-                await Navigation.PushAsync(new NoInternetPage(), true);
+                RefreshView.IsRefreshing = false;
+                //await Navigation.PushAsync(new NoInternetPage(), true);
+                progressLoading.IsVisible = false;
+                ListCategories.IsVisible = false;
+                ErrorLayout.IsVisible = true;
             }
             
         }
         
         private async void Checkout_OnTapped(object sender, EventArgs e)
         {
-            if (progressLoading.IsVisible) return;
+            if (progressLoading.IsVisible || ErrorLayout.IsVisible) return;
             await Navigation.PushAsync(new CheckOutPage(), true);
         }
 
         private async void Prosearh_OnTextChanged(object sender, TextChangedEventArgs e)
         {
+            if (progressLoading.IsVisible || ErrorLayout.IsVisible) return;
             await XSearch(prosearh.Text);
         }
 
@@ -141,8 +202,14 @@ namespace GreenApp.Activity
 
         private async void TapMenu_OnTapped(object sender, EventArgs e)
         {
-            if (progressLoading.IsVisible) return;
+            if (progressLoading.IsVisible || ErrorLayout.IsVisible ) return;
             await Navigation.PushAsync(new MenuTrayPage(),true);
+        }
+
+        private async void Btnretry_OnClicked(object sender, EventArgs e)
+        {
+            refresh = false;
+            await GetSections();
         }
     }
 }

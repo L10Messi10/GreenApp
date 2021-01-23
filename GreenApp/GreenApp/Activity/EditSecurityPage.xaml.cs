@@ -61,7 +61,6 @@ namespace GreenApp.Activity
                     {
                         Id = user_id,
                         full_name = fullname,
-                        address = address,
                         mobile_num = mobilenum,
                         emailadd = emailadd,
                         password = entrynewpassconfirm.Text,

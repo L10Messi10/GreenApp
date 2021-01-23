@@ -20,11 +20,19 @@ namespace GreenApp.Activity
 
         protected override async void OnAppearing()
         {
+            await getProducts();
+        }
+
+        private async Task getProducts()
+        {
             try
             {
+
+                ListProducts.IsVisible = true;
+                ErrorLayout.IsVisible = false;
                 var getproducts = await MobileService.GetTable<TBL_Products>().Where(p => p.category_name == Selected_CatID).ToListAsync();
                 ListProducts.ItemsSource = getproducts;
-                var getorderid = (await App.MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id == App.user_id && orders.order_status == "Carted").ToListAsync()).FirstOrDefault();
+                var getorderid = (await MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id == user_id && orders.order_status == "Carted").ToListAsync()).FirstOrDefault();
                 if (getorderid != null) CurrentOrderId = getorderid.id;
                 if (CurrentOrderId != null)
                 {
@@ -36,24 +44,31 @@ namespace GreenApp.Activity
                 {
                     lblcartcount.Text = "0";
                 }
+                RefreshView.IsRefreshing = false;
+                ListProducts.SelectedItem = null;
             }
             catch
             {
-                await Navigation.PushAsync(new NoInternetPage(), true);
+                ListProducts.SelectedItem = null;
+                RefreshView.IsRefreshing = false;
+                //await Navigation.PushAsync(new NoInternetPage(), true);
+                //progressLoading.IsVisible = false;
+                ListProducts.IsVisible = false;
+                ErrorLayout.IsVisible = true;
             }
         }
-
         private async void ListProducts_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //try
-            //{
+            try
+            {
+                if (ListProducts.SelectedItem == null) return;
                 Selected_ProdId = (e.CurrentSelection.FirstOrDefault() as TBL_Products)?.id;
                 await Navigation.PushAsync(new AddtoCartPage());
-            //}
-            //catch
-            //{
-            //    //ignored
-            //}
+            }
+            catch
+            {
+                //ignored
+            }
         }
 
         private async void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
@@ -65,8 +80,6 @@ namespace GreenApp.Activity
         {
             try
             {
-
-            
                 var products = (await MobileService.GetTable<TBL_Products>().ToListAsync());
                 ListProducts.ItemsSource = products.Where(p => p.prod_name.ToLower().Contains(query.ToLower())  && 
                                                            p.category_name.ToLower().Equals(Selected_CatID.ToLower())).ToList();
@@ -80,10 +93,15 @@ namespace GreenApp.Activity
         private async void Prosearh_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             await XSearchProduct(prosearh.Text);
-            if (prosearh.Text == null)
-            {
-                OnAppearing();
-            }
+            //if (prosearh.Text == null)
+            //{
+            //    await getProducts();
+            //}
+        }
+
+        private async void RefreshView_OnRefreshing(object sender, EventArgs e)
+        {
+            await getProducts();
         }
     }
 }

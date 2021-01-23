@@ -12,8 +12,10 @@ using Android.Views;
 using Android.Widget;
 using GreenApp.Activity;
 using GreenApp.Models;
+using System.Threading.Tasks;
 using GreenApp.Utils;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 using static GreenApp.App;
 
 namespace GreenApp.Droid
@@ -36,38 +38,48 @@ namespace GreenApp.Droid
         }
         private async void CheckForAutoLogin()
         {
-            if (Settings.LastUsedEmail != string.Empty)
+            try
             {
-                var users = (await MobileService.GetTable<TBL_Users>().Where(mail => mail.emailadd == Settings.LastUsedEmail).ToListAsync()).FirstOrDefault();
-                if (users != null)
+                if (Settings.LastUsedEmail != string.Empty)
                 {
-                    user_id = users.Id;
-                    fullname = users.full_name;
-                    address = users.address;
-                    mobilenum = users.mobile_num;
-                    emailadd = users.emailadd;
-                    password = users.password;
-                    datereg = users.datereg;
-                    propic = users.propic;
-                    picstr = users.picstr;
-                    //user_id = null;
-                    CurrentOrderId = null;
-                    refresh = false;
-                    SignedIn = true;
-                    //indicatorloader.IsVisible = false;
-                    //Settings.LastUsedEmail = chkremember.IsChecked ? emailentry.Text : "";
-                    //await DisplayAlert("Success", "Email or password is incorrect!", "OK");
-                    //Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.MainPage = new AppShell(); });
-                    //await Navigation.PushAsync(new MenuPage(), true);
-                    //var page = MenuPage as NavigationPage;
+                    var users = (await MobileService.GetTable<TBL_Users>().Where(mail => mail.emailadd == Settings.LastUsedEmail).ToListAsync()).FirstOrDefault();
+                    if (users != null)
+                    {
+                        user_id = users.Id;
+                        fullname = users.full_name;
+                        mobilenum = users.mobile_num;
+                        emailadd = users.emailadd;
+                        password = users.password;
+                        datereg = users.datereg;
+                        propic = users.propic;
+                        picstr = users.picstr;
+                        //user_id = null;
+                        CurrentOrderId = null;
+                        refresh = false;
+                        SignedIn = true;
+                        hasnetwork = true;
+                        //indicatorloader.IsVisible = false;
+                        //Settings.LastUsedEmail = chkremember.IsChecked ? emailentry.Text : "";
+                        //await DisplayAlert("Success", "Email or password is incorrect!", "OK");
+                        //Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.MainPage = new AppShell(); });
+                        //await Navigation.PushAsync(new MenuPage(), true);
+                        //var page = MenuPage as NavigationPage;
+                    }
+                }
+                else
+                {
+                    hasnetwork = true;
+                    SignedIn = false;
+                    //Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.MainPage = new LoginPage(); });
+                    //await Navigation.PushAsync(new LoginPage(), true);
                 }
             }
-            else
+            catch (Exception e)
             {
+                hasnetwork = false;
                 SignedIn = false;
-                //Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.MainPage = new LoginPage(); });
-                //await Navigation.PushAsync(new LoginPage(), true);
             }
+
         }
 
     }

@@ -64,69 +64,79 @@
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Text="Products" HeightRequest="15"
                            FontSize="20" FontAttributes="Bold" />
-                    <CollectionView Grid.Row="0" HorizontalOptions="Fill"
-                                    Margin="0,25,0,0" x:Name="ListProducts" SelectionMode="Single"
-                                    VerticalOptions="Fill" SelectionChanged="ListProducts_OnSelectionChanged">
-                        <CollectionView.ItemsLayout>
-                            <GridItemsLayout Orientation="Vertical"
+                    <RefreshView Grid.Row="0" x:Name="RefreshView" RefreshColor="{StaticResource Textcolor}"
+                                 BackgroundColor="{StaticResource Primary}" HorizontalOptions="FillAndExpand" Refreshing="RefreshView_OnRefreshing">
+                        <CollectionView Margin="0,25,0,0" x:Name="ListProducts" SelectionMode="Single"
+                                        VerticalOptions="Fill" SelectionChanged="ListProducts_OnSelectionChanged">
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Orientation="Vertical"
                                              Span="2" />
-                        </CollectionView.ItemsLayout>
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid Margin="0" Padding="2" RowSpacing="5">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="240" />
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <!--Upon loading the products, it has color scheme, the product image must be photoshopped 
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="0" Padding="2" RowSpacing="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="240" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <!--Upon loading the products, it has color scheme, the product image must be photoshopped 
                                     for the color scheme to give it a color-->
-                                    <Frame Grid.Row="0" Margin="5,0,5,0" Padding="0" Grid.Column="0"
+                                        <Frame Grid.Row="0" Margin="5,0,5,0" Padding="0" Grid.Column="0"
                                            IsClippedToBounds="True"
                                            HasShadow="True"  CornerRadius="8">
-                                        <StackLayout>
-                                            <ff:CachedImage x:Name="prodimg" Source="{Binding img_uri}"
+                                            <StackLayout>
+                                                <ff:CachedImage x:Name="prodimg" Source="{Binding img_uri}"
                                                             Aspect="AspectFill"
                                                             BitmapOptimizations="True" HeightRequest="170"
                                                             BackgroundColor="{Binding p_color_scheme}"
                                                             CacheDuration="30" LoadingPlaceholder="notfound.png"
                                                             ErrorPlaceholder="notfound.png" />
-                                            <StackLayout Orientation="Vertical" Margin="5" Spacing="0">
-                                                <Label VerticalOptions="Center" Padding="0" FontAttributes="Bold">
-                                                    <Label.FormattedText>
-                                                        <FormattedString>
-                                                            <Span Text="{Binding prod_name}" FontSize="16"
-                                                                  FontFamily="TitleFontBold"
-                                                                  TextColor="{StaticResource TextColor}" />
-                                                        </FormattedString>
-                                                    </Label.FormattedText>
-                                                </Label>
-                                                <StackLayout>
-                                                    <Label HorizontalOptions="Start">
+                                                <StackLayout Orientation="Vertical" Margin="5" Spacing="0">
+                                                    <Label VerticalOptions="Center" Padding="0" FontAttributes="Bold">
                                                         <Label.FormattedText>
                                                             <FormattedString>
-                                                                <Span Text="{Binding prod_price}" FontSize="20"
-                                                                      TextColor="{StaticResource Primary}"
-                                                                      FontFamily="TitleFontLight" />
-                                                                <Span Text=" / " FontSize="20"
-                                                                      TextColor="{StaticResource Primary}"
-                                                                      FontFamily="TitleFontLight" />
-                                                                <Span Text="{Binding unit_desc}" FontSize="15"
-                                                                      TextColor="{StaticResource Primary}"
-                                                                      FontFamily="TitleFontLight" />
+                                                                <Span Text="{Binding prod_name}" FontSize="16"
+                                                                  FontFamily="TitleFontBold"
+                                                                  TextColor="{StaticResource TextColor}" />
                                                             </FormattedString>
                                                         </Label.FormattedText>
                                                     </Label>
+                                                    <StackLayout>
+                                                        <Label HorizontalOptions="Start">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="{Binding prod_price}" FontSize="20"
+                                                                      TextColor="{StaticResource Primary}"
+                                                                      FontFamily="TitleFontLight" />
+                                                                    <Span Text=" / " FontSize="20"
+                                                                      TextColor="{StaticResource Primary}"
+                                                                      FontFamily="TitleFontLight" />
+                                                                    <Span Text="{Binding unit_desc}" FontSize="15"
+                                                                      TextColor="{StaticResource Primary}"
+                                                                      FontFamily="TitleFontLight" />
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+                                                    </StackLayout>
                                                 </StackLayout>
                                             </StackLayout>
-                                        </StackLayout>
-                                    </Frame>
-                                    <Label x:Name="txtprodid" IsVisible="False" Text="{Binding id}" />
-                                </Grid>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
+                                        </Frame>
+                                        <Label x:Name="txtprodid" IsVisible="False" Text="{Binding id}" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </RefreshView>
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
+                                 IsVisible="False" x:Name="ErrorLayout">
+                        <Image Source="nointernet" VerticalOptions="CenterAndExpand"
+                               x:Name="imgnofound"
+                               HeightRequest="250" WidthRequest="250"/>
+                        <Button Text="Retry" FontAttributes="Bold" CornerRadius="10" BackgroundColor="{StaticResource Primary}"
+                                x:Name="btnretry"/>
+                    </StackLayout>
                 </Grid>
             </Grid>
         </Grid>

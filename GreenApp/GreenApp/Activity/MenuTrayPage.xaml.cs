@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GreenApp.Utils;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static GreenApp.App;
@@ -66,7 +67,7 @@ namespace GreenApp.Activity
 
         private async void Orders_OnTapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AddressesPage(), true);
+            await Navigation.PushAsync(new OrderHistoryPage(), true);
         }
 
         private async void Feedback_OnTapped(object sender, EventArgs e)
@@ -79,8 +80,16 @@ namespace GreenApp.Activity
             await Navigation.PushAsync(new AboutPage(), true);
         }
 
-        private void Logout_OnTapped(object sender, EventArgs e)
+        private async void Logout_OnTapped(object sender, EventArgs e)
         {
+            bool ans;
+            ans = await DisplayAlert("Logout", "Are you sure to to Logout?", "Yes", "No");
+            if (!ans) return;
+            SignedIn = false;
+            CurrentOrderId = "";
+            user_id = "";
+            Settings.LastUsedEmail = "";
+            getLoginSetting();
             //throw new NotImplementedException();
         }
     }

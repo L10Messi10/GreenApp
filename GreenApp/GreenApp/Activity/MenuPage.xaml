@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:renderers="clr-namespace:GreenApp.Renderers;assembly=GreenApp"
              mc:Ignorable="d" NavigationPage.HasBackButton="False"
-             Title="Green Market" Visual="Material"
+             Visual="Material"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
@@ -78,32 +78,33 @@
         </Style>
         
     </ContentPage.Resources>
+
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
             <Image Source="menu" HeightRequest="15" x:Name="menuTray"
-                   Margin="5,0,0,0" WidthRequest="30" Aspect="AspectFit" BackgroundColor="Transparent">
+                   Margin="0,0,0,0" WidthRequest="30" Aspect="AspectFit" BackgroundColor="Transparent">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapMenu_OnTapped"/>
                 </Image.GestureRecognizers>
             </Image>
-            <Label VerticalOptions="Center" Margin="10,0,0,0"
+            <Label VerticalOptions="Center" Margin="0,0,0,0"
                    HorizontalOptions="Center">
                 <Label.FormattedText>
                     <FormattedString>
                         <Span Text="Green" FontSize="40" FontFamily="TitleDesign" FontAttributes="Bold"
                               TextColor="{StaticResource Textcolor}" />
-                        <Span Text=" Market" FontSize="25" FontFamily="TitleFontLight"
+                        <Span Text="Market" FontSize="30" FontFamily="TitleFontLight"
                               TextColor="{StaticResource Textcolor}" />
                     </FormattedString>
                 </Label.FormattedText>
             </Label>
-            <ff:CachedImage x:Name="profpic" HeightRequest="50" WidthRequest="50" HorizontalOptions="EndAndExpand"
-                            LoadingPlaceholder="notfound.png" ErrorPlaceholder="notfound.png">
+            <!--<ff:CachedImage x:Name="profpic" HeightRequest="50" WidthRequest="50" HorizontalOptions="EndAndExpand"
+                            LoadingPlaceholder="notfound.png" ErrorPlaceholder="notfound.png" BackgroundColor="Gray">
                 <ff:CachedImage.Transformations>
                     <transformations:CircleTransformation BorderHexColor="#FFFFFF" BorderSize="10"/>
                 </ff:CachedImage.Transformations>
-            </ff:CachedImage>
-            <StackLayout HorizontalOptions="End">
+            </ff:CachedImage>-->
+            <StackLayout HorizontalOptions="EndAndExpand">
                 <AbsoluteLayout>
                     <Image Source="cart.png" Aspect="AspectFit" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,0,1,1"
                            AbsoluteLayout.LayoutFlags="All"
@@ -114,8 +115,8 @@
                     </Image>
                     <Frame BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1"
                            AbsoluteLayout.LayoutFlags="All" VerticalOptions="EndAndExpand" BorderColor="Transparent" HasShadow="False"
-                           HeightRequest="40" WidthRequest="40" CornerRadius="25" Margin="0" Padding="0">
-                        <Label Text="0" TextColor="WhiteSmoke" HorizontalOptions="Center" FontSize="15"
+                           HeightRequest="30" WidthRequest="30" Margin="0" Padding="0">
+                        <Label Text="0" TextColor="WhiteSmoke" HorizontalOptions="Center" FontSize="18"
                                VerticalOptions="Center" HorizontalTextAlignment="Center"
                                x:Name="lblcartcount">
                             <Label.GestureRecognizers>
@@ -134,12 +135,11 @@
     <AbsoluteLayout>
         <Grid RowSpacing="0" AbsoluteLayout.LayoutBounds="0,0,1,1"
               AbsoluteLayout.LayoutFlags="All">
-        <!--Custom AppBar-->
-        <StackLayout>
+            <StackLayout>
             <Grid RowSpacing="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50" />
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -155,19 +155,13 @@
                                TextChanged="Prosearh_OnTextChanged" />
                 </Grid>
                 <!--Menu Tray-->
-                <Grid Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="0">
-                    <!--<Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Label Grid.Row="0" Text="Sections" 
-                       FontSize="20" FontAttributes="Bold" />-->
-                    <RefreshView x:Name="RefreshView" RefreshColor="{StaticResource Textcolor}"
-                                 BackgroundColor="{StaticResource Primary}" Refreshing="RefreshView_OnRefreshing">
+                    <Grid Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="0" BackgroundColor="{StaticResource Textcolor}">
+                        <RefreshView x:Name="RefreshView" RefreshColor="{StaticResource Textcolor}" VerticalOptions="FillAndExpand" 
+                                     BackgroundColor="{StaticResource Primary}" Refreshing="RefreshView_OnRefreshing">
                         <CollectionView ItemsSource="{Binding TBL_Category}"
                                         x:Name="ListCategories" SelectionMode="Single"
                                         HorizontalScrollBarVisibility="Always" x:FieldModifier="public"
-                                        VerticalOptions="Fill" SelectionChanged="ListCategories_OnSelectionChanged">
+                                        VerticalOptions="FillAndExpand" SelectionChanged="ListCategories_OnSelectionChanged">
                             <CollectionView.ItemsLayout>
                                 <GridItemsLayout Orientation="Vertical"
                                                  Span="2" />
@@ -206,6 +200,14 @@
                             </CollectionView.ItemTemplate>
                         </CollectionView>
                     </RefreshView>
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
+                                 IsVisible="False" x:Name="ErrorLayout">
+                            <Image Source="nointernet" VerticalOptions="CenterAndExpand"
+                               x:Name="imgnofound"
+                               HeightRequest="250" WidthRequest="250"/>
+                        <Button Text="Retry" FontAttributes="Bold" CornerRadius="10" BackgroundColor="{StaticResource Primary}"
+                                x:Name="btnretry" Clicked="Btnretry_OnClicked"/>
+                    </StackLayout>
                 </Grid>
             </Grid>
         </StackLayout>

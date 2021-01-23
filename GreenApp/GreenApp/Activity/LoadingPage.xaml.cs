@@ -29,7 +29,6 @@ namespace GreenApp.Activity
                 {
                     user_id = users.Id;
                     fullname = users.full_name;
-                    address = users.address;
                     mobilenum = users.mobile_num;
                     emailadd = users.emailadd;
                     password = users.password;

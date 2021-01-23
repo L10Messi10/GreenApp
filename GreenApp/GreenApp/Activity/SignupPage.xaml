@@ -21,14 +21,10 @@
 						   Placeholder="Mobile #" TextColor="{StaticResource TextColor}"
 						   Keyboard="Numeric"
 						   PlaceholderColor="{StaticResource PlaceHolderColor}" />
-					<Entry x:Name="addressentry" BackgroundColor="#E5E5E5"
-						   Placeholder="Address" TextColor="{StaticResource TextColor}"
-						   Keyboard="Chat"
-						   PlaceholderColor="{StaticResource PlaceHolderColor}" />
-					<Entry x:Name="emailentry" BackgroundColor="#E5E5E5"
-						   Placeholder="Email address" TextColor="{StaticResource TextColor}"
-						   Keyboard="Email" TextChanged="Emailentry_OnTextChanged"
-						   PlaceholderColor="{StaticResource PlaceHolderColor}" />
+                    <Entry x:Name="emailentry" BackgroundColor="#E5E5E5"
+                           Placeholder="Email address" TextColor="{StaticResource TextColor}"
+                           Keyboard="Email" TextChanged="Emailentry_OnTextChanged"
+                           PlaceholderColor="{StaticResource PlaceHolderColor}" />
 					<Label IsVisible="False" x:Name="lblerror" Text="Invalid email address!" TextColor="Red"
 						   FontSize="12"/>
 					<Entry x:Name="passentry" BackgroundColor="#E5E5E5"
