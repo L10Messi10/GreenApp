@@ -33,7 +33,7 @@
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <!-- Here add the code that is being explained in the next block-->
                     <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
@@ -48,23 +48,19 @@
                                 <RowDefinition Height="20"/>
                                 <RowDefinition Height="20"/>
                                 <RowDefinition Height="20"/>
-                                <RowDefinition Height="20"/>
                             </Grid.RowDefinitions>
-                            <Image Grid.Row="1" Grid.Column="0" Source="home"/>
-                            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding address}" FontSize="12"
-                               LineBreakMode="TailTruncation"  HeightRequest="50" />
-                            <Image Grid.Row="2" Grid.Column="0" Source="phone"/>
-                            <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding mobile_num}" FontSize="12"
+                            <Image Grid.Row="1" Grid.Column="0" Source="phone"/>
+                            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding mobile_num}" FontSize="12"
                                HeightRequest="50"/>
-                            <Image Grid.Row="3" Grid.Column="0" Source="email_send"/>
-                            <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding emailadd}" FontSize="12"
+                            <Image Grid.Row="2" Grid.Column="0" Source="email_send"/>
+                            <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding emailadd}" FontSize="12"
                                HeightRequest="50"/>
-                            <Image Grid.Row="4" Grid.Column="0" Source="history"/>
-                            <Label Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding datereg, StringFormat='{0:MMMM, yyyy}'}" FontSize="12"
+                            <Image Grid.Row="3" Grid.Column="0" Source="history"/>
+                            <Label Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding datereg, StringFormat='{0:MMMM, yyyy}'}" FontSize="12"
                                HeightRequest="50"/>
                         </Grid>
                     </StackLayout>
-                    <CollectionView VerticalOptions="StartAndExpand" x:Name="OrdersList" HorizontalOptions="Fill"
+                    <CollectionView VerticalOptions="FillAndExpand" x:Name="OrdersList" HorizontalOptions="Fill"
                                 VerticalScrollBarVisibility="Never"
                                 Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" >
                         <CollectionView.ItemTemplate>

@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using GreenApp.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static System.DateTime;
+using static GreenApp.Activity.AddressesPage;
 using static GreenApp.App;
 
 namespace GreenApp.Activity
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CheckOutPage : ContentPage
+    public partial class CheckOutPage
     {
-        private string selected_order;
         private double totaSum;
         private string itemid;
         private int itemcount;
@@ -34,6 +35,8 @@ namespace GreenApp.Activity
                 deliveryAddLayout.IsVisible = true;
                 pickUpLayout.IsVisible = false;
                 lblorderstate.Text = "Loading order . . .";
+                var getAddresses = (await MobileService.GetTable<TBL_Addresses>().Where(p => p.id == _selectedAddressId).ToListAsync()).FirstOrDefault();
+                deliveryAddLayout.BindingContext = getAddresses;
                 if (CurrentOrderId != null)
                 {
                     var getorders = await MobileService.GetTable<V_Orders>().Where(orders => orders.order_id == CurrentOrderId).ToListAsync();
@@ -41,8 +44,8 @@ namespace GreenApp.Activity
                     itemcount = getorders.Count;
                     //ordercollection.ItemsSource.re
                     totaSum = getorders.AsQueryable().Sum(ord => ord.sub_total);
-                    lblsubtotal.Text = totaSum.ToString(CultureInfo.InvariantCulture);
-                    totalpayable.Text ="Php "+ totaSum.ToString(CultureInfo.InvariantCulture);
+                    lblsubtotal.Text ="Php. "+ totaSum.ToString(CultureInfo.InvariantCulture);
+                    totalpayable.Text ="Php. "+ totaSum.ToString(CultureInfo.InvariantCulture);
                     itemid = null;
                     Selected_ProdId = null;
                     progressplaceorder.IsVisible = false;
@@ -62,57 +65,79 @@ namespace GreenApp.Activity
                 progressplaceorder.IsVisible = false;
                 await Navigation.PushAsync(new NoInternetPage(), true);
             }
-            
         }
 
         private async void Btncheckout_OnClicked(object sender, EventArgs e)
         {
             //try
             //{
-            if (totalpayable.Text != "0")
-            {
-                var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
-                if (stat != null) MarketStatus = stat.status;
-                if (MarketStatus == "1")
+                if (progressplaceorder.IsVisible) return;
+                if (totalpayable.Text != "0")
                 {
-                    var answer = await DisplayAlert("Confirm", "Do you want to confirm this order?", "Yes", "No");
-                    if (answer)
+                    var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
+                    if (stat != null) MarketStatus = stat.status;
+                    if (MarketStatus == "1")
                     {
+                        var answer = await DisplayAlert("Confirm", "Do you want to confirm this order?", "Yes", "No");
+                        if (!answer) return;
                         progressplaceorder.IsVisible = true;
                         lblorderstate.Text = "Placing your order . . .";
-                        var orderDetails = new TBL_Orders()
+                        if (Switch.IsToggled)
                         {
-                            id = CurrentOrderId,
-                            users_id = user_id,
-                            order_date = Now.ToString("yyyy-MM-dd"),
-                            stat = "1",
-                            order_status = "Ordered",
-                            order_choice = selected_order,
-                            del_rcvr = order_rcvr_name,
-                            delvry_address = order_rcvr_add,
-                            del_lat = order_lat.ToString(CultureInfo.InvariantCulture),
-                            del_long = order_long.ToString(CultureInfo.InvariantCulture),
-                            del_rcvr_num = order_rcvr_num,
-                            tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
-                        };
-                        await TBL_Orders.Update(orderDetails);
+                            //Save delivery order
+                            var orderDetails = new TBL_Orders()
+                            {
+                                id = CurrentOrderId,
+                                users_id = user_id,
+                                order_date = Now.ToString("yyyy-MM-dd"),
+                                stat = "1",
+                                order_status = "Ordered",
+                                order_choice = "Delivery",
+                                del_address = order_rcvr_add,
+                                notes = order_notes,
+                                del_lat = order_lat.ToString(CultureInfo.InvariantCulture),
+                                del_long = order_long.ToString(CultureInfo.InvariantCulture),
+                                pickup_time = "-",
+                                tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
+
+                            };
+                            await TBL_Orders.Update(orderDetails);
+                        }
+                        else
+                        {
+                            //Save Pickup order
+                            var orderDetails = new TBL_Orders()
+                            {
+                                id = CurrentOrderId,
+                                users_id = user_id,
+                                order_date = Now.ToString("yyyy-MM-dd"),
+                                stat = "1",
+                                order_status = "Ordered",
+                                order_choice = "Pickup",
+                                del_address = "-",
+                                notes = "-",
+                                del_lat = "-",
+                                del_long = "-",
+                                pickup_time = pickupTime.Time.ToString(),
+                                tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
+                            };
+                            await TBL_Orders.Update(orderDetails);
+                        }
                         checkout = true;
                         progressplaceorder.IsVisible = false;
                         await Navigation.PushAsync(new ConfirmationPage(), true);
+                    }
+                    else
+                    {
+                        progressplaceorder.IsVisible = false;
+                        await Navigation.PushAsync(new MarketClosePage(), true);
                     }
                 }
                 else
                 {
                     progressplaceorder.IsVisible = false;
-                    await Navigation.PushAsync(new MarketClosePage(), true);
+                    await DisplayAlert("Cart empty", "Your cart is empty!", "OK");
                 }
-            }
-            else
-            {
-                progressplaceorder.IsVisible = false;
-                await DisplayAlert("Cart empty", "Your cart is empty!", "OK");
-            }
-
             //}
             //catch
             //{
@@ -254,21 +279,6 @@ namespace GreenApp.Activity
             }
         }
 
-        private void Picker_OnSelectedIndexChanged(object sender, EventArgs e)
-        {
-            //var picker = (Picker)sender;
-            //int selectedIndex = picker.SelectedIndex;
-
-            //if (selectedIndex != -1)
-            //{
-            //    selected_order = (string)picker.ItemsSource[selectedIndex];
-            //    if (selected_order == "Delivery")
-            //    {
-            //        await Navigation.PushAsync(new DeliveryLocationPage(), true);
-            //    }
-            //}
-        }
-
         private void Switch_OnToggled(object sender, ToggledEventArgs e)
         {
             if (Switch.IsToggled)
@@ -280,11 +290,19 @@ namespace GreenApp.Activity
             }
             else
             {
-                pickupTime.Time = Now.TimeOfDay;
+                DateTime currentTime = Now;
+                DateTime x30MinsLater = currentTime.AddMinutes(40);
+                pickupTime.Time = x30MinsLater.TimeOfDay;
                 lblchoice.Text = "Pickup time: ";
                 deliveryAddLayout.IsVisible = false;
                 pickUpLayout.IsVisible = true;
             }
+        }
+
+        private async void Btnchange_OnClicked(object sender, EventArgs e)
+        {
+            _CheckingOut = true;
+            await Navigation.PushAsync(new AddressesPage(), true);
         }
     }
 }

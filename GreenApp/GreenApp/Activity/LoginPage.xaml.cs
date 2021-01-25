@@ -57,6 +57,8 @@ namespace GreenApp.Activity
                         {
                             if (MarketStatus == "1")
                             {
+                                var getAddresses = (await MobileService.GetTable<TBL_Addresses>().Where(p => p.user_id == users.Id).ToListAsync()).FirstOrDefault();
+                                if (getAddresses != null) AddressesPage._selectedAddressId = getAddresses.id;
                                 user_id = users.Id;
                                 fullname = users.full_name;
                                 mobilenum = users.mobile_num;

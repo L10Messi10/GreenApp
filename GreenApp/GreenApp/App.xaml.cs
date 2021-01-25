@@ -28,9 +28,9 @@ namespace GreenApp
         public static double order_lat;
         public static double order_long;
         public static string order_choice;
-        public static string order_rcvr_name;
         public static string order_rcvr_add;
         public static string order_rcvr_num;
+        public static string order_notes;
         //network
         public static bool hasnetwork;
 

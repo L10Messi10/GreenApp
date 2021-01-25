@@ -32,25 +32,25 @@
                                     VerticalOptions="Center"
                                     HorizontalOptions="Center"
                                     HeightRequest="330"
-                                    WidthRequest="260"
-                                    Padding="0" Margin="8"
+                                    WidthRequest="200"
+                                    Padding="0" Margin="5"
                                     HasShadow="True" BackgroundColor="{StaticResource FrameColor}"
                                     CornerRadius="10">
                                     <StackLayout WidthRequest="250" HorizontalOptions="CenterAndExpand"
-                                                 VerticalOptions="Start" Margin="0,5">
+                                                 VerticalOptions="Start" Margin="0">
                                         <Frame VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
-                                               CornerRadius="5" BackgroundColor="Gray" Margin="0" Padding="0"
+                                               CornerRadius="0" BackgroundColor="Gray" Margin="0" Padding="0"
                                                HasShadow="True">
                                             <ff:CachedImage Source="{Binding img_uri}" HeightRequest="150"
                                                             WidthRequest="250"
                                                             Aspect="AspectFill" />
                                         </Frame>
-                                        <StackLayout>
+                                        <StackLayout Margin="5,0,0,0">
                                             <Label Text="{Binding prod_name}" FontSize="Large"
                                                    TextColor="{StaticResource TextColor}"
                                                    FontAttributes="Bold" />
                                         </StackLayout>
-                                        <BoxView HeightRequest="0.1" BackgroundColor="Silver" />
+                                        <BoxView HeightRequest="1" BackgroundColor="Silver" Margin="5,0,5,0"/>
                                         <StackLayout Margin="10">
                                             <Grid HorizontalOptions="FillAndExpand">
                                                 <Grid.RowDefinitions>
@@ -149,21 +149,20 @@
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <Label x:Name="lblDelAddress" Grid.Column="0" Grid.ColumnSpan="2"
-                                           >
+                                    <Label x:Name="lblDelAddress" Grid.Column="0" Grid.ColumnSpan="2">
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="Home: "
-                                                      FontAttributes="Bold"
-                                                      TextColor="{StaticResource TextBackColor}" />
-                                                <Span Text="Datu Abdul dadia Panabo City"
+                                                <Span Text="{Binding Label}"
+                                                      FontAttributes="Bold" />
+                                                <Span Text=" : " FontAttributes="Bold"/>
+                                                <Span Text="{Binding Address}"
                                                       TextColor="{StaticResource TextColor}"/>
                                             </FormattedString>
                                         </Label.FormattedText>
                                             </Label>
                                     <Button x:Name="btnchange" Grid.Column="2" BorderColor="{StaticResource Primary}" 
-                                            BorderWidth="1" BackgroundColor="Transparent"
-                                            HeightRequest="35" Text="Change" FontSize="12"/>
+                                            BorderWidth="1" BackgroundColor="Transparent" FontAttributes="Italic" TextColor="{StaticResource Primary}"
+                                            HeightRequest="35" Text="Change" FontSize="12" Clicked="Btnchange_OnClicked"/>
                                 </Grid>
                                 <StackLayout x:Name="pickUpLayout">
                                     <Label Text="Pickup time of item."/>
@@ -172,13 +171,15 @@
                                                 />
                                 </StackLayout>
                             </StackLayout>
-                            
+                            <BoxView HeightRequest="1" WidthRequest="300" BackgroundColor="WhiteSmoke"/>
                         </StackLayout>
-                        <Label Grid.Row="3" Grid.Column="0" Text="SUB TOTAL" TextColor="{StaticResource PriceColor}"/>
+                        <Label Grid.Row="3" Grid.Column="0" Text="Sub-total" TextColor="{StaticResource PriceColor}"
+                               FontAttributes="Bold"/>
                         <Label x:Name="lblsubtotal" Grid.Row="3" Grid.Column="2" Text="0"
                                HorizontalOptions="EndAndExpand" VerticalOptions="Center"
                                FontSize="Medium" TextColor="{StaticResource PriceColor}" FontAttributes="Bold" />
-                        <Label Grid.Row="4" Grid.Column="0" Text="DELIVERY FEE" TextColor="{StaticResource PriceColor}" />
+                        <Label Grid.Row="4" Grid.Column="0" Text="Delivery fee"
+                               FontAttributes="Bold" TextColor="{StaticResource PriceColor}" />
                         <Label Grid.Row="4" Grid.Column="2" Text="0" HorizontalOptions="End"
                                FontSize="Medium" TextColor="{StaticResource PriceColor}" FontAttributes="Bold" />
                     </Grid>
@@ -222,9 +223,9 @@
                            FontSize="14"/>
                 </StackLayout>
                 <Button Grid.Column="2" Text="Checkout!" Grid.Row="1" Grid.ColumnSpan="2"
-                    TextColor="{StaticResource Primary}" FontSize="15"
+                    TextColor="{StaticResource Primary}" FontSize="15" FontAttributes="Bold"
                     BackgroundColor="{StaticResource BackgroundColor}" CornerRadius="5"
-                    x:Name="btncheckout" Clicked="Btncheckout_OnClicked" />
+                    x:Name="btncheckout" Clicked="Btncheckout_OnClicked"/>
         </Grid>
     </StackLayout>
     </StackLayout>

@@ -10,12 +10,12 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using GreenApp.Activity;
 using GreenApp.Models;
 using System.Threading.Tasks;
 using GreenApp.Utils;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static GreenApp.Activity.AddressesPage;
 using static GreenApp.App;
 
 namespace GreenApp.Droid
@@ -58,6 +58,15 @@ namespace GreenApp.Droid
                         refresh = false;
                         SignedIn = true;
                         hasnetwork = true;
+                        var getAddresses = (await MobileService.GetTable<TBL_Addresses>().Where(p => p.user_id == users.Id).ToListAsync()).FirstOrDefault();
+                        if (getAddresses != null)
+                        {
+                            _selectedAddressId = getAddresses.id;
+                            order_long = getAddresses.add_long;
+                            order_lat = getAddresses.add_lat;
+                            order_rcvr_add = getAddresses.Address;
+                            order_notes = getAddresses.Notes;
+                        }
                         //indicatorloader.IsVisible = false;
                         //Settings.LastUsedEmail = chkremember.IsChecked ? emailentry.Text : "";
                         //await DisplayAlert("Success", "Email or password is incorrect!", "OK");

@@ -15,6 +15,7 @@ namespace GreenApp.Activity
     public partial class AddressesPage : ContentPage
     {
         public static string _selectedAddressId;
+        public static bool _CheckingOut;
         public AddressesPage()
         {
             InitializeComponent();
@@ -61,10 +62,25 @@ namespace GreenApp.Activity
             await getUserAddresses();
         }
 
-        private void ListAddress_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void ListAddress_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (ListAddress.SelectedItem == null) return;
             _selectedAddressId = (e.CurrentSelection.FirstOrDefault() as TBL_Addresses)?.id;
+            if (_CheckingOut)
+            {
+                var getAddresses = (await MobileService.GetTable<TBL_Addresses>().Where(p => p.user_id == user_id).ToListAsync()).FirstOrDefault();
+                if (getAddresses != null)
+                {
+                    _selectedAddressId = getAddresses.id;
+                    order_long = getAddresses.add_long;
+                    order_lat = getAddresses.add_lat;
+                    order_rcvr_add = getAddresses.Address;
+                    order_notes = getAddresses.Notes;
+                }
+
+                _CheckingOut = false;
+                await Navigation.PopAsync(true);
+            }
         }
 
         private async void Deleteitem_OnClicked(object sender, EventArgs e)
