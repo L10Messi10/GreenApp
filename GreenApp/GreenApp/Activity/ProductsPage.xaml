@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" Title="Products"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             Title="Products"
              x:Class="GreenApp.Activity.ProductsPage" BackgroundColor="{StaticResource BackgroundColor}">
     <ContentPage.Resources>
         <Style TargetType="Grid">
@@ -20,6 +22,47 @@
             </Setter>
         </Style>
     </ContentPage.Resources>
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label VerticalOptions="Center"
+               HorizontalOptions="StartAndExpand">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Products" FontSize="20"
+                          TextColor="{StaticResource Textcolor}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <StackLayout HorizontalOptions="EndAndExpand">
+                <AbsoluteLayout>
+                    <Image Source="cart.png" Aspect="AspectFit" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                       AbsoluteLayout.LayoutFlags="All" HeightRequest="50"
+                       HorizontalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Frame BackgroundColor="Transparent" AbsoluteLayout.LayoutBounds="0,0,1,1" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"
+                       AbsoluteLayout.LayoutFlags="All"
+                       HeightRequest="30" WidthRequest="30" CornerRadius="25" Margin="0" Padding="0">
+                        <Label Text="0" TextColor="WhiteSmoke" HorizontalOptions="Center" FontSize="18"
+                           VerticalOptions="CenterAndExpand"
+                           x:Name="lblcartcount">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </AbsoluteLayout>
+            </StackLayout>
+        </StackLayout>
+        
+        
+        
+    </NavigationPage.TitleView>
     <AbsoluteLayout>
         <Grid AbsoluteLayout.LayoutBounds="0,0,1,1"
               AbsoluteLayout.LayoutFlags="SizeProportional">
@@ -33,7 +76,7 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition />
                 </Grid.RowDefinitions>
@@ -41,32 +84,44 @@
                     <ColumnDefinition />
                     <ColumnDefinition Width="50" />
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#E2F0E2">
+                <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" RowSpacing="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
-                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <SearchBar Grid.Column="0" CancelButtonColor="{StaticResource TextColor}"
-                               IsVisible="True" HorizontalOptions="Start"
-                               PlaceholderColor="Gray" Placeholder="Search products. . . ."
-                               Visual="Material" TextColor="{StaticResource TextColor}" x:Name="prosearh"
-                               TextChanged="Prosearh_OnTextChanged" />
-                    <Image Grid.Row="0" Grid.Column="1" Source="cart.png" Aspect="AspectFit"
-                           HorizontalOptions="FillAndExpand">
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" NumberOfTapsRequired="1" />
-                        </Image.GestureRecognizers>
-                    </Image>
+                    <ff:CachedImage x:Name="catImg" Aspect="AspectFill" Grid.Row="0" Grid.RowSpan="3"
+                                        DownsampleToViewSize="True" Grid.Column="0" Grid.ColumnSpan="2" >
+                        <ff:CachedImage.Transformations>
+                            <transformations:BlurredTransformation Radius="15" />
+                        </ff:CachedImage.Transformations>
+                    </ff:CachedImage>
+                    <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="Transparent" CornerRadius="50"
+                           BorderColor="{StaticResource Primary}" Padding="0"
+                           Margin="0,10,0,0"
+                           HorizontalOptions="CenterAndExpand">
+                        <SearchBar CancelButtonColor="{StaticResource TextColor}"
+                                   IsVisible="True"
+                                   PlaceholderColor="Silver" Placeholder="Search products. . . ."
+                                   Visual="Material" TextColor="{StaticResource TextColor}" x:Name="prosearh"
+                                   TextChanged="Prosearh_OnTextChanged" />
+                    </Frame>
+                    <Frame Padding="0" Grid.Row="2" Grid.Column="1" Margin="0,0,10,10" BorderColor="{StaticResource Primary}" CornerRadius="50">
+                        <Label x:Name="lblSection"  Text="Section name" VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand"
+                               TextColor="{StaticResource Primary}" FontSize="18"/>
+                    </Frame>
                 </Grid>
                 <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <Label Grid.Row="0" Text="Products" HeightRequest="15"
-                           FontSize="20" FontAttributes="Bold" />
                     <RefreshView Grid.Row="0" x:Name="RefreshView" RefreshColor="{StaticResource Textcolor}"
                                  BackgroundColor="{StaticResource Primary}" HorizontalOptions="FillAndExpand" Refreshing="RefreshView_OnRefreshing">
-                        <CollectionView Margin="0,25,0,0" x:Name="ListProducts" SelectionMode="Single"
+                        <CollectionView Margin="0,0,0,0" x:Name="ListProducts" SelectionMode="Single"
                                         VerticalOptions="Fill" SelectionChanged="ListProducts_OnSelectionChanged">
                             <CollectionView.ItemsLayout>
                                 <GridItemsLayout Orientation="Vertical"
@@ -140,19 +195,6 @@
                 </Grid>
             </Grid>
         </Grid>
-        <Frame AbsoluteLayout.LayoutBounds="0.9,0,30,30" BackgroundColor="Red"
-               AbsoluteLayout.LayoutFlags="PositionProportional"
-               HeightRequest="20" WidthRequest="20" CornerRadius="25" Margin="0" Padding="0">
-            <Label Text="0" TextColor="WhiteSmoke" HorizontalOptions="Center" FontSize="15"
-                   VerticalOptions="CenterAndExpand"
-                   x:Name="lblcartcount">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped" />
-                </Label.GestureRecognizers>
-            </Label>
-            <Frame.GestureRecognizers>
-                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped" />
-            </Frame.GestureRecognizers>
-        </Frame>
+        
     </AbsoluteLayout>
 </ContentPage>

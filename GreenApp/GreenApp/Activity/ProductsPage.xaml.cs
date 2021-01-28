@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using GreenApp.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static GreenApp.Activity.MenuPage;
 using static GreenApp.App;
 
 namespace GreenApp.Activity
@@ -27,7 +28,8 @@ namespace GreenApp.Activity
         {
             try
             {
-
+                catImg.Source = cat_img_uri;
+                lblSection.Text = Selected_CatID;
                 ListProducts.IsVisible = true;
                 ErrorLayout.IsVisible = false;
                 var getproducts = await MobileService.GetTable<TBL_Products>().Where(p => p.category_name == Selected_CatID).ToListAsync();

@@ -21,16 +21,15 @@ namespace GreenApp
         public static bool SignedIn;
         public static string Selected_orderID;
         //Customer info
-        public static string fullname, address, mobilenum, emailadd, password, propic,picstr;
+        public static string fullname, mobilenum, emailadd, password, propic,picstr;
         public static DateTime datereg;
         public static bool historyloaded = false;
         //Order delivery info
         public static double order_lat;
         public static double order_long;
-        public static string order_choice;
         public static string order_rcvr_add;
-        public static string order_rcvr_num;
         public static string order_notes;
+        //public static string order_
         //network
         public static bool hasnetwork;
 

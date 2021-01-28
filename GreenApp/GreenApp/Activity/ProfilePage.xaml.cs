@@ -31,9 +31,6 @@ namespace GreenApp.Activity
             try
             {
                 progressload.IsVisible = true;
-                var getorders = (await MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id == user_id).ToListAsync());
-                OrdersList.ItemsSource = getorders;
-
                 var profile = (await MobileService.GetTable<TBL_Users>().Where(prof => prof.Id == user_id).ToListAsync()).FirstOrDefault();
                 profilegrid.BindingContext = profile;
                 progressload.IsVisible = false;

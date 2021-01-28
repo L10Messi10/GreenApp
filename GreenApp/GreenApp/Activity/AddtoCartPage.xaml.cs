@@ -151,7 +151,6 @@ namespace GreenApp.Activity
                         prod_id = Selected_ProdId,
                         qty = qtystepper.Text.ToString(CultureInfo.InvariantCulture),
                         sell_price = txtprice.Text,
-                        cart_datetime = Now.ToString(CultureInfo.CurrentCulture),
                         sub_total = txtsubtotal.Text
                     };
                     await TBL_Order_Details.Insert(orderDetails);
@@ -168,7 +167,6 @@ namespace GreenApp.Activity
                         prod_id = Selected_ProdId,
                         qty = qtystepper.Text.ToString(CultureInfo.InvariantCulture),
                         sell_price = txtprice.Text,
-                        cart_datetime = Now.ToString(CultureInfo.CurrentCulture),
                         sub_total = txtsubtotal.Text
                     };
                     await TBL_Order_Details.Update(orderDetails);

@@ -58,7 +58,7 @@ namespace GreenApp.Droid
                         refresh = false;
                         SignedIn = true;
                         hasnetwork = true;
-                        var getAddresses = (await MobileService.GetTable<TBL_Addresses>().Where(p => p.user_id == users.Id).ToListAsync()).FirstOrDefault();
+                        var getAddresses = (await MobileService.GetTable<TBL_Addresses>().Where(p => p.user_id == user_id).ToListAsync()).FirstOrDefault();
                         if (getAddresses != null)
                         {
                             _selectedAddressId = getAddresses.id;

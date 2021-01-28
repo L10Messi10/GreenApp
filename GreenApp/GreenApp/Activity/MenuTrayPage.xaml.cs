@@ -47,37 +47,37 @@ namespace GreenApp.Activity
 
         private async void Btnlogin_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new LoginPage());
+            await Navigation.PushAsync(new LoginPage(), false);
         }
 
         private async void Bbtnsignin_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SignupPage());
+            await Navigation.PushAsync(new SignupPage(), false);
         }
 
         private async void Profile_OnTapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ProfilePage(), true);
+            await Navigation.PushAsync(new ProfilePage(), false);
         }
 
         private async void Addresses_OnTapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AddressesPage(), true);
+            await Navigation.PushAsync(new AddressesPage(), false);
         }
 
         private async void Orders_OnTapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new OrderHistoryPage(), true);
+            await Navigation.PushAsync(new OrderHistoryPage(), false);
         }
 
         private async void Feedback_OnTapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new FeedBackPage(), true);
+            await Navigation.PushAsync(new FeedBackPage(), false);
         }
 
         private async void About_OnTapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AboutPage(), true);
+            await Navigation.PushAsync(new AboutPage(), false);
         }
 
         private async void Logout_OnTapped(object sender, EventArgs e)
@@ -87,8 +87,17 @@ namespace GreenApp.Activity
             if (!ans) return;
             SignedIn = false;
             CurrentOrderId = "";
-            user_id = "";
             Settings.LastUsedEmail = "";
+            user_id = "";
+            fullname = "";
+            mobilenum = "";
+            emailadd = "";
+            password = "";
+            propic = "";
+            picstr = "";
+            CurrentOrderId = null;
+            refresh = false;
+            AddressesPage._selectedAddressId = "";
             getLoginSetting();
             //throw new NotImplementedException();
         }

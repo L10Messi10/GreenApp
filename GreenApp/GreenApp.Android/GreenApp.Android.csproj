@@ -273,10 +273,16 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\backgroundStylexml.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\trash_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\grab.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties XamarinHotReloadDebuggerTimeoutExceptionGreenAppAndroidHideInfoBar="True" XamarinHotReloadUnhandledDeviceExceptionGreenAppAndroidHideInfoBar="True" TriggeredFromHotReload="False" />
+      <UserProperties TriggeredFromHotReload="False" XamarinHotReloadUnhandledDeviceExceptionGreenAppAndroidHideInfoBar="True" XamarinHotReloadDebuggerTimeoutExceptionGreenAppAndroidHideInfoBar="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

@@ -12,7 +12,7 @@
         <Label Text="Your Addresses" FontAttributes="Bold" FontSize="18"/>
         <AbsoluteLayout>
             <RefreshView x:Name="RefreshView" Refreshing="RefreshView_OnRefreshing" AbsoluteLayout.LayoutBounds="0,0,1,1"
-                         AbsoluteLayout.LayoutFlags="All">
+                         AbsoluteLayout.LayoutFlags="All" BackgroundColor="{StaticResource Primary}" RefreshColor="White">
                 <CollectionView x:Name="ListAddress" SelectionMode="Single" x:FieldModifier="public"
                                 VerticalOptions="FillAndExpand" SelectionChanged="ListAddress_OnSelectionChanged">
                     <CollectionView.ItemsLayout>

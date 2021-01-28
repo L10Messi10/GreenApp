@@ -26,10 +26,12 @@ namespace GreenApp.Droid
         };
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-            base.OnCreate(savedInstanceState);;
+            base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            Forms.SetFlags("SwipeView_Experimental"); // Add here
             Current.Init(this, savedInstanceState);
             //Initialize(ApplicationContext, "ca-app-pub-7879306170422036/6877254608");
             Forms.SetFlags("UseLegacyRenderers");
@@ -47,7 +49,6 @@ namespace GreenApp.Droid
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-            
         }
         
     }

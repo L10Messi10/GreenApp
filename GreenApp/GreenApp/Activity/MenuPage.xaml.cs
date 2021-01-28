@@ -9,6 +9,7 @@ using GreenApp.Utils;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
+using static GreenApp.Activity.AddressesPage;
 using static GreenApp.App;
 using static Xamarin.Forms.Application;
 
@@ -17,6 +18,7 @@ namespace GreenApp.Activity
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : ContentPage
     {
+        public static string cat_img_uri;
         public MenuPage()
         {
             InitializeComponent();
@@ -91,6 +93,19 @@ namespace GreenApp.Activity
                     refresh = true;
                     RefreshView.IsRefreshing = false;
                     progressLoading.IsVisible = false;
+                }
+
+                if (_selectedAddressId == "")
+                {
+                    var getAddresses = (await MobileService.GetTable<TBL_Addresses>().Where(p => p.user_id == user_id).ToListAsync()).FirstOrDefault();
+                    if (getAddresses != null)
+                    {
+                        _selectedAddressId = getAddresses.id;
+                        order_long = getAddresses.add_long;
+                        order_lat = getAddresses.add_lat;
+                        order_rcvr_add = getAddresses.Address;
+                        order_notes = getAddresses.Notes;
+                    }
                 }
                 //Try to retrieve incomplete order if any.
                 //There might be a case of deleting the order
@@ -191,6 +206,7 @@ namespace GreenApp.Activity
         {
             if (ListCategories.SelectedItem == null) return;
             Selected_CatID = (e.CurrentSelection.FirstOrDefault() as TBL_Category)?.category_name;
+            cat_img_uri = (e.CurrentSelection.FirstOrDefault() as TBL_Category)?.catimg_uri;
             await Navigation.PushAsync(new ProductsPage(), true);
         }
 
@@ -203,7 +219,7 @@ namespace GreenApp.Activity
         private async void TapMenu_OnTapped(object sender, EventArgs e)
         {
             if (progressLoading.IsVisible || ErrorLayout.IsVisible ) return;
-            await Navigation.PushAsync(new MenuTrayPage(),true);
+            await Navigation.PushAsync(new MenuTrayPage(), false);
         }
 
         private async void Btnretry_OnClicked(object sender, EventArgs e)

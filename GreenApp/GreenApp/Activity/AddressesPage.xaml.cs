@@ -47,14 +47,14 @@ namespace GreenApp.Activity
             catch
             {
                 RefreshView.IsRefreshing = false;
-                await Navigation.PushAsync(new NoInternetPage(), true);
+                await Navigation.PushAsync(new NoInternetPage(), false);
             }
         }
 
         private async void Button_OnClicked(object sender, EventArgs e)
         {
             _newAdd = true;
-            await Navigation.PushAsync(new DeliveryLocationPage());
+            await Navigation.PushAsync(new DeliveryLocationPage(),false);
         }
 
         private async void RefreshView_OnRefreshing(object sender, EventArgs e)
@@ -68,7 +68,7 @@ namespace GreenApp.Activity
             _selectedAddressId = (e.CurrentSelection.FirstOrDefault() as TBL_Addresses)?.id;
             if (_CheckingOut)
             {
-                var getAddresses = (await MobileService.GetTable<TBL_Addresses>().Where(p => p.user_id == user_id).ToListAsync()).FirstOrDefault();
+                var getAddresses = (await MobileService.GetTable<TBL_Addresses>().Where(p => p.id == _selectedAddressId).ToListAsync()).FirstOrDefault();
                 if (getAddresses != null)
                 {
                     _selectedAddressId = getAddresses.id;
@@ -77,9 +77,8 @@ namespace GreenApp.Activity
                     order_rcvr_add = getAddresses.Address;
                     order_notes = getAddresses.Notes;
                 }
-
                 _CheckingOut = false;
-                await Navigation.PopAsync(true);
+                await Navigation.PopAsync(false);
             }
         }
 

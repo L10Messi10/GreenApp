@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -71,72 +72,84 @@ namespace GreenApp.Activity
         {
             //try
             //{
-                if (progressplaceorder.IsVisible) return;
-                if (totalpayable.Text != "0")
+                if (SignedIn)
                 {
-                    var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
-                    if (stat != null) MarketStatus = stat.status;
-                    if (MarketStatus == "1")
+                    if (progressplaceorder.IsVisible) return;
+                    if (totalpayable.Text != "0")
                     {
-                        var answer = await DisplayAlert("Confirm", "Do you want to confirm this order?", "Yes", "No");
-                        if (!answer) return;
-                        progressplaceorder.IsVisible = true;
-                        lblorderstate.Text = "Placing your order . . .";
-                        if (Switch.IsToggled)
+                        var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
+                        if (stat != null) MarketStatus = stat.status;
+                        if (MarketStatus == "1")
                         {
-                            //Save delivery order
-                            var orderDetails = new TBL_Orders()
+                            var answer = await DisplayAlert("Confirm", "Do you want to confirm this order?", "Yes", "No");
+                            if (!answer) return;
+                            progressplaceorder.IsVisible = true;
+                            lblorderstate.Text = "Placing your order . . .";
+                            if (Switch.IsToggled)
                             {
-                                id = CurrentOrderId,
-                                users_id = user_id,
-                                order_date = Now.ToString("yyyy-MM-dd"),
-                                stat = "1",
-                                order_status = "Ordered",
-                                order_choice = "Delivery",
-                                del_address = order_rcvr_add,
-                                notes = order_notes,
-                                del_lat = order_lat.ToString(CultureInfo.InvariantCulture),
-                                del_long = order_long.ToString(CultureInfo.InvariantCulture),
-                                pickup_time = "-",
-                                tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
+                                //Save delivery order
+                                var orderDetails = new TBL_Orders()
+                                {
+                                    id = CurrentOrderId,
+                                    users_id = user_id,
+                                    order_date = Now.ToString("yyyy-MM-dd"),
+                                    cart_datetime = Now.ToString("ddd, dd MMM yyyy h:mm tt"),
+                                    stat = "1",
+                                    order_status = "Ordered",
+                                    order_choice = "Delivery",
+                                    del_address = order_rcvr_add,
+                                    notes = order_notes,
+                                    del_lat = order_lat.ToString(CultureInfo.InvariantCulture),
+                                    del_long = order_long.ToString(CultureInfo.InvariantCulture),
+                                    pickup_time = "-",
+                                    itms_qty = itemcount.ToString(),
+                                    tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
+                                };
+                                await TBL_Orders.Update(orderDetails);
+                            }
+                            else
+                            {
+                                //Save Pickup order
+                                var orderDetails = new TBL_Orders()
+                                {
+                                    id = CurrentOrderId,
+                                    users_id = user_id,
+                                    order_date = Now.ToString("yyyy-MM-dd"),
+                                    cart_datetime = Now.ToString("ddd, dd MMMM yyyy h:mm tt"),
+                                    stat = "1",
+                                    order_status = "Ordered",
+                                    order_choice = "Pickup",
+                                    del_address = "-",
+                                    notes = "-",
+                                    del_lat = "-",
+                                    del_long = "-",
+                                    pickup_time = pickupTime.Time.ToString(),
+                                    itms_qty = itemcount.ToString(),
+                                    tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
+                                };
+                                await TBL_Orders.Update(orderDetails);
+                            }
 
-                            };
-                            await TBL_Orders.Update(orderDetails);
+                            checkout = true;
+                            progressplaceorder.IsVisible = false;
+                            await Navigation.PushAsync(new ConfirmationPage(), true);
                         }
                         else
                         {
-                            //Save Pickup order
-                            var orderDetails = new TBL_Orders()
-                            {
-                                id = CurrentOrderId,
-                                users_id = user_id,
-                                order_date = Now.ToString("yyyy-MM-dd"),
-                                stat = "1",
-                                order_status = "Ordered",
-                                order_choice = "Pickup",
-                                del_address = "-",
-                                notes = "-",
-                                del_lat = "-",
-                                del_long = "-",
-                                pickup_time = pickupTime.Time.ToString(),
-                                tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
-                            };
-                            await TBL_Orders.Update(orderDetails);
+                            progressplaceorder.IsVisible = false;
+                            await Navigation.PushAsync(new MarketClosePage(), true);
                         }
-                        checkout = true;
-                        progressplaceorder.IsVisible = false;
-                        await Navigation.PushAsync(new ConfirmationPage(), true);
                     }
                     else
                     {
                         progressplaceorder.IsVisible = false;
-                        await Navigation.PushAsync(new MarketClosePage(), true);
+                        await DisplayAlert("Cart empty", "Your cart is empty!", "OK");
                     }
                 }
                 else
                 {
-                    progressplaceorder.IsVisible = false;
-                    await DisplayAlert("Cart empty", "Your cart is empty!", "OK");
+                    await DisplayAlert("Login", "Please login or create an account first before doing any transaction in the market! It's FREE!", "OK");
+                    await Navigation.PushAsync(new LoginPage());
                 }
             //}
             //catch
