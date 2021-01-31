@@ -21,7 +21,10 @@
                                    HorizontalOptions="FillAndExpand">
                                 
                                 <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                                        <forms:CachedImage  HorizontalOptions="Center" Source="https://i.ibb.co/dKzf30C/pngfuel-com.png" HeightRequest="50"/>
+                                            <forms:CachedImage  HorizontalOptions="Center" DownsampleToViewSize="True"
+                                                            Source="price_tag" Aspect="AspectFit"
+                                                            HeightRequest="40" WidthRequest="40" CacheDuration="30" LoadingPlaceholder="notfound.png"
+                                                            ErrorPlaceholder="notfound.png"/>
                                         <StackLayout Spacing="2">
                                             <Label FontSize="15">
                                                 <Label.FormattedText>
@@ -69,11 +72,11 @@
                                         <StackLayout HorizontalOptions="EndAndExpand" 
                                                      Padding="0"
                                                      WidthRequest="100" Spacing="0" Margin="0,0,10,0">
-                                            <Label TextColor="Black" 
-                                               FontSize="Medium" HorizontalOptions="EndAndExpand">
+                                                <Label TextColor="{StaticResource PriceColor_1}" FontAttributes="Bold"
+                                                       FontSize="Medium" HorizontalOptions="EndAndExpand">
                                                 <Label.FormattedText>
                                                     <FormattedString>
-                                                        <Span Text="Php. " />
+                                                        <Span Text="₱ " />
                                                         <Span Text="{Binding tot_payable, StringFormat='{0:#,0.#0}'}" />
                                                     </FormattedString>
                                                 </Label.FormattedText>

@@ -23,7 +23,7 @@
                 <Color x:Key="TextColor">Black</Color>
                 <Color x:Key="PrimaryDark">#176802</Color>
                 <Color x:Key="Accent">#208204</Color>
-                <Color x:Key="PriceColor_1">OrangeRed</Color>
+                <Color x:Key="PriceColor_1">#F8951E</Color>
                 <Color x:Key="FrameColor">White</Color>
                 <Color x:Key="ButtonCart">#FFC42A</Color>
 

@@ -147,13 +147,15 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <!--Search Bar-->
-                <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Padding="0" BackgroundColor="#E2F0E2">
-                    <SearchBar Grid.Column="0" CancelButtonColor="{StaticResource TextColor}"
+                <Frame Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Padding="0" Margin="5"
+                       CornerRadius="20" HasShadow="False" BorderColor="{StaticResource Primary}">
+
+                    <SearchBar CancelButtonColor="{StaticResource TextColor}"
                                IsVisible="True" HorizontalOptions="FillAndExpand"
                                PlaceholderColor="Gray" Placeholder="Search sections. . . ."
                                Visual="Material" TextColor="{StaticResource TextColor}" x:Name="prosearh"
                                TextChanged="Prosearh_OnTextChanged" />
-                </Grid>
+                </Frame>
                 <!--Menu Tray-->
                     <Grid Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="0" BackgroundColor="{StaticResource Textcolor}">
                         <RefreshView x:Name="RefreshView" RefreshColor="{StaticResource Textcolor}" VerticalOptions="FillAndExpand" 

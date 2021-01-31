@@ -104,7 +104,7 @@ namespace GreenApp.Activity
                     {
                         lblorderid.Text = getorders.order_id;
                         lblfullname.Text = getorders.full_name;
-                        lbltotpayable.Text = getorders.tot_payable;
+                        lbltotpayable.Text = "₱ " + getorders.tot_payable;
                     }
                     else
                     {

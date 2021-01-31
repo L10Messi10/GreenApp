@@ -24,7 +24,7 @@
                 <Frame Padding="0" CornerRadius="80" Grid.Row="0" Margin="0,-80,-50,0" IsClippedToBounds="True"
                        HasShadow="True">
                     <StackLayout>
-                        <ff:CachedImage Aspect="AspectFill"
+                        <ff:CachedImage Aspect="AspectFill" DownsampleToViewSize="True"
                                         Source="{Binding img_uri}"
                                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                     <Label Text="{Binding prod_price}" x:Name="txtprice" IsVisible="False" />
@@ -35,10 +35,10 @@
                        Margin="0,270,5,0" Grid.Row="0" Padding="5" Opacity="1">
                     <StackLayout Orientation="Vertical" >
                         <Label VerticalOptions="Center" FontAttributes="Bold" FontSize="20"
-                               TextColor="{StaticResource Primary}" HorizontalTextAlignment="Center">
+                               TextColor="{StaticResource PriceColor_1}" HorizontalTextAlignment="Center">
                             <Label.FormattedText>
                                 <FormattedString>
-                                    <Span Text="Php. " />
+                                    <Span Text="₱ " />
                                     <Span Text="{Binding prod_price}" />
                                     <Span Text=" / " />
                                     <Span Text="{Binding unit_desc}" />

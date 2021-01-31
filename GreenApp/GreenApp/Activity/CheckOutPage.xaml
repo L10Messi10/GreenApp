@@ -47,7 +47,7 @@
                                         </Frame>
                                         <StackLayout Margin="5,0,0,0">
                                             <Label Text="{Binding prod_name}" FontSize="Large"
-                                                   TextColor="{StaticResource TextColor}"
+                                                   TextColor="{StaticResource Primary}"
                                                    FontAttributes="Bold" />
                                         </StackLayout>
                                         <BoxView HeightRequest="1" BackgroundColor="Silver" Margin="5,0,5,0"/>
@@ -66,16 +66,15 @@
                                                 <Label Grid.Row="0" Grid.Column="0" Text="Sell Price:"
                                                        HorizontalOptions="Start" />
                                                 <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"
-                                                       HorizontalOptions="End">
+                                                       HorizontalOptions="End" 
+                                                       TextColor="{StaticResource PriceColor_1}">
                                                     <Label.FormattedText>
                                                         <FormattedString>
+                                                            <Span Text="₱ " FontSize="15"/>
                                                             <Span Text="{Binding prod_price}" FontSize="15"
-                                                                  TextColor="{StaticResource TextColor}"
                                                                   FontAttributes="Bold" />
-                                                            <Span Text=" / " FontSize="15"
-                                                                  TextColor="{StaticResource TextColor}" />
-                                                            <Span Text="{Binding unit_desc}" FontSize="15"
-                                                                  TextColor="{StaticResource TextColor}" />
+                                                            <Span Text=" / " FontSize="15" />
+                                                            <Span Text="{Binding unit_desc}" FontSize="15" />
                                                         </FormattedString>
                                                     </Label.FormattedText>
                                                 </Label>
@@ -93,13 +92,14 @@
                                                 </Label>
                                                 <Label Grid.Row="2" Grid.Column="0" Text="Sub-total:"
                                                        HorizontalOptions="Start" />
-                                                <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+                                                        <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" 
+                                                               TextColor="{StaticResource PriceColor_1}"
                                                        HorizontalOptions="End" FontSize="15" FontAttributes="Bold">
                                                     <Label.FormattedText>
                                                         <FormattedString>
+                                                            <Span Text="₱ " FontSize="15"/>
                                                             <Span Text="{Binding sub_total}" FontSize="15"
-                                                                  FontAttributes="Bold"
-                                                                  TextColor="{StaticResource TextColor}" />
+                                                                  FontAttributes="Bold" />
                                                         </FormattedString>
                                                     </Label.FormattedText>
                                                 </Label>
@@ -218,7 +218,7 @@
                 <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Vertical">
                     <Label Text="0" HorizontalOptions="Start"
                            x:Name="totalpayable"
-                           FontSize="Medium" TextColor="{StaticResource Textcolor}" FontAttributes="Bold" />
+                           FontSize="Large"  TextColor="{StaticResource Textcolor}" FontAttributes="Bold" />
                     <Label x:Name="totItems" TextColor="{StaticResource Textcolor}" FontAttributes="Italic"
                            FontSize="14"/>
                 </StackLayout>

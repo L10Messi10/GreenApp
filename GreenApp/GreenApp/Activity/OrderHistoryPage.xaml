@@ -22,7 +22,7 @@
                                 <SwipeView x:Name="XSwipeViews" BackgroundColor="White" SwipeStarted="XSwipeViews_OnSwipeStarted"
                                            SwipeEnded="XSwipeViews_OnSwipeEnded">
                                     <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                                        <ff:CachedImage  HorizontalOptions="Center" Source="https://i.ibb.co/dKzf30C/pngfuel-com.png" HeightRequest="50"/>
+                                        <ff:CachedImage  HorizontalOptions="Center" DownsampleToViewSize="True" Source="price_tag" HeightRequest="50"/>
                                         <StackLayout Spacing="2">
                                             <Label FontSize="15">
                                                 <Label.FormattedText>
@@ -72,7 +72,7 @@
                                                FontSize="Medium" HorizontalOptions="EndAndExpand">
                                                 <Label.FormattedText>
                                                     <FormattedString>
-                                                        <Span Text="Php. " />
+                                                        <Span Text="₱ " />
                                                         <Span Text="{Binding tot_payable, StringFormat='{0:#,0.#0}'}" />
                                                     </FormattedString>
                                                 </Label.FormattedText>

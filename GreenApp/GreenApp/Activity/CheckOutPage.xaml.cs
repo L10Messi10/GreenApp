@@ -45,8 +45,8 @@ namespace GreenApp.Activity
                     itemcount = getorders.Count;
                     //ordercollection.ItemsSource.re
                     totaSum = getorders.AsQueryable().Sum(ord => ord.sub_total);
-                    lblsubtotal.Text ="Php. "+ totaSum.ToString(CultureInfo.InvariantCulture);
-                    totalpayable.Text ="Php. "+ totaSum.ToString(CultureInfo.InvariantCulture);
+                    lblsubtotal.Text = "₱ " + totaSum.ToString(CultureInfo.InvariantCulture);
+                    totalpayable.Text = "₱ " + totaSum.ToString(CultureInfo.InvariantCulture);
                     itemid = null;
                     Selected_ProdId = null;
                     progressplaceorder.IsVisible = false;
