@@ -206,6 +206,7 @@ namespace GreenApp.Activity
         {
             if (ListCategories.SelectedItem == null) return;
             Selected_CatID = (e.CurrentSelection.FirstOrDefault() as TBL_Category)?.category_name;
+            cat_desc = (e.CurrentSelection.FirstOrDefault() as TBL_Category)?.cat_desc;
             cat_img_uri = (e.CurrentSelection.FirstOrDefault() as TBL_Category)?.catimg_uri;
             await Navigation.PushAsync(new ProductsPage(), true);
         }

@@ -12,7 +12,7 @@ namespace GreenApp
         public static readonly MobileServiceClient MobileService = new MobileServiceClient("https://greenmarketwebapp.azurewebsites.net");
         //Transaction info
         public static string Selected_ProdId;
-        public static string Selected_CatID;
+        public static string Selected_CatID, cat_desc;
         public static string user_id;
         public static string CurrentOrderId;
         public static bool refresh;

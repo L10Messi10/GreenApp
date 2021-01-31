@@ -30,6 +30,7 @@ namespace GreenApp.Activity
             {
                 catImg.Source = cat_img_uri;
                 lblSection.Text = Selected_CatID;
+                lblcatdesc.Text = cat_desc;
                 ListProducts.IsVisible = true;
                 ErrorLayout.IsVisible = false;
                 var getproducts = await MobileService.GetTable<TBL_Products>().Where(p => p.category_name == Selected_CatID).ToListAsync();

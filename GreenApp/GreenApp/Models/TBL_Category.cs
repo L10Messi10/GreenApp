@@ -10,6 +10,7 @@ namespace GreenApp.Models
     {
         public string id { get; set; }
         public string category_name { get; set; }
+        public string cat_desc { get; set; }
         public string catimg_uri { get; set; }
 
 

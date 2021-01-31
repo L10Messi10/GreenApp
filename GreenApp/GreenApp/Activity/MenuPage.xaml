@@ -169,32 +169,47 @@
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <ContentView Padding="5">
-                                        <Grid Margin="0" Padding="0">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="220" />
-                                            </Grid.RowDefinitions>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-                                            <Frame Grid.Row="0" Margin="0" Padding="0" Grid.Column="0" CornerRadius="10">
-                                                <StackLayout Padding="0">
-                                                    <ff:CachedImage x:Name="prodimg" Source="{Binding catimg_uri}"
-                                                                    HeightRequest="190" Aspect="AspectFill"
-                                                                    LoadingPlaceholder="notfound.png"
-                                                                    ErrorPlaceholder="notfound.png" />
-                                                    <Label VerticalOptions="Center" FontAttributes="Bold"
-                                                           Margin="5,0,0,5">
-                                                        <Label.FormattedText>
-                                                            <FormattedString>
-                                                                <Span Text="{Binding category_name}" FontSize="18"
-                                                                      TextColor="{StaticResource Primary}"
-                                                                      FontFamily="TitleFontBold" />
-                                                            </FormattedString>
-                                                        </Label.FormattedText>
-                                                    </Label>
-                                                </StackLayout>
+                                            <Frame Padding="0" CornerRadius="10">
+                                                <Grid Margin="0" Padding="0" RowSpacing="0">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="150" />
+                                                        <RowDefinition Height="50" />
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Frame Grid.Row="0" Margin="0" Padding="0" Grid.Column="0"
+                                                           CornerRadius="0" HasShadow="False">
+                                                        <ff:CachedImage x:Name="prodimg" Source="{Binding catimg_uri}" Aspect="AspectFill"
+                                                                LoadingPlaceholder="notfound.png"
+                                                                ErrorPlaceholder="notfound.png" />
+                                                    </Frame>
+                                                    <StackLayout Grid.Row="1" Padding="0" Margin="5" Orientation="Horizontal">
+                                                        <StackLayout Spacing="0" WidthRequest="250">
+                                                            <Label VerticalOptions="Center" FontAttributes="Bold"
+                                                                   Margin="5,0,0,5">
+                                                                <Label.FormattedText>
+                                                                    <FormattedString>
+                                                                        <Span Text="{Binding category_name}" FontSize="18"
+                                                                              TextColor="{StaticResource Primary}"
+                                                                              FontFamily="TitleFontBold" />
+                                                                    </FormattedString>
+                                                                </Label.FormattedText>
+                                                            </Label>
+                                                            <Label Text="{Binding cat_desc}" VerticalOptions="Center" LineBreakMode="TailTruncation"/>
+                                                        </StackLayout>
+                                                        <Frame BackgroundColor="{StaticResource Primary}" Margin="0,-30,0,20"
+                                                               HeightRequest="45" WidthRequest="50" Opacity="0.9"
+                                                               HorizontalOptions="EndAndExpand"
+                                                               CornerRadius="25" Padding="0">
+                                                            <Image Source="check" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                                                                   HeightRequest="20"/>
+                                                            <!--<Label Text="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+                                                                   TextColor="White" FontAttributes="Bold" FontSize="15"/>-->
+                                                        </Frame>
+                                                    </StackLayout>
+                                                </Grid>
                                             </Frame>
-                                        </Grid>
                                     </ContentView>
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
