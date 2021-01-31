@@ -37,6 +37,7 @@ namespace GreenApp
         {
             InitializeComponent();
             Device.SetFlags(new []{"Brush_Experimental"});
+            Device.SetFlags(new[] { "SwipeView_Experimental" }); // Add here
             //Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.MainPage = new AppShell(); });
             MainPage = new NavigationPage(new MenuPage());
         }

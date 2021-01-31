@@ -33,7 +33,14 @@
                              HeightRequest="0.1" Color="Gray" />
                 </Grid>
             </StackLayout>
-            <StackLayout Margin="20">
+            <StackLayout Margin="10">
+                <Frame BackgroundColor="{StaticResource Primary}" CornerRadius="70" HorizontalOptions="Center" HeightRequest="100" WidthRequest="100">
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <Image Source="check" HeightRequest="20"/>
+                        <Label Text="Order successful!" FontSize="10" TextColor="WhiteSmoke"/>
+                        <Label Text="Thank you!"  FontSize="15" TextColor="White"/>
+                    </StackLayout>
+                </Frame>
                 <Label Text="Please note, that if this order isn't claimed on the day you ordered it, we will cancel this order." Margin="0,0,0,30" Padding="0"
                        FontSize="Small"
                        HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />

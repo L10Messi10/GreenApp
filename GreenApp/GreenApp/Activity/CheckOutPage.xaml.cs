@@ -132,7 +132,9 @@ namespace GreenApp.Activity
 
                             checkout = true;
                             progressplaceorder.IsVisible = false;
-                            await Navigation.PushAsync(new ConfirmationPage(), true);
+                            await Navigation.PushModalAsync(new ConfirmationPage(), true);
+                            await Navigation.PopToRootAsync(true);
+                            refresh = false;
                         }
                         else
                         {

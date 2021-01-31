@@ -91,7 +91,7 @@
                    HorizontalOptions="Center">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="Green" FontSize="40" FontFamily="TitleDesign" FontAttributes="Bold"
+                        <Span Text="Green" FontSize="30" FontFamily="TitleDesign" FontAttributes="Bold"
                               TextColor="{StaticResource Textcolor}" />
                         <Span Text="Market" FontSize="30" FontFamily="TitleFontLight"
                               TextColor="{StaticResource Textcolor}" />
@@ -164,22 +164,22 @@
                                         VerticalOptions="FillAndExpand" SelectionChanged="ListCategories_OnSelectionChanged">
                             <CollectionView.ItemsLayout>
                                 <GridItemsLayout Orientation="Vertical"
-                                                 Span="2" />
+                                                 Span="1" />
                             </CollectionView.ItemsLayout>
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <ContentView Padding="5">
                                         <Grid Margin="0" Padding="0">
                                             <Grid.RowDefinitions>
-                                                <RowDefinition Height="250" />
+                                                <RowDefinition Height="220" />
                                             </Grid.RowDefinitions>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
-                                            <Frame Grid.Row="0" Margin="0" Padding="0" Grid.Column="0" CornerRadius="0">
+                                            <Frame Grid.Row="0" Margin="0" Padding="0" Grid.Column="0" CornerRadius="10">
                                                 <StackLayout Padding="0">
                                                     <ff:CachedImage x:Name="prodimg" Source="{Binding catimg_uri}"
-                                                                    HeightRequest="220" Aspect="AspectFill"
+                                                                    HeightRequest="190" Aspect="AspectFill"
                                                                     LoadingPlaceholder="notfound.png"
                                                                     ErrorPlaceholder="notfound.png" />
                                                     <Label VerticalOptions="Center" FontAttributes="Bold"

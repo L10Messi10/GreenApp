@@ -16,10 +16,11 @@ namespace GreenApp.Activity
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class OrderHistoryPage : ContentPage
     {
+        List<SwipeView> swipeViews { set; get; }
         public OrderHistoryPage()
         {
-            Device.SetFlags(new []{"SwipeView_Experimental"}); // Add here
             InitializeComponent();
+            swipeViews = new List<SwipeView>();
         }
         public ICommand OnDeleteCommand => new Command(OnDelete);
         private async void OnDelete()
@@ -40,7 +41,7 @@ namespace GreenApp.Activity
             try
             {
                 xRefreshView.IsRefreshing = true;
-                var getorders = await MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id.ToLower().Contains(user_id)).ToListAsync();
+                var getorders = await MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id.ToLower().Contains(user_id) && orders.stat.ToLower().Contains("2")).ToListAsync();
                 OrdersList.ItemsSource = getorders;
                 Selected_orderID = null;
                 OrdersList.SelectedItem = null;
@@ -85,6 +86,20 @@ namespace GreenApp.Activity
             await TBL_Orders.Void(orderDetails);
             var getorders = await MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id.ToLower().Contains(user_id)).ToListAsync();
             OrdersList.ItemsSource = getorders;
+        }
+
+        private void XSwipeViews_OnSwipeStarted(object sender, SwipeStartedEventArgs e)
+        {
+            if (swipeViews.Count == 1)
+            {
+                swipeViews[0].Close();
+                swipeViews.Remove(swipeViews[0]);
+            }
+        }
+
+        private void XSwipeViews_OnSwipeEnded(object sender, SwipeEndedEventArgs e)
+        {
+            swipeViews.Add(new SwipeView());
         }
     }
 }

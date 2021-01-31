@@ -64,7 +64,7 @@
         
     </NavigationPage.TitleView>
     <AbsoluteLayout>
-        <Grid AbsoluteLayout.LayoutBounds="0,0,1,1"
+        <Grid AbsoluteLayout.LayoutBounds="0,0,1,1" RowSpacing="0"
               AbsoluteLayout.LayoutFlags="SizeProportional">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -100,20 +100,21 @@
                             <transformations:BlurredTransformation Radius="15" />
                         </ff:CachedImage.Transformations>
                     </ff:CachedImage>
-                    <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="Transparent" CornerRadius="50"
-                           BorderColor="{StaticResource Primary}" Padding="0"
+                    <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Opacity="0.5" Margin="10,10,10,0"
+                           BackgroundColor="{StaticResource Primary}" BorderColor="WhiteSmoke" CornerRadius="50" Padding="0">
+                    </Frame>
+                    <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" BackgroundColor="Transparent" CornerRadius="50" Padding="0"
                            Margin="0,10,0,0"
                            HorizontalOptions="CenterAndExpand">
-                        <SearchBar CancelButtonColor="{StaticResource TextColor}"
+                        <SearchBar CancelButtonColor="{StaticResource Textcolor}"
                                    IsVisible="True"
                                    PlaceholderColor="Silver" Placeholder="Search products. . . ."
-                                   Visual="Material" TextColor="{StaticResource TextColor}" x:Name="prosearh"
+                                   Visual="Material" TextColor="{StaticResource Textcolor}" x:Name="prosearh"
                                    TextChanged="Prosearh_OnTextChanged" />
                     </Frame>
-                    <Frame Padding="0" Grid.Row="2" Grid.Column="1" Margin="0,0,10,10" BorderColor="{StaticResource Primary}" CornerRadius="50">
-                        <Label x:Name="lblSection"  Text="Section name" VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand"
-                               TextColor="{StaticResource Primary}" FontSize="18"/>
-                    </Frame>
+                    <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,0,0,0" x:Name="lblSection"  Text="Section name" VerticalOptions="CenterAndExpand" 
+                           HorizontalOptions="StartAndExpand"
+                           TextColor="{StaticResource Textcolor}" FontSize="30" FontFamily="TitleFontLight"/>
                 </Grid>
                 <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">
                     <Grid.RowDefinitions>
@@ -125,56 +126,57 @@
                                         VerticalOptions="Fill" SelectionChanged="ListProducts_OnSelectionChanged">
                             <CollectionView.ItemsLayout>
                                 <GridItemsLayout Orientation="Vertical"
-                                             Span="2" />
+                                             Span="1" />
                             </CollectionView.ItemsLayout>
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <Grid Margin="0" Padding="2" RowSpacing="5">
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="240" />
+                                            <RowDefinition Height="120" />
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
-                                        <!--Upon loading the products, it has color scheme, the product image must be photoshopped 
-                                    for the color scheme to give it a color-->
                                         <Frame Grid.Row="0" Margin="5,0,5,0" Padding="0" Grid.Column="0"
                                            IsClippedToBounds="True"
-                                           HasShadow="True"  CornerRadius="8">
-                                            <StackLayout>
+                                           HasShadow="True"  CornerRadius="10">
+                                            <StackLayout Orientation="Horizontal">
                                                 <ff:CachedImage x:Name="prodimg" Source="{Binding img_uri}"
-                                                            Aspect="AspectFill"
-                                                            BitmapOptimizations="True" HeightRequest="170"
-                                                            BackgroundColor="{Binding p_color_scheme}"
+                                                            Aspect="AspectFill" WidthRequest="120"
+                                                            BitmapOptimizations="True" HeightRequest="120"
                                                             CacheDuration="30" LoadingPlaceholder="notfound.png"
                                                             ErrorPlaceholder="notfound.png" />
                                                 <StackLayout Orientation="Vertical" Margin="5" Spacing="0">
                                                     <Label VerticalOptions="Center" Padding="0" FontAttributes="Bold">
                                                         <Label.FormattedText>
                                                             <FormattedString>
-                                                                <Span Text="{Binding prod_name}" FontSize="16"
-                                                                  FontFamily="TitleFontBold"
-                                                                  TextColor="{StaticResource TextColor}" />
+                                                                <Span Text="{Binding prod_name}" FontSize="20" FontAttributes="Bold"
+                                                                  TextColor="{StaticResource Primary}" />
                                                             </FormattedString>
                                                         </Label.FormattedText>
                                                     </Label>
-                                                    <StackLayout>
-                                                        <Label HorizontalOptions="Start">
-                                                            <Label.FormattedText>
-                                                                <FormattedString>
-                                                                    <Span Text="{Binding prod_price}" FontSize="20"
-                                                                      TextColor="{StaticResource Primary}"
-                                                                      FontFamily="TitleFontLight" />
-                                                                    <Span Text=" / " FontSize="20"
-                                                                      TextColor="{StaticResource Primary}"
-                                                                      FontFamily="TitleFontLight" />
-                                                                    <Span Text="{Binding unit_desc}" FontSize="15"
-                                                                      TextColor="{StaticResource Primary}"
-                                                                      FontFamily="TitleFontLight" />
-                                                                </FormattedString>
-                                                            </Label.FormattedText>
-                                                        </Label>
-                                                    </StackLayout>
+                                                    <Label>
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="{Binding prod_desc}" FontSize="12"
+                                                                      TextColor="#7F7F7F" />
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label TextColor="{StaticResource PriceColor_1}" Margin="0,10,0,0" FontAttributes="Bold">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Php. " FontSize="15"/>
+                                                                <Span Text="{Binding prod_price}" FontSize="15" />
+                                                                <Span Text=" / " FontSize="15" />
+                                                                <Span Text="{Binding unit_desc}" FontSize="15" />
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                </StackLayout>
+                                                <!--This section is for favorites--> 
+                                                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Margin="5" Padding="0" Spacing="0">
+                                                    
                                                 </StackLayout>
                                             </StackLayout>
                                         </Frame>

@@ -32,6 +32,7 @@ namespace GreenApp.Activity
                 menuLogout.IsVisible = true;
                 menuProfile.IsVisible = true;
                 menuOrders.IsVisible = true;
+                menuOrdersunpaid.IsVisible = true;
             }
             else
             {
@@ -42,6 +43,7 @@ namespace GreenApp.Activity
                 menuLogout.IsVisible = false;
                 menuProfile.IsVisible = false;
                 menuOrders.IsVisible = false;
+                menuOrdersunpaid.IsVisible = false;
             }
         }
 
@@ -100,6 +102,11 @@ namespace GreenApp.Activity
             AddressesPage._selectedAddressId = "";
             getLoginSetting();
             //throw new NotImplementedException();
+        }
+
+        private async void UnpaidOrders_OnTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new UnpaidOrdersPage(), false);
         }
     }
 }

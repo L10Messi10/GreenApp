@@ -1,10 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             Title="My order history"
-             xmlns:ffTrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
-             x:Class="GreenApp.Activity.OrderHistoryPage">
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="GreenApp.Activity.UnpaidOrdersPage" Title="My Unpaid orders">
     <Grid>
         <RefreshView x:Name="xRefreshView" Refreshing="RefreshView_OnRefreshing"
                      BackgroundColor="{StaticResource Primary}" RefreshColor="White">
@@ -16,13 +14,14 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <ContentView Padding="5">
+                            <Frame Padding="0" CornerRadius="10">
+                            <SwipeView x:Name="XSwipeViews" BackgroundColor="White">
                             <Frame HasShadow="True" CornerRadius="10" HeightRequest="100"
                                    VerticalOptions="FillAndExpand" Margin="2,0" Padding="5"
                                    HorizontalOptions="FillAndExpand">
-                                <SwipeView x:Name="XSwipeViews" BackgroundColor="White" SwipeStarted="XSwipeViews_OnSwipeStarted"
-                                           SwipeEnded="XSwipeViews_OnSwipeEnded">
-                                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                                        <ff:CachedImage  HorizontalOptions="Center" Source="https://i.ibb.co/dKzf30C/pngfuel-com.png" HeightRequest="50"/>
+                                
+                                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                        <forms:CachedImage  HorizontalOptions="Center" Source="https://i.ibb.co/dKzf30C/pngfuel-com.png" HeightRequest="50"/>
                                         <StackLayout Spacing="2">
                                             <Label FontSize="15">
                                                 <Label.FormattedText>
@@ -67,7 +66,9 @@
                                             <Label Text="{Binding cart_datetime}" FontSize="12"
                                            TextColor="#D1D1D2" VerticalOptions="EndAndExpand"/>
                                         </StackLayout>
-                                        <StackLayout HorizontalOptions="EndAndExpand" WidthRequest="100" Margin="0,0,10,0">
+                                        <StackLayout HorizontalOptions="EndAndExpand" 
+                                                     Padding="0"
+                                                     WidthRequest="100" Spacing="0" Margin="0,0,10,0">
                                             <Label TextColor="Black" 
                                                FontSize="Medium" HorizontalOptions="EndAndExpand">
                                                 <Label.FormattedText>
@@ -77,21 +78,24 @@
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
-                                            <Label Text="Swipe for options." TextColor="#D1D1D2" FontSize="8" VerticalOptions="EndAndExpand"
-                                                   HorizontalOptions="EndAndExpand"/>
+                                        <!--<Button Text="View order" TextColor="{StaticResource Textcolor}" Padding="0" HeightRequest="20"
+                                                BackgroundColor="{StaticResource Primary}" FontSize="8" VerticalOptions="EndAndExpand"
+                                                HorizontalOptions="End" Margin="0"/>
+                                        <Button Text="View confirmation" TextColor="{StaticResource Textcolor}" Padding="0" HeightRequest="20"
+                                                BackgroundColor="{StaticResource Primary}" FontSize="8" VerticalOptions="EndAndExpand"
+                                                HorizontalOptions="EndAndExpand" Margin="0"/>-->
                                         </StackLayout>
                                     </StackLayout>
-                                    <SwipeView.RightItems>
-                                        <SwipeItems Mode="Reveal" SwipeBehaviorOnInvoked="Close">
-                                            <SwipeItem BackgroundColor="Red"
-                                                       IconImageSource="trash_white"
-                                                       Text="Delete" x:Name="SwipeItemdeLete" Invoked="SwipeItemdeLete_OnInvoked"/>
-                                            <SwipeItem BackgroundColor="{StaticResource Primary}"
-                                                       IconImageSource="grab"
-                                                       Text="Reorder" />
-                                        </SwipeItems>
-                                    </SwipeView.RightItems>
-                                </SwipeView>
+                            </Frame>
+                                <SwipeView.RightItems>
+                                    <SwipeItems Mode="Reveal" SwipeBehaviorOnInvoked="Close">
+                                        <SwipeItem BackgroundColor="{StaticResource Primary}" Text="Confirmation"
+                                                   IconImageSource="qr_code" CommandParameter="{Binding .}"/>
+                                        <SwipeItem BackgroundColor="{StaticResource Primary}" Text="Details"
+                                                   IconImageSource="documents" CommandParameter="{Binding .}"/>
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                            </SwipeView>
                             </Frame>
                         </ContentView>
                     </DataTemplate>

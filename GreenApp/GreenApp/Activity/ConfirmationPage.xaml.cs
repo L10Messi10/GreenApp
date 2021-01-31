@@ -28,14 +28,24 @@ namespace GreenApp.Activity
             {
                 historyloaded = false;
                 CurrentOrderId = null;
-                //refresh = false;
-                await Navigation.PopToRootAsync(true);
+                refresh = false;
+                int numModals = Application.Current.MainPage.Navigation.ModalStack.Count;
+                for (int currModal = 0; currModal < numModals; currModal++)
+                {
+                    await Application.Current.MainPage.Navigation.PopModalAsync();
+                    //refresh = false;
+                }
             }
             else
             {
                 Selected_orderID = null;
                 //refresh = false;
-                await Navigation.PopAsync(true);
+                int numModals = Application.Current.MainPage.Navigation.ModalStack.Count;
+                for (int currModal = 0; currModal < numModals; currModal++)
+                {
+                    await Application.Current.MainPage.Navigation.PopModalAsync();
+                    //refresh = false;
+                }
             }
         }
 
@@ -53,10 +63,10 @@ namespace GreenApp.Activity
                     };
                     barcode.BarcodeFormat = ZXing.BarcodeFormat.QR_CODE;
                     barcode.BarcodeValue = Selected_orderID;
-                    barcode.BarcodeOptions.Height = 300;
-                    barcode.BarcodeOptions.Width = 300;
-                    barcode.WidthRequest = 300;
-                    barcode.HeightRequest = 300;
+                    barcode.BarcodeOptions.Height = 150;
+                    barcode.BarcodeOptions.Width = 150;
+                    barcode.WidthRequest = 150;
+                    barcode.HeightRequest = 150;
                     stackpanel.Children.Insert(0, barcode);
                     var getorders = (await MobileService.GetTable<V_Orders>().Where(orders => orders.order_id == Selected_orderID).ToListAsync()).FirstOrDefault();
                     mainlayout.BindingContext = getorders;
@@ -117,15 +127,27 @@ namespace GreenApp.Activity
             {
                 historyloaded = false;
                 CurrentOrderId = null;
-                //refresh = false;
-                await Navigation.PopToRootAsync(true);
+                refresh = false;
+                int numModals = Application.Current.MainPage.Navigation.ModalStack.Count;
+                for (int currModal = 0; currModal < numModals; currModal++)
+                {
+                    //refresh = false;
+                    await Application.Current.MainPage.Navigation.PopModalAsync();
+                    
+                }
             }
             else
             {
 
                 Selected_orderID = null;
                 //refresh = false;
-                await Navigation.PopAsync(true);
+                int numModals = Application.Current.MainPage.Navigation.ModalStack.Count;
+                for (int currModal = 0; currModal < numModals; currModal++)
+                {
+                    //refresh = false;
+                    await Application.Current.MainPage.Navigation.PopModalAsync();
+                    
+                }
             }
             //await Navigation.PushAsync(new MenuPage(),true);
         }

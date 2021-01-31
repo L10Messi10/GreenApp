@@ -173,15 +173,15 @@
                             </StackLayout>
                             <BoxView HeightRequest="1" WidthRequest="300" BackgroundColor="WhiteSmoke"/>
                         </StackLayout>
-                        <Label Grid.Row="3" Grid.Column="0" Text="Sub-total" TextColor="{StaticResource PriceColor}"
+                        <Label Grid.Row="3" Grid.Column="0" Text="Sub-total" TextColor="{StaticResource TextColor}"
                                FontAttributes="Bold"/>
                         <Label x:Name="lblsubtotal" Grid.Row="3" Grid.Column="2" Text="0"
                                HorizontalOptions="EndAndExpand" VerticalOptions="Center"
-                               FontSize="Medium" TextColor="{StaticResource PriceColor}" FontAttributes="Bold" />
+                               FontSize="Medium" TextColor="{StaticResource PriceColor_1}" FontAttributes="Bold" />
                         <Label Grid.Row="4" Grid.Column="0" Text="Delivery fee"
-                               FontAttributes="Bold" TextColor="{StaticResource PriceColor}" />
+                               FontAttributes="Bold" TextColor="{StaticResource TextColor}" />
                         <Label Grid.Row="4" Grid.Column="2" Text="0" HorizontalOptions="End"
-                               FontSize="Medium" TextColor="{StaticResource PriceColor}" FontAttributes="Bold" />
+                               FontSize="Medium" TextColor="{StaticResource PriceColor_1}" FontAttributes="Bold" />
                     </Grid>
                 </Frame>
             </StackLayout>
