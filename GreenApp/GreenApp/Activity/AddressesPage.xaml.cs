@@ -53,8 +53,17 @@ namespace GreenApp.Activity
 
         private async void Button_OnClicked(object sender, EventArgs e)
         {
-            _newAdd = true;
-            await Navigation.PushAsync(new DeliveryLocationPage(),false);
+            if (SignedIn)
+            {
+                _newAdd = true;
+                await Navigation.PushAsync(new DeliveryLocationPage(), false);
+            }
+            else
+            {
+                await DisplayAlert("Login", "You're not logged-in, please login to continue.", "OK");
+                await Navigation.PushAsync(new LoginPage(), true);
+            }
+            
         }
 
         private async void RefreshView_OnRefreshing(object sender, EventArgs e)

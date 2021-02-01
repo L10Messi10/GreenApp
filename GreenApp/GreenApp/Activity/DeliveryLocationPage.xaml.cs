@@ -63,44 +63,59 @@ namespace GreenApp.Activity
             }
             catch
             {
-                //ignored
+                await DisplayAlert("Connection slow", "Your internet connection might be slow!", "OK");
             }
         }
         
         protected override async void OnDisappearing()
         {
-            _selectedAddressId = "";
-            order_lat = 0;
-            order_long = 0;
-            var locator = CrossGeolocator.Current;
-            Geocoder geoCoder = new Geocoder();
-            locator.PositionChanged -= Locator_PositionChanged;
-            await locator.StopListeningAsync();
+            try
+            {
+                _selectedAddressId = "";
+                order_lat = 0;
+                order_long = 0;
+                var locator = CrossGeolocator.Current;
+                Geocoder geoCoder = new Geocoder();
+                locator.PositionChanged -= Locator_PositionChanged;
+                await locator.StopListeningAsync();
+            }
+            catch
+            {
+                //ignored
+            }
         }
 
         protected override async void OnAppearing()
         {
-            if (_newAdd)
+            try
             {
-                _label = "Home";
-                btnhome.BackgroundColor = Color.FromRgb(0, 158, 73);
-                btnhome.TextColor = Color.White;
-                btnwork.TextColor = Color.Black;
-                btnothers.TextColor = Color.Black;
-                btnwork.BackgroundColor = Color.Transparent;
-                btnothers.BackgroundColor = Color.Transparent;
-                var locator = CrossGeolocator.Current;
-                locator.PositionChanged += Locator_PositionChanged;
-                await locator.StartListeningAsync(new TimeSpan(0), 200);
-                var position = await locator.GetPositionAsync();
-                var center = new Position(position.Latitude, position.Longitude);
-                var span = new MapSpan(center, 0.001, 0.001);
-                map.MoveToRegion(span);
+                if (_newAdd)
+                {
+                    _label = "Home";
+                    btnhome.BackgroundColor = Color.FromRgb(0, 158, 73);
+                    btnhome.TextColor = Color.White;
+                    btnwork.TextColor = Color.Black;
+                    btnothers.TextColor = Color.Black;
+                    btnwork.BackgroundColor = Color.Transparent;
+                    btnothers.BackgroundColor = Color.Transparent;
+                    var locator = CrossGeolocator.Current;
+                    locator.PositionChanged += Locator_PositionChanged;
+                    await locator.StartListeningAsync(new TimeSpan(0), 200);
+                    var position = await locator.GetPositionAsync();
+                    var center = new Position(position.Latitude, position.Longitude);
+                    var span = new MapSpan(center, 0.001, 0.001);
+                    map.MoveToRegion(span);
+                }
+                else
+                {
+                    await modifyAddress();
+                }
             }
-            else
+            catch
             {
-                await modifyAddress();
+                await DisplayAlert("Connection slow", "Your internet connection might be slow!", "OK");
             }
+            
             //This gets the current location of the user's device.
             //await DisplayAlert("Info", "The app will detect your current location. Please allow the app to access your location.", "OK");
             
@@ -108,70 +123,83 @@ namespace GreenApp.Activity
 
         private async Task modifyAddress()
         {
-            var getAddresseses = (await MobileService.GetTable<TBL_Addresses>().Where(add => add.id == _selectedAddressId).ToListAsync()).FirstOrDefault();
-            addressInfo.BindingContext = getAddresseses;
-            order_long = double.Parse(txtlong.Text);
-            order_lat = double.Parse(txtlat.Text);
-            var center = new Position(order_lat, order_long);
-            var span = new MapSpan(center, 0.001, 0.001);
-            map.MoveToRegion(span);
-
-            btnaddnewaddress.Text = "Modify Address";
-            if (labelas.Text == "Home")
+            try
             {
-                _label = "Home";
-                btnhome.BackgroundColor = Color.FromRgb(0, 158, 73);
-                btnhome.TextColor = Color.White;
-                btnwork.TextColor = Color.Black;
-                btnothers.TextColor = Color.Black;
-                btnwork.BackgroundColor = Color.Transparent;
-                btnothers.BackgroundColor = Color.Transparent;
-            }
+                var getAddresseses = (await MobileService.GetTable<TBL_Addresses>().Where(add => add.id == _selectedAddressId).ToListAsync()).FirstOrDefault();
+                addressInfo.BindingContext = getAddresseses;
+                var center = new Position(order_lat, order_long);
+                var span = new MapSpan(center, 0.001, 0.001);
+                map.MoveToRegion(span);
 
-            if (labelas.Text == "Work")
-            {
-                _label = "Work";
-                btnwork.BackgroundColor = Color.FromRgb(0, 158, 73);
-                btnhome.TextColor = Color.Black;
-                btnwork.TextColor = Color.White;
-                btnothers.TextColor = Color.Black;
-                btnhome.BackgroundColor = Color.Transparent;
-                btnothers.BackgroundColor = Color.Transparent;
-            }
+                btnaddnewaddress.Text = "Modify Address";
+                if (labelas.Text == "Home")
+                {
+                    _label = "Home";
+                    btnhome.BackgroundColor = Color.FromRgb(0, 158, 73);
+                    btnhome.TextColor = Color.White;
+                    btnwork.TextColor = Color.Black;
+                    btnothers.TextColor = Color.Black;
+                    btnwork.BackgroundColor = Color.Transparent;
+                    btnothers.BackgroundColor = Color.Transparent;
+                }
 
-            if (labelas.Text == "Others")
-            {
-                _label = "Others";
-                btnothers.BackgroundColor = Color.FromRgb(0, 158, 73);
-                btnhome.TextColor = Color.Black;
-                btnwork.TextColor = Color.Black;
-                btnothers.TextColor = Color.White;
-                btnwork.BackgroundColor = Color.Transparent;
-                btnhome.BackgroundColor = Color.Transparent;
+                if (labelas.Text == "Work")
+                {
+                    _label = "Work";
+                    btnwork.BackgroundColor = Color.FromRgb(0, 158, 73);
+                    btnhome.TextColor = Color.Black;
+                    btnwork.TextColor = Color.White;
+                    btnothers.TextColor = Color.Black;
+                    btnhome.BackgroundColor = Color.Transparent;
+                    btnothers.BackgroundColor = Color.Transparent;
+                }
+
+                if (labelas.Text == "Others")
+                {
+                    _label = "Others";
+                    btnothers.BackgroundColor = Color.FromRgb(0, 158, 73);
+                    btnhome.TextColor = Color.Black;
+                    btnwork.TextColor = Color.Black;
+                    btnothers.TextColor = Color.White;
+                    btnwork.BackgroundColor = Color.Transparent;
+                    btnhome.BackgroundColor = Color.Transparent;
+                }
+                //ListAddress.ItemsSource = getAddresseses;
             }
-            //ListAddress.ItemsSource = getAddresseses;
+            catch
+            {
+                await Navigation.PushAsync(new NoInternetPage(),true);
+            }
+           
         }
 
-        private void Locator_PositionChanged(object sender, Plugin.Geolocator.Abstractions.PositionEventArgs e)
+        private async void Locator_PositionChanged(object sender, Plugin.Geolocator.Abstractions.PositionEventArgs e)
         {
-            order_lat = e.Position.Latitude;
-            order_long = e.Position.Longitude;
-            var center = new Position(e.Position.Latitude, e.Position.Longitude);
-            var span = new MapSpan(center, 0.001, 0.001);
-            map.MoveToRegion(span);
+            try
+            {
+                order_lat = e.Position.Latitude;
+                order_long = e.Position.Longitude;
+                var center = new Position(e.Position.Latitude, e.Position.Longitude);
+                var span = new MapSpan(center, 0.001, 0.001);
+                map.MoveToRegion(span);
+            }
+            catch
+            {
+                await DisplayAlert("Connection slow", "Your internet connection might be slow!", "OK");
+            }
         }
 
         private async void Btnsetdelivery_OnClicked(object sender, EventArgs e)
         {
-            if (btnaddnewaddress.Text != "Modify Address")
+            try
             {
-                ///add address
-                string c_add;
-                int selectedIndex = picker.SelectedIndex;
-                c_add = "" + txtstreet.Text + ", " + txtfloor.Text + " " + (string)picker.ItemsSource[selectedIndex];
-                if (_label != null)
+                if (btnaddnewaddress.Text != "Modify Address")
                 {
-                    if (txtstreet != null && txtfloor.Text != null)
+                    ///add address
+                    string c_add;
+                    int selectedIndex = picker.SelectedIndex;
+                    c_add = "" + txtstreet.Text + ", " + txtfloor.Text + " " + (string)picker.ItemsSource[selectedIndex];
+                    if (_label != null)
                     {
                         progressplaceorder.IsVisible = true;
                         var addrress = new TBL_Addresses
@@ -186,76 +214,48 @@ namespace GreenApp.Activity
                             Notes = txtnotes.Text
                         };
                         await TBL_Addresses.Insert(addrress);
+                        await DisplayAlert("Info", "New address added. You can now choose this address where you want the items to be delivered.", "OK");
+                        await Navigation.PopAsync(true);
                     }
                     else
+                    {
+                        await DisplayAlert("Alert", "Please select a label for this address.", "OK");
+                    }
+                }
+                else
+                {
+                    //modify address
+                    string c_add;
+                    var selectedIndex = picker.SelectedIndex;
+                    c_add = "" + txtstreet.Text + ", " + txtfloor.Text + " " + (string)picker.ItemsSource[selectedIndex];
+                    if (_label != null)
                     {
                         progressplaceorder.IsVisible = true;
                         var addrress = new TBL_Addresses
                         {
+                            id = _selectedAddressId,
                             user_id = user_id,
-                            Address = (string)picker.ItemsSource[selectedIndex],
+                            street = txtstreet.Text,
+                            floor = txtfloor.Text,
+                            Address = c_add,
                             add_lat = order_lat,
                             add_long = order_long,
                             Label = _label,
+                            Notes = txtnotes.Text
                         };
-                        await TBL_Addresses.Insert(addrress);
+                        await TBL_Addresses.Update(addrress);
+                        await DisplayAlert("Info", "Address updated successfully.", "OK");
+                        await Navigation.PopAsync(true);
                     }
-
-                    await DisplayAlert("Info", "New address added. You can now choose this address where you want the items to be delivered.", "OK");
-                    await Navigation.PopAsync(true);
-                }
-                else
-                {
-                    await DisplayAlert("Alert", "Please select a label for this address.", "OK");
+                    else
+                    {
+                        await DisplayAlert("Alert", "Please select a label for this address.", "OK");
+                    }
                 }
             }
-            else
+            catch
             {
-                //modify address
-                string c_add;
-                var selectedIndex = picker.SelectedIndex;
-                c_add = "" + txtstreet.Text + ", " + txtfloor.Text + " " + (string)picker.ItemsSource[selectedIndex];
-                if (_label != null)
-                {
-                    if (txtstreet != null && txtfloor.Text != null)
-                    {
-                        progressplaceorder.IsVisible = true;
-                        var addrress = new TBL_Addresses
-                        {
-                            id=_selectedAddressId,
-                            user_id = user_id,
-                            street = txtstreet.Text,
-                            floor = txtfloor.Text,
-                            Address = c_add,
-                            add_lat = order_lat,
-                            add_long = order_long,
-                            Label = _label,
-                            Notes = txtnotes.Text
-                        };
-                        await TBL_Addresses.Update(addrress);
-                    }
-                    else
-                    {
-                        progressplaceorder.IsVisible = true;
-                        var addrress = new TBL_Addresses
-                        {
-                            id=_selectedAddressId,
-                            user_id = user_id,
-                            Address = (string)picker.ItemsSource[selectedIndex],
-                            add_lat = order_lat,
-                            add_long = order_long,
-                            Label = _label,
-                        };
-                        await TBL_Addresses.Update(addrress);
-                    }
-
-                    await DisplayAlert("Info", "Address updated successfully.", "OK");
-                    await Navigation.PopAsync(true);
-                }
-                else
-                {
-                    await DisplayAlert("Alert", "Please select a label for this address.", "OK");
-                }
+                await Navigation.PushAsync(new NoInternetPage(), true);
             }
         }
 

@@ -316,8 +316,17 @@ namespace GreenApp.Activity
 
         private async void Btnchange_OnClicked(object sender, EventArgs e)
         {
-            _CheckingOut = true;
-            await Navigation.PushAsync(new AddressesPage(), true);
+            if (SignedIn)
+            {
+                _CheckingOut = true;
+                await Navigation.PushAsync(new AddressesPage(), true);
+            }
+            else
+            {
+                await DisplayAlert("Login", "You're not logged-in, please login to continue.", "OK");
+                await Navigation.PushAsync(new LoginPage(), true);
+            }
         }
+           
     }
 }

@@ -57,11 +57,9 @@
                                         <Button x:Name="btnothers" Text="Others" BackgroundColor="Transparent" CornerRadius="10"
                                                 BorderWidth="2" BorderColor="{StaticResource Primary}" Clicked="Btnothers_OnClicked"/>
                                     </StackLayout>
-                                    <Entry x:Name="txtnotes" Placeholder="Notes" PlaceholderColor="Gray"
+                                        <Entry x:Name="txtnotes" Placeholder="Notes" PlaceholderColor="Gray"
                                            MaxLength="100"/>
-                                    <Label x:Name="txtlat" IsVisible="True" Text="{Binding add_lat}"/>
-                                    <Label x:Name="txtlong" IsVisible="True" Text="{Binding add_long}"/>
-                                </StackLayout>
+                                    </StackLayout>
                             </Frame>
                         </StackLayout>
                     </Grid>
