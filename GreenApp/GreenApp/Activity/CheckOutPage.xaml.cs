@@ -115,7 +115,7 @@ namespace GreenApp.Activity
                                     id = CurrentOrderId,
                                     users_id = user_id,
                                     order_date = Now.ToString("yyyy-MM-dd"),
-                                    cart_datetime = Now.ToString("ddd, dd MMMM yyyy h:mm tt"),
+                                    cart_datetime = Now.ToString("ddd, dd MMM yyyy h:mm tt"),
                                     stat = "1",
                                     order_status = "Ordered",
                                     order_choice = "Pickup",
