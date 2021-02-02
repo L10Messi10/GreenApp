@@ -131,7 +131,7 @@ namespace GreenApp.Activity
                 progressload.IsVisible = false;
                 await Navigation.PushAsync(new NoInternetPage(), true);
             }
-            
+
         }
 
         private async void Btneditprofile_OnClicked(object sender, EventArgs e)
