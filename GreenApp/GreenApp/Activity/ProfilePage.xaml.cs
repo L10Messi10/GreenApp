@@ -121,8 +121,8 @@ namespace GreenApp.Activity
                     propic = $"{_url}/{_imgId}.jpg",
                     picstr = $"{_imgId}.jpg"
                 };
-                propic = user.propic;
-                picstr = user.picstr;
+                propic = $"{_url}/{_imgId}.jpg";
+                picstr = $"{_imgId}.jpg";
                 await TBL_Users.Update(user);
                 progressload.IsVisible = false;
             }
