@@ -33,7 +33,7 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <StackLayout Grid.Row="0" Margin="8">
-                            <Picker x:Name="picker" Grid.Row="0" Title="Select your address" Grid.ColumnSpan="1"
+                            <Picker x:Name="picker" Title="Select your address"
                                     TitleColor="{StaticResource Textcolor}" />
                             <Frame CornerRadius="10">
                                     <StackLayout Margin="5">
@@ -57,7 +57,7 @@
                                         <Button x:Name="btnothers" Text="Others" BackgroundColor="Transparent" CornerRadius="10"
                                                 BorderWidth="2" BorderColor="{StaticResource Primary}" Clicked="Btnothers_OnClicked"/>
                                     </StackLayout>
-                                        <Entry x:Name="txtnotes" Placeholder="Notes" PlaceholderColor="Gray"
+                                        <Entry x:Name="txtnotes" Text="{Binding Notes}" Placeholder="Notes" PlaceholderColor="Gray"
                                            MaxLength="100"/>
                                     </StackLayout>
                             </Frame>
