@@ -46,7 +46,7 @@ namespace GreenApp.Activity
         private async void OrdersList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (OrdersList.SelectedItem == null) return;
-            Selected_orderID = (e.CurrentSelection.FirstOrDefault() as TBL_Orders)?.id;
+            TrackOrderPage.t_order_id = (e.CurrentSelection.FirstOrDefault() as TBL_Orders)?.id;
             await Navigation.PushModalAsync(new TrackOrderPage());
         }
 

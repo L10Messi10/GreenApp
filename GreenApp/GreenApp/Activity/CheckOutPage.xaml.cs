@@ -106,6 +106,16 @@ namespace GreenApp.Activity
                                     tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
                                 };
                                 await TBL_Orders.Update(orderDetails);
+
+                                var track = new TBL_OrderTracking()
+                                {
+                                    order_id = CurrentOrderId,
+                                    track_status = "Order placed",
+                                    track_desc = "Order Successfully placed for delivery.",
+                                    track_time = Now.ToString("h:mm tt"),
+                                    track_num = "1"
+                                };
+                                await TBL_OrderTracking.Insert(track);
                             }
                             else
                             {
@@ -128,6 +138,16 @@ namespace GreenApp.Activity
                                     tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
                                 };
                                 await TBL_Orders.Update(orderDetails);
+
+                                var track = new TBL_OrderTracking()
+                                {
+                                    order_id = CurrentOrderId,
+                                    track_status = "Order placed",
+                                    track_desc = "Order Successfully placed for pick-up.",
+                                    track_time = Now.ToString("h:mm tt"),
+                                    track_num = "1"
+                                };
+                                await TBL_OrderTracking.Insert(track);
                             }
 
                             checkout = true;
