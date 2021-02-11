@@ -43,11 +43,11 @@ namespace GreenApp.Activity
                 await Navigation.PushAsync(new NoInternetPage(), true);
             }
         }
-        private void OrdersList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void OrdersList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (OrdersList.SelectedItem == null) return;
             Selected_orderID = (e.CurrentSelection.FirstOrDefault() as TBL_Orders)?.id;
-            //await XGetOrders();
+            await Navigation.PushModalAsync(new TrackOrderPage());
         }
 
         private async void RefreshView_OnRefreshing(object sender, EventArgs e)

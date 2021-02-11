@@ -87,8 +87,8 @@
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="UnpaidOrders_OnTapped"/>
                     </StackLayout.GestureRecognizers>
-                    <Image Source="data_pending" WidthRequest="30" Margin="10,0,0,0"/>
-                    <Label Text="Unpaid Orders" VerticalOptions="Center" FontSize="15" TextColor="{StaticResource Textcolor}"/>
+                    <Image Source="track_order" WidthRequest="30" Margin="10,0,0,0"/>
+                    <Label Text="Track My Order" VerticalOptions="Center" FontSize="15" TextColor="{StaticResource Textcolor}"/>
                 </StackLayout>
                 <StackLayout VerticalOptions="FillAndExpand" HeightRequest="50" Padding="0"
                              touchEffect:TouchEff.PressedBackgroundColor="#77777A"

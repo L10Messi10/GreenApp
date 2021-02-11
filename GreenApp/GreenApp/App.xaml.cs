@@ -4,6 +4,7 @@ using Microsoft.WindowsAzure.MobileServices;
 using Plugin.Connectivity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static Xamarin.Forms.Device;
 
 namespace GreenApp
 {
@@ -35,10 +36,9 @@ namespace GreenApp
 
         public App()
         {
+            SetFlags(new[] { "Brush_Experimental" });
+            SetFlags(new[] { "SwipeView_Experimental" }); // Add here
             InitializeComponent();
-            Device.SetFlags(new []{"Brush_Experimental"});
-            Device.SetFlags(new[] { "SwipeView_Experimental" }); // Add here
-            //Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.MainPage = new AppShell(); });
             MainPage = new NavigationPage(new MenuPage());
         }
         
