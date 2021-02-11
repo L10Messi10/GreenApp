@@ -58,9 +58,9 @@
                                                      HorizontalOptions="CenterAndExpand" CornerRadius="3"/>
                                             <BoxView WidthRequest="8" HeightRequest="8" BackgroundColor="Silver"
                                                      HorizontalOptions="CenterAndExpand" CornerRadius="4"/>
-                                            <BoxView WidthRequest="10" HeightRequest="10" BackgroundColor="Silver"
-                                                     HorizontalOptions="CenterAndExpand" CornerRadius="5"/>
-                                            <ImageButton HeightRequest="25" WidthRequest="25" CornerRadius="12" Source="check"
+                                            <BoxView WidthRequest="12" HeightRequest="12" BackgroundColor="Silver"
+                                                     HorizontalOptions="CenterAndExpand" CornerRadius="6"/>
+                                            <ImageButton HeightRequest="20" WidthRequest="20" CornerRadius="10" Source="check"
                                                          Padding="5" HorizontalOptions="CenterAndExpand" BackgroundColor="{StaticResource Primary}" />
                                         </StackLayout>
                                         <StackLayout Grid.Column="1">
