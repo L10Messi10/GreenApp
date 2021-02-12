@@ -37,12 +37,12 @@
                     </StackLayout>
                 </Grid>
                 <Frame CornerRadius="10" VerticalOptions="CenterAndExpand" Padding="10">
-                    <StackLayout>
-                        <CollectionView x:Name="ListTrack" 
+                    <RefreshView x:Name="xRefreshView" Refreshing="RefreshView_OnRefreshing">
+                        <CollectionView x:Name="ListTrack"
                                         VerticalOptions="FillAndExpand">
                             <CollectionView.ItemsLayout>
                                 <GridItemsLayout Orientation="Vertical"
-                                         Span="1" />
+                                                 Span="1" />
                             </CollectionView.ItemsLayout>
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
@@ -53,18 +53,21 @@
                                         </Grid.ColumnDefinitions>
                                         <StackLayout Grid.Column="0">
                                             <BoxView WidthRequest="5" HeightRequest="5" BackgroundColor="Silver"
-                                                     HorizontalOptions="CenterAndExpand" CornerRadius="2.5"/>
+                                                     HorizontalOptions="CenterAndExpand" CornerRadius="2.5" />
                                             <BoxView WidthRequest="6" HeightRequest="6" BackgroundColor="Silver"
-                                                     HorizontalOptions="CenterAndExpand" CornerRadius="3"/>
+                                                     HorizontalOptions="CenterAndExpand" CornerRadius="3" />
                                             <BoxView WidthRequest="8" HeightRequest="8" BackgroundColor="Silver"
-                                                     HorizontalOptions="CenterAndExpand" CornerRadius="4"/>
+                                                     HorizontalOptions="CenterAndExpand" CornerRadius="4" />
                                             <BoxView WidthRequest="12" HeightRequest="12" BackgroundColor="Silver"
-                                                     HorizontalOptions="CenterAndExpand" CornerRadius="6"/>
-                                            <ImageButton HeightRequest="20" WidthRequest="20" CornerRadius="10" Source="check"
-                                                         Padding="5" HorizontalOptions="CenterAndExpand" BackgroundColor="{StaticResource Primary}" />
+                                                     HorizontalOptions="CenterAndExpand" CornerRadius="6" />
+                                            <ImageButton HeightRequest="20" WidthRequest="20" CornerRadius="10"
+                                                         Source="check"
+                                                         Padding="5" HorizontalOptions="CenterAndExpand"
+                                                         BackgroundColor="{StaticResource Primary}" />
                                         </StackLayout>
                                         <StackLayout Grid.Column="1">
-                                            <Label Text="{Binding track_status}" TextColor="{StaticResource TextColor}" FontAttributes="Bold" FontSize="18" />
+                                            <Label Text="{Binding track_status}" TextColor="{StaticResource TextColor}"
+                                                   FontAttributes="Bold" FontSize="18" />
                                             <Label TextColor="{StaticResource PlaceHolderColor}">
                                                 <Label.FormattedText>
                                                     <FormattedString>
@@ -79,7 +82,7 @@
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
                         </CollectionView>
-                    </StackLayout>
+                    </RefreshView>
                 </Frame>
             </StackLayout>
         </StackLayout>

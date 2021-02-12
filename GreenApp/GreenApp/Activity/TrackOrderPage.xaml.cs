@@ -21,16 +21,27 @@ namespace GreenApp.Activity
 
         protected override async void OnAppearing()
         {
-            var getTrackOrders = await MobileService.GetTable<V_OrderTracking>().Where(tOId => tOId.order_id == t_order_id).ToListAsync();
-            ListTrack.ItemsSource = getTrackOrders.OrderByDescending(i=> i.track_num);
-            OrderLayout.BindingContext = getTrackOrders.FirstOrDefault();
+            await XTracking();
+        }
 
+        private async Task XTracking()
+        {
+            xRefreshView.IsRefreshing = true;
+            var getTrackOrders = await MobileService.GetTable<V_OrderTracking>().Where(tOId => tOId.order_id == t_order_id).ToListAsync();
+            ListTrack.ItemsSource = getTrackOrders.OrderByDescending(i => i.track_num);
+            OrderLayout.BindingContext = getTrackOrders.FirstOrDefault();
+            xRefreshView.IsRefreshing = false;
         }
 
         private async void Button_OnClicked(object sender, EventArgs e)
         {
             t_order_id = "";
             await Navigation.PopModalAsync();
+        }
+
+        private async void RefreshView_OnRefreshing(object sender, EventArgs e)
+        {
+            await XTracking();
         }
     }
 }
