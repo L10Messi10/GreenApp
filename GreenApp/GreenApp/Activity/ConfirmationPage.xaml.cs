@@ -133,7 +133,6 @@ namespace GreenApp.Activity
                 {
                     //refresh = false;
                     await Application.Current.MainPage.Navigation.PopModalAsync();
-                    
                 }
             }
             else
