@@ -26,11 +26,19 @@ namespace GreenApp.Activity
 
         private async Task XTracking()
         {
-            xRefreshView.IsRefreshing = true;
-            var getTrackOrders = await MobileService.GetTable<V_OrderTracking>().Where(tOId => tOId.order_id == t_order_id).ToListAsync();
-            ListTrack.ItemsSource = getTrackOrders.OrderByDescending(i => i.track_num);
-            OrderLayout.BindingContext = getTrackOrders.FirstOrDefault();
-            xRefreshView.IsRefreshing = false;
+            try
+            {
+                xRefreshView.IsRefreshing = true;
+                var getTrackOrders = await MobileService.GetTable<V_OrderTracking>().Where(tOId => tOId.order_id == t_order_id).ToListAsync();
+                ListTrack.ItemsSource = getTrackOrders.OrderByDescending(i => i.track_num);
+                OrderLayout.BindingContext = getTrackOrders.FirstOrDefault();
+                xRefreshView.IsRefreshing = false;
+            }
+            catch
+            {
+                await DisplayAlert("Error", "An error occured, please check your internet connectivity.", "OK");
+            }
+            
         }
 
         private async void Button_OnClicked(object sender, EventArgs e)

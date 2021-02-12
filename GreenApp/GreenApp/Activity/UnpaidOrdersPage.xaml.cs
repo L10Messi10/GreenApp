@@ -40,14 +40,22 @@ namespace GreenApp.Activity
             }
             catch
             {
-                await Navigation.PushAsync(new NoInternetPage(), true);
+                await DisplayAlert("Error", "An error occured, please check your internet connectivity.", "OK");
             }
         }
         private async void OrdersList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (OrdersList.SelectedItem == null) return;
-            TrackOrderPage.t_order_id = (e.CurrentSelection.FirstOrDefault() as TBL_Orders)?.id;
-            await Navigation.PushModalAsync(new TrackOrderPage());
+            try
+            {
+                if (OrdersList.SelectedItem == null) return;
+                TrackOrderPage.t_order_id = (e.CurrentSelection.FirstOrDefault() as TBL_Orders)?.id;
+                await Navigation.PushModalAsync(new TrackOrderPage());
+            }
+            catch
+            {
+                //ignored
+            }
+            
         }
 
         private async void RefreshView_OnRefreshing(object sender, EventArgs e)
