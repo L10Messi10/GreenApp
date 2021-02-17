@@ -3,6 +3,7 @@ using Android;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
+using Android.Gms.Ads;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
@@ -44,10 +45,12 @@ namespace GreenApp.Droid
             Xamarin.Essentials.Platform.Init(Application);
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
             RequestPermissions(permissionGroup,0);
+            MobileAds.Initialize(ApplicationContext);
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
+            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
         

@@ -3,31 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GreenApp.Activity.AboutPage"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              Title="About">
-    <ScrollView>
-        <StackLayout>
-            <StackLayout HorizontalOptions="Fill"  BackgroundColor="{StaticResource Primary}" 
-                         HeightRequest="200" VerticalOptions="Start" Padding="20">
-                <Image Source="logoflyout" HeightRequest="100"/>
-                <Label VerticalOptions="Center"
-                       HorizontalOptions="Center">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="Green" FontSize="40" FontFamily="TitleDesign" FontAttributes="Bold"
-                                  TextColor="{StaticResource Textcolor}" />
-                            <Span Text=" Market" FontSize="25" FontFamily="TitleFontLight"
-                                  TextColor="{StaticResource Textcolor}" />
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
+    <StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout HorizontalOptions="Fill" BackgroundColor="{StaticResource Primary}"
+                             HeightRequest="200" VerticalOptions="Start" Padding="20">
+                    <Image Source="logoflyout" HeightRequest="100" />
+                    <Label VerticalOptions="Center"
+                           HorizontalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Green" FontSize="40" FontFamily="TitleDesign" FontAttributes="Bold"
+                                      TextColor="{StaticResource Textcolor}" />
+                                <Span Text=" Market" FontSize="25" FontFamily="TitleFontLight"
+                                      TextColor="{StaticResource Textcolor}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+                <StackLayout Margin="20">
+                    <Label
+                        Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet leo ut justo sagittis iaculis. Maecenas ac erat euismod, posuere nibh sit amet, mollis ligula. Mauris cursus facilisis erat, nec rhoncus est. Cras vel ante hendrerit."
+                        TextColor="Black" />
+                </StackLayout>
+                <ff:CachedImage Source="aboutimg" HeightRequest="300" WidthRequest="300"
+                                HorizontalOptions="CenterAndExpand" Aspect="AspectFit" />
             </StackLayout>
-            <StackLayout Margin="20">
-                <Label
-                    Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet leo ut justo sagittis iaculis. Maecenas ac erat euismod, posuere nibh sit amet, mollis ligula. Mauris cursus facilisis erat, nec rhoncus est. Cras vel ante hendrerit." 
-                    TextColor="Black"/>
-            </StackLayout>
-            <ff:CachedImage Source="aboutimg" HeightRequest="300" WidthRequest="300"
-                            HorizontalOptions="CenterAndExpand" Aspect="AspectFit"/>
-        </StackLayout>
-    </ScrollView>
+
+        </ScrollView>
+        <controls:MTAdView x:Name="MainPageAd" AdsId="{OnPlatform Android='ca-app-pub-3940256099942544/6300978111', iOS='ca-app-pub-3940256099942544/2934735716'}" 
+                           IsVisible="true" PersonalizedAds="true" VerticalOptions="EndAndExpand">
+            <controls:MTAdView.HeightRequest>
+                <x:OnIdiom>
+                    <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                    <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
+                    <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
+                </x:OnIdiom>
+            </controls:MTAdView.HeightRequest>
+        </controls:MTAdView>
+    </StackLayout>
 </ContentPage>

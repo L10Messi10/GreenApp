@@ -9,56 +9,6 @@
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              x:Class="GreenApp.Activity.MenuPage">
-    <!--<NavigationPage.TitleView BackgroundColor="{StaticResource Primary}">
-        <Image Source="menu" HeightRequest="15" x:Name="menuTray"
-                   Margin="5,0,0,0" WidthRequest="30" Aspect="AspectFit">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapMenu_OnTapped"/>
-            </Image.GestureRecognizers>
-        </Image>
-        <Label VerticalOptions="Center" Margin="10,0,0,0"
-                   HorizontalOptions="Center">
-            <Label.FormattedText>
-                <FormattedString>
-                    <Span Text="Green" FontSize="40" FontFamily="TitleDesign" FontAttributes="Bold"
-                              TextColor="{StaticResource Textcolor}" />
-                    <Span Text=" Market" FontSize="25" FontFamily="TitleFontLight"
-                              TextColor="{StaticResource Textcolor}" />
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-        <ff:CachedImage x:Name="profpic" HeightRequest="50" WidthRequest="50" HorizontalOptions="EndAndExpand"
-                            LoadingPlaceholder="notfound.png" ErrorPlaceholder="notfound.png">
-            <ff:CachedImage.Transformations>
-                <transformations:CircleTransformation BorderHexColor="#FFFFFF" BorderSize="10"/>
-            </ff:CachedImage.Transformations>
-        </ff:CachedImage>
-        <StackLayout HorizontalOptions="End">
-            <AbsoluteLayout>
-                <Image Source="cart.png" Aspect="AspectFit" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,0,1,1"
-                           AbsoluteLayout.LayoutFlags="All"
-                           HorizontalOptions="Center">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" NumberOfTapsRequired="1"/>
-                    </Image.GestureRecognizers>
-                </Image>
-                <Frame BackgroundColor="Transparent" HorizontalOptions="End" AbsoluteLayout.LayoutBounds="0,0,1,1"
-                           AbsoluteLayout.LayoutFlags="All" BorderColor="Transparent" HasShadow="False"
-                           HeightRequest="40" WidthRequest="40" CornerRadius="25" Margin="0" Padding="0">
-                    <Label Text="0" TextColor="WhiteSmoke" HorizontalOptions="Center" FontSize="15"
-                               VerticalOptions="Center" HorizontalTextAlignment="Center"
-                               x:Name="lblcartcount">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped"/>
-                        </Label.GestureRecognizers>
-                    </Label>
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_OnTapped"/>
-                    </Frame.GestureRecognizers>
-                </Frame>
-            </AbsoluteLayout>
-        </StackLayout>
-    </NavigationPage.TitleView>-->
     <ContentPage.Resources>
         <Style TargetType="Grid">
             <Setter Property="VisualStateManager.VisualStateGroups">
@@ -77,7 +27,6 @@
         </Style>
         
     </ContentPage.Resources>
-
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
             <Image Source="menu" HeightRequest="15" x:Name="menuTray"
@@ -135,41 +84,43 @@
         <Grid RowSpacing="0" AbsoluteLayout.LayoutBounds="0,0,1,1"
               AbsoluteLayout.LayoutFlags="All">
             <StackLayout>
-            <Grid RowSpacing="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <!--Search Bar-->
-                <Frame Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Padding="0" Margin="5"
-                       CornerRadius="20" HasShadow="False" BorderColor="{StaticResource Primary}">
+                <Grid RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <!--Search Bar-->
+                    <Frame Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Padding="0" Margin="5"
+                           CornerRadius="20" HasShadow="False" BorderColor="{StaticResource Primary}">
 
-                    <SearchBar CancelButtonColor="{StaticResource TextColor}"
-                               IsVisible="True" HorizontalOptions="FillAndExpand"
-                               PlaceholderColor="Gray" Placeholder="Search sections. . . ."
-                               Visual="Material" TextColor="{StaticResource TextColor}" x:Name="prosearh"
-                               TextChanged="Prosearh_OnTextChanged" />
-                </Frame>
-                <!--Menu Tray-->
+                        <SearchBar CancelButtonColor="{StaticResource TextColor}"
+                                   IsVisible="True" HorizontalOptions="FillAndExpand"
+                                   PlaceholderColor="Gray" Placeholder="Search sections. . . ."
+                                   Visual="Material" TextColor="{StaticResource TextColor}" x:Name="prosearh"
+                                   TextChanged="Prosearh_OnTextChanged" />
+                    </Frame>
+                    <!--Menu Tray-->
                     <Grid Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="0" BackgroundColor="{StaticResource Textcolor}">
-                        <RefreshView x:Name="RefreshView" RefreshColor="{StaticResource Textcolor}" VerticalOptions="FillAndExpand" 
+                        <RefreshView x:Name="RefreshView" RefreshColor="{StaticResource Textcolor}"
+                                     VerticalOptions="FillAndExpand"
                                      BackgroundColor="{StaticResource Primary}" Refreshing="RefreshView_OnRefreshing">
-                        <CollectionView ItemsSource="{Binding TBL_Category}"
-                                        x:Name="ListCategories" SelectionMode="Single"
-                                        HorizontalScrollBarVisibility="Always" x:FieldModifier="public"
-                                        VerticalOptions="FillAndExpand" SelectionChanged="ListCategories_OnSelectionChanged">
-                            <CollectionView.ItemsLayout>
-                                <GridItemsLayout Orientation="Vertical"
-                                                 Span="1" />
-                            </CollectionView.ItemsLayout>
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate>
-                                    <ContentView Padding="5">
+                            <CollectionView ItemsSource="{Binding TBL_Category}"
+                                            x:Name="ListCategories" SelectionMode="Single"
+                                            HorizontalScrollBarVisibility="Always" x:FieldModifier="public"
+                                            VerticalOptions="FillAndExpand"
+                                            SelectionChanged="ListCategories_OnSelectionChanged">
+                                <CollectionView.ItemsLayout>
+                                    <GridItemsLayout Orientation="Vertical"
+                                                     Span="1" />
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ContentView Padding="5">
                                             <Frame Padding="0" CornerRadius="10">
                                                 <Grid Margin="0" Padding="0" RowSpacing="0">
                                                     <Grid.RowDefinitions>
@@ -181,53 +132,60 @@
                                                     </Grid.ColumnDefinitions>
                                                     <Frame Grid.Row="0" Margin="0" Padding="0" Grid.Column="0"
                                                            CornerRadius="0" HasShadow="False">
-                                                        <ff:CachedImage x:Name="prodimg" Source="{Binding catimg_uri}" Aspect="AspectFill"
-                                                                LoadingPlaceholder="notfound.png"
-                                                                ErrorPlaceholder="notfound.png" />
+                                                        <ff:CachedImage x:Name="prodimg" Source="{Binding catimg_uri}"
+                                                                        Aspect="AspectFill"
+                                                                        LoadingPlaceholder="notfound.png"
+                                                                        ErrorPlaceholder="notfound.png" />
                                                     </Frame>
-                                                    <StackLayout Grid.Row="1" Padding="0" Margin="5" Orientation="Horizontal">
+                                                    <StackLayout Grid.Row="1" Padding="0" Margin="5"
+                                                                 Orientation="Horizontal">
                                                         <StackLayout Spacing="0" WidthRequest="250">
                                                             <Label VerticalOptions="Center" FontAttributes="Bold"
                                                                    Margin="5,0,0,5">
                                                                 <Label.FormattedText>
                                                                     <FormattedString>
-                                                                        <Span Text="{Binding category_name}" FontSize="18"
+                                                                        <Span Text="{Binding category_name}"
+                                                                              FontSize="18"
                                                                               TextColor="{StaticResource Primary}"
                                                                               FontFamily="TitleFontBold" />
                                                                     </FormattedString>
                                                                 </Label.FormattedText>
                                                             </Label>
-                                                            <Label Text="{Binding cat_desc}" VerticalOptions="Center" LineBreakMode="TailTruncation"/>
+                                                            <Label Text="{Binding cat_desc}" VerticalOptions="Center"
+                                                                   LineBreakMode="TailTruncation" />
                                                         </StackLayout>
-                                                        <Frame BackgroundColor="{StaticResource Primary}" Margin="0,-30,0,20"
+                                                        <Frame BackgroundColor="{StaticResource Primary}"
+                                                               Margin="0,-30,0,20"
                                                                HeightRequest="45" WidthRequest="50" Opacity="0.9"
                                                                HorizontalOptions="EndAndExpand"
                                                                CornerRadius="25" Padding="0">
-                                                            <Image Source="check" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
-                                                                   HeightRequest="20"/>
+                                                            <Image Source="check" VerticalOptions="CenterAndExpand"
+                                                                   HorizontalOptions="CenterAndExpand"
+                                                                   HeightRequest="20" />
                                                             <!--<Label Text="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
                                                                    TextColor="White" FontAttributes="Bold" FontSize="15"/>-->
                                                         </Frame>
                                                     </StackLayout>
                                                 </Grid>
                                             </Frame>
-                                    </ContentView>
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                        </CollectionView>
-                    </RefreshView>
-                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
-                                 IsVisible="False" x:Name="ErrorLayout">
+                                        </ContentView>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </RefreshView>
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
+                                     IsVisible="False" x:Name="ErrorLayout">
                             <Image Source="nointernet" VerticalOptions="CenterAndExpand"
-                               x:Name="imgnofound"
-                               HeightRequest="250" WidthRequest="250"/>
-                        <Button Text="Retry" FontAttributes="Bold" CornerRadius="10" BackgroundColor="{StaticResource Primary}"
-                                x:Name="btnretry" Clicked="Btnretry_OnClicked"/>
-                    </StackLayout>
+                                   x:Name="imgnofound"
+                                   HeightRequest="250" WidthRequest="250" />
+                            <Button Text="Retry" FontAttributes="Bold" CornerRadius="10"
+                                    BackgroundColor="{StaticResource Primary}"
+                                    x:Name="btnretry" Clicked="Btnretry_OnClicked" />
+                        </StackLayout>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </StackLayout>
-    </Grid>
+            </StackLayout>
+        </Grid>
         <StackLayout
             x:Name="progressLoading"
             IsVisible="False"
@@ -238,7 +196,7 @@
                 x:Name="ai"
                 IsRunning="True" IsVisible="True"
                 HorizontalOptions="CenterAndExpand"
-                Color="{StaticResource Primary}" Margin="0,300,0,0"/>
+                Color="{StaticResource Primary}" Margin="0,300,0,0" />
             <!--<Label x:Name="lblorderstate" Text="Bagging your order, please wait..." Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>-->
         </StackLayout>
     </AbsoluteLayout>

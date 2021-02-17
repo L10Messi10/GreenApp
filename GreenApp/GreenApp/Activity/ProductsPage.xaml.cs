@@ -83,26 +83,36 @@ namespace GreenApp.Activity
         {
             try
             {
+                ListProducts.IsVisible = true;
+                ErrorLayout.IsVisible = false;
+                RefreshView.IsRefreshing = true;
                 var products = (await MobileService.GetTable<TBL_Products>().ToListAsync());
                 ListProducts.ItemsSource = products.Where(p => p.prod_name.ToLower().Contains(query.ToLower())  && 
                                                            p.category_name.ToLower().Equals(Selected_CatID.ToLower())).ToList();
+                RefreshView.IsRefreshing = false;
             }
             catch
             {
-                await Navigation.PushAsync(new NoInternetPage(), true);
+                ListProducts.SelectedItem = null;
+                RefreshView.IsRefreshing = false;
+                //await Navigation.PushAsync(new NoInternetPage(), true);
+                //progressLoading.IsVisible = false;
+                ListProducts.IsVisible = false;
+                ErrorLayout.IsVisible = true;
             }
         }
 
         private async void Prosearh_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             await XSearchProduct(prosearh.Text);
-            //if (prosearh.Text == null)
-            //{
-            //    await getProducts();
-            //}
         }
 
         private async void RefreshView_OnRefreshing(object sender, EventArgs e)
+        {
+            await getProducts();
+        }
+
+        private async void Btnretry_OnClicked(object sender, EventArgs e)
         {
             await getProducts();
         }

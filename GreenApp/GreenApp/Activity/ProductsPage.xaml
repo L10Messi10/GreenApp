@@ -196,17 +196,17 @@
                             </CollectionView.ItemTemplate>
                         </CollectionView>
                     </RefreshView>
-                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
-                                 IsVisible="False" x:Name="ErrorLayout">
-                        <Image Source="nointernet" VerticalOptions="CenterAndExpand"
-                               x:Name="imgnofound"
-                               HeightRequest="250" WidthRequest="250"/>
-                        <Button Text="Retry" FontAttributes="Bold" CornerRadius="10" BackgroundColor="{StaticResource Primary}"
-                                x:Name="btnretry"/>
-                    </StackLayout>
                 </Grid>
             </Grid>
         </Grid>
-        
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="SizeProportional"
+                     IsVisible="False" x:Name="ErrorLayout">
+            <Image Source="nointernet" VerticalOptions="CenterAndExpand"
+                   x:Name="imgnofound"
+                   HeightRequest="250" WidthRequest="250"/>
+            <Button Text="Retry" FontAttributes="Bold" CornerRadius="10" BackgroundColor="{StaticResource Primary}"
+                    x:Name="btnretry" Clicked="Btnretry_OnClicked"/>
+        </StackLayout>
     </AbsoluteLayout>
 </ContentPage>

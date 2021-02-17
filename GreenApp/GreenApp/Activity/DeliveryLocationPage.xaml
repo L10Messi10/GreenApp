@@ -16,11 +16,11 @@
                             MapType="Hybrid" 
                             VerticalOptions="FillAndExpand"/>-->
             <maps:Map x:Name="map" AbsoluteLayout.LayoutBounds="0,0,1,1"
-                      AbsoluteLayout.LayoutFlags="All" IsShowingUser="True" MapType="Street"
+                      AbsoluteLayout.LayoutFlags="All" IsShowingUser="True" MapType="Street" HasZoomEnabled="True"
                       MoveToLastRegionOnLayoutChange="False" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
-                <Image Source="marker" HeightRequest="30" AbsoluteLayout.LayoutBounds="0.5,0.5,40,40"
-                   AbsoluteLayout.LayoutFlags="PositionProportional" Aspect="AspectFit"
-                   WidthRequest="30" VerticalOptions="Center" HorizontalOptions="Center"/>
+                <Image Source="marker_shadow.png" HeightRequest="35" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                   AbsoluteLayout.LayoutFlags="All" Aspect="AspectFit"
+                   WidthRequest="30" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
         </AbsoluteLayout>
         <Frame Grid.Row="1" BackgroundColor="{StaticResource Frame}"
                CornerRadius="20" Margin="0,-15,0,0" HasShadow="False" 

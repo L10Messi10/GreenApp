@@ -70,8 +70,8 @@ namespace GreenApp.Activity
 
         private async void Btncheckout_OnClicked(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 if (SignedIn)
                 {
                     if (progressplaceorder.IsVisible) return;
@@ -173,13 +173,13 @@ namespace GreenApp.Activity
                     await DisplayAlert("Login", "Please login or create an account first before doing any transaction in the market! It's FREE!", "OK");
                     await Navigation.PushAsync(new LoginPage());
                 }
-            //}
-            //catch
-            //{
-            //    progressplaceorder.IsVisible = false;
-            //    await Navigation.PushAsync(new NoInternetPage(), true);
-            //}
-        }
+            }
+            catch
+            {
+                progressplaceorder.IsVisible = false;
+                await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
+            }
+}
 
         private void Ordercollection_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -256,7 +256,7 @@ namespace GreenApp.Activity
             catch
             {
                 progressplaceorder.IsVisible = false;
-                await Navigation.PushAsync(new NoInternetPage(), true);
+                await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
             }
         }
 
@@ -310,7 +310,7 @@ namespace GreenApp.Activity
             catch
             {
                 progressplaceorder.IsVisible = false;
-                await Navigation.PushAsync(new NoInternetPage(), true);
+                await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
             }
         }
 

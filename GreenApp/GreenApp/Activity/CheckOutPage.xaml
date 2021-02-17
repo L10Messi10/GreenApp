@@ -4,6 +4,7 @@
              x:Class="GreenApp.Activity.CheckOutPage"
              BackgroundColor="{StaticResource BackgroundColor}" Visual="Material"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              Title="My Cart" NavigationPage.HasNavigationBar="True">
     <ContentPage.ToolbarItems> 
         <ToolbarItem IconImageSource="trash.png" Text="Remove" x:Name="deleteitem" Clicked="Deleteitem_OnClicked" Order="Secondary"/>
@@ -112,79 +113,98 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </Frame>
-            <StackLayout Grid.Row="1" VerticalOptions="EndAndExpand">
-                <Frame BackgroundColor="{StaticResource Frame}" Margin="10,0"
-                       CornerRadius="10" HasShadow="True">
-                    <Grid RowSpacing="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="150"/>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.ColumnSpan="3">
-                            <Label Text="Delivery?" HorizontalOptions="Start" VerticalOptions="Center" FontSize="15" FontAttributes="Bold"/>
-                            <Switch HorizontalOptions="EndAndExpand" OnColor="{StaticResource Primary}" 
-                                    ThumbColor="{StaticResource Primary}" IsToggled="True"
-                                    Toggled="Switch_OnToggled"
-                                    x:Name="Switch"/>
-                        </StackLayout>
-                        
-                        <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
-                            <BoxView HeightRequest="1" WidthRequest="300" BackgroundColor="WhiteSmoke"/>
-                            <StackLayout>
-                                <Label x:Name="lblchoice" Text="Delivery Address:" FontAttributes="Bold"/>
-                                <Grid x:Name="deliveryAddLayout">
+                    <StackLayout Grid.Row="1" VerticalOptions="EndAndExpand">
+                        <controls:MTAdView x:Name="MainPageAd"
+                                           AdsId="{OnPlatform Android='ca-app-pub-3940256099942544/6300978111', iOS='ca-app-pub-3940256099942544/2934735716'}"
+                                           IsVisible="true" PersonalizedAds="true" VerticalOptions="EndAndExpand">
+                            <controls:MTAdView.HeightRequest>
+                                <x:OnIdiom>
+                                    <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                                    <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
+                                    <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
+                                </x:OnIdiom>
+                            </controls:MTAdView.HeightRequest>
+                        </controls:MTAdView>
+                        <Frame BackgroundColor="{StaticResource Frame}" Margin="10,0"
+                               CornerRadius="10" HasShadow="True">
+                                <Grid RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="100" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="150" />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
                                     </Grid.ColumnDefinitions>
-                                    <Label x:Name="lblDelAddress" Grid.Column="0" Grid.ColumnSpan="2">
-                                        <Label.FormattedText>
-                                            <FormattedString>
-                                                <Span Text="{Binding Label}"
-                                                      FontAttributes="Bold" />
-                                                <Span Text=" : " FontAttributes="Bold"/>
-                                                <Span Text="{Binding Address}"
-                                                      TextColor="{StaticResource TextColor}"/>
-                                            </FormattedString>
-                                        </Label.FormattedText>
-                                            </Label>
-                                    <Button x:Name="btnchange" Grid.Column="2" BorderColor="{StaticResource Primary}" 
-                                            BorderWidth="1" BackgroundColor="Transparent" FontAttributes="Italic" TextColor="{StaticResource Primary}"
-                                            HeightRequest="35" Text="Change" FontSize="12" Clicked="Btnchange_OnClicked"/>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Grid.Column="0"
+                                             Grid.ColumnSpan="3">
+                                        <Label Text="Delivery?" HorizontalOptions="Start" VerticalOptions="Center"
+                                           FontSize="15" FontAttributes="Bold" />
+                                        <Switch HorizontalOptions="EndAndExpand" OnColor="{StaticResource Primary}"
+                                            ThumbColor="{StaticResource Primary}" IsToggled="True"
+                                            Toggled="Switch_OnToggled"
+                                            x:Name="Switch" />
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3">
+                                        <BoxView HeightRequest="1" WidthRequest="300" BackgroundColor="WhiteSmoke" />
+                                        <StackLayout>
+                                            <Label x:Name="lblchoice" Text="Delivery Address:" FontAttributes="Bold" />
+                                            <Grid x:Name="deliveryAddLayout">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition />
+                                                </Grid.ColumnDefinitions>
+                                                <Label x:Name="lblDelAddress" Grid.Column="0" Grid.ColumnSpan="2">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{Binding Label}"
+                                                              FontAttributes="Bold" />
+                                                            <Span Text=" : " FontAttributes="Bold" />
+                                                            <Span Text="{Binding Address}"
+                                                              TextColor="{StaticResource TextColor}" />
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                                <Button x:Name="btnchange" Grid.Column="2"
+                                                    BorderColor="{StaticResource Primary}"
+                                                    BorderWidth="1" BackgroundColor="Transparent"
+                                                    FontAttributes="Italic"
+                                                    TextColor="{StaticResource Primary}"
+                                                    HeightRequest="35" Text="Change" FontSize="12"
+                                                    Clicked="Btnchange_OnClicked" />
+                                            </Grid>
+                                            <StackLayout x:Name="pickUpLayout">
+                                                <Label Text="Pickup time of item." />
+                                                <TimePicker FontSize="12" HeightRequest="40" x:Name="pickupTime"
+                                                        BackgroundColor="{StaticResource Primary}" TextColor="WhiteSmoke" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <BoxView HeightRequest="1" WidthRequest="300" BackgroundColor="WhiteSmoke" />
+                                    </StackLayout>
+                                    <Label Grid.Row="3" Grid.Column="0" Text="Sub-total"
+                                       TextColor="{StaticResource TextColor}"
+                                       FontAttributes="Bold" />
+                                    <Label x:Name="lblsubtotal" Grid.Row="3" Grid.Column="2" Text="0"
+                                       HorizontalOptions="EndAndExpand" VerticalOptions="Center"
+                                       FontSize="Medium" TextColor="{StaticResource PriceColor_1}"
+                                       FontAttributes="Bold" />
+                                    <Label Grid.Row="4" Grid.Column="0" Text="Delivery fee"
+                                       FontAttributes="Bold" TextColor="{StaticResource TextColor}" />
+                                    <Label Grid.Row="4" Grid.Column="2" Text="0" HorizontalOptions="End"
+                                       FontSize="Medium" TextColor="{StaticResource PriceColor_1}"
+                                       FontAttributes="Bold" />
                                 </Grid>
-                                <StackLayout x:Name="pickUpLayout">
-                                    <Label Text="Pickup time of item."/>
-                                    <TimePicker FontSize="10" HeightRequest="40" x:Name="pickupTime"
-                                                BackgroundColor="White" TextColor="WhiteSmoke"
-                                                />
-                                </StackLayout>
-                            </StackLayout>
-                            <BoxView HeightRequest="1" WidthRequest="300" BackgroundColor="WhiteSmoke"/>
-                        </StackLayout>
-                        <Label Grid.Row="3" Grid.Column="0" Text="Sub-total" TextColor="{StaticResource TextColor}"
-                               FontAttributes="Bold"/>
-                        <Label x:Name="lblsubtotal" Grid.Row="3" Grid.Column="2" Text="0"
-                               HorizontalOptions="EndAndExpand" VerticalOptions="Center"
-                               FontSize="Medium" TextColor="{StaticResource PriceColor_1}" FontAttributes="Bold" />
-                        <Label Grid.Row="4" Grid.Column="0" Text="Delivery fee"
-                               FontAttributes="Bold" TextColor="{StaticResource TextColor}" />
-                        <Label Grid.Row="4" Grid.Column="2" Text="0" HorizontalOptions="End"
-                               FontSize="Medium" TextColor="{StaticResource PriceColor_1}" FontAttributes="Bold" />
-                    </Grid>
-                </Frame>
-            </StackLayout>
+                            </Frame>
+                    </StackLayout>
         </Grid>
             <StackLayout
                 x:Name="progressplaceorder"

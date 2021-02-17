@@ -47,7 +47,7 @@ namespace GreenApp.Activity
             catch
             {
                 RefreshView.IsRefreshing = false;
-                await Navigation.PushAsync(new NoInternetPage(), false);
+                await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
             }
         }
 
@@ -73,36 +73,50 @@ namespace GreenApp.Activity
 
         private async void ListAddress_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (ListAddress.SelectedItem == null) return;
-            _selectedAddressId = (e.CurrentSelection.FirstOrDefault() as TBL_Addresses)?.id;
-            if (_CheckingOut)
+            try
             {
-                var getAddresses = (await MobileService.GetTable<TBL_Addresses>().Where(p => p.id == _selectedAddressId).ToListAsync()).FirstOrDefault();
-                if (getAddresses != null)
+                if (ListAddress.SelectedItem == null) return;
+                _selectedAddressId = (e.CurrentSelection.FirstOrDefault() as TBL_Addresses)?.id;
+                if (_CheckingOut)
                 {
-                    _selectedAddressId = getAddresses.id;
-                    order_long = getAddresses.add_long;
-                    order_lat = getAddresses.add_lat;
-                    order_rcvr_add = getAddresses.Address;
-                    order_notes = getAddresses.Notes;
+                    var getAddresses = (await MobileService.GetTable<TBL_Addresses>().Where(p => p.id == _selectedAddressId).ToListAsync()).FirstOrDefault();
+                    if (getAddresses != null)
+                    {
+                        _selectedAddressId = getAddresses.id;
+                        order_long = getAddresses.add_long;
+                        order_lat = getAddresses.add_lat;
+                        order_rcvr_add = getAddresses.Address;
+                        order_notes = getAddresses.Notes;
+                    }
+                    _CheckingOut = false;
+                    await Navigation.PopAsync(false);
                 }
-                _CheckingOut = false;
-                await Navigation.PopAsync(false);
             }
+            catch
+            {
+                await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
+            }
+            
         }
 
         private async void Deleteitem_OnClicked(object sender, EventArgs e)
         {
-            if (_selectedAddressId != null)
+            try
             {
-                var addresses = new TBL_Addresses()
+                if (_selectedAddressId != null)
                 {
-                    id = _selectedAddressId,
-                };
-                await TBL_Addresses.Remove(addresses);
-                await getUserAddresses();
+                    var addresses = new TBL_Addresses()
+                    {
+                        id = _selectedAddressId,
+                    };
+                    await TBL_Addresses.Remove(addresses);
+                    await getUserAddresses();
+                }
             }
-            
+            catch
+            {
+                await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
+            }
         }
 
         private async void Edititem_OnClicked(object sender, EventArgs e)

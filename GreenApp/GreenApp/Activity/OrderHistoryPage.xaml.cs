@@ -49,7 +49,8 @@ namespace GreenApp.Activity
             }
             catch
             {
-                await Navigation.PushAsync(new NoInternetPage(), true);
+                xRefreshView.IsRefreshing = false;
+                await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
             }
         }
 
@@ -62,9 +63,17 @@ namespace GreenApp.Activity
 
         private void OrdersList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (OrdersList.SelectedItem == null) return;
-            Selected_orderID = (e.CurrentSelection.FirstOrDefault() as TBL_Orders)?.id;
-            //await XGetOrders();
+            try
+            {
+                if (OrdersList.SelectedItem == null) return;
+                Selected_orderID = (e.CurrentSelection.FirstOrDefault() as TBL_Orders)?.id;
+                //await XGetOrders();
+            }
+            catch
+            {
+               //ignored
+            }
+            
         }
 
         private async void RefreshView_OnRefreshing(object sender, EventArgs e)
@@ -74,18 +83,24 @@ namespace GreenApp.Activity
 
         private async void SwipeItemdeLete_OnInvoked(object sender, EventArgs e)
         {
-            var item = sender as SwipeItem;
-            var model = item.BindingContext as TBL_Orders;
-
-            var ans = await DisplayAlert("Delete", "Are you sure to remove this order?", "Yes", "No");
-            if (!ans) return;
-            var orderDetails = new TBL_Orders()
+            try
             {
-                id = model.id,
-            };
-            await TBL_Orders.Void(orderDetails);
-            var getorders = await MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id.ToLower().Contains(user_id)).ToListAsync();
-            OrdersList.ItemsSource = getorders;
+                var item = sender as SwipeItem;
+                var model = item.BindingContext as TBL_Orders;
+
+                var ans = await DisplayAlert("Delete", "Are you sure to remove this order?", "Yes", "No");
+                if (!ans) return;
+                var orderDetails = new TBL_Orders()
+                {
+                    id = model.id,
+                };
+                await TBL_Orders.Void(orderDetails);
+                await getHistoryOrders();
+            }
+            catch
+            {
+                await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
+            }
         }
 
         private void XSwipeViews_OnSwipeStarted(object sender, SwipeStartedEventArgs e)
