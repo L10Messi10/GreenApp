@@ -33,21 +33,13 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <StackLayout Grid.Row="0" Margin="8">
-                            <Picker x:Name="picker" Title="Select your address"
+                                <Picker x:Name="picker" Title="Select your address"
                                     TitleColor="{StaticResource Textcolor}" />
-                            <Frame CornerRadius="10">
-                                    <StackLayout Margin="5">
-                                    <Entry x:Name="txtstreet" Placeholder="Street number/Purok" MaxLength="50"
-                                           PlaceholderColor="Gray" Text="{Binding street}"/>
-                                    <Entry x:Name="txtfloor" Placeholder="Floor/unit/Room #" PlaceholderColor="Gray"
-                                           MaxLength="100" Text="{Binding floor}"/>
-                                    <Label x:Name="labelas" IsVisible="False" Text="{Binding Label}"/>
-                                </StackLayout>
-                            </Frame>
-                            <Frame CornerRadius="10">
+                                <Frame CornerRadius="10">
                                     <StackLayout Margin="5">
                                     <StackLayout>
-                                        <Label Text="Label as" TextColor="{StaticResource TextColor}" FontAttributes="Bold" />
+                                        <Label x:Name="labelas" IsVisible="False" Text="{Binding Label}"/>
+                                            <Label Text="Label as" TextColor="{StaticResource TextColor}" FontAttributes="Bold" />
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal">
                                         <Button x:Name="btnhome" Text="Home" BackgroundColor="Transparent" CornerRadius="10"
@@ -57,8 +49,10 @@
                                         <Button x:Name="btnothers" Text="Others" BackgroundColor="Transparent" CornerRadius="10"
                                                 BorderWidth="2" BorderColor="{StaticResource Primary}" Clicked="Btnothers_OnClicked"/>
                                     </StackLayout>
-                                        <Entry x:Name="txtnotes" Text="{Binding Notes}" Placeholder="Notes" PlaceholderColor="Gray"
-                                           MaxLength="100"/>
+                                        <Entry x:Name="txtbuilding" Placeholder="Name of the building/household." PlaceholderColor="Gray"
+                                               MaxLength="100" Text="{Binding building_name}"/>
+                                        <Entry x:Name="txtnotes" Text="{Binding Notes}" Placeholder="A specific instruction for our riders." PlaceholderColor="Gray"
+                                               MaxLength="200"/>
                                     </StackLayout>
                             </Frame>
                         </StackLayout>

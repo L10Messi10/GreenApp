@@ -2,12 +2,6 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GreenApp.Activity.AddressesPage" Title="Addresses">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="trash.png" Text="Remove" x:Name="deleteitem" Order="Secondary"
-                     Clicked="Deleteitem_OnClicked"/>
-        <ToolbarItem IconImageSource="edit.png" Text="Modify" x:Name="edititem" Order="Secondary"
-                     Clicked="Edititem_OnClicked"/>
-    </ContentPage.ToolbarItems>
     <StackLayout Margin="5" Spacing="0">
         <Label Text="Your Addresses" FontAttributes="Bold" FontSize="18"/>
         <AbsoluteLayout>
@@ -24,51 +18,76 @@
                             <ContentView Padding="5">
                                 <Grid Margin="0" Padding="0" RowSpacing="0">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="100" />
+                                        <RowDefinition Height="120" />
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <Frame Grid.Row="0" Margin="0" Padding="0" Grid.Column="0" CornerRadius="10"
                                            HasShadow="True">
-                                        <StackLayout Padding="0" Margin="5" Spacing="0">
-                                            <StackLayout Orientation="Horizontal">
-                                                <Label VerticalOptions="Center" FontAttributes="Bold" Margin="5,0,0,5"
-                                                       LineBreakMode="TailTruncation" HorizontalOptions="Start">
-                                                    <Label.FormattedText>
-                                                        <FormattedString>
-                                                            <Span Text="{Binding Label}" FontSize="20"
-                                                                  TextColor="{StaticResource Primary}"
-                                                                  FontAttributes="Bold" />
-                                                        </FormattedString>
-                                                    </Label.FormattedText>
-                                                </Label>
-                                                <!--<StackLayout Orientation="Horizontal" HeightRequest="20" HorizontalOptions="EndAndExpand" Spacing="20">
-                                                <ImageButton Source="edit" HeightRequest="20" WidthRequest="20" BackgroundColor="Transparent"/>
-                                                <ImageButton Source="trash" HeightRequest="20" WidthRequest="20" BackgroundColor="Transparent" x:Name="btndeleteaddress"
-                                                             Clicked="Delete"/>
-                                            </StackLayout>-->
+                                        <SwipeView x:Name="XSwipeViews" BackgroundColor="White" >
+                                            <StackLayout Margin="5" Spacing="0" BackgroundColor="White">
+                                                <StackLayout Padding="0" Spacing="0">
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label VerticalOptions="Center" FontAttributes="Bold"
+                                                               Margin="5,0,0,5"
+                                                               LineBreakMode="TailTruncation" HorizontalOptions="Start">
+                                                            <Label.FormattedText>
+                                                                <FormattedString>
+                                                                    <Span Text="{Binding Label}" FontSize="20"
+                                                                          TextColor="{StaticResource Primary}"
+                                                                          FontAttributes="Bold" />
+                                                                </FormattedString>
+                                                            </Label.FormattedText>
+                                                        </Label>
+                                                    </StackLayout>
+                                                    <Label VerticalOptions="Center" FontAttributes="Bold"
+                                                           Margin="5,0,0,5"
+                                                           LineBreakMode="TailTruncation">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="{Binding Address}" FontSize="18"
+                                                                      TextColor="{StaticResource Primary}" />
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label VerticalOptions="Center" FontAttributes="Bold"
+                                                           Margin="5,0,0,5"
+                                                           LineBreakMode="TailTruncation">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Notes: " />
+                                                                <Span Text="{Binding Notes}" FontSize="15"
+                                                                      TextColor="{StaticResource Primary}" />
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label VerticalOptions="Center" FontAttributes="Bold"
+                                                           Margin="5,0,0,5"
+                                                           LineBreakMode="TailTruncation">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Building/household: " />
+                                                                <Span Text="{Binding building_name}" FontSize="15"
+                                                                      TextColor="{StaticResource Primary}" />
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                </StackLayout>
+                                                <Label Text="Swipe for options." VerticalOptions="StartAndExpand" Margin="0,0,0,5"
+                                                       FontSize="8" HorizontalOptions="EndAndExpand"/>
                                             </StackLayout>
-                                            <Label VerticalOptions="Center" FontAttributes="Bold" Margin="5,0,0,5"
-                                                   LineBreakMode="TailTruncation">
-                                                <Label.FormattedText>
-                                                    <FormattedString>
-                                                        <Span Text="{Binding Address}" FontSize="18"
-                                                              TextColor="{StaticResource Primary}" />
-                                                    </FormattedString>
-                                                </Label.FormattedText>
-                                            </Label>
-                                            <Label VerticalOptions="Center" FontAttributes="Bold" Margin="5,0,0,5"
-                                                   LineBreakMode="TailTruncation">
-                                                <Label.FormattedText>
-                                                    <FormattedString>
-                                                        <Span Text="Notes: " />
-                                                        <Span Text="{Binding Notes}" FontSize="15"
-                                                              TextColor="{StaticResource Primary}" />
-                                                    </FormattedString>
-                                                </Label.FormattedText>
-                                            </Label>
-                                        </StackLayout>
+                                            <SwipeView.RightItems>
+                                                <SwipeItems Mode="Reveal" SwipeBehaviorOnInvoked="Close">
+                                                    <SwipeItem BackgroundColor="Red"
+                                                               IconImageSource="trash_white"
+                                                               Text="Remove" x:Name="SwipeItemdeLete" Invoked="SwipeItemdeLete_OnInvoked"/>
+                                                    <SwipeItem BackgroundColor="{StaticResource Primary}"
+                                                               IconImageSource="edit"
+                                                               Text="Modify" x:Name="SwipeItemedit" Invoked="SwipeItemedit_OnInvoked"/>
+                                                </SwipeItems>
+                                            </SwipeView.RightItems>
+                                        </SwipeView>
                                     </Frame>
                                 </Grid>
                             </ContentView>

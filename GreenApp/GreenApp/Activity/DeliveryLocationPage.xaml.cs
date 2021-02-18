@@ -55,7 +55,7 @@ namespace GreenApp.Activity
                     IEnumerable<string> possibleAddresses = await geoCoder.GetAddressesForPositionAsync(center);
                     var enumerable = possibleAddresses as string[] ?? possibleAddresses.ToArray();
                     picker.ItemsSource = enumerable.ToList();
-                    picker.SelectedIndex = 1;
+                    picker.SelectedIndex = 0;
                     order_lat = m.VisibleRegion.Center.Latitude;
                     order_long = m.VisibleRegion.Center.Longitude;
                     //await DisplayAlert ("Alert","Lat: " + m.VisibleRegion.Center.Latitude.ToString() + " Lon:" + m.VisibleRegion.Center.Longitude.ToString() + " ","OK");
@@ -171,7 +171,7 @@ namespace GreenApp.Activity
             {
                 await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
             }
-           
+
         }
 
         private async void Locator_PositionChanged(object sender, Plugin.Geolocator.Abstractions.PositionEventArgs e)
@@ -194,63 +194,69 @@ namespace GreenApp.Activity
         {
             try
             {
-                if (btnaddnewaddress.Text != "Modify Address")
+                if (txtnotes.Text == "" || txtbuilding.Text == "")
                 {
-                    ///add address
-                    string c_add;
-                    int selectedIndex = picker.SelectedIndex;
-                    c_add = "" + txtstreet.Text + ", " + txtfloor.Text + " " + (string)picker.ItemsSource[selectedIndex];
-                    if (_label != null)
-                    {
-                        progressplaceorder.IsVisible = true;
-                        var addrress = new TBL_Addresses
-                        {
-                            user_id = user_id,
-                            street = txtstreet.Text,
-                            floor = txtfloor.Text,
-                            Address = c_add,
-                            add_lat = order_lat,
-                            add_long = order_long,
-                            Label = _label,
-                            Notes = txtnotes.Text
-                        };
-                        await TBL_Addresses.Insert(addrress);
-                        await DisplayAlert("Info", "New address added. You can now choose this address where you want the items to be delivered.", "OK");
-                        await Navigation.PopAsync(true);
-                    }
-                    else
-                    {
-                        await DisplayAlert("Alert", "Please select a label for this address.", "OK");
-                    }
+                    await DisplayAlert("Notes", "Please enter a notes and building name with specific instruction for our riders.", "OK");
+                    //txtnotes.Focus();
                 }
                 else
                 {
-                    //modify address
-                    string c_add;
-                    var selectedIndex = picker.SelectedIndex;
-                    c_add = "" + txtstreet.Text + ", " + txtfloor.Text + " " + (string)picker.ItemsSource[selectedIndex];
-                    if (_label != null)
+                    if (btnaddnewaddress.Text != "Modify Address")
                     {
-                        progressplaceorder.IsVisible = true;
-                        var addrress = new TBL_Addresses
+                        //add address
+                        string c_add;
+                        int selectedIndex = picker.SelectedIndex;
+                        c_add = (string) picker.ItemsSource[selectedIndex];
+                        if (_label != null)
                         {
-                            id = _selectedAddressId,
-                            user_id = user_id,
-                            street = txtstreet.Text,
-                            floor = txtfloor.Text,
-                            Address = c_add,
-                            add_lat = order_lat,
-                            add_long = order_long,
-                            Label = _label,
-                            Notes = txtnotes.Text
-                        };
-                        await TBL_Addresses.Update(addrress);
-                        await DisplayAlert("Info", "Address updated successfully.", "OK");
-                        await Navigation.PopAsync(true);
+                            progressplaceorder.IsVisible = true;
+                            var addrress = new TBL_Addresses
+                            {
+                                user_id = user_id,
+                                building_name = txtbuilding.Text,
+                                Address = c_add,
+                                add_lat = order_lat,
+                                add_long = order_long,
+                                Label = _label,
+                                Notes = txtnotes.Text
+                            };
+                            await TBL_Addresses.Insert(addrress);
+                            await DisplayAlert("Info", "New address added. You can now choose this address where you want the items to be delivered.", "OK");
+                            await Navigation.PopAsync(true);
+                        }
+                        else
+                        {
+                            await DisplayAlert("Alert", "Please select a label for this address.", "OK");
+                        }
                     }
                     else
                     {
-                        await DisplayAlert("Alert", "Please select a label for this address.", "OK");
+                        //modify address
+                        string c_add;
+                        var selectedIndex = picker.SelectedIndex;
+                        c_add = (string) picker.ItemsSource[selectedIndex];
+                        if (_label != null)
+                        {
+                            progressplaceorder.IsVisible = true;
+                            var addrress = new TBL_Addresses
+                            {
+                                id = _selectedAddressId,
+                                user_id = user_id,
+                                building_name = txtbuilding.Text,
+                                Address = c_add,
+                                add_lat = order_lat,
+                                add_long = order_long,
+                                Label = _label,
+                                Notes = txtnotes.Text
+                            };
+                            await TBL_Addresses.Update(addrress);
+                            await DisplayAlert("Info", "Address updated successfully.", "OK");
+                            await Navigation.PopAsync(true);
+                        }
+                        else
+                        {
+                            await DisplayAlert("Alert", "Please select a label for this address.", "OK");
+                        }
                     }
                 }
             }
@@ -258,7 +264,7 @@ namespace GreenApp.Activity
             {
                 await Navigation.PushAsync(new NoInternetPage(), true);
             }
-        }
+}
 
         private void Btnhome_OnClicked(object sender, EventArgs e)
         {

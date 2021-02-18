@@ -98,11 +98,14 @@ namespace GreenApp.Activity
             }
             
         }
-
-        private async void Deleteitem_OnClicked(object sender, EventArgs e)
+        
+        private async void SwipeItemdeLete_OnInvoked(object sender, EventArgs e)
         {
             try
             {
+                var item = sender as SwipeItem;
+                var model = item.BindingContext as TBL_Addresses;
+                _selectedAddressId = model.id;
                 if (_selectedAddressId != null)
                 {
                     var addresses = new TBL_Addresses()
@@ -119,13 +122,33 @@ namespace GreenApp.Activity
             }
         }
 
-        private async void Edititem_OnClicked(object sender, EventArgs e)
+        private async void SwipeItemedit_OnInvoked(object sender, EventArgs e)
         {
-            if (_selectedAddressId != null)
+            try
             {
-                _newAdd = false;
-                await Navigation.PushAsync(new DeliveryLocationPage());
+                var item = sender as SwipeItem;
+                var model = item.BindingContext as TBL_Addresses;
+                _selectedAddressId = model.id;
+                if (_selectedAddressId != null)
+                {
+                    var getAddresses = (await MobileService.GetTable<TBL_Addresses>().Where(p => p.id == _selectedAddressId).ToListAsync()).FirstOrDefault();
+                    if (getAddresses != null)
+                    {
+                        _selectedAddressId = getAddresses.id;
+                        order_long = getAddresses.add_long;
+                        order_lat = getAddresses.add_lat;
+                        order_rcvr_add = getAddresses.Address;
+                        order_notes = getAddresses.Notes;
+                    }
+                    _newAdd = false;
+                    await Navigation.PushAsync(new DeliveryLocationPage());
+                }
             }
+            catch
+            {
+                await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
+            }
+            
         }
     }
 }
