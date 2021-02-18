@@ -104,6 +104,7 @@ namespace GreenApp.Activity
                         order_long = getAddresses.add_long;
                         order_lat = getAddresses.add_lat;
                         order_rcvr_add = getAddresses.Address;
+                        build_name = getAddresses.building_name;
                         order_notes = getAddresses.Notes;
                     }
                 }

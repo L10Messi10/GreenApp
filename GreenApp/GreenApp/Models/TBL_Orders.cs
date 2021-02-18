@@ -26,6 +26,7 @@ namespace GreenApp.Models
         public string del_address { get; set; }
         public string del_lat { get; set; }
         public string del_long { get; set; }
+        public string building_name { get; set; }
         public string notes { get; set; }
         public string pickup_time { get; set; }
 
