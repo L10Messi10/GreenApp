@@ -68,12 +68,6 @@ namespace GreenApp.Droid
                             build_name = getAddresses.building_name;
                             order_notes = getAddresses.Notes;
                         }
-                        //indicatorloader.IsVisible = false;
-                        //Settings.LastUsedEmail = chkremember.IsChecked ? emailentry.Text : "";
-                        //await DisplayAlert("Success", "Email or password is incorrect!", "OK");
-                        //Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.MainPage = new AppShell(); });
-                        //await Navigation.PushAsync(new MenuPage(), true);
-                        //var page = MenuPage as NavigationPage;
                     }
                 }
                 else
