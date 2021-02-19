@@ -74,10 +74,13 @@ namespace GreenApp.Activity
             {
                 if (SignedIn)
                 {
+
                     if (progressplaceorder.IsVisible) return;
                     if (totalpayable.Text != "0")
                     {
-                        var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
+                        if (lbladd.Text != "")
+                        {
+                            var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
                         if (stat != null) MarketStatus = stat.status;
                         if (MarketStatus == "1")
                         {
@@ -88,35 +91,37 @@ namespace GreenApp.Activity
                             if (Switch.IsToggled)
                             {
                                 //Save delivery order
-                                var orderDetails = new TBL_Orders()
-                                {
-                                    id = CurrentOrderId,
-                                    users_id = user_id,
-                                    order_date = Now.ToString("yyyy-MM-dd"),
-                                    cart_datetime = Now.ToString("ddd, dd MMM yyyy h:mm tt"),
-                                    stat = "1",
-                                    order_status = "Ordered",
-                                    order_choice = "Delivery",
-                                    del_address = order_rcvr_add,
-                                    building_name = build_name,
-                                    notes = order_notes,
-                                    del_lat = order_lat.ToString(CultureInfo.InvariantCulture),
-                                    del_long = order_long.ToString(CultureInfo.InvariantCulture),
-                                    pickup_time = "-",
-                                    itms_qty = itemcount.ToString(),
-                                    tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
-                                };
-                                await TBL_Orders.Update(orderDetails);
+                                
+                                    var orderDetails = new TBL_Orders()
+                                    {
+                                        id = CurrentOrderId,
+                                        users_id = user_id,
+                                        order_date = Now.ToString("yyyy-MM-dd"),
+                                        cart_datetime = Now.ToString("ddd, dd MMM yyyy h:mm tt"),
+                                        stat = "1",
+                                        order_status = "Ordered",
+                                        order_choice = "Delivery",
+                                        del_address = order_rcvr_add,
+                                        building_name = build_name,
+                                        notes = order_notes,
+                                        del_lat = order_lat.ToString(CultureInfo.InvariantCulture),
+                                        del_long = order_long.ToString(CultureInfo.InvariantCulture),
+                                        pickup_time = "-",
+                                        itms_qty = itemcount.ToString(),
+                                        tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
+                                    };
+                                    await TBL_Orders.Update(orderDetails);
 
-                                var track = new TBL_OrderTracking()
-                                {
-                                    order_id = CurrentOrderId,
-                                    track_status = "Order placed",
-                                    track_desc = "Order Successfully placed for delivery.",
-                                    track_time = Now.ToString("h:mm tt"),
-                                    track_num = "1"
-                                };
-                                await TBL_OrderTracking.Insert(track);
+                                    var track = new TBL_OrderTracking()
+                                    {
+                                        order_id = CurrentOrderId,
+                                        track_status = "Order placed",
+                                        track_desc = "Order Successfully placed for delivery.",
+                                        track_time = Now.ToString("h:mm tt"),
+                                        track_num = "1"
+                                    };
+                                    await TBL_OrderTracking.Insert(track);
+
                             }
                             else
                             {
@@ -162,6 +167,11 @@ namespace GreenApp.Activity
                         {
                             progressplaceorder.IsVisible = false;
                             await Navigation.PushAsync(new MarketClosePage(), true);
+                        }
+                        }
+                        else
+                        {
+                            await DisplayAlert("Address", "No address present, please setup your address first!", "OK");
                         }
                     }
                     else

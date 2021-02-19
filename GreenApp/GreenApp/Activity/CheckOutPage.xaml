@@ -169,7 +169,7 @@
                                                             <Span Text="{Binding Label}"
                                                               FontAttributes="Bold" />
                                                             <Span Text=" : " FontAttributes="Bold" />
-                                                            <Span Text="{Binding Address}"
+                                                            <Span x:Name="lbladd" Text="{Binding Address}"
                                                               TextColor="{StaticResource TextColor}" />
                                                         </FormattedString>
                                                     </Label.FormattedText>
