@@ -6,11 +6,11 @@
              xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              Title="About">
     <StackLayout>
-        <ScrollView>
+        
             <StackLayout>
                 <StackLayout HorizontalOptions="Fill" BackgroundColor="{StaticResource Primary}"
-                             HeightRequest="200" VerticalOptions="Start" Padding="20">
-                    <Image Source="logoflyout" HeightRequest="100" />
+                             HeightRequest="150" VerticalOptions="CenterAndExpand" Padding="20">
+                    <Image Source="logoflyout" HeightRequest="70" />
                     <Label VerticalOptions="Center"
                            HorizontalOptions="Center">
                         <Label.FormattedText>
@@ -22,17 +22,26 @@
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
+                <Label Text="ACES Polytechnic College, Inc." FontSize="15"
+                       FontAttributes="Bold" TextColor="{StaticResource Textcolor}" VerticalOptions="Center"
+                       HorizontalOptions="Center"/>
                 </StackLayout>
-                <StackLayout Margin="20">
-                    <Label
-                        Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sit amet leo ut justo sagittis iaculis. Maecenas ac erat euismod, posuere nibh sit amet, mollis ligula. Mauris cursus facilisis erat, nec rhoncus est. Cras vel ante hendrerit."
-                        TextColor="Black" />
-                </StackLayout>
-                <ff:CachedImage Source="aboutimg" HeightRequest="300" WidthRequest="300"
-                                HorizontalOptions="CenterAndExpand" Aspect="AspectFit" />
-            </StackLayout>
+                <ScrollView>
+                    <StackLayout>
+                        <StackLayout Margin="20">
+                            <Label HorizontalTextAlignment="Center"
+                                LineBreakMode="WordWrap"
+                                TextColor="Black">
+                                <Label.Text>The Green Market Laboratory envisions to connect farmers and fishermen to the market place directly, providing fresh and quality products from the farms, where it promotes and maintain cleanliness.</Label.Text>
+                            </Label>
+                        </StackLayout>
+                        <ff:CachedImage Source="aboutimg" HeightRequest="300" WidthRequest="300"
+                                        HorizontalOptions="CenterAndExpand" Aspect="AspectFit" />
+                    </StackLayout>
+                </ScrollView>
+        </StackLayout>
 
-        </ScrollView>
+       
         <controls:MTAdView x:Name="MainPageAd" AdsId="{OnPlatform Android='ca-app-pub-3940256099942544/6300978111', iOS='ca-app-pub-3940256099942544/2934735716'}" 
                            IsVisible="true" PersonalizedAds="true" VerticalOptions="EndAndExpand">
             <controls:MTAdView.HeightRequest>

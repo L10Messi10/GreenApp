@@ -63,7 +63,7 @@ namespace GreenApp.Activity
             }
             catch
             {
-                //this line doesn't need a display alert but a lael to display the status of connection.
+                //this line doesn't need a display alert but a label to display the status of connection.
                 await DisplayAlert("Connection slow", "Your internet connection might be slow!", "OK");
             }
         }
