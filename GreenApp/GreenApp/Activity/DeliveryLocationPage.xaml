@@ -76,5 +76,35 @@
             Color="Green" Margin="0,300,0,0"/>
         <Label x:Name="lblorderstate" Text="Saving your address, please wait..." Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>
     </StackLayout>
+        <StackLayout VerticalOptions="FillAndExpand"
+                     x:Name="error"
+                     IsVisible="False"
+                     AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All"
+                     BackgroundColor="Black" Opacity="0.9">
+            <StackLayout VerticalOptions="CenterAndExpand" Margin="20">
+                <Image Source="sad_cloud" WidthRequest="50" VerticalOptions="Center"/>
+                <Label x:Name="lblerror" Text="You're offline!" Margin="0" HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center" FontAttributes="Bold" FontSize="15"
+                       TextColor="WhiteSmoke" />
+                <Button Text="Retry" BackgroundColor="{StaticResource Primary}" VerticalOptions="Center"
+                        TextColor="{StaticResource Textcolor}" Clicked="Button_OnClicked" />
+            </StackLayout>
+        </StackLayout>
+        <StackLayout VerticalOptions="FillAndExpand"
+                     x:Name="error_wifi"
+                     IsVisible="False"
+                     AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All"
+                     BackgroundColor="Black" Opacity="0.9">
+            <StackLayout VerticalOptions="CenterAndExpand" Margin="20">
+                <Image Source="sad_cloud" WidthRequest="50" VerticalOptions="Center"/>
+                <Label Text="Unexpected Error!" Margin="0" HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center" FontAttributes="Bold" FontSize="15"
+                       TextColor="WhiteSmoke" />
+                <Button Text="Retry" BackgroundColor="{StaticResource Primary}" VerticalOptions="Center"
+                        TextColor="{StaticResource Textcolor}" Clicked="Button_OnClicked" />
+            </StackLayout>
+        </StackLayout>
     </AbsoluteLayout>
 </ContentPage>

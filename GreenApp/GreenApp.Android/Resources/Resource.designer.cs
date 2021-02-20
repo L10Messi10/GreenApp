@@ -29302,46 +29302,52 @@ namespace GreenApp.Droid
 			public const int notify_panel_notification_icon_bg = 2131165376;
 			
 			// aapt resource value: 0x7F0700C1
-			public const int person = 2131165377;
+			public const int offline = 2131165377;
 			
 			// aapt resource value: 0x7F0700C2
-			public const int person_1 = 2131165378;
+			public const int person = 2131165378;
 			
 			// aapt resource value: 0x7F0700C3
-			public const int phone = 2131165379;
+			public const int person_1 = 2131165379;
 			
 			// aapt resource value: 0x7F0700C4
-			public const int police = 2131165380;
+			public const int phone = 2131165380;
 			
 			// aapt resource value: 0x7F0700C5
-			public const int price_tag = 2131165381;
+			public const int police = 2131165381;
 			
 			// aapt resource value: 0x7F0700C6
-			public const int qr_code = 2131165382;
+			public const int price_tag = 2131165382;
 			
 			// aapt resource value: 0x7F0700C7
-			public const int refresh = 2131165383;
+			public const int qr_code = 2131165383;
 			
 			// aapt resource value: 0x7F0700C8
-			public const int splashscreen = 2131165384;
+			public const int refresh = 2131165384;
 			
 			// aapt resource value: 0x7F0700C9
-			public const int test_custom_background = 2131165385;
+			public const int sad_cloud = 2131165385;
 			
 			// aapt resource value: 0x7F0700CA
-			public const int tooltip_frame_dark = 2131165386;
+			public const int splashscreen = 2131165386;
 			
 			// aapt resource value: 0x7F0700CB
-			public const int tooltip_frame_light = 2131165387;
+			public const int test_custom_background = 2131165387;
 			
 			// aapt resource value: 0x7F0700CC
-			public const int track_order = 2131165388;
+			public const int tooltip_frame_dark = 2131165388;
 			
 			// aapt resource value: 0x7F0700CD
-			public const int trash = 2131165389;
+			public const int tooltip_frame_light = 2131165389;
 			
 			// aapt resource value: 0x7F0700CE
-			public const int trash_white = 2131165390;
+			public const int track_order = 2131165390;
+			
+			// aapt resource value: 0x7F0700CF
+			public const int trash = 2131165391;
+			
+			// aapt resource value: 0x7F0700D0
+			public const int trash_white = 2131165392;
 			
 			static Drawable()
 			{

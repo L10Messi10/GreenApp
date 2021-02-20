@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using GreenApp.Models;
 using GreenApp.ViewModels;
 using Plugin.Geolocator;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
@@ -38,6 +39,7 @@ namespace GreenApp.Activity
             //map.MoveToRegion(MapSpan.FromCenterAndRadius(pin.Position, Distance.FromMeters(5000)));
             //ApplyMapTheme();
             map.PropertyChanged += Map_PropertyChanged;
+
             //map.CameraIdled += Map_CameraIdled;
         }
 
@@ -45,26 +47,44 @@ namespace GreenApp.Activity
         {
             try
             {
-                Geocoder geoCoder = new Geocoder();
-                var m = map;
-                if (m.VisibleRegion != null)
-                {
-                    var center = new Position(m.VisibleRegion.Center.Latitude, m.VisibleRegion.Center.Longitude);
-                    //var span = new MapSpan(center, 0.001, 0.001);
-                    //map.MoveToRegion(span);
-                    IEnumerable<string> possibleAddresses = await geoCoder.GetAddressesForPositionAsync(center);
-                    var enumerable = possibleAddresses as string[] ?? possibleAddresses.ToArray();
-                    picker.ItemsSource = enumerable.ToList();
-                    picker.SelectedIndex = 0;
-                    order_lat = m.VisibleRegion.Center.Latitude;
-                    order_long = m.VisibleRegion.Center.Longitude;
-                    //await DisplayAlert ("Alert","Lat: " + m.VisibleRegion.Center.Latitude.ToString() + " Lon:" + m.VisibleRegion.Center.Longitude.ToString() + " ","OK");
-                }
+                var current = Connectivity.NetworkAccess;
+
+            if (current != NetworkAccess.Internet)
+            {
+                await DisplayAlert("Connection slow", "Your might be offline! Please try again later.", "OK");
+                return;
+            }
+
+            Geocoder geoCoder = new Geocoder();
+            var m = map;
+            if (m.VisibleRegion != null)
+            {
+                var center = new Position(m.VisibleRegion.Center.Latitude, m.VisibleRegion.Center.Longitude);
+                //var span = new MapSpan(center, 0.001, 0.001);
+                //map.MoveToRegion(span);
+                IEnumerable<string> possibleAddresses = await geoCoder.GetAddressesForPositionAsync(center);
+                var enumerable = possibleAddresses as string[] ?? possibleAddresses.ToArray();
+                picker.ItemsSource = enumerable.ToList();
+                picker.SelectedIndex = 1;
+                order_lat = m.VisibleRegion.Center.Latitude;
+                order_long = m.VisibleRegion.Center.Longitude;
+                //await DisplayAlert ("Alert","Lat: " + m.VisibleRegion.Center.Latitude.ToString() + " Lon:" + m.VisibleRegion.Center.Longitude.ToString() + " ","OK");
+            }
+
             }
             catch
             {
                 //this line doesn't need a display alert but a label to display the status of connection.
-                await DisplayAlert("Connection slow", "Your internet connection might be slow!", "OK");
+                //await DisplayAlert("Unexpected Error", "An unexpected error occured. Please try again later.", "OK");
+                _selectedAddressId = "";
+                order_lat = 0;
+                order_long = 0;
+                var locator = CrossGeolocator.Current;
+                locator.PositionChanged -= Locator_PositionChanged;
+                map.PropertyChanged -= Map_PropertyChanged;
+                Connectivity.ConnectivityChanged -= Connectivity_ConnectivityChanged;
+                await locator.StopListeningAsync();
+                await Navigation.PopAsync();
             }
         }
         
@@ -78,6 +98,8 @@ namespace GreenApp.Activity
                 var locator = CrossGeolocator.Current;
                 Geocoder geoCoder = new Geocoder();
                 locator.PositionChanged -= Locator_PositionChanged;
+                map.PropertyChanged -= Map_PropertyChanged;
+                Connectivity.ConnectivityChanged -= Connectivity_ConnectivityChanged;
                 await locator.StopListeningAsync();
             }
             catch
@@ -88,6 +110,7 @@ namespace GreenApp.Activity
 
         protected override async void OnAppearing()
         {
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             try
             {
                 if (_newAdd)
@@ -114,7 +137,7 @@ namespace GreenApp.Activity
             }
             catch
             {
-                await DisplayAlert("Connection slow", "Your internet connection might be slow!", "OK");
+                error_wifi.IsVisible = true;
             }
             
             //This gets the current location of the user's device.
@@ -122,10 +145,17 @@ namespace GreenApp.Activity
             
         }
 
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            error_wifi.IsVisible = false;
+            error.IsVisible = e.NetworkAccess != NetworkAccess.Internet;
+        }
+
         private async Task modifyAddress()
         {
             try
             {
+
                 var getAddresseses = (await MobileService.GetTable<TBL_Addresses>().Where(add => add.id == _selectedAddressId).ToListAsync()).FirstOrDefault();
                 addressInfo.BindingContext = getAddresseses;
                 var center = new Position(order_lat, order_long);
@@ -169,12 +199,12 @@ namespace GreenApp.Activity
             }
             catch
             {
-                await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
+                error_wifi.IsVisible = true;
             }
 
         }
 
-        private async void Locator_PositionChanged(object sender, Plugin.Geolocator.Abstractions.PositionEventArgs e)
+        private void Locator_PositionChanged(object sender, Plugin.Geolocator.Abstractions.PositionEventArgs e)
         {
             try
             {
@@ -186,7 +216,7 @@ namespace GreenApp.Activity
             }
             catch
             {
-                await DisplayAlert("Connection slow", "Your internet connection might be slow!", "OK");
+                error_wifi.IsVisible = true;
             }
         }
 
@@ -262,7 +292,7 @@ namespace GreenApp.Activity
             }
             catch
             {
-                await Navigation.PushAsync(new NoInternetPage(), true);
+                error_wifi.IsVisible = true;
             }
 }
 
@@ -297,6 +327,12 @@ namespace GreenApp.Activity
             btnothers.TextColor = Color.White;
             btnwork.BackgroundColor = Color.Transparent;
             btnhome.BackgroundColor = Color.Transparent;
+        }
+
+        private void Button_OnClicked(object sender, EventArgs e)
+        {
+            error_wifi.IsVisible = false;
+            error.IsVisible = Connectivity.NetworkAccess != NetworkAccess.Internet;
         }
     }
 }

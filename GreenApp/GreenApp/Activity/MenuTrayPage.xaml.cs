@@ -108,5 +108,10 @@ namespace GreenApp.Activity
         {
             await Navigation.PushAsync(new UnpaidOrdersPage(), false);
         }
+
+        private async void Home_OnTapped(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
     }
 }

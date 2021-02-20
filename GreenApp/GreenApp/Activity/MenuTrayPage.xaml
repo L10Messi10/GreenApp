@@ -9,7 +9,7 @@
 
     <StackLayout BackgroundColor="{StaticResource TextBackColor}" Spacing="0" Padding="0" Orientation="Vertical">
         
-        <ScrollView VerticalOptions="Start" Orientation="Vertical">
+        
             <StackLayout Spacing="0">
                 <StackLayout VerticalOptions="StartAndExpand" Orientation="Vertical" Spacing="0" Padding="0" 
                              HeightRequest="210" BackgroundColor="{StaticResource Primary}">
@@ -37,103 +37,126 @@
                                 FontAttributes="Bold" x:Name="bbtnsignin" Clicked="Bbtnsignin_OnClicked"/>
                     </StackLayout>
                 </StackLayout>
-                <StackLayout VerticalOptions="FillAndExpand" HeightRequest="50" Padding="0"
-                             touchEffect:TouchEff.PressedBackgroundColor="#77777A"
-                             touchEffect:TouchEff.PressedAnimationDuration="100"
-                             touchEffect:TouchEff.RegularAnimationDuration="100"
-                             touchEffect:TouchEff.PressedScale="0.9"
-                             touchEffect:TouchEff.PressedOpacity="0.6"
-                             Orientation="Horizontal" x:Name="menuProfile">
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Profile_OnTapped"/>
-                    </StackLayout.GestureRecognizers>
-                    <Image Source="person_1" WidthRequest="30" Margin="10,0,0,0"/>
-                    <Label Text="Profile" VerticalOptions="Center" FontSize="15" TextColor="{StaticResource Textcolor}"/>
-                </StackLayout>
+                <ScrollView VerticalOptions="Start" Orientation="Vertical">
+                    <StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" HeightRequest="50" Padding="0"
+                                     touchEffect:TouchEff.PressedBackgroundColor="#77777A"
+                                     touchEffect:TouchEff.PressedAnimationDuration="100"
+                                     touchEffect:TouchEff.RegularAnimationDuration="100"
+                                     touchEffect:TouchEff.PressedScale="0.9"
+                                     touchEffect:TouchEff.PressedOpacity="0.6"
+                                     Orientation="Horizontal" x:Name="menuHome">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Home_OnTapped" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="home" WidthRequest="30" Margin="10,0,0,0" />
+                            <Label Text="Home" VerticalOptions="Center" FontSize="15"
+                                   TextColor="{StaticResource Textcolor}" />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" HeightRequest="50" Padding="0"
+                                     touchEffect:TouchEff.PressedBackgroundColor="#77777A"
+                                     touchEffect:TouchEff.PressedAnimationDuration="100"
+                                     touchEffect:TouchEff.RegularAnimationDuration="100"
+                                     touchEffect:TouchEff.PressedScale="0.9"
+                                     touchEffect:TouchEff.PressedOpacity="0.6"
+                                     Orientation="Horizontal" x:Name="menuProfile">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Profile_OnTapped" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="person_1" WidthRequest="30" Margin="10,0,0,0" />
+                            <Label Text="Profile" VerticalOptions="Center" FontSize="15"
+                                   TextColor="{StaticResource Textcolor}" />
+                        </StackLayout>
 
-                <StackLayout VerticalOptions="FillAndExpand" HeightRequest="50" Padding="0"
-                             touchEffect:TouchEff.PressedBackgroundColor="#77777A"
-                             touchEffect:TouchEff.PressedAnimationDuration="100"
-                             touchEffect:TouchEff.RegularAnimationDuration="100"
-                             touchEffect:TouchEff.PressedScale="0.9"
-                             touchEffect:TouchEff.PressedOpacity="0.6"
-                             Orientation="Horizontal" x:Name="menuAddresses">
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Addresses_OnTapped"/>
-                    </StackLayout.GestureRecognizers>
-                    <Image Source="locationpin" WidthRequest="30" Margin="10,0,0,0"/>
-                    <Label Text="Addresses" VerticalOptions="Center" FontSize="15" TextColor="{StaticResource Textcolor}"/>
-                </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" HeightRequest="50" Padding="0"
+                                     touchEffect:TouchEff.PressedBackgroundColor="#77777A"
+                                     touchEffect:TouchEff.PressedAnimationDuration="100"
+                                     touchEffect:TouchEff.RegularAnimationDuration="100"
+                                     touchEffect:TouchEff.PressedScale="0.9"
+                                     touchEffect:TouchEff.PressedOpacity="0.6"
+                                     Orientation="Horizontal" x:Name="menuAddresses">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Addresses_OnTapped" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="locationpin" WidthRequest="30" Margin="10,0,0,0" />
+                            <Label Text="Addresses" VerticalOptions="Center" FontSize="15"
+                                   TextColor="{StaticResource Textcolor}" />
+                        </StackLayout>
 
-                <StackLayout VerticalOptions="FillAndExpand" HeightRequest="50" Padding="0"
-                             touchEffect:TouchEff.PressedBackgroundColor="#77777A"
-                             touchEffect:TouchEff.PressedAnimationDuration="100"
-                             touchEffect:TouchEff.RegularAnimationDuration="100"
-                             touchEffect:TouchEff.PressedScale="0.9"
-                             touchEffect:TouchEff.PressedOpacity="0.6"
-                             Orientation="Horizontal" x:Name="menuOrders">
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Orders_OnTapped"/>
-                    </StackLayout.GestureRecognizers>
-                    <Image Source="history" WidthRequest="30" Margin="10,0,0,0"/>
-                    <Label Text="Orders" VerticalOptions="Center" FontSize="15" TextColor="{StaticResource Textcolor}"/>
-                </StackLayout>
-                <StackLayout VerticalOptions="FillAndExpand" HeightRequest="50" Padding="0"
-                             touchEffect:TouchEff.PressedBackgroundColor="#77777A"
-                             touchEffect:TouchEff.PressedAnimationDuration="100"
-                             touchEffect:TouchEff.RegularAnimationDuration="100"
-                             touchEffect:TouchEff.PressedScale="0.9"
-                             touchEffect:TouchEff.PressedOpacity="0.6"
-                             Orientation="Horizontal" x:Name="menuOrdersunpaid">
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="UnpaidOrders_OnTapped"/>
-                    </StackLayout.GestureRecognizers>
-                    <Image Source="track_order" WidthRequest="30" Margin="10,0,0,0"/>
-                    <Label Text="Track My Order" VerticalOptions="Center" FontSize="15" TextColor="{StaticResource Textcolor}"/>
-                </StackLayout>
-                <StackLayout VerticalOptions="FillAndExpand" HeightRequest="50" Padding="0"
-                             touchEffect:TouchEff.PressedBackgroundColor="#77777A"
-                             touchEffect:TouchEff.PressedAnimationDuration="100"
-                             touchEffect:TouchEff.RegularAnimationDuration="100"
-                             touchEffect:TouchEff.PressedScale="0.9"
-                             touchEffect:TouchEff.PressedOpacity="0.6"
-                             Orientation="Horizontal">
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Feedback_OnTapped"/>
-                    </StackLayout.GestureRecognizers>
-                    <Image Source="comments" WidthRequest="30" Margin="10,0,0,0"/>
-                    <Label Text="Feedback" VerticalOptions="Center" FontSize="15" TextColor="{StaticResource Textcolor}"/>
-                </StackLayout>
-                <StackLayout VerticalOptions="FillAndExpand" HeightRequest="50" Padding="0"
-                             touchEffect:TouchEff.PressedBackgroundColor="#77777A"
-                             touchEffect:TouchEff.PressedAnimationDuration="100"
-                             touchEffect:TouchEff.RegularAnimationDuration="100"
-                             touchEffect:TouchEff.PressedScale="0.9"
-                             touchEffect:TouchEff.PressedOpacity="0.6"
-                             Orientation="Horizontal" x:Name="menuAbout">
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="About_OnTapped"/>
-                    </StackLayout.GestureRecognizers>
-                    <Image Source="about" WidthRequest="30" Margin="10,0,0,0"/>
-                    <Label Text="About Us" VerticalOptions="Center" FontSize="15" TextColor="{StaticResource Textcolor}"/>
-                </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" HeightRequest="50" Padding="0"
+                                     touchEffect:TouchEff.PressedBackgroundColor="#77777A"
+                                     touchEffect:TouchEff.PressedAnimationDuration="100"
+                                     touchEffect:TouchEff.RegularAnimationDuration="100"
+                                     touchEffect:TouchEff.PressedScale="0.9"
+                                     touchEffect:TouchEff.PressedOpacity="0.6"
+                                     Orientation="Horizontal" x:Name="menuOrders">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Orders_OnTapped" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="history" WidthRequest="30" Margin="10,0,0,0" />
+                            <Label Text="Orders" VerticalOptions="Center" FontSize="15"
+                                   TextColor="{StaticResource Textcolor}" />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" HeightRequest="50" Padding="0"
+                                     touchEffect:TouchEff.PressedBackgroundColor="#77777A"
+                                     touchEffect:TouchEff.PressedAnimationDuration="100"
+                                     touchEffect:TouchEff.RegularAnimationDuration="100"
+                                     touchEffect:TouchEff.PressedScale="0.9"
+                                     touchEffect:TouchEff.PressedOpacity="0.6"
+                                     Orientation="Horizontal" x:Name="menuOrdersunpaid">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="UnpaidOrders_OnTapped" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="track_order" WidthRequest="30" Margin="10,0,0,0" />
+                            <Label Text="Track My Order" VerticalOptions="Center" FontSize="15"
+                                   TextColor="{StaticResource Textcolor}" />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" HeightRequest="50" Padding="0"
+                                     touchEffect:TouchEff.PressedBackgroundColor="#77777A"
+                                     touchEffect:TouchEff.PressedAnimationDuration="100"
+                                     touchEffect:TouchEff.RegularAnimationDuration="100"
+                                     touchEffect:TouchEff.PressedScale="0.9"
+                                     touchEffect:TouchEff.PressedOpacity="0.6"
+                                     Orientation="Horizontal">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Feedback_OnTapped" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="comments" WidthRequest="30" Margin="10,0,0,0" />
+                            <Label Text="Feedback" VerticalOptions="Center" FontSize="15"
+                                   TextColor="{StaticResource Textcolor}" />
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" HeightRequest="50" Padding="0"
+                                     touchEffect:TouchEff.PressedBackgroundColor="#77777A"
+                                     touchEffect:TouchEff.PressedAnimationDuration="100"
+                                     touchEffect:TouchEff.RegularAnimationDuration="100"
+                                     touchEffect:TouchEff.PressedScale="0.9"
+                                     touchEffect:TouchEff.PressedOpacity="0.6"
+                                     Orientation="Horizontal" x:Name="menuAbout">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="About_OnTapped" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="about" WidthRequest="30" Margin="10,0,0,0" />
+                            <Label Text="About Us" VerticalOptions="Center" FontSize="15"
+                                   TextColor="{StaticResource Textcolor}" />
+                        </StackLayout>
 
-                <StackLayout VerticalOptions="FillAndExpand" HeightRequest="50" Padding="0"
-                             touchEffect:TouchEff.PressedBackgroundColor="#77777A"
-                             touchEffect:TouchEff.PressedAnimationDuration="100"
-                             touchEffect:TouchEff.RegularAnimationDuration="100"
-                             touchEffect:TouchEff.PressedScale="0.9"
-                             touchEffect:TouchEff.PressedOpacity="0.6"
-                             Orientation="Horizontal" x:Name="menuLogout">
-                    <StackLayout.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Logout_OnTapped"/>
-                    </StackLayout.GestureRecognizers>
-                    <Image Source="logout" WidthRequest="30" Margin="10,0,0,0"/>
-                    <Label Text="Logout" VerticalOptions="Center" FontSize="15" TextColor="{StaticResource Textcolor}"/>
-                </StackLayout>
-            </StackLayout>
-            
-        </ScrollView>
+                        <StackLayout VerticalOptions="FillAndExpand" HeightRequest="50" Padding="0"
+                                     touchEffect:TouchEff.PressedBackgroundColor="#77777A"
+                                     touchEffect:TouchEff.PressedAnimationDuration="100"
+                                     touchEffect:TouchEff.RegularAnimationDuration="100"
+                                     touchEffect:TouchEff.PressedScale="0.9"
+                                     touchEffect:TouchEff.PressedOpacity="0.6"
+                                     Orientation="Horizontal" x:Name="menuLogout">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Logout_OnTapped" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="logout" WidthRequest="30" Margin="10,0,0,0" />
+                            <Label Text="Logout" VerticalOptions="Center" FontSize="15"
+                                   TextColor="{StaticResource Textcolor}" />
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+        </StackLayout>
         <controls:MTAdView x:Name="MainPageAd" AdsId="{OnPlatform Android='ca-app-pub-3940256099942544/6300978111', iOS='ca-app-pub-3940256099942544/2934735716'}" 
                            IsVisible="true" PersonalizedAds="true" VerticalOptions="EndAndExpand">
             <controls:MTAdView.HeightRequest>

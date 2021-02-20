@@ -22,7 +22,7 @@
                     </Grid.ColumnDefinitions>
                     <Label Text="Order ID : " Grid.Row="0" Grid.Column="0" />
                     <Label Text="{Binding order_id}" x:Name="lblorderid" Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="0"
-                           HorizontalOptions="End" TextColor="{StaticResource TextColor}" FontSize="Small" />
+                           HorizontalOptions="End" LineBreakMode="TailTruncation" TextColor="{StaticResource TextColor}" FontSize="Small" />
                     <Label Text="Customer name : " Grid.Row="1" Grid.Column="0" />
                     <Label Text="{Binding full_name}" x:Name="lblfullname" Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="0"
                            HorizontalOptions="End" TextColor="{StaticResource TextColor}" FontAttributes="Bold" FontSize="Medium" />

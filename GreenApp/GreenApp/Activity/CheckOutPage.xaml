@@ -195,12 +195,12 @@
                                        FontAttributes="Bold" />
                                     <Label x:Name="lblsubtotal" Grid.Row="3" Grid.Column="2" Text="0"
                                        HorizontalOptions="EndAndExpand" VerticalOptions="Center"
-                                       FontSize="Medium" TextColor="{StaticResource PriceColor_1}"
+                                       FontSize="10" TextColor="{StaticResource PriceColor_1}"
                                        FontAttributes="Bold" />
                                     <Label Grid.Row="4" Grid.Column="0" Text="Delivery fee"
                                        FontAttributes="Bold" TextColor="{StaticResource TextColor}" />
                                     <Label Grid.Row="4" Grid.Column="2" Text="0" HorizontalOptions="End"
-                                       FontSize="Medium" TextColor="{StaticResource PriceColor_1}"
+                                       FontSize="10" TextColor="{StaticResource PriceColor_1}"
                                        FontAttributes="Bold" />
                                 </Grid>
                             </Frame>
