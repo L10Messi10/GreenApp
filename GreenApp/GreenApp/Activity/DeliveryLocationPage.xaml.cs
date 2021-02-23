@@ -8,15 +8,20 @@ using System.Threading.Tasks;
 using GreenApp.Models;
 using GreenApp.ViewModels;
 using Plugin.Geolocator;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
 using static GreenApp.Activity.AddressesPage;
 using static GreenApp.App;
+using PermissionStatus = Xamarin.Essentials.PermissionStatus;
 
+[assembly: Xamarin.Forms.Dependency(typeof(GreenApp.Utils.ILocSettings))]
 namespace GreenApp.Activity
 {
+    
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DeliveryLocationPage
     {
@@ -110,39 +115,129 @@ namespace GreenApp.Activity
 
         protected override async void OnAppearing()
         {
-            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
-            try
+
+            var myAction = await DisplayAlert("Location", "Please Turn On Location", "OK", "CANCEL");
+            if (myAction)
             {
-                if (_newAdd)
+                if (Device.RuntimePlatform == global::Xamarin.Forms.Device.Android)
                 {
-                    _label = "Home";
-                    btnhome.BackgroundColor = Color.FromRgb(0, 158, 73);
-                    btnhome.TextColor = Color.White;
-                    btnwork.TextColor = Color.Black;
-                    btnothers.TextColor = Color.Black;
-                    btnwork.BackgroundColor = Color.Transparent;
-                    btnothers.BackgroundColor = Color.Transparent;
-                    var locator = CrossGeolocator.Current;
-                    locator.PositionChanged += Locator_PositionChanged;
-                    await locator.StartListeningAsync(new TimeSpan(0), 200);
-                    var position = await locator.GetPositionAsync();
-                    var center = new Position(position.Latitude, position.Longitude);
-                    var span = new MapSpan(center, 0.001, 0.001);
-                    map.MoveToRegion(span);
+
+                    //DependencyService.Get<ISettingsService>().OpenSettings();
+                    global::Xamarin.Forms.DependencyService.Get<global::GreenApp.Utils.ILocSettings>().OpenSettings();
+
+
+
                 }
                 else
                 {
-                    await modifyAddress();
+                   await DisplayAlert("Device", "You are using some other shit", "YEP");
                 }
             }
-            catch
+            else
             {
-                error_wifi.IsVisible = true;
+               await DisplayAlert("Alert", "User Denied Permission", "OK");
             }
-            
+
+
+            //try
+            //{
+            //    //await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Location);
+            //    //var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Location);
+            //    var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
+            //if (status != (Plugin.Permissions.Abstractions.PermissionStatus.Granted))
+            //{
+            //    if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Location))
+            //    {
+            //        await DisplayAlert("Need location", "Gunna need that location", "OK");
+            //    }
+
+            //    var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.Location);
+            //    //Best practice to always check that the key exists
+            //    if (results.ContainsKey(Permission.Location))
+            //        status = results[Permission.Location];
+            //}
+
+            //if (status == (Plugin.Permissions.Abstractions.PermissionStatus.Granted))
+            //{
+            //    var results = await CrossGeolocator.Current.GetPositionAsync();
+            //    //LabelGeolocation.Text = "Lat: " + results.Latitude + " Long: " + results.Longitude;
+            //}
+            //else if (status != (Plugin.Permissions.Abstractions.PermissionStatus)PermissionStatus.Unknown)
+            //{
+            //    await DisplayAlert("Location Denied", "Can not continue, try again.", "OK");
+            //}
+            //}
+            //catch (Exception ex)
+            //{
+
+            //    //LabelGeolocation.Text = "Error: " + ex;
+            //}
+
+
+            //try
+            //{
+            //    var location = await Geolocation.GetLastKnownLocationAsync();
+
+            //    if (location != null)
+            //    {
+            //        //Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
+            //    }
+            //}
+            //catch (FeatureNotSupportedException fnsEx)
+            //{
+            //    // Handle not supported on device exception
+            //    await DisplayAlert("Location", "Location service not supported!", "OK");
+            //}
+            //catch (FeatureNotEnabledException fneEx)
+            //{
+            //    // Handle not enabled on device exception
+            //    await DisplayAlert("Location", "Location service not enabled!", "OK");
+            //}
+            //catch (PermissionException pEx)
+            //{
+            //    await DisplayAlert("Location", "Location service exception!", "OK");
+            //    // Handle permission exception
+            //}
+            //catch (Exception ex)
+            //{
+            //    await DisplayAlert("Location", "Location unable to get location!", "OK");
+            //    // Unable to get location
+            //}
+
+
+            //Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
+            //try
+            //{
+            //    if (_newAdd)
+            //    {
+            //        _label = "Home";
+            //        btnhome.BackgroundColor = Color.FromRgb(0, 158, 73);
+            //        btnhome.TextColor = Color.White;
+            //        btnwork.TextColor = Color.Black;
+            //        btnothers.TextColor = Color.Black;
+            //        btnwork.BackgroundColor = Color.Transparent;
+            //        btnothers.BackgroundColor = Color.Transparent;
+            //        var locator = CrossGeolocator.Current;
+            //        locator.PositionChanged += Locator_PositionChanged;
+            //        await locator.StartListeningAsync(new TimeSpan(0), 200);
+            //        var position = await locator.GetPositionAsync();
+            //        var center = new Position(position.Latitude, position.Longitude);
+            //        var span = new MapSpan(center, 0.001, 0.001);
+            //        map.MoveToRegion(span);
+            //    }
+            //    else
+            //    {
+            //        await modifyAddress();
+            //    }
+            //}
+            //catch
+            //{
+            //    error_wifi.IsVisible = true;
+            //}
+
             //This gets the current location of the user's device.
             //await DisplayAlert("Info", "The app will detect your current location. Please allow the app to access your location.", "OK");
-            
+
         }
 
         private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)

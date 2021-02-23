@@ -4,6 +4,7 @@ using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.Gms.Ads;
+using Android.Gms.Common.Apis;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
@@ -17,7 +18,7 @@ using static Plugin.CurrentActivity.CrossCurrentActivity;
 namespace GreenApp.Droid
 {
     [Activity(Label = "GreenApp", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         private readonly string[] permissionGroup =
         {
@@ -48,6 +49,7 @@ namespace GreenApp.Droid
             MobileAds.Initialize(ApplicationContext);
             LoadApplication(new App());
         }
+
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);

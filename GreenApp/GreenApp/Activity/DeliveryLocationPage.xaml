@@ -33,7 +33,7 @@
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <StackLayout Grid.Row="0" Margin="8">
-                                <Picker x:Name="picker" Title="Select your address"
+                                <Picker x:Name="picker" Title="Select your address" BackgroundColor="{StaticResource Primary}"
                                     TitleColor="{StaticResource Textcolor}" />
                                 <Frame CornerRadius="10">
                                     <StackLayout Margin="5">
@@ -99,7 +99,7 @@
                      BackgroundColor="Black" Opacity="0.9">
             <StackLayout VerticalOptions="CenterAndExpand" Margin="20">
                 <Image Source="sad_cloud" WidthRequest="50" VerticalOptions="Center"/>
-                <Label Text="Unexpected Error!" Margin="0" HorizontalOptions="CenterAndExpand"
+                <Label Text="Unexpected Error! Please make sure that you have turned on the location service of your device." Margin="0" HorizontalOptions="CenterAndExpand"
                        VerticalOptions="Center" FontAttributes="Bold" FontSize="15"
                        TextColor="WhiteSmoke" />
                 <Button Text="Retry" BackgroundColor="{StaticResource Primary}" VerticalOptions="Center"
