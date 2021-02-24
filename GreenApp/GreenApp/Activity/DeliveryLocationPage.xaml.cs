@@ -65,8 +65,9 @@ namespace GreenApp.Activity
             if (m.VisibleRegion != null)
             {
                 var center = new Position(m.VisibleRegion.Center.Latitude, m.VisibleRegion.Center.Longitude);
-                //var span = new MapSpan(center, 0.001, 0.001);
-                //map.MoveToRegion(span);
+                    //var span = new MapSpan(center, 0.001, 0.001);
+                    //map.MoveToRegion(span);
+                
                 IEnumerable<string> possibleAddresses = await geoCoder.GetAddressesForPositionAsync(center);
                 var enumerable = possibleAddresses as string[] ?? possibleAddresses.ToArray();
                 picker.ItemsSource = enumerable.ToList();
@@ -115,30 +116,6 @@ namespace GreenApp.Activity
 
         protected override async void OnAppearing()
         {
-
-            var myAction = await DisplayAlert("Location", "Please Turn On Location", "OK", "CANCEL");
-            if (myAction)
-            {
-                if (Device.RuntimePlatform == global::Xamarin.Forms.Device.Android)
-                {
-
-                    //DependencyService.Get<ISettingsService>().OpenSettings();
-                    global::Xamarin.Forms.DependencyService.Get<global::GreenApp.Utils.ILocSettings>().OpenSettings();
-
-
-
-                }
-                else
-                {
-                   await DisplayAlert("Device", "You are using some other shit", "YEP");
-                }
-            }
-            else
-            {
-               await DisplayAlert("Alert", "User Denied Permission", "OK");
-            }
-
-
             //try
             //{
             //    //await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Location);
@@ -205,35 +182,40 @@ namespace GreenApp.Activity
             //}
 
 
-            //Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
-            //try
-            //{
-            //    if (_newAdd)
-            //    {
-            //        _label = "Home";
-            //        btnhome.BackgroundColor = Color.FromRgb(0, 158, 73);
-            //        btnhome.TextColor = Color.White;
-            //        btnwork.TextColor = Color.Black;
-            //        btnothers.TextColor = Color.Black;
-            //        btnwork.BackgroundColor = Color.Transparent;
-            //        btnothers.BackgroundColor = Color.Transparent;
-            //        var locator = CrossGeolocator.Current;
-            //        locator.PositionChanged += Locator_PositionChanged;
-            //        await locator.StartListeningAsync(new TimeSpan(0), 200);
-            //        var position = await locator.GetPositionAsync();
-            //        var center = new Position(position.Latitude, position.Longitude);
-            //        var span = new MapSpan(center, 0.001, 0.001);
-            //        map.MoveToRegion(span);
-            //    }
-            //    else
-            //    {
-            //        await modifyAddress();
-            //    }
-            //}
-            //catch
-            //{
-            //    error_wifi.IsVisible = true;
-            //}
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
+            if (Device.RuntimePlatform == global::Xamarin.Forms.Device.Android)
+            {
+                //DependencyService.Get<ISettingsService>().OpenSettings();
+                global::Xamarin.Forms.DependencyService.Get<global::GreenApp.Utils.ILocSettings>().OpenSettings();
+            }
+            try
+            {
+                if (_newAdd)
+                {
+                    _label = "Home";
+                    btnhome.BackgroundColor = Color.FromRgb(0, 158, 73);
+                    btnhome.TextColor = Color.White;
+                    btnwork.TextColor = Color.Black;
+                    btnothers.TextColor = Color.Black;
+                    btnwork.BackgroundColor = Color.Transparent;
+                    btnothers.BackgroundColor = Color.Transparent;
+                    var locator = CrossGeolocator.Current;
+                    locator.PositionChanged += Locator_PositionChanged;
+                    await locator.StartListeningAsync(new TimeSpan(30), 200);
+                    var position = await locator.GetPositionAsync();
+                    var center = new Position(position.Latitude, position.Longitude);
+                    var span = new MapSpan(center, 0.001, 0.001);
+                    map.MoveToRegion(span);
+                }
+                else
+                {
+                    await modifyAddress();
+                }
+            }
+            catch
+            {
+                error_wifi.IsVisible = true;
+            }
 
             //This gets the current location of the user's device.
             //await DisplayAlert("Info", "The app will detect your current location. Please allow the app to access your location.", "OK");
@@ -319,9 +301,11 @@ namespace GreenApp.Activity
         {
             try
             {
-                if (txtnotes.Text == "" || txtbuilding.Text == "")
+                bool isnotesEmpty = string.IsNullOrEmpty(txtnotes.Text);
+                bool isubuildingEmpty = string.IsNullOrEmpty(txtbuilding.Text);
+                if (isnotesEmpty || isubuildingEmpty)
                 {
-                    await DisplayAlert("Notes", "Please enter a notes and building name with specific instruction for our riders.", "OK");
+                    await DisplayAlert("Notes / B", "Please enter a notes and building name with specific instruction for our riders.", "OK");
                     //txtnotes.Focus();
                 }
                 else
