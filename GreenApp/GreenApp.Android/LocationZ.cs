@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Text;
 using Android.Locations;
+using GreenApp.Activity;
 using GreenApp.Droid;
 using GreenApp.Utils;
 using static GreenApp.App;
@@ -34,7 +35,7 @@ namespace GreenApp.Droid
             }
             else
             {
-                //Toast.MakeText(Application.Context, "Location service is active", ToastLength.Long)?.Show();
+                Toast.MakeText(Application.Context, "Location service is active", ToastLength.Long)?.Show();
                 //this is handled in the PCL
             }
         }

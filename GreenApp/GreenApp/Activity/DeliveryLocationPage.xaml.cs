@@ -13,6 +13,7 @@ using Plugin.Permissions.Abstractions;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
+using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
 using static GreenApp.Activity.AddressesPage;
 using static GreenApp.App;
@@ -67,8 +68,7 @@ namespace GreenApp.Activity
                 var center = new Position(m.VisibleRegion.Center.Latitude, m.VisibleRegion.Center.Longitude);
                     //var span = new MapSpan(center, 0.001, 0.001);
                     //map.MoveToRegion(span);
-                
-                IEnumerable<string> possibleAddresses = await geoCoder.GetAddressesForPositionAsync(center);
+                    IEnumerable<string> possibleAddresses = await geoCoder.GetAddressesForPositionAsync(center);
                 var enumerable = possibleAddresses as string[] ?? possibleAddresses.ToArray();
                 picker.ItemsSource = enumerable.ToList();
                 picker.SelectedIndex = 1;
@@ -81,7 +81,7 @@ namespace GreenApp.Activity
             catch
             {
                 //this line doesn't need a display alert but a label to display the status of connection.
-                //await DisplayAlert("Unexpected Error", "An unexpected error occured. Please try again later.", "OK");
+                await DisplayAlert("Unexpected Error", "An unexpected error occured, please try again later. Please check your internet connectivity as well.", "OK");
                 _selectedAddressId = "";
                 order_lat = 0;
                 order_long = 0;
@@ -102,7 +102,6 @@ namespace GreenApp.Activity
                 order_lat = 0;
                 order_long = 0;
                 var locator = CrossGeolocator.Current;
-                Geocoder geoCoder = new Geocoder();
                 locator.PositionChanged -= Locator_PositionChanged;
                 map.PropertyChanged -= Map_PropertyChanged;
                 Connectivity.ConnectivityChanged -= Connectivity_ConnectivityChanged;
@@ -116,6 +115,8 @@ namespace GreenApp.Activity
 
         protected override async void OnAppearing()
         {
+            #region MapsSettings
+
             //try
             //{
             //    //await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Location);
@@ -181,15 +182,46 @@ namespace GreenApp.Activity
             //    // Unable to get location
             //}
 
+            #endregion
 
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
-            if (Device.RuntimePlatform == global::Xamarin.Forms.Device.Android)
-            {
-                //DependencyService.Get<ISettingsService>().OpenSettings();
-                global::Xamarin.Forms.DependencyService.Get<global::GreenApp.Utils.ILocSettings>().OpenSettings();
-            }
             try
             {
+                var status = await CrossPermissions.Current.CheckPermissionStatusAsync<LocationPermission>();
+                if (status != Plugin.Permissions.Abstractions.PermissionStatus.Granted)
+                {
+                    if (await DisplayAlert("Permission", "Please allow this app to access your location by allowing it to the permissions.", "Go to Settings", "Cancel"))
+                    {
+                        AppInfo.ShowSettingsUI();
+                        status = await CrossPermissions.Current.CheckPermissionStatusAsync<LocationPermission>();
+                    }
+                    else
+                    {
+                        await Navigation.PopAsync();
+                    }
+                }
+
+                if (status == Plugin.Permissions.Abstractions.PermissionStatus.Granted)
+                {
+                    map.IsShowingUser = true;
+                    map.PropertyChanged += Map_PropertyChanged;
+                    //await DisplayAlert("Granted", "Permission granted!", "OK");
+                    //Query permission
+                }
+                else if (status == Plugin.Permissions.Abstractions.PermissionStatus.Denied)
+                {
+                    //error_wifi.IsVisible = true;
+                    return;
+                    //await DisplayAlert("Denied", "Permission denied!", "OK");
+                    //AppInfo.ShowSettingsUI();
+                }
+
+
+                if (Device.RuntimePlatform == global::Xamarin.Forms.Device.Android)
+                {
+                    //DependencyService.Get<ISettingsService>().OpenSettings();
+                    global::Xamarin.Forms.DependencyService.Get<global::GreenApp.Utils.ILocSettings>().OpenSettings();
+                }
                 if (_newAdd)
                 {
                     _label = "Home";
@@ -209,12 +241,27 @@ namespace GreenApp.Activity
                 }
                 else
                 {
-                    await modifyAddress();
+                    await ModifyAddress();
                 }
             }
             catch
             {
-                error_wifi.IsVisible = true;
+                //if(DisplayAlert)
+                //var locator = CrossGeolocator.Current;
+                //locator.PositionChanged -= Locator_PositionChanged;
+                //map.PropertyChanged -= Map_PropertyChanged;
+                //Connectivity.ConnectivityChanged -= Connectivity_ConnectivityChanged;
+                //await locator.StopListeningAsync();
+                //{
+                //    a = 1;
+                //    var result = await DisplayAlert("Permission", "You must allow permission for the app to locate your location", "Go Settings", "Cancel");
+                //    if (result)
+                //    {
+                //        AppInfo.ShowSettingsUI();
+                //    }
+                //    else
+                //        await Navigation.PopAsync();
+                //}
             }
 
             //This gets the current location of the user's device.
@@ -224,20 +271,23 @@ namespace GreenApp.Activity
 
         private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
         {
-            error_wifi.IsVisible = false;
+            //error_wifi.IsVisible = false;
             error.IsVisible = e.NetworkAccess != NetworkAccess.Internet;
         }
 
-        private async Task modifyAddress()
+        private async Task ModifyAddress()
         {
             try
             {
 
                 var getAddresseses = (await MobileService.GetTable<TBL_Addresses>().Where(add => add.id == _selectedAddressId).ToListAsync()).FirstOrDefault();
                 addressInfo.BindingContext = getAddresseses;
-                var center = new Position(order_lat, order_long);
-                var span = new MapSpan(center, 0.001, 0.001);
-                map.MoveToRegion(span);
+                if (getAddresseses != null)
+                {
+                    var center = new Position(getAddresseses.add_lat, getAddresseses.add_long);
+                    var span = new MapSpan(center, 0.001, 0.001);
+                    map.MoveToRegion(span);
+                }
 
                 btnaddnewaddress.Text = "Modify Address";
                 if (labelas.Text == "Home")
@@ -276,7 +326,12 @@ namespace GreenApp.Activity
             }
             catch
             {
-                error_wifi.IsVisible = true;
+                //if (await DisplayAlert("Permission", "You must allow permission for the app to locate your location", "Settings", "Cancel"))
+                //{
+                //    AppInfo.ShowSettingsUI();
+                //}
+                //else
+                //    await Navigation.PopAsync();
             }
 
         }
@@ -293,7 +348,7 @@ namespace GreenApp.Activity
             }
             catch
             {
-                error_wifi.IsVisible = true;
+                //error_wifi.IsVisible = true;
             }
         }
 
@@ -305,7 +360,7 @@ namespace GreenApp.Activity
                 bool isubuildingEmpty = string.IsNullOrEmpty(txtbuilding.Text);
                 if (isnotesEmpty || isubuildingEmpty)
                 {
-                    await DisplayAlert("Notes / B", "Please enter a notes and building name with specific instruction for our riders.", "OK");
+                    await DisplayAlert("Notes / Building", "Please enter a notes and building name with specific instruction for our riders.", "OK");
                     //txtnotes.Focus();
                 }
                 else
@@ -371,9 +426,9 @@ namespace GreenApp.Activity
             }
             catch
             {
-                error_wifi.IsVisible = true;
+                //error_wifi.IsVisible = true;
             }
-}
+    }
 
         private void Btnhome_OnClicked(object sender, EventArgs e)
         {
@@ -410,8 +465,13 @@ namespace GreenApp.Activity
 
         private void Button_OnClicked(object sender, EventArgs e)
         {
-            error_wifi.IsVisible = false;
+            //error_wifi.IsVisible = false;
             error.IsVisible = Connectivity.NetworkAccess != NetworkAccess.Internet;
+        }
+
+        private void Btnsettings_OnClicked(object sender, EventArgs e)
+        {
+            AppInfo.ShowSettingsUI();
         }
     }
 }

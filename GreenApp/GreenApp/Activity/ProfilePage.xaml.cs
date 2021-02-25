@@ -10,6 +10,7 @@ using Plugin.Media;
 using Azure.Storage.Blobs;
 using Azure.Storage;
 using Plugin.Media.Abstractions;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static GreenApp.App;
@@ -44,24 +45,35 @@ namespace GreenApp.Activity
 
         private async void Btnbrowseimage_OnClicked(object sender, EventArgs e)
         {
-            await CrossMedia.Current.Initialize();
-            if (!CrossMedia.Current.IsPickPhotoSupported)
+            try
             {
-                await DisplayAlert("Camera", "Upload is not supported on this device", "OK");
-                return;
+                await CrossMedia.Current.Initialize();
+                if (!CrossMedia.Current.IsPickPhotoSupported)
+                {
+                    await DisplayAlert("Camera", "Upload is not supported on this device", "OK");
+                    return;
+                }
+                var mediaOptions = new PickMediaOptions()
+                {
+                    PhotoSize = PhotoSize.Medium
+                };
+                var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
+                if (selectedImageFile == null)
+                {
+                    //await DisplayAlert("Error", "There was an error trying to get the image.", "OK");
+                    return;
+                }
+                profileimg.Source = ImageSource.FromStream(() => selectedImageFile.GetStream());
+                await UploadImage(selectedImageFile.Path);
             }
-            var mediaOptions = new PickMediaOptions()
+            catch
             {
-                PhotoSize = PhotoSize.Medium
-            };
-            var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
-            if (selectedImageFile == null)
-            {
-                //await DisplayAlert("Error", "There was an error trying to get the image.", "OK");
-                return;
+                if (await DisplayAlert("Permission", "You must allow permission for the app to upload your photo.", "Settings", "Cancel"))
+                {
+                    AppInfo.ShowSettingsUI();
+                }
             }
-            profileimg.Source = ImageSource.FromStream(() => selectedImageFile.GetStream());
-            await UploadImage(selectedImageFile.Path);
+            
         }
         //private async void UploadImage(string getPath)
         //{

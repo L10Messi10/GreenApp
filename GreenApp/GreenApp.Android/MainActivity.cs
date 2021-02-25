@@ -5,10 +5,13 @@ using Android.Content;
 using Android.Content.PM;
 using Android.Gms.Ads;
 using Android.Gms.Common.Apis;
+using Android.Gms.Tasks;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Android.Support.V4.App;
+using Android.Support.V4.Content;
 using Android.Util;
 using Google.Android.Material.Snackbar;
 using Plugin.CurrentActivity;
@@ -16,6 +19,7 @@ using Plugin.Permissions;
 using TouchEffect.Android;
 using Xamarin.Forms;
 using static Plugin.CurrentActivity.CrossCurrentActivity;
+using Xamarin.Essentials;
 
 namespace GreenApp.Droid
 {
@@ -26,7 +30,7 @@ namespace GreenApp.Droid
         {
             Manifest.Permission.ReadExternalStorage,
             Manifest.Permission.WriteExternalStorage,
-            Manifest.Permission.Camera
+            Manifest.Permission.AccessCoarseLocation
         };
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -56,6 +60,7 @@ namespace GreenApp.Droid
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             //if (requestCode == REQUEST_LOCATION)
             //{
             //    // Received permission result for camera permission.
@@ -79,6 +84,5 @@ namespace GreenApp.Droid
             //    base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             //}
         }
-        
     }
 }
