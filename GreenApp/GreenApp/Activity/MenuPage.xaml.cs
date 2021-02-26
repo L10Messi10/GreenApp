@@ -87,7 +87,7 @@ namespace GreenApp.Activity
                 progressLoading.IsVisible = true;
                 if (!refresh)
                 {
-                    var categories = await TBL_Category.Read();
+                    var categories = await V_Categories_Display.Read();
                     ListCategories.ItemsSource = categories;
                     //var samp = CurrentOrderId ;
                     refresh = true;
@@ -136,7 +136,7 @@ namespace GreenApp.Activity
             catch
             {
                 RefreshView.IsRefreshing = false;
-                ListCategories.SelectedItem = null;
+                ListCategories.ItemsSource = null;
                 //await Navigation.PushAsync(new NoInternetPage(), true);
                 progressLoading.IsVisible = false;
                 ListCategories.IsVisible = false;
@@ -150,7 +150,7 @@ namespace GreenApp.Activity
                 ListCategories.IsVisible = true;
                 ErrorLayout.IsVisible = false;
                 progressLoading.IsVisible = true;
-                var products = (await MobileService.GetTable<TBL_Category>().ToListAsync());
+                var products = (await MobileService.GetTable<V_Categories_Display>().ToListAsync());
                 ListCategories.ItemsSource = products.Where(p => p.category_name.ToLower().Contains(query.ToLower())).ToList();
                 RefreshView.IsRefreshing = false;
                 progressLoading.IsVisible = false;
@@ -206,9 +206,9 @@ namespace GreenApp.Activity
         private async void ListCategories_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (ListCategories.SelectedItem == null) return;
-            Selected_CatID = (e.CurrentSelection.FirstOrDefault() as TBL_Category)?.category_name;
-            cat_desc = (e.CurrentSelection.FirstOrDefault() as TBL_Category)?.cat_desc;
-            cat_img_uri = (e.CurrentSelection.FirstOrDefault() as TBL_Category)?.catimg_uri;
+            Selected_CatID = (e.CurrentSelection.FirstOrDefault() as V_Categories_Display)?.category_name;
+            cat_desc = (e.CurrentSelection.FirstOrDefault() as V_Categories_Display)?.cat_desc;
+            cat_img_uri = (e.CurrentSelection.FirstOrDefault() as V_Categories_Display)?.catimg_uri;
             await Navigation.PushAsync(new ProductsPage(), true);
         }
 

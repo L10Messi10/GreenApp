@@ -52,7 +52,7 @@ namespace GreenApp.Activity
             }
             catch
             {
-                ListProducts.SelectedItem = null;
+                ListProducts.ItemsSource = null;
                 RefreshView.IsRefreshing = false;
                 //await Navigation.PushAsync(new NoInternetPage(), true);
                 //progressLoading.IsVisible = false;

@@ -81,7 +81,7 @@ namespace GreenApp.Activity
             catch
             {
                 //this line doesn't need a display alert but a label to display the status of connection.
-                await DisplayAlert("Unexpected Error", "An unexpected error occured, please try again later. Please check your internet connectivity as well.", "OK");
+                //await DisplayAlert("Unexpected Error", "An unexpected error occured, please try again later. Please check your internet connectivity as well.", "OK");
                 _selectedAddressId = "";
                 order_lat = 0;
                 order_long = 0;

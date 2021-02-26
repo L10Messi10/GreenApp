@@ -155,13 +155,12 @@
                                                                    LineBreakMode="TailTruncation" />
                                                         </StackLayout>
                                                         <Frame BackgroundColor="{StaticResource Primary}"
-                                                               Margin="0,-30,0,20"
+                                                               Margin="0,-30,0,20" HasShadow="True"
                                                                HeightRequest="45" WidthRequest="50" Opacity="0.9"
                                                                HorizontalOptions="EndAndExpand"
                                                                CornerRadius="25" Padding="0">
-                                                            <Image Source="check" VerticalOptions="CenterAndExpand"
-                                                                   HorizontalOptions="CenterAndExpand"
-                                                                   HeightRequest="20" />
+                                                            <Label Text="{Binding tot_products}" VerticalOptions="CenterAndExpand"
+                                                                   HorizontalOptions="CenterAndExpand" FontSize="15" FontAttributes="Bold" TextColor="{StaticResource Textcolor}"/>
                                                             <!--<Label Text="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
                                                                    TextColor="White" FontAttributes="Bold" FontSize="15"/>-->
                                                         </Frame>
