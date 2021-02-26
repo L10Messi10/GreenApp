@@ -10,7 +10,8 @@
             <StackLayout>
                 <StackLayout HorizontalOptions="Fill" BackgroundColor="{StaticResource Primary}"
                              HeightRequest="150" VerticalOptions="CenterAndExpand" Padding="20">
-                    <Image Source="logoflyout" HeightRequest="70" />
+                <ff:CachedImage DownsampleToViewSize="True" BitmapOptimizations="True"
+                                FadeAnimationEnabled="True" Source="logoflyout" HeightRequest="70" />
                     <Label VerticalOptions="Center"
                            HorizontalOptions="Center">
                         <Label.FormattedText>

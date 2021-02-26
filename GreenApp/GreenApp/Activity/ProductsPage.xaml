@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:touchEffect="clr-namespace:TouchEffect;assembly=TouchEffect"
              Title="Products"
              x:Class="GreenApp.Activity.ProductsPage" BackgroundColor="{StaticResource BackgroundColor}">
     <ContentPage.Resources>
@@ -36,7 +37,11 @@
             <StackLayout HorizontalOptions="EndAndExpand">
                 <AbsoluteLayout>
                     <Image Source="cart.png" Aspect="AspectFit" AbsoluteLayout.LayoutBounds="0,0,1,1"
-                       AbsoluteLayout.LayoutFlags="All" HeightRequest="50"
+                       AbsoluteLayout.LayoutFlags="All" HeightRequest="50" touchEffect:TouchEff.PressedBackgroundColor="#77777A"
+                       touchEffect:TouchEff.PressedAnimationDuration="100"
+                       touchEffect:TouchEff.RegularAnimationDuration="100"
+                       touchEffect:TouchEff.PressedScale="0.9"
+                       touchEffect:TouchEff.PressedOpacity="0.6"
                        HorizontalOptions="Center">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" NumberOfTapsRequired="1" />
@@ -94,8 +99,9 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <ff:CachedImage x:Name="catImg" Aspect="AspectFill" Grid.Row="0" Grid.RowSpan="3"
-                                        DownsampleToViewSize="True" Grid.Column="0" Grid.ColumnSpan="2" >
+                    <ff:CachedImage x:Name="catImg" Aspect="AspectFill" Grid.Row="0" Grid.RowSpan="3" BitmapOptimizations="True"
+                                    FadeAnimationEnabled="True" HeightRequest="50"
+                                    DownsampleToViewSize="True" Grid.Column="0" Grid.ColumnSpan="2" >
                         <ff:CachedImage.Transformations>
                             <transformations:BlurredTransformation Radius="15" />
                         </ff:CachedImage.Transformations>
@@ -152,6 +158,8 @@
                                                        HasShadow="False">
                                                     <ff:CachedImage x:Name="prodimg" Source="{Binding img_uri}"
                                                                     Aspect="AspectFill" WidthRequest="120"
+                                                                    DownsampleToViewSize="True"
+                                                                    FadeAnimationEnabled="True"
                                                                     BitmapOptimizations="True" HeightRequest="120"
                                                                     CacheDuration="30" LoadingPlaceholder="notfound.png"
                                                                     ErrorPlaceholder="notfound.png" />

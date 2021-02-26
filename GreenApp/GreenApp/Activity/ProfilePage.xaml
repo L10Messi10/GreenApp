@@ -62,9 +62,9 @@
                     
                 </Grid>
             </Frame>
-            <ff:CachedImage Grid.Row="1" Source="{Binding propic}" Aspect="AspectFit"
-                        HeightRequest="100" WidthRequest="150" HorizontalOptions="End"  Margin="0,-340,5,20" x:Name="profileimg"
-                        ErrorPlaceholder="person" LoadingPlaceholder="person" DownsampleToViewSize="True">
+            <ff:CachedImage Grid.Row="1" Source="{Binding propic}" Aspect="AspectFit" BitmapOptimizations="True"
+                            FadeAnimationEnabled="True" HeightRequest="100" WidthRequest="150" HorizontalOptions="End"  Margin="0,-340,5,20" x:Name="profileimg"
+                            ErrorPlaceholder="person" LoadingPlaceholder="person" DownsampleToViewSize="True">
                 <ff:CachedImage.Transformations>
                     <ffTrans:CircleTransformation BorderHexColor="#FFFFFF" BorderSize="10"/>
                 </ff:CachedImage.Transformations>

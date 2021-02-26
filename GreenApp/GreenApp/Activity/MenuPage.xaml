@@ -8,6 +8,7 @@
              Visual="Material"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:touchEffect="clr-namespace:TouchEffect;assembly=TouchEffect"
              x:Class="GreenApp.Activity.MenuPage">
     <ContentPage.Resources>
         <Style TargetType="Grid">
@@ -29,12 +30,21 @@
     </ContentPage.Resources>
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
-            <Image Source="menu" HeightRequest="15" x:Name="menuTray"
+            <ff:CachedImage Source="menu" HeightRequest="15" x:Name="menuTray"
                    Margin="0,0,0,0" WidthRequest="30" Aspect="AspectFit" BackgroundColor="Transparent">
-                <Image.GestureRecognizers>
+                <ff:CachedImage.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapMenu_OnTapped"/>
-                </Image.GestureRecognizers>
-            </Image>
+                </ff:CachedImage.GestureRecognizers>
+            </ff:CachedImage>
+            <ff:CachedImage HeightRequest="30" x:Name="profilepic" DownsampleToViewSize="True" BitmapOptimizations="True"
+                            FadeAnimationEnabled="True" WidthRequest="50" Aspect="AspectFill" BackgroundColor="Transparent">
+                <ff:CachedImage.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapMenu_OnTapped"/>
+                </ff:CachedImage.GestureRecognizers>
+                <ff:CachedImage.Transformations>
+                    <transformations:CircleTransformation BorderHexColor="#FFFFFF" BorderSize="10"/>
+                </ff:CachedImage.Transformations>
+            </ff:CachedImage>
             <Label VerticalOptions="Center" Margin="0,0,0,0"
                    HorizontalOptions="Center">
                 <Label.FormattedText>
@@ -55,8 +65,12 @@
             <StackLayout HorizontalOptions="EndAndExpand">
                 <AbsoluteLayout>
                     <Image Source="cart.png" Aspect="AspectFit" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,0,1,1"
-                           AbsoluteLayout.LayoutFlags="All"
-                           HorizontalOptions="Center">
+                           AbsoluteLayout.LayoutFlags="All" HorizontalOptions="Center"
+                           touchEffect:TouchEff.PressedBackgroundColor="#77777A"
+                           touchEffect:TouchEff.PressedAnimationDuration="100"
+                           touchEffect:TouchEff.RegularAnimationDuration="100"
+                           touchEffect:TouchEff.PressedScale="0.9"
+                           touchEffect:TouchEff.PressedOpacity="0.6">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Checkout_OnTapped" NumberOfTapsRequired="1"/>
                         </Image.GestureRecognizers>
@@ -133,7 +147,8 @@
                                                     <Frame Grid.Row="0" Margin="0" Padding="0" Grid.Column="0"
                                                            CornerRadius="0" HasShadow="False">
                                                         <ff:CachedImage x:Name="prodimg" Source="{Binding catimg_uri}"
-                                                                        Aspect="AspectFill"
+                                                                        Aspect="AspectFill" DownsampleToViewSize="True" BitmapOptimizations="True"
+                                                                        FadeAnimationEnabled="True"
                                                                         LoadingPlaceholder="notfound.png"
                                                                         ErrorPlaceholder="notfound.png" />
                                                     </Frame>

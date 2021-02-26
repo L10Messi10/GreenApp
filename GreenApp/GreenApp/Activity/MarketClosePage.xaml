@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="GreenApp.Activity.MarketClosePage" BackgroundColor="{StaticResource Primary}"
              NavigationPage.HasNavigationBar="False">
     <StackLayout>
@@ -8,7 +9,9 @@
             <Frame Padding="0" VerticalOptions="FillAndExpand" BackgroundColor="#FFFFFF"
                    Margin="0,-180,0,100" CornerRadius="160" HasShadow="True">
                 <StackLayout VerticalOptions="CenterAndExpand" Margin="10,180,10,0">
-                    <Image Source="marketclosed" HeightRequest="200" Margin="20" WidthRequest="300" Aspect="AspectFit" />
+                    <forms:CachedImage Source="marketclosed" DownsampleToViewSize="True" BitmapOptimizations="True"
+                                       FadeAnimationEnabled="True"
+                                       HeightRequest="200" Margin="20" WidthRequest="300" Aspect="AspectFit" />
                     <Label Text="Market Closed! 😴😴" VerticalOptions="Center" FontAttributes="Bold" FontSize="Title"
                            HorizontalOptions="Center" />
                     <Label

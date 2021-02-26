@@ -40,10 +40,11 @@
                                     <StackLayout WidthRequest="250" HorizontalOptions="CenterAndExpand"
                                                  VerticalOptions="Start" Margin="0">
                                         <Frame VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
-                                               CornerRadius="0" BackgroundColor="Gray" Margin="0" Padding="0"
+                                               CornerRadius="0" Margin="0" Padding="0"
                                                HasShadow="True">
                                             <ff:CachedImage Source="{Binding img_uri}" HeightRequest="150"
-                                                            WidthRequest="250"
+                                                            WidthRequest="250" DownsampleToViewSize="True" BitmapOptimizations="True"
+                                                            FadeAnimationEnabled="True"
                                                             Aspect="AspectFill" />
                                         </Frame>
                                         <StackLayout Margin="5,0,0,0">
@@ -182,10 +183,9 @@
                                                     HeightRequest="35" Text="Change" FontSize="12"
                                                     Clicked="Btnchange_OnClicked" />
                                             </Grid>
-                                            <StackLayout x:Name="pickUpLayout">
-                                                <Label Text="Pickup time of item." />
-                                                <TimePicker FontSize="12" HeightRequest="40" x:Name="pickupTime"
-                                                        BackgroundColor="{StaticResource Primary}" TextColor="WhiteSmoke" />
+                                        <StackLayout x:Name="pickUpLayout">
+                                            <TimePicker FontSize="12" x:Name="pickupTime" BackgroundColor="{StaticResource Primary}"
+                                                        TextColor="{StaticResource Textcolor}"/>
                                             </StackLayout>
                                         </StackLayout>
                                         <BoxView HeightRequest="1" WidthRequest="300" BackgroundColor="WhiteSmoke" />

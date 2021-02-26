@@ -22,52 +22,62 @@ namespace GreenApp.Activity
         public MenuPage()
         {
             InitializeComponent();
-            getUserDetails();
+            //getUserDetails();
 
         }
         protected override async void OnAppearing()
         {
             await GetSections();
+            await getUserDetails();
         }
 
-        private async void getUserDetails()
+        private async Task getUserDetails()
         {
             try
             {
-                if (hasnetwork)
+                if (!hasnetwork) return;
+                if (picstr != null)
                 {
-                    if (SignedIn) return;
-                    if (Settings.LastUsedEmail != string.Empty)
-                    {
-                        var users = (await MobileService.GetTable<TBL_Users>().Where(mail => mail.emailadd == Settings.LastUsedEmail).ToListAsync()).FirstOrDefault();
-                        if (users == null) return;
-                        user_id = users.Id;
-                        fullname = users.full_name;
-                        mobilenum = users.mobile_num;
-                        emailadd = users.emailadd;
-                        password = users.password;
-                        datereg = users.datereg;
-                        propic = users.propic;
-                        picstr = users.picstr;
-                        //user_id = null;
-                        CurrentOrderId = null;
-                        refresh = false;
-                        SignedIn = true;
-                        hasnetwork = true;
-                        //indicatorloader.IsVisible = false;
-                        //Settings.LastUsedEmail = chkremember.IsChecked ? emailentry.Text : "";
-                        //await DisplayAlert("Success", "Email or password is incorrect!", "OK");
-                        //Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.MainPage = new AppShell(); });
-                        //await Navigation.PushAsync(new MenuPage(), true);
-                        //var page = MenuPage as NavigationPage;
-                    }
-                    else
-                    {
-                        hasnetwork = true;
-                        SignedIn = false;
-                        //Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.MainPage = new LoginPage(); });
-                        //await Navigation.PushAsync(new LoginPage(), true);
-                    }
+                    menuTray.IsVisible = false;
+                    profilepic.IsVisible = true;
+                    profilepic.Source = propic;
+                }
+                else
+                {
+                    menuTray.IsVisible = true;
+                    profilepic.IsVisible = false;
+                }
+                if (SignedIn) return;
+                if (Settings.LastUsedEmail != string.Empty)
+                {
+                    var users = (await MobileService.GetTable<TBL_Users>().Where(mail => mail.emailadd == Settings.LastUsedEmail).ToListAsync()).FirstOrDefault();
+                    if (users == null) return;
+                    user_id = users.Id;
+                    fullname = users.full_name;
+                    mobilenum = users.mobile_num;
+                    emailadd = users.emailadd;
+                    password = users.password;
+                    datereg = users.datereg;
+                    propic = users.propic;
+                    picstr = users.picstr;
+                    //user_id = null;
+                    CurrentOrderId = null;
+                    refresh = false;
+                    SignedIn = true;
+                    hasnetwork = true;
+                    //indicatorloader.IsVisible = false;
+                    //Settings.LastUsedEmail = chkremember.IsChecked ? emailentry.Text : "";
+                    //await DisplayAlert("Success", "Email or password is incorrect!", "OK");
+                    //Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.MainPage = new AppShell(); });
+                    //await Navigation.PushAsync(new MenuPage(), true);
+                    //var page = MenuPage as NavigationPage;
+                }
+                else
+                {
+                    hasnetwork = true;
+                    SignedIn = false;
+                    //Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.MainPage = new LoginPage(); });
+                    //await Navigation.PushAsync(new LoginPage(), true);
                 }
             }
             catch

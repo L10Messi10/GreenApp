@@ -21,18 +21,19 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Frame Padding="0" CornerRadius="80" Grid.Row="0" Margin="0,-80,-50,0" IsClippedToBounds="True"
+                <Frame Padding="0" CornerRadius="30" Grid.Row="0" Margin="0,-50,0,0" IsClippedToBounds="True"
                        HasShadow="True">
                     <StackLayout>
-                        <ff:CachedImage Aspect="AspectFill" DownsampleToViewSize="True"
-                                        Source="{Binding img_uri}"
+                        <ff:CachedImage Aspect="AspectFill"
+                                        Source="{Binding img_uri}" DownsampleToViewSize="True" BitmapOptimizations="True"
+                                        FadeAnimationEnabled="True"
                                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                     <Label Text="{Binding prod_price}" x:Name="txtprice" IsVisible="False" />
                     </StackLayout>
                 </Frame>
                 <Frame VerticalOptions="Center" HorizontalOptions="End" HasShadow="True"
                        BorderColor="{StaticResource Primary}" CornerRadius="10"
-                       Margin="0,270,5,0" Grid.Row="0" Padding="5" Opacity="1">
+                       Margin="0,250,5,0" Grid.Row="0" Padding="5" Opacity="1">
                     <StackLayout Orientation="Vertical" >
                         <Label VerticalOptions="Center" FontAttributes="Bold" FontSize="20"
                                TextColor="{StaticResource PriceColor_1}" HorizontalTextAlignment="Center">
@@ -97,7 +98,9 @@
                                         BackgroundColor="Transparent"/>
                             </Grid>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
-                                <Label  Text="0" FontSize="30" x:Name="txtsubtotal" Margin="0,-20" FontAttributes="Bold"
+                            <Label  Text="₱ " FontSize="30" Margin="0,-20" FontAttributes="Bold"
+                                        TextColor="{StaticResource Primary}" HorizontalOptions="End" VerticalOptions="Center" />
+                            <Label  Text="0" FontSize="30" x:Name="txtsubtotal" Margin="0,-20" FontAttributes="Bold"
                                         TextColor="{StaticResource Primary}" HorizontalOptions="End" VerticalOptions="Center" />
                             </StackLayout>
                         </StackLayout>
