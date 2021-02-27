@@ -30,13 +30,13 @@
     </ContentPage.Resources>
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
-            <ff:CachedImage Source="menu" HeightRequest="15" x:Name="menuTray"
+            <Image Source="menu" HeightRequest="15" x:Name="menuTray"
                    Margin="0,0,0,0" WidthRequest="30" Aspect="AspectFit" BackgroundColor="Transparent">
-                <ff:CachedImage.GestureRecognizers>
+                <Image.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapMenu_OnTapped"/>
-                </ff:CachedImage.GestureRecognizers>
-            </ff:CachedImage>
-            <ff:CachedImage HeightRequest="30" x:Name="profilepic" DownsampleToViewSize="True" BitmapOptimizations="True"
+                </Image.GestureRecognizers>
+            </Image>
+            <ff:CachedImage HeightRequest="30" x:Name="profilepic" IsVisible="False" DownsampleToViewSize="True" BitmapOptimizations="True"
                             FadeAnimationEnabled="True" WidthRequest="50" Aspect="AspectFill" BackgroundColor="Transparent">
                 <ff:CachedImage.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapMenu_OnTapped"/>

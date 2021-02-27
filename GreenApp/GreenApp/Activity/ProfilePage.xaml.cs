@@ -38,8 +38,8 @@ namespace GreenApp.Activity
             }
             catch
             {
-                progressload.IsVisible = false;
                 await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
+                progressload.IsVisible = false;
             }
         }
 
@@ -112,8 +112,8 @@ namespace GreenApp.Activity
             }
             catch
             {
-                progressload.IsVisible = false;
                 await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
+                progressload.IsVisible = false;
             }
         }
         private async Task Updateprofile()
@@ -140,8 +140,8 @@ namespace GreenApp.Activity
             }
             catch
             {
-                progressload.IsVisible = false;
                 await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
+                progressload.IsVisible = false;
             }
         }
 
