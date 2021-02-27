@@ -29,6 +29,7 @@ namespace GreenApp.Activity
             {
                 progresssave.IsVisible = false;
                 await Navigation.PushAsync(new NoInternetPage(), true);
+                
             }
             
         }
@@ -82,8 +83,8 @@ namespace GreenApp.Activity
             }
             catch
             {
-                progresssave.IsVisible = false;
                 await Navigation.PushAsync(new NoInternetPage(), true);
+                progresssave.IsVisible = false;
             }
         }
     }

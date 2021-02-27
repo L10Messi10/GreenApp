@@ -35,9 +35,9 @@ namespace GreenApp.Activity
                 xRefreshView.IsRefreshing = false;
             }
             catch
-            {
-                xRefreshView.IsRefreshing = false;
+            { 
                 await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
+                xRefreshView.IsRefreshing = false;
             }
             
         }

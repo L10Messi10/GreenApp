@@ -40,8 +40,8 @@ namespace GreenApp.Activity
             }
             catch
             {
-                xRefreshView.IsRefreshing = false;
                 await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
+                xRefreshView.IsRefreshing = false;
             }
         }
         private async void OrdersList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -98,14 +98,14 @@ namespace GreenApp.Activity
                         }
                         else
                         {
-                            indicatorloader.IsVisible = false;
                             await DisplayAlert("Error", "Email or password is incorrect!", "OK");
+                            indicatorloader.IsVisible = false;
                         }
                     }
                     else
                     {
-                        indicatorloader.IsVisible = false;
                         await DisplayAlert("Error", "There was an error logging you in! Please check the information you're entering.", "OK");
+                        indicatorloader.IsVisible = false;
                     }
                 }
             }

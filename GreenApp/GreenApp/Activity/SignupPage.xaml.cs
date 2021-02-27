@@ -95,11 +95,11 @@ namespace GreenApp.Activity
             }
             catch
             {
-                indicatornot.IsVisible = false;
-                loadingindicator.IsVisible = false;
                 await DisplayAlert("Error", "There was an error processing your request. " +
                                             "The email address you've entered already exist. Please try another one. " +
                                             "Please check you internet connectivity as well.", "OK");
+                indicatornot.IsVisible = false;
+                loadingindicator.IsVisible = false;
             }
         }
 

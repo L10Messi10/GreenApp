@@ -87,7 +87,6 @@ namespace GreenApp.Activity
             {
                 var item = sender as SwipeItem;
                 var model = item.BindingContext as TBL_Orders;
-
                 var ans = await DisplayAlert("Delete", "Are you sure to remove this order?", "Yes", "No");
                 if (!ans) return;
                 var orderDetails = new TBL_Orders()

@@ -188,8 +188,8 @@ namespace GreenApp.Activity
             }
             catch
             {
-                progressplaceorder.IsVisible = false;
                 await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
+                progressplaceorder.IsVisible = false;
             }
 }
 
@@ -267,8 +267,8 @@ namespace GreenApp.Activity
             }
             catch
             {
-                progressplaceorder.IsVisible = false;
                 await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
+                progressplaceorder.IsVisible = false;
             }
         }
 
