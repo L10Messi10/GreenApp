@@ -28,26 +28,13 @@ namespace GreenApp.Activity
         protected override async void OnAppearing()
         {
             await GetSections();
-            await getUserDetails();
+            await GetUserDetails();
         }
 
-        private async Task getUserDetails()
+        private async Task GetUserDetails()
         {
             try
             {
-                if (!hasnetwork) return;
-                if (picstr != null)
-                {
-                    menuTray.IsVisible = false;
-                    profilepic.IsVisible = true;
-                    profilepic.Source = propic;
-                }
-                else
-                {
-                    menuTray.IsVisible = true;
-                    profilepic.IsVisible = false;
-                }
-                if (SignedIn) return;
                 if (Settings.LastUsedEmail != string.Empty)
                 {
                     var users = (await MobileService.GetTable<TBL_Users>().Where(mail => mail.emailadd == Settings.LastUsedEmail).ToListAsync()).FirstOrDefault();
@@ -65,6 +52,18 @@ namespace GreenApp.Activity
                     refresh = false;
                     SignedIn = true;
                     hasnetwork = true;
+                    if (picstr != null)
+                    {
+                        menuTray.IsVisible = false;
+                        profilepic.IsVisible = true;
+                        profilepic.Source = propic;
+                    }
+                    else
+                    {
+                        menuTray.IsVisible = true;
+                        profilepic.IsVisible = false;
+                    }
+
                     //indicatorloader.IsVisible = false;
                     //Settings.LastUsedEmail = chkremember.IsChecked ? emailentry.Text : "";
                     //await DisplayAlert("Success", "Email or password is incorrect!", "OK");
@@ -79,6 +78,7 @@ namespace GreenApp.Activity
                     //Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.MainPage = new LoginPage(); });
                     //await Navigation.PushAsync(new LoginPage(), true);
                 }
+
             }
             catch
             {
@@ -226,6 +226,7 @@ namespace GreenApp.Activity
         {
             refresh = false;
             await GetSections();
+            await GetUserDetails();
         }
 
         private async void TapMenu_OnTapped(object sender, EventArgs e)
@@ -238,6 +239,7 @@ namespace GreenApp.Activity
         {
             refresh = false;
             await GetSections();
+            await GetUserDetails();
         }
     }
 }

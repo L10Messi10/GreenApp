@@ -60,7 +60,7 @@ namespace GreenApp.Activity
                 var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
                 if (selectedImageFile == null)
                 {
-                    //await DisplayAlert("Error", "There was an error trying to get the image.", "OK");
+                    await DisplayAlert("Error", "There was an error trying to get the image. Please try again later", "OK");
                     return;
                 }
                 profileimg.Source = ImageSource.FromStream(() => selectedImageFile.GetStream());

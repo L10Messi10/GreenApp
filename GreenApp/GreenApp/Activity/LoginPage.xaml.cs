@@ -84,6 +84,7 @@ namespace GreenApp.Activity
                                 indicatorloader.IsVisible = false;
                                 Settings.LastUsedEmail = emailentry.Text;
                                 SignedIn = true;
+                                hasnetwork = true;
                                 await Navigation.PopToRootAsync(true);
                                 //Device.BeginInvokeOnMainThread(() => { Application.Current.MainPage = new MenuPage(); });
                                 ////PROBLEM HERE LOGING OUT AND NOT REMEMBERING EMAIL
