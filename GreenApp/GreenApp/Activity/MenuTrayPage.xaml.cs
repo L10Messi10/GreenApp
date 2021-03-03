@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GreenApp.Models;
 using GreenApp.Utils;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,10 +17,15 @@ namespace GreenApp.Activity
         public MenuTrayPage()
         {
             InitializeComponent();
-            getLoginSetting();
+            
         }
 
-        private void getLoginSetting()
+        protected override void OnAppearing()
+        {
+            GetLoginSetting();
+        }
+
+        private void GetLoginSetting()
         {
             if (SignedIn)
             {
@@ -45,6 +51,7 @@ namespace GreenApp.Activity
                 menuOrders.IsVisible = false;
                 menuOrdersunpaid.IsVisible = false;
             }
+
         }
 
         private async void Btnlogin_OnClicked(object sender, EventArgs e)
@@ -95,12 +102,12 @@ namespace GreenApp.Activity
             mobilenum = "";
             emailadd = "";
             password = "";
-            propic = "";
-            picstr = "";
+            propic = null;
+            picstr = null;
             CurrentOrderId = null;
             refresh = false;
             AddressesPage._selectedAddressId = "";
-            getLoginSetting();
+            GetLoginSetting();
             //throw new NotImplementedException();
         }
 

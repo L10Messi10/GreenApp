@@ -35,6 +35,18 @@ namespace GreenApp.Activity
         {
             try
             {
+                if (propic != null)
+                {
+                    menuTray.IsVisible = false;
+                    profilepic.IsVisible = true;
+                    profilepic.Source = propic;
+                }
+                else
+                {
+                    menuTray.IsVisible = true;
+                    profilepic.IsVisible = false;
+                }
+                if (SignedIn) return;
                 if (Settings.LastUsedEmail != string.Empty)
                 {
                     var users = (await MobileService.GetTable<TBL_Users>().Where(mail => mail.emailadd == Settings.LastUsedEmail).ToListAsync()).FirstOrDefault();
@@ -52,7 +64,7 @@ namespace GreenApp.Activity
                     refresh = false;
                     SignedIn = true;
                     hasnetwork = true;
-                    if (picstr != null)
+                    if (propic != null)
                     {
                         menuTray.IsVisible = false;
                         profilepic.IsVisible = true;
@@ -73,6 +85,17 @@ namespace GreenApp.Activity
                 }
                 else
                 {
+                    if (propic != null)
+                    {
+                        menuTray.IsVisible = false;
+                        profilepic.IsVisible = true;
+                        profilepic.Source = propic;
+                    }
+                    else
+                    {
+                        menuTray.IsVisible = true;
+                        profilepic.IsVisible = false;
+                    }
                     hasnetwork = true;
                     SignedIn = false;
                     //Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.MainPage = new LoginPage(); });
@@ -82,6 +105,17 @@ namespace GreenApp.Activity
             }
             catch
             {
+                if (propic != null)
+                {
+                    menuTray.IsVisible = false;
+                    profilepic.IsVisible = true;
+                    profilepic.Source = propic;
+                }
+                else
+                {
+                    menuTray.IsVisible = true;
+                    profilepic.IsVisible = false;
+                }
                 hasnetwork = false;
                 SignedIn = false;
             }

@@ -72,6 +72,8 @@ namespace GreenApp.Droid
                 }
                 else
                 {
+                    propic = null;
+                    picstr = null;
                     hasnetwork = true;
                     SignedIn = false;
                     //Device.BeginInvokeOnMainThread(() => { Xamarin.Forms.Application.Current.MainPage = new LoginPage(); });
@@ -80,6 +82,8 @@ namespace GreenApp.Droid
             }
             catch (Exception e)
             {
+                propic = null;
+                picstr = null;
                 hasnetwork = false;
                 SignedIn = false;
             }

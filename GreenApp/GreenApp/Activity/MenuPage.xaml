@@ -31,7 +31,7 @@
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
             <Image Source="menu" HeightRequest="15" x:Name="menuTray"
-                   Margin="0,0,0,0" WidthRequest="30" Aspect="AspectFit" BackgroundColor="Transparent">
+                   Margin="0,0,0,0" WidthRequest="30" Aspect="AspectFit">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapMenu_OnTapped"/>
                 </Image.GestureRecognizers>
