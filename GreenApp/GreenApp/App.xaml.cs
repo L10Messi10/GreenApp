@@ -31,6 +31,7 @@ namespace GreenApp
         public static string order_rcvr_add;
         public static string order_notes;
         public static string build_name;
+        public static int permission_count=0;
         //public static string order_
         //network
         public static bool hasnetwork;
