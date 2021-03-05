@@ -78,12 +78,16 @@ namespace GreenApp.Activity
                     if (progressplaceorder.IsVisible) return;
                     if (totalpayable.Text != "0")
                     {
-                        if (lbladd.Text != "")
-                        {
-                            var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
+                        
+                        var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
                         if (stat != null) MarketStatus = stat.status;
                         if (MarketStatus == "1")
                         {
+                            if (lbladd.Text == "" && Switch.IsToggled)
+                            {
+                                await DisplayAlert("Address", "No address present, please setup your address first!", "OK");
+                                return;
+                            }
                             var answer = await DisplayAlert("Confirm", "Do you want to confirm this order?", "Yes", "No");
                             if (!answer) return;
                             progressplaceorder.IsVisible = true;
@@ -168,11 +172,7 @@ namespace GreenApp.Activity
                             progressplaceorder.IsVisible = false;
                             await Navigation.PushAsync(new MarketClosePage(), true);
                         }
-                        }
-                        else
-                        {
-                            await DisplayAlert("Address", "No address present, please setup your address first!", "OK");
-                        }
+                        
                     }
                     else
                     {

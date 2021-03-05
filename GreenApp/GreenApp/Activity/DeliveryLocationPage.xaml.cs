@@ -195,9 +195,9 @@ namespace GreenApp.Activity
                     if (await DisplayAlert("Permission", "Please allow this app to access your location by allowing it to the permissions.", "Go to Settings", "Cancel"))
                     {
                         permission_count = permission_count++;
-                        if (permission_count > 2)
+                        if (permission_count > 1)
                         {
-                            await DisplayAlert("Info",
+                            await DisplayAlert("Device Info.",
                                 "For some reason, some devices tends to have a problem in permission setting especially in location permissions, if you believe you have already allowed this app to access your location and still wont display your location in the Map, just refresh your permission for this app by turning it OFF and ON again and come back to this page and try again.",
                                 "OK");
                         }
