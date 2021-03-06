@@ -37,11 +37,7 @@
             <StackLayout HorizontalOptions="EndAndExpand">
                 <AbsoluteLayout>
                     <Image Source="cart.png" Aspect="AspectFit" AbsoluteLayout.LayoutBounds="0,0,1,1"
-                       AbsoluteLayout.LayoutFlags="All" HeightRequest="50" touchEffect:TouchEff.PressedBackgroundColor="#77777A"
-                       touchEffect:TouchEff.PressedAnimationDuration="100"
-                       touchEffect:TouchEff.RegularAnimationDuration="100"
-                       touchEffect:TouchEff.PressedScale="0.9"
-                       touchEffect:TouchEff.PressedOpacity="0.6"
+                       AbsoluteLayout.LayoutFlags="All" HeightRequest="50"
                        HorizontalOptions="Center">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" NumberOfTapsRequired="1" />

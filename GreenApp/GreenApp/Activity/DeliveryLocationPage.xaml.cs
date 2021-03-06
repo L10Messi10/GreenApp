@@ -230,6 +230,27 @@ namespace GreenApp.Activity
                 {
                     //DependencyService.Get<ISettingsService>().OpenSettings();
                     global::Xamarin.Forms.DependencyService.Get<global::GreenApp.Utils.ILocSettings>().OpenSettings();
+                    if (_newAdd)
+                    {
+                        _label = "Home";
+                        btnhome.BackgroundColor = Color.FromRgb(0, 158, 73);
+                        btnhome.TextColor = Color.White;
+                        btnwork.TextColor = Color.Black;
+                        btnothers.TextColor = Color.Black;
+                        btnwork.BackgroundColor = Color.Transparent;
+                        btnothers.BackgroundColor = Color.Transparent;
+                        var locator = CrossGeolocator.Current;
+                        locator.PositionChanged += Locator_PositionChanged;
+                        await locator.StartListeningAsync(new TimeSpan(30), 200);
+                        var position = await locator.GetPositionAsync();
+                        var center = new Position(position.Latitude, position.Longitude);
+                        var span = new MapSpan(center, 0.001, 0.001);
+                        map.MoveToRegion(span);
+                    }
+                    else
+                    {
+                        await ModifyAddress();
+                    }
                 }
                 if (_newAdd)
                 {

@@ -266,7 +266,7 @@ namespace GreenApp.Activity
         private async void TapMenu_OnTapped(object sender, EventArgs e)
         {
             if (progressLoading.IsVisible || ErrorLayout.IsVisible ) return;
-            await Navigation.PushAsync(new MenuTrayPage(), false);
+            await Navigation.PushAsync(new MenuTrayPage(), true);
         }
 
         private async void Btnretry_OnClicked(object sender, EventArgs e)

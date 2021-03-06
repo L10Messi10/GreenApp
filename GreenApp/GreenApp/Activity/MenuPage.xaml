@@ -65,12 +65,7 @@
             <StackLayout HorizontalOptions="EndAndExpand">
                 <AbsoluteLayout>
                     <Image Source="cart.png" Aspect="AspectFit" HeightRequest="50" AbsoluteLayout.LayoutBounds="0,0,1,1"
-                           AbsoluteLayout.LayoutFlags="All" HorizontalOptions="Center"
-                           touchEffect:TouchEff.PressedBackgroundColor="#77777A"
-                           touchEffect:TouchEff.PressedAnimationDuration="100"
-                           touchEffect:TouchEff.RegularAnimationDuration="100"
-                           touchEffect:TouchEff.PressedScale="0.9"
-                           touchEffect:TouchEff.PressedOpacity="0.6">
+                           AbsoluteLayout.LayoutFlags="All" HorizontalOptions="Center">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="Checkout_OnTapped" NumberOfTapsRequired="1"/>
                         </Image.GestureRecognizers>
