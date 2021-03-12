@@ -17,7 +17,7 @@
                             VerticalOptions="FillAndExpand"/>-->
             <maps:Map x:Name="map" AbsoluteLayout.LayoutBounds="0,0,1,1"
                       AbsoluteLayout.LayoutFlags="All" IsShowingUser="True" MapType="Street" HasZoomEnabled="True"
-                      MoveToLastRegionOnLayoutChange="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                      MoveToLastRegionOnLayoutChange="False" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
             <Image Source="marker_shadow.png" HeightRequest="35" AbsoluteLayout.LayoutBounds="0,0,1,1"
                    AbsoluteLayout.LayoutFlags="All" Aspect="AspectFit"
                    WidthRequest="30" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
