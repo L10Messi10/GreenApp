@@ -21,14 +21,15 @@ namespace GreenApp.Droid
 {
     public class LocationZ : ILocSettings
     {
-        public async void OpenSettings()
+        public void OpenSettings()
         {
-            LocationManager LM = (LocationManager)Application.Context.GetSystemService(Context.LocationService);
+            LocationManager lm = Application.Context.GetSystemService(Context.LocationService) as LocationManager;
 
-
-            if (LM != null && LM.IsProviderEnabled(LocationManager.GpsProvider) == false)
+            if (lm != null && lm.IsProviderEnabled(LocationManager.GpsProvider) == false)
             {
                 //Show_Dialog msg1 = new Show_Dialog(this);
+                //AlertDialog.Builder alertDialogue = new AlertDialog.Builder();
+                //location_service = false;
                 Toast.MakeText(Application.Context, "Please TURN ON location service to detect your location.", ToastLength.Long)?.Show();
                 Context ctx = Application.Context;
                 ctx.StartActivity(new Intent(Android.Provider.Settings.ActionLocationSourceSettings));
@@ -38,6 +39,7 @@ namespace GreenApp.Droid
                 Toast.MakeText(Application.Context, "Location service is active", ToastLength.Long)?.Show();
                 //this is handled in the PCL
             }
+
         }
     }
 }

@@ -77,18 +77,18 @@
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
-                                            <Label Text="Swipe for options." TextColor="#D1D1D2" FontSize="8" VerticalOptions="EndAndExpand"
+                                            <Label Text="Swipe to remove" TextColor="#D1D1D2" FontSize="8" VerticalOptions="EndAndExpand"
                                                    HorizontalOptions="EndAndExpand"/>
                                         </StackLayout>
                                     </StackLayout>
                                     <SwipeView.RightItems>
-                                        <SwipeItems Mode="Reveal" SwipeBehaviorOnInvoked="Close">
+                                        <SwipeItems Mode="Execute" SwipeBehaviorOnInvoked="Close">
                                             <SwipeItem BackgroundColor="Red"
                                                        IconImageSource="trash_white"
-                                                       Text="Delete" x:Name="SwipeItemdeLete" Invoked="SwipeItemdeLete_OnInvoked"/>
-                                            <SwipeItem BackgroundColor="{StaticResource Primary}"
+                                                       Text="Remove" x:Name="SwipeItemdeLete" Invoked="SwipeItemdeLete_OnInvoked"/>
+                                            <!--<SwipeItem BackgroundColor="{StaticResource Primary}"
                                                        IconImageSource="grab"
-                                                       Text="Reorder" />
+                                                       Text="Reorder" />-->
                                         </SwipeItems>
                                     </SwipeView.RightItems>
                                 </SwipeView>

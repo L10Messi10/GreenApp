@@ -36,6 +36,8 @@ namespace GreenApp
         //network
         public static bool hasnetwork;
 
+        public static bool location_service;
+
         public App()
         {
             SetFlags(new[] { "Brush_Experimental" });

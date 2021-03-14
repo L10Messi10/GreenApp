@@ -226,10 +226,11 @@ namespace GreenApp.Activity
                 }
 
 
-                if (Device.RuntimePlatform == global::Xamarin.Forms.Device.Android)
+                if (Device.RuntimePlatform == Device.Android)
                 {
                     //DependencyService.Get<ISettingsService>().OpenSettings();
-                    global::Xamarin.Forms.DependencyService.Get<global::GreenApp.Utils.ILocSettings>().OpenSettings();
+                    DependencyService.Get<Utils.ILocSettings>().OpenSettings();
+
                     if (_newAdd)
                     {
                         _label = "Home";
