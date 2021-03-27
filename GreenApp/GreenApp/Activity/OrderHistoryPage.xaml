@@ -10,7 +10,6 @@
                      BackgroundColor="{StaticResource Primary}" RefreshColor="White">
             <CollectionView HorizontalScrollBarVisibility="Never"
                             x:Name="OrdersList" SelectionMode="Single"
-                            ItemsSource="{Binding TBL_Orders}"
                             HorizontalOptions="FillAndExpand"
                             ItemsLayout="VerticalList" SelectionChanged="OrdersList_OnSelectionChanged">
                 <CollectionView.ItemTemplate>
@@ -19,9 +18,9 @@
                             <Frame HasShadow="True" CornerRadius="10" HeightRequest="100"
                                    VerticalOptions="FillAndExpand" Margin="2,0" Padding="5"
                                    HorizontalOptions="FillAndExpand">
-                                <SwipeView x:Name="XSwipeViews" BackgroundColor="White" SwipeStarted="XSwipeViews_OnSwipeStarted"
+                                <SwipeView x:Name="XSwipeViews" BackgroundColor="White" WidthRequest="100" SwipeStarted="XSwipeViews_OnSwipeStarted"
                                            SwipeEnded="XSwipeViews_OnSwipeEnded">
-                                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                    <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="White" Orientation="Horizontal">
                                         <ff:CachedImage  HorizontalOptions="Center" DownsampleToViewSize="True" Source="price_tag" HeightRequest="50"/>
                                         <StackLayout Spacing="2">
                                             <Label FontSize="15">
