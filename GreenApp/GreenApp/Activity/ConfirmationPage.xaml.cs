@@ -63,10 +63,10 @@ namespace GreenApp.Activity
                     };
                     barcode.BarcodeFormat = ZXing.BarcodeFormat.QR_CODE;
                     barcode.BarcodeValue = Selected_orderID;
-                    barcode.BarcodeOptions.Height = 150;
-                    barcode.BarcodeOptions.Width = 150;
-                    barcode.WidthRequest = 150;
-                    barcode.HeightRequest = 150;
+                    barcode.BarcodeOptions.Height = 300;
+                    barcode.BarcodeOptions.Width = 300;
+                    barcode.WidthRequest = 300;
+                    barcode.HeightRequest = 300;
                     stackpanel.Children.Insert(0, barcode);
                     var getorders = (await MobileService.GetTable<V_Orders>().Where(orders => orders.order_id == Selected_orderID).ToListAsync()).FirstOrDefault();
                     mainlayout.BindingContext = getorders;
@@ -74,7 +74,7 @@ namespace GreenApp.Activity
                     {
                         lblorderid.Text = getorders.order_id;
                         lblfullname.Text = getorders.full_name;
-                        lbltotpayable.Text = getorders.tot_payable;
+                        lbltotpayable.Text = "₱ " + getorders.tot_payable;
                     }
                     else
                     {

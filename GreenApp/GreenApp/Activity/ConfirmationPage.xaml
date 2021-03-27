@@ -5,49 +5,68 @@
              x:Class="GreenApp.Activity.ConfirmationPage" BindingContext="{Binding V_Orders}"
              Title="Order confirmed"
              BackgroundColor="{StaticResource BackgroundColor}">
-    <ScrollView>
-        <StackLayout x:Name="stackpanel" VerticalOptions="End">
-            <StackLayout Margin="20,0,20,20" x:Name="mainlayout"> 
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Label Text="Order ID : " Grid.Row="0" Grid.Column="0" />
-                    <Label Text="{Binding order_id}" x:Name="lblorderid" Grid.Row="0" Grid.ColumnSpan="3" Grid.Column="0"
-                           HorizontalOptions="End" LineBreakMode="TailTruncation" TextColor="{StaticResource TextColor}" FontSize="Small" />
-                    <Label Text="Customer name : " Grid.Row="1" Grid.Column="0" />
-                    <Label Text="{Binding full_name}" x:Name="lblfullname" Grid.Row="1" Grid.ColumnSpan="3" Grid.Column="0"
-                           HorizontalOptions="End" TextColor="{StaticResource TextColor}" FontAttributes="Bold" FontSize="Medium" />
-                    <Label Text="Amount Payable : " Grid.Row="2" Grid.Column="0" />
-                    <Label Text="{Binding tot_payable}" x:Name="lbltotpayable" Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="0"
-                           HorizontalOptions="End" TextColor="{StaticResource PriceColor_1}" FontAttributes="Bold"  FontSize="Medium" />
-                    <BoxView Grid.Row="3" Grid.ColumnSpan="3" Grid.Column="0"
-                             HeightRequest="0.1" Color="Gray" />
-                </Grid>
+    <StackLayout>
+        <ScrollView>
+            <StackLayout x:Name="stackpanel" VerticalOptions="End">
+                <StackLayout Margin="20,0,20,20" x:Name="mainlayout">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Order ID : " Grid.Row="0" Grid.Column="0" />
+                        <Label Text="{Binding order_id}" x:Name="lblorderid" Grid.Row="0" Grid.ColumnSpan="3"
+                               Grid.Column="0"
+                               HorizontalOptions="End" LineBreakMode="TailTruncation"
+                               TextColor="{StaticResource TextColor}" FontSize="Small" />
+                        <Label Text="Customer name : " Grid.Row="1" Grid.Column="0" />
+                        <Label Text="{Binding full_name}" x:Name="lblfullname" Grid.Row="1" Grid.ColumnSpan="3"
+                               Grid.Column="0"
+                               HorizontalOptions="End" TextColor="{StaticResource TextColor}" FontAttributes="Bold"
+                               FontSize="Medium" />
+                        <Label Text="Amount Payable : " Grid.Row="2" Grid.Column="0" />
+                        <Label x:Name="lbltotpayable" Grid.Row="2" Grid.ColumnSpan="3"
+                               Grid.Column="0"
+                               HorizontalOptions="End" TextColor="{StaticResource PriceColor_1}" FontAttributes="Bold"
+                               FontSize="Medium">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="₱ " />
+                                    <Span Text="{Binding tot_payable}" />
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <BoxView Grid.Row="3" Grid.ColumnSpan="3" Grid.Column="0"
+                                 HeightRequest="0.1" Color="Gray" />
+                    </Grid>
+                </StackLayout>
+                <StackLayout Margin="10">
+                    <Frame BackgroundColor="{StaticResource Primary}" CornerRadius="70" HorizontalOptions="Center"
+                           HeightRequest="100" WidthRequest="100">
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                            <Image Source="check" HeightRequest="20" />
+                            <Label Text="Order successful!" FontSize="10" TextColor="WhiteSmoke" />
+                            <Label Text="Thank you!" FontSize="15" TextColor="White" />
+                        </StackLayout>
+                    </Frame>
+                    <Label
+                        Text="Please note, that if this order isn't claimed on the day you ordered it, we will cancel this order."
+                        Margin="0,0,0,30" Padding="0"
+                        FontSize="Small"
+                        HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                </StackLayout>
+                
             </StackLayout>
-            <StackLayout Margin="10">
-                <Frame BackgroundColor="{StaticResource Primary}" CornerRadius="70" HorizontalOptions="Center" HeightRequest="100" WidthRequest="100">
-                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                        <Image Source="check" HeightRequest="20"/>
-                        <Label Text="Order successful!" FontSize="10" TextColor="WhiteSmoke"/>
-                        <Label Text="Thank you!"  FontSize="15" TextColor="White"/>
-                    </StackLayout>
-                </Frame>
-                <Label Text="Please note, that if this order isn't claimed on the day you ordered it, we will cancel this order." Margin="0,0,0,30" Padding="0"
-                       FontSize="Small"
-                       HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-            </StackLayout>
-            <Button Text="Close" BackgroundColor="{StaticResource Primary}"
-                    HeightRequest="50" Visual="Material" TextColor="{StaticResource Textcolor}" 
-                    Clicked="Button_OnClicked"/>
-        </StackLayout>
-    </ScrollView>
+        </ScrollView>
+        <Button Text="Close" BackgroundColor="{StaticResource Primary}" VerticalOptions="EndAndExpand"
+                HeightRequest="50" Visual="Material" TextColor="{StaticResource Textcolor}"
+                Clicked="Button_OnClicked" />
+    </StackLayout>
 </ContentPage>

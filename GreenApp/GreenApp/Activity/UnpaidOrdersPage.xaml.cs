@@ -80,5 +80,13 @@ namespace GreenApp.Activity
         //    }
             
         //}
+        private async void SwipeItem_OnInvoked(object sender, EventArgs e)
+        {
+            checkout = false;
+            var item = sender as SwipeItem;
+            var model = item?.BindingContext as TBL_Orders;
+            if (model != null) Selected_orderID = model.id;
+            await Navigation.PushModalAsync(new ConfirmationPage());
+        }
     }
 }

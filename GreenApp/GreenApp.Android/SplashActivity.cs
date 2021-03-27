@@ -80,7 +80,7 @@ namespace GreenApp.Droid
                     //await Navigation.PushAsync(new LoginPage(), true);
                 }
             }
-            catch (Exception e)
+            catch
             {
                 propic = null;
                 picstr = null;
