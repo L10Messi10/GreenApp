@@ -38,7 +38,7 @@
                                 <Frame CornerRadius="10">
                                     <StackLayout Margin="0">
                                     <StackLayout>
-                                        <Label x:Name="labelas" IsVisible="False" Text="{Binding Label}"/>
+                                            <Label x:Name="labelas" IsVisible="False" Text="{Binding Label}"/>
                                             <Label Text="Label as" TextColor="{StaticResource TextColor}" FontAttributes="Bold" />
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal">

@@ -82,7 +82,7 @@ namespace GreenApp.Activity
             {
                 //this line doesn't need a display alert but a label to display the status of connection.
                 //await DisplayAlert("Unexpected Error", "An unexpected error occured, please try again later. Please check your internet connectivity as well.", "OK");
-                _selectedAddressId = "";
+                //_selectedAddressId = "";
                 order_lat = 0;
                 order_long = 0;
                 var locator = CrossGeolocator.Current;
@@ -98,7 +98,7 @@ namespace GreenApp.Activity
         {
             try
             {
-                _selectedAddressId = "";
+                //_selectedAddressId = "";
                 order_lat = 0;
                 order_long = 0;
                 var locator = CrossGeolocator.Current;
@@ -313,13 +313,18 @@ namespace GreenApp.Activity
 
                 var getAddresseses = (await MobileService.GetTable<TBL_Addresses>().Where(add => add.id == _selectedAddressId).ToListAsync()).FirstOrDefault();
                 addressInfo.BindingContext = getAddresseses;
+                
                 if (getAddresseses != null)
                 {
+
                     var center = new Position(getAddresseses.add_lat, getAddresseses.add_long);
                     var span = new MapSpan(center, 0.001, 0.001);
                     map.MoveToRegion(span);
+                    txtbuilding.Text = getAddresseses.building_name;
+                    txtnotes.Text = getAddresseses.Notes;
                 }
-
+                //txtbuilding.Text = getAddresseses.building_name;
+                //txtnotes.Text = getAddresseses.Notes;
                 btnaddnewaddress.Text = "Modify Address";
                 if (labelas.Text == "Home")
                 {
@@ -330,6 +335,7 @@ namespace GreenApp.Activity
                     btnothers.TextColor = Color.Black;
                     btnwork.BackgroundColor = Color.Transparent;
                     btnothers.BackgroundColor = Color.Transparent;
+
                 }
 
                 if (labelas.Text == "Work")
@@ -357,12 +363,12 @@ namespace GreenApp.Activity
             }
             catch
             {
-                //if (await DisplayAlert("Permission", "You must allow permission for the app to locate your location", "Settings", "Cancel"))
-                //{
-                //    AppInfo.ShowSettingsUI();
-                //}
-                //else
-                //    await Navigation.PopAsync();
+                if (await DisplayAlert("Permission", "You must allow permission for the app to locate your location", "Settings", "Cancel"))
+                {
+                    AppInfo.ShowSettingsUI();
+                }
+                else
+                    await Navigation.PopAsync();
             }
 
         }
