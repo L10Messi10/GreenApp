@@ -37,7 +37,8 @@ namespace GreenApp
         public static bool hasnetwork;
 
         public static bool location_service;
-
+        //Market location
+        public static double market_lat, market_long,limit_distance;
         public App()
         {
             SetFlags(new[] { "Brush_Experimental" });

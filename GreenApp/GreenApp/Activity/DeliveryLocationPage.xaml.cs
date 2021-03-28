@@ -19,6 +19,7 @@ using static GreenApp.Activity.AddressesPage;
 using static GreenApp.App;
 using PermissionStatus = Xamarin.Essentials.PermissionStatus;
 
+
 [assembly: Xamarin.Forms.Dependency(typeof(GreenApp.Utils.ILocSettings))]
 namespace GreenApp.Activity
 {
@@ -187,6 +188,15 @@ namespace GreenApp.Activity
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             try
             {
+                //********Get market location********************
+                var geTblMarketLocation = (await MobileService.GetTable<TBL_MarketLocation>().ToListAsync()).FirstOrDefault();
+                if (geTblMarketLocation != null)
+                {
+                    market_lat = geTblMarketLocation.m_lat;
+                    market_long = geTblMarketLocation.m_long;
+                    limit_distance = geTblMarketLocation.limit_distance;
+                }
+
                 var status = await CrossPermissions.Current.CheckPermissionStatusAsync<LocationPermission>();
                 //some devices denies location in this line
                 if (status != Plugin.Permissions.Abstractions.PermissionStatus.Granted)
@@ -393,8 +403,10 @@ namespace GreenApp.Activity
         {
             try
             {
+                CalculateDistance();
                 bool isnotesEmpty = string.IsNullOrEmpty(txtnotes.Text);
                 bool isubuildingEmpty = string.IsNullOrEmpty(txtbuilding.Text);
+
                 if (isnotesEmpty || isubuildingEmpty)
                 {
                     await DisplayAlert("Notes / Building", "Please enter a notes and building name with specific instruction for our riders.", "OK");
@@ -465,7 +477,14 @@ namespace GreenApp.Activity
             {
                 //error_wifi.IsVisible = true;
             }
-    }
+        }
+
+        private void CalculateDistance()
+        {
+            var location = new Location(market_lat, market_long);
+            var otherLocation = new Location(order_lat, order_long);
+            double distance = location.CalculateDistance(otherLocation, DistanceUnits.Kilometers);
+        }
 
         private void Btnhome_OnClicked(object sender, EventArgs e)
         {
