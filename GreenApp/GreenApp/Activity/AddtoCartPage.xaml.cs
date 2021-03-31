@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GreenApp.Models;
-using GreenApp.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static System.DateTime;
