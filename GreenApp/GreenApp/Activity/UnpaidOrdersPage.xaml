@@ -91,7 +91,7 @@
                                     </StackLayout>
                             </Frame>
                                 <SwipeView.RightItems>
-                                    <SwipeItems Mode="Reveal" SwipeBehaviorOnInvoked="Close">
+                                    <SwipeItems Mode="Execute" SwipeBehaviorOnInvoked="Close">
                                         <SwipeItem BackgroundColor="{StaticResource Primary}" Text="Confirmation"
                                                    IconImageSource="qr_code" CommandParameter="{Binding .}" Invoked="SwipeItem_OnInvoked"/>
                                         <!--<SwipeItem BackgroundColor="{StaticResource Primary}" Text="Details"

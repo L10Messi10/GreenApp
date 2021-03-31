@@ -33,7 +33,7 @@ namespace GreenApp.Activity
                 lblcatdesc.Text = cat_desc;
                 ListProducts.IsVisible = true;
                 ErrorLayout.IsVisible = false;
-                var getproducts = await MobileService.GetTable<TBL_Products>().Where(p => p.category_name == Selected_CatID).ToListAsync();
+                var getproducts = await MobileService.GetTable<TBL_Products>().Where(p => p.category_name == Selected_CatID && p.prod_av=="Available").ToListAsync();
                 ListProducts.ItemsSource = getproducts;
                 var getorderid = (await MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id == user_id && orders.order_status == "Carted").ToListAsync()).FirstOrDefault();
                 if (getorderid != null) CurrentOrderId = getorderid.id;

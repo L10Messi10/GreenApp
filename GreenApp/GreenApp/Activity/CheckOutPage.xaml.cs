@@ -18,12 +18,13 @@ namespace GreenApp.Activity
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CheckOutPage
     {
-        private double totaSum;
+        private double totaSum,delivery_fee;
         private string itemid;
         private int itemcount;
         public CheckOutPage()
         {
             InitializeComponent();
+
         }
 
         protected override async void OnAppearing()
@@ -36,8 +37,17 @@ namespace GreenApp.Activity
                 deliveryAddLayout.IsVisible = true;
                 pickUpLayout.IsVisible = false;
                 lblorderstate.Text = "Loading order . . .";
+                //Get orders
                 var getAddresses = (await MobileService.GetTable<TBL_Addresses>().Where(p => p.id == _selectedAddressId).ToListAsync()).FirstOrDefault();
                 deliveryAddLayout.BindingContext = getAddresses;
+                //Get delivery fee
+                var getdelFee = (await MobileService.GetTable<TBL_DeliveryFee>().ToListAsync()).FirstOrDefault();
+                if (getdelFee != null)
+                {
+                    del_fee.Text = "₱ "+ getdelFee.d_fee.ToString(CultureInfo.InvariantCulture);
+                    delivery_fee = getdelFee.d_fee;
+                }
+
                 if (CurrentOrderId != null)
                 {
                     var getorders = await MobileService.GetTable<V_Orders>().Where(orders => orders.order_id == CurrentOrderId).ToListAsync();
@@ -45,8 +55,9 @@ namespace GreenApp.Activity
                     itemcount = getorders.Count;
                     //ordercollection.ItemsSource.re
                     totaSum = getorders.AsQueryable().Sum(ord => ord.sub_total);
+                    double payable = Convert.ToDouble(totaSum + delivery_fee);
                     lblsubtotal.Text = "₱ " + totaSum.ToString(CultureInfo.InvariantCulture);
-                    totalpayable.Text = "₱ " + totaSum.ToString(CultureInfo.InvariantCulture);
+                    totalpayable.Text = "₱ " + payable.ToString(CultureInfo.InvariantCulture);
                     itemid = null;
                     Selected_ProdId = null;
                     progressplaceorder.IsVisible = false;

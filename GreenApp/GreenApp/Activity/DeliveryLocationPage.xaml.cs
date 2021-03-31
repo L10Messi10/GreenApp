@@ -29,6 +29,7 @@ namespace GreenApp.Activity
     {
         private string _label;
         public static bool _newAdd;
+        private double _calc_distance;
         public DeliveryLocationPage()
         {
             InitializeComponent();
@@ -407,6 +408,13 @@ namespace GreenApp.Activity
                 bool isnotesEmpty = string.IsNullOrEmpty(txtnotes.Text);
                 bool isubuildingEmpty = string.IsNullOrEmpty(txtbuilding.Text);
 
+                if (_calc_distance > limit_distance)
+                {
+                    var round = Math.Round(limit_distance, 2);
+                    await DisplayAlert("Distance error", "The address you've entered isn't covered by the service. Please try again with another location closer to the allowed distance from the market which is " + round + " KM", "OK");
+                    return;
+                }
+
                 if (isnotesEmpty || isubuildingEmpty)
                 {
                     await DisplayAlert("Notes / Building", "Please enter a notes and building name with specific instruction for our riders.", "OK");
@@ -481,9 +489,10 @@ namespace GreenApp.Activity
 
         private void CalculateDistance()
         {
+            //this will get the distance of  the user and the market.
             var location = new Location(market_lat, market_long);
             var otherLocation = new Location(order_lat, order_long);
-            double distance = location.CalculateDistance(otherLocation, DistanceUnits.Kilometers);
+            _calc_distance = location.CalculateDistance(otherLocation, DistanceUnits.Kilometers);
         }
 
         private void Btnhome_OnClicked(object sender, EventArgs e)

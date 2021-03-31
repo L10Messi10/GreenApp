@@ -199,7 +199,7 @@
                                        FontAttributes="Bold" />
                                     <Label Grid.Row="4" Grid.Column="0" Text="Delivery fee"
                                        FontAttributes="Bold" TextColor="{StaticResource TextColor}" />
-                                    <Label Grid.Row="4" Grid.Column="2" Text="0" HorizontalOptions="End"
+                                    <Label x:Name="del_fee" Grid.Row="4" Grid.Column="2" Text="0" HorizontalOptions="End"
                                        FontSize="10" TextColor="{StaticResource PriceColor_1}"
                                        FontAttributes="Bold" />
                                 </Grid>
