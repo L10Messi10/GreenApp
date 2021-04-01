@@ -2,7 +2,7 @@
 <resources>
 
   <style name="Theme.Splash"
-         parent="android:Theme.NoTitleBar.Fullscreen">
+         parent="android:Theme">
         <item name="android:windowBackground">@drawable/backgroundstylexml</item>
         <item name="android:windowNoTitle">true</item>
         <item name="colorPrimaryDark">#009E49</item>
