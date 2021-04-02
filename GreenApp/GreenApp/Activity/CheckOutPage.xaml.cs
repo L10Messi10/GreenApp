@@ -18,7 +18,7 @@ namespace GreenApp.Activity
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CheckOutPage
     {
-        private double totaSum,delivery_fee;
+        private double totaSum,delivery_fee, payable;
         private string itemid;
         private int itemcount;
         public CheckOutPage()
@@ -55,7 +55,7 @@ namespace GreenApp.Activity
                     itemcount = getorders.Count;
                     //ordercollection.ItemsSource.re
                     totaSum = getorders.AsQueryable().Sum(ord => ord.sub_total);
-                    double payable = Convert.ToDouble(totaSum + delivery_fee);
+                    payable = Convert.ToDouble(totaSum + delivery_fee);
                     lblsubtotal.Text = "₱ " + totaSum.ToString(CultureInfo.InvariantCulture);
                     totalpayable.Text = "₱ " + payable.ToString(CultureInfo.InvariantCulture);
                     itemid = null;
@@ -123,7 +123,7 @@ namespace GreenApp.Activity
                                         del_long = order_long.ToString(CultureInfo.InvariantCulture),
                                         pickup_time = "-",
                                         itms_qty = itemcount.ToString(),
-                                        tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
+                                        tot_payable = payable.ToString(CultureInfo.InvariantCulture)
                                     };
                                     await TBL_Orders.Update(orderDetails);
 
@@ -157,7 +157,7 @@ namespace GreenApp.Activity
                                     del_long = "-",
                                     pickup_time = pickupTime.Time.ToString(),
                                     itms_qty = itemcount.ToString(),
-                                    tot_payable = totaSum.ToString(CultureInfo.InvariantCulture)
+                                    tot_payable = payable.ToString(CultureInfo.InvariantCulture)
                                 };
                                 await TBL_Orders.Update(orderDetails);
 
@@ -345,6 +345,9 @@ namespace GreenApp.Activity
                 lblchoice.Text = "Delivery Address";
                 deliveryAddLayout.IsVisible = true;
                 pickUpLayout.IsVisible = false;
+                double payable = Convert.ToDouble(totaSum + delivery_fee);
+                lblsubtotal.Text = "₱ " + totaSum.ToString(CultureInfo.InvariantCulture);
+                totalpayable.Text = "₱ " + payable.ToString(CultureInfo.InvariantCulture);
             }
             else
             {
@@ -354,6 +357,9 @@ namespace GreenApp.Activity
                 lblchoice.Text = "Pickup time: ";
                 deliveryAddLayout.IsVisible = false;
                 pickUpLayout.IsVisible = true;
+                double payable = Convert.ToDouble(totaSum + 0);
+                lblsubtotal.Text = "₱ " + totaSum.ToString(CultureInfo.InvariantCulture);
+                totalpayable.Text = "₱ " + payable.ToString(CultureInfo.InvariantCulture);
             }
         }
 
