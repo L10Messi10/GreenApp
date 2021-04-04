@@ -61,32 +61,32 @@ namespace GreenApp.Activity
 
         private async void Bbtnsignin_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SignupPage(), false);
+            await Navigation.PushAsync(new SignupPage(), true);
         }
 
         private async void Profile_OnTapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ProfilePage(), false);
+            await Navigation.PushAsync(new ProfilePage(), true);
         }
 
         private async void Addresses_OnTapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AddressesPage(), false);
+            await Navigation.PushAsync(new AddressesPage(), true);
         }
 
         private async void Orders_OnTapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new OrderHistoryPage(), false);
+            await Navigation.PushAsync(new OrderHistoryPage(), true);
         }
 
         private async void Feedback_OnTapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new FeedBackPage(), false);
+            await Navigation.PushAsync(new FeedBackPage(), true);
         }
 
         private async void About_OnTapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AboutPage(), false);
+            await Navigation.PushAsync(new AboutPage(), true);
         }
 
         private async void Logout_OnTapped(object sender, EventArgs e)
@@ -113,12 +113,12 @@ namespace GreenApp.Activity
 
         private async void UnpaidOrders_OnTapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new UnpaidOrdersPage(), false);
+            await Navigation.PushAsync(new UnpaidOrdersPage(), true);
         }
 
         private async void Home_OnTapped(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            await Navigation.PopToRootAsync(true);
         }
     }
 }

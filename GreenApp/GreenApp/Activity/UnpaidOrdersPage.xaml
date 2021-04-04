@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             x:Class="GreenApp.Activity.UnpaidOrdersPage" Title="My Unpaid orders">
+             x:Class="GreenApp.Activity.UnpaidOrdersPage" Title="Track my orders">
     <Grid>
         <RefreshView x:Name="xRefreshView" Refreshing="RefreshView_OnRefreshing"
                      BackgroundColor="{StaticResource Primary}" RefreshColor="White">

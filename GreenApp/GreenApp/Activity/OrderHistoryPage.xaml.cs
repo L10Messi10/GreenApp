@@ -35,7 +35,6 @@ namespace GreenApp.Activity
         {
             await getHistoryOrders();
         }
-
         private async Task getHistoryOrders()
         {
             try
