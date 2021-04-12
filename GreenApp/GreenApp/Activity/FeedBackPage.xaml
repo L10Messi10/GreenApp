@@ -4,36 +4,53 @@
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:ffTrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              x:Class="GreenApp.Activity.FeedBackPage" Title="Feedback">
-    <ScrollView>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="300" />
-                <RowDefinition Height="50"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <ff:CachedImage Source="feedback.jpg" Margin="0"
-                            LoadingPriority="High" Aspect="AspectFill"/>
-            <Frame Grid.Row="1" Margin="20,-140" CornerRadius="20" HasShadow="True">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="60"/>
-                        <RowDefinition Height="200"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <ff:CachedImage Grid.Row="0" Grid.Column="1"/>
-                    <Label Grid.Row="0" Grid.Column="1" Text="We'd love to hear from you to improve the application."/>
-                    <Editor Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="entryfeedback"
-                            Placeholder="A descriptive and informative statements about your feedback.."
-                            PlaceholderColor="Silver" MaxLength="1000"/>
-                </Grid>
-            </Frame>
-            <StackLayout Grid.Row="2" Grid.Column="0" Margin="20,155">
-                <Button BackgroundColor="{StaticResource Primary}" TextColor="White"
-                        Text="Submit feedback" CornerRadius="20" Clicked="Button_OnClicked"/>
-            </StackLayout>
-        </Grid>
-    </ScrollView>
+    <AbsoluteLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="All">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="300" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <ff:CachedImage Source="feedback.jpg" Margin="0"
+                                LoadingPriority="High" Aspect="AspectFill" />
+                <Frame Grid.Row="1" Margin="20,-140" CornerRadius="20" HasShadow="True">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="200" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <ff:CachedImage Grid.Row="0" Grid.Column="1" />
+                        <Label Grid.Row="0" Grid.Column="1"
+                               Text="We'd love to hear from you to improve the application." />
+                        <Editor Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="entryfeedback"
+                                Placeholder="A descriptive and informative statements about your feedback.."
+                                PlaceholderColor="Silver" MaxLength="1000" />
+                    </Grid>
+                </Frame>
+                <StackLayout Grid.Row="2" Grid.Column="0" Margin="20,155">
+                    <Button BackgroundColor="{StaticResource Primary}" TextColor="White"
+                            Text="Submit feedback" CornerRadius="20" Clicked="Button_OnClicked" />
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+        <StackLayout
+            x:Name="progressLoading"
+            IsVisible="False"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            BackgroundColor="Black" Opacity="0.2">
+            <ActivityIndicator
+                x:Name="ai"
+                IsRunning="True" IsVisible="True"
+                HorizontalOptions="CenterAndExpand"
+                Color="{StaticResource Primary}" Margin="0,300,0,0" />
+            <!--<Label x:Name="lblorderstate" Text="Submitting feedback, please wait..." Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>-->
+        </StackLayout>
+    </AbsoluteLayout>
 </ContentPage>

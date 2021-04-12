@@ -23,6 +23,7 @@ namespace GreenApp.Activity
             {
                 if (entryfeedback.Text != null)
                 {
+                    progressLoading.IsVisible = true;
                     var feedback = new TBL_Feedback
                     {
                         response = entryfeedback.Text
@@ -30,6 +31,7 @@ namespace GreenApp.Activity
                     await TBL_Feedback.Insert(feedback);
                     await DisplayAlert("Info", "Your feedback has been successfully submitted, We'll review your feedback to improve the application. Thank you!!", "OK");
                     entryfeedback.Text = "";
+                    progressLoading.IsVisible = false;
                 }
                 else
                 {
