@@ -41,17 +41,5 @@
                     </StackLayout>
                 </ScrollView>
         </StackLayout>
-
-       
-        <controls:MTAdView x:Name="MainPageAd" AdsId="{OnPlatform Android='ca-app-pub-3940256099942544/6300978111', iOS='ca-app-pub-3940256099942544/2934735716'}" 
-                           IsVisible="true" PersonalizedAds="true" VerticalOptions="EndAndExpand">
-            <controls:MTAdView.HeightRequest>
-                <x:OnIdiom>
-                    <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
-                    <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
-                    <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
-                </x:OnIdiom>
-            </controls:MTAdView.HeightRequest>
-        </controls:MTAdView>
     </StackLayout>
 </ContentPage>

@@ -41,6 +41,7 @@ namespace GreenApp.Activity
             }
             catch
             {
+                progressLoading.IsVisible = false;
                 await Navigation.PushAsync(new NoInternetPage(),true);
             }
         }

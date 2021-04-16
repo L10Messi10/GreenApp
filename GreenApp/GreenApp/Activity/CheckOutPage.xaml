@@ -115,8 +115,8 @@
                 </CollectionView>
             </Frame>
                     <StackLayout Grid.Row="1" VerticalOptions="EndAndExpand">
-                        <controls:MTAdView x:Name="MainPageAd"
-                                           AdsId="{OnPlatform Android='ca-app-pub-3940256099942544/6300978111', iOS='ca-app-pub-3940256099942544/2934735716'}"
+                        <!--<controls:MTAdView x:Name="MainPageAd"
+                                           AdsId="{OnPlatform Android='ca-app-pub-7879306170422036/5813295776', iOS='ca-app-pub-7879306170422036/5813295776'}"
                                            IsVisible="true" PersonalizedAds="true" VerticalOptions="EndAndExpand">
                             <controls:MTAdView.HeightRequest>
                                 <x:OnIdiom>
@@ -125,7 +125,7 @@
                                     <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
                                 </x:OnIdiom>
                             </controls:MTAdView.HeightRequest>
-                        </controls:MTAdView>
+                        </controls:MTAdView>-->
                         <Frame BackgroundColor="{StaticResource Frame}" Margin="10,0"
                                CornerRadius="10" HasShadow="True">
                                 <Grid RowSpacing="0">
