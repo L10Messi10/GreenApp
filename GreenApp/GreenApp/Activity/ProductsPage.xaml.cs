@@ -88,7 +88,7 @@ namespace GreenApp.Activity
                 RefreshView.IsRefreshing = true;
                 var products = (await MobileService.GetTable<TBL_Products>().ToListAsync());
                 ListProducts.ItemsSource = products.Where(p => p.prod_name.ToLower().Contains(query.ToLower())  && 
-                                                           p.category_name.ToLower().Equals(Selected_CatID.ToLower())).ToList();
+                                                           p.category_name.ToLower().Equals(Selected_CatID.ToLower()) && p.prod_av == "Available").ToList();
                 RefreshView.IsRefreshing = false;
             }
             catch
