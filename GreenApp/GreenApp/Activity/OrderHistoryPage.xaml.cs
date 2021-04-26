@@ -40,7 +40,7 @@ namespace GreenApp.Activity
             try
             {
                 xRefreshView.IsRefreshing = true;
-                var getorders = await MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id.ToLower().Contains(user_id) && orders.stat.ToLower().Contains("2")).ToListAsync();
+                var getorders = await MobileService.GetTable<TBL_OrderHistory>().Where(orders => orders.users_id.ToLower().Contains(user_id)).ToListAsync();
                 OrdersList.ItemsSource = getorders;
                 Selected_orderID = null;
                 OrdersList.SelectedItem = null;
