@@ -345,19 +345,19 @@ namespace GreenApp.Activity
                 lblchoice.Text = "Delivery Address";
                 deliveryAddLayout.IsVisible = true;
                 pickUpLayout.IsVisible = false;
-                double payable = Convert.ToDouble(totaSum + delivery_fee);
+                payable = Convert.ToDouble(totaSum + delivery_fee);
                 lblsubtotal.Text = "₱ " + totaSum.ToString(CultureInfo.InvariantCulture);
                 totalpayable.Text = "₱ " + payable.ToString(CultureInfo.InvariantCulture);
             }
             else
             {
                 DateTime currentTime = Now;
-                DateTime x30MinsLater = currentTime.AddMinutes(40);
+                DateTime x30MinsLater = currentTime.AddMinutes(45);
                 pickupTime.Time = x30MinsLater.TimeOfDay;
                 lblchoice.Text = "Pickup time: ";
                 deliveryAddLayout.IsVisible = false;
                 pickUpLayout.IsVisible = true;
-                double payable = Convert.ToDouble(totaSum + 0);
+                payable = Convert.ToDouble(totaSum + 0);
                 lblsubtotal.Text = "₱ " + totaSum.ToString(CultureInfo.InvariantCulture);
                 totalpayable.Text = "₱ " + payable.ToString(CultureInfo.InvariantCulture);
             }
