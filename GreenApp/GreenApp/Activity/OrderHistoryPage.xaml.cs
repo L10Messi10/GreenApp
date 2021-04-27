@@ -65,7 +65,7 @@ namespace GreenApp.Activity
             try
             {
                 if (OrdersList.SelectedItem == null) return;
-                Selected_orderID = (e.CurrentSelection.FirstOrDefault() as TBL_Orders)?.id;
+                Selected_orderID = (e.CurrentSelection.FirstOrDefault() as TBL_OrderHistory)?.id;
                 //await XGetOrders();
             }
             catch
@@ -85,14 +85,14 @@ namespace GreenApp.Activity
             try
             {
                 var item = sender as SwipeItem;
-                var model = item.BindingContext as TBL_Orders;
+                var model = item.BindingContext as TBL_OrderHistory;
                 var ans = await DisplayAlert("Delete", "Are you sure to remove this order?", "Yes", "No");
                 if (!ans) return;
-                var orderDetails = new TBL_Orders()
+                var orderDetails = new TBL_OrderHistory()
                 {
                     id = model.id,
                 };
-                await TBL_Orders.Void(orderDetails);
+                await TBL_OrderHistory.Void(orderDetails);
                 await getHistoryOrders();
             }
             catch

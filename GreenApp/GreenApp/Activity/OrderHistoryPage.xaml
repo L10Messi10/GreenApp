@@ -20,50 +20,50 @@
                                    HorizontalOptions="FillAndExpand">
                                 <SwipeView x:Name="XSwipeViews" BackgroundColor="White" WidthRequest="100" SwipeStarted="XSwipeViews_OnSwipeStarted"
                                            SwipeEnded="XSwipeViews_OnSwipeEnded">
-                                    <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="White" Orientation="Horizontal">
+                                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                                         <ff:CachedImage  HorizontalOptions="Center" DownsampleToViewSize="True" Source="price_tag" HeightRequest="50"/>
-                                        <StackLayout Spacing="2">
-                                            <Label FontSize="15">
+                                        <StackLayout Spacing="2" HorizontalOptions="FillAndExpand">
+                                            <Label>
                                                 <Label.FormattedText>
                                                     <FormattedString>
-                                                        <Span Text="Status: " TextColor="Gray" FontAttributes="Bold" />
-                                                        <Span Text="{Binding order_status}" TextColor="Black" FontAttributes="Italic"/>
+                                                        <Span Text="Status: " FontSize="Micro" TextColor="Gray" FontAttributes="Bold" />
+                                                        <Span Text="{Binding order_status}" FontSize="Micro" TextColor="Black" FontAttributes="Bold"/>
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
-                                            <Label TextColor="#48423c" FontSize="12">
+                                            <Label TextColor="#48423c" >
                                                 <Label.FormattedText>
                                                     <FormattedString>
-                                                        <Span Text="Order choice: " TextColor="Gray" FontAttributes="Bold" />
-                                                        <Span Text="{Binding order_choice}" TextColor="Black" FontAttributes="Italic" />
+                                                        <Span Text="Order choice: " FontSize="Micro" TextColor="Gray" FontAttributes="Bold" />
+                                                        <Span Text="{Binding order_choice}" FontSize="Micro" TextColor="Black" FontAttributes="Bold" />
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
-                                            <Label TextColor="#48423c" FontSize="12">
+                                            <Label TextColor="#48423c" >
                                                 <Label.FormattedText>
                                                     <FormattedString>
-                                                        <Span Text="#  of items:  " TextColor="Gray" FontAttributes="Bold" />
-                                                        <Span Text="{Binding itms_qty}" TextColor="Black" FontAttributes="Italic" />
+                                                        <Span Text="#  of items:  " FontSize="Micro" TextColor="Gray" FontAttributes="Bold" />
+                                                        <Span Text="{Binding itms_qty}" FontSize="Micro" TextColor="Black" FontAttributes="Bold" />
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
-                                            <Label TextColor="#48423c" FontSize="12">
+                                            <Label TextColor="#48423c" >
                                                 <Label.FormattedText>
                                                     <FormattedString>
-                                                        <Span Text="Amount paid:  " TextColor="Gray" FontAttributes="Bold" />
-                                                        <Span Text="{Binding cash_rendered}" TextColor="Black" FontAttributes="Italic" />
+                                                        <Span Text="Amount paid:  " TextColor="Gray" FontSize="Micro" FontAttributes="Bold" />
+                                                        <Span Text="{Binding cash_rendered}" FontSize="Micro" TextColor="Black" FontAttributes="Bold" />
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
-                                            <Label TextColor="#48423c" FontSize="12">
+                                            <Label TextColor="#48423c" >
                                                 <Label.FormattedText>
                                                     <FormattedString>
-                                                        <Span Text="Change:  " TextColor="Gray" FontAttributes="Bold" />
-                                                        <Span Text="{Binding cash_change}" TextColor="Black" FontAttributes="Italic" />
+                                                        <Span Text="Change:  " FontSize="Micro" TextColor="Gray" FontAttributes="Bold" />
+                                                        <Span Text="{Binding cash_change}" FontSize="Micro" TextColor="Black" FontAttributes="Bold" />
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
-                                            <Label Text="{Binding cart_datetime}" FontSize="12"
+                                            <Label Text="{Binding cart_datetime}"
                                            TextColor="#D1D1D2" VerticalOptions="EndAndExpand"/>
                                         </StackLayout>
                                         <StackLayout HorizontalOptions="EndAndExpand" WidthRequest="100" Margin="0,0,10,0">
