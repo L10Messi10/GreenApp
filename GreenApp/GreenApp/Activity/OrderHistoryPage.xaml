@@ -22,7 +22,7 @@
                                            SwipeEnded="XSwipeViews_OnSwipeEnded">
                                     <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                                         <ff:CachedImage  HorizontalOptions="Center" DownsampleToViewSize="True" Source="price_tag" HeightRequest="50"/>
-                                        <StackLayout Spacing="2" HorizontalOptions="FillAndExpand">
+                                        <StackLayout Spacing="2" HorizontalOptions="FillAndExpand" BackgroundColor="White">
                                             <Label>
                                                 <Label.FormattedText>
                                                     <FormattedString>
