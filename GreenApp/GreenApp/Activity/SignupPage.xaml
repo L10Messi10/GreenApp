@@ -18,8 +18,8 @@
 						   Placeholder="Full name" TextColor="{StaticResource TextColor}"
 						   PlaceholderColor="{StaticResource PlaceHolderColor}" MaxLength="30" />
 					<Entry x:Name="mobileentry" BackgroundColor="#E5E5E5"
-						   Placeholder="Mobile #" TextColor="{StaticResource TextColor}"
-						   Keyboard="Numeric"
+						   Placeholder="Mobile # (11 dgt.)" TextColor="{StaticResource TextColor}"
+						   Keyboard="Numeric" MaxLength="11"
 						   PlaceholderColor="{StaticResource PlaceHolderColor}" />
                     <Entry x:Name="emailentry" BackgroundColor="#E5E5E5"
                            Placeholder="Email address" TextColor="{StaticResource TextColor}"

@@ -53,6 +53,14 @@ namespace GreenApp.Activity
                     entrymobile.Focus();
                     return;
                 }
+
+                var mynumBer = entrymobile.Text;
+                if (mynumBer.Length != 11)
+                {
+                    await DisplayAlert("Error", "Please Enter a valid 11 digit mobile number! Ex. 09101234578!", "Ok");
+                    entrymobile.Focus();
+                    return;
+                }
                 progresssave.IsVisible = true;
                 lblprogressstat.Text = "Saving profile . . .";
                 var profile = new TBL_Users

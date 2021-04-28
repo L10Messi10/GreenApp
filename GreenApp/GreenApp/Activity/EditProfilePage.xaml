@@ -42,7 +42,7 @@
                             <StackLayout  Orientation="Horizontal">
                                 <ff:CachedImage Source="https://i.ibb.co/4ZxR49X/pngwing-com.png"
                                             WidthRequest="30" HeightRequest="30"/>
-                                <Entry x:Name="entrymobile" Margin="20,0" WidthRequest="300" Placeholder="Mobile no." MaxLength="20"
+                                <Entry x:Name="entrymobile" Margin="20,0" Keyboard="Numeric" WidthRequest="300" Placeholder="Mobile no. (11 dgt.)" MaxLength="11"
                                    Text="{Binding mobile_num}"/>
                             </StackLayout>
                             <Button BackgroundColor="{StaticResource Primary}" Text="Save" TextColor="{StaticResource Textcolor}"

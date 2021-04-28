@@ -42,6 +42,7 @@ namespace GreenApp.Activity
             //    Rotation = 33.3f,
             //    Tag = "id_tokyo"
             //};
+
             //map.Pins.Add(pin);
             //map.MoveToRegion(MapSpan.FromCenterAndRadius(pin.Position, Distance.FromMeters(5000)));
             //ApplyMapTheme();

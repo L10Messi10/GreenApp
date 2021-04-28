@@ -37,6 +37,13 @@ namespace GreenApp.Activity
                     mobileentry.Focus();
                     return;
                 }
+                var mynumBer = mobileentry.Text;
+                if (mynumBer.Length != 11)
+                {
+                    await DisplayAlert("Error", "Please Enter a valid 11 digit mobile number! Ex. 09101234578!", "Ok");
+                    mobileentry.Focus();
+                    return;
+                }
 
                 if (emailentry.Text == null)
                 {
