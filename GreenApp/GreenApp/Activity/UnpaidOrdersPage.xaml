@@ -13,10 +13,13 @@
                             ItemsLayout="VerticalList" SelectionChanged="OrdersList_OnSelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <ContentView Padding="5">
+                        <Grid Padding="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
                             <Frame Padding="0" CornerRadius="10">
                             <SwipeView x:Name="XSwipeViews" BackgroundColor="White">
-                            <Frame HasShadow="True" CornerRadius="10" HeightRequest="100"
+                            <Frame HasShadow="True" CornerRadius="10"
                                    VerticalOptions="FillAndExpand" Margin="2,0" Padding="5"
                                    HorizontalOptions="FillAndExpand">
                                 
@@ -100,7 +103,7 @@
                                 </SwipeView.RightItems>
                             </SwipeView>
                             </Frame>
-                        </ContentView>
+                        </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

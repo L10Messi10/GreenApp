@@ -14,15 +14,16 @@
                             ItemsLayout="VerticalList" SelectionChanged="OrdersList_OnSelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <ContentView Padding="5">
-                            <Frame HasShadow="True" CornerRadius="10" HeightRequest="100"
-                                   VerticalOptions="FillAndExpand" Margin="2,0" Padding="5"
-                                   HorizontalOptions="FillAndExpand">
-                                <SwipeView x:Name="XSwipeViews" BackgroundColor="White" WidthRequest="100" SwipeStarted="XSwipeViews_OnSwipeStarted"
-                                           SwipeEnded="XSwipeViews_OnSwipeEnded">
-                                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                        <Grid Padding="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Frame HasShadow="True" CornerRadius="10"
+                                   Margin="2,0" Padding="5" HorizontalOptions="FillAndExpand">
+                                <SwipeView x:Name="XSwipeViews" BackgroundColor="White">
+                                    <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="White" Orientation="Horizontal" >
                                         <ff:CachedImage  HorizontalOptions="Center" DownsampleToViewSize="True" Source="price_tag" HeightRequest="50"/>
-                                        <StackLayout Spacing="2" HorizontalOptions="FillAndExpand" BackgroundColor="White">
+                                        <StackLayout Spacing="2" HorizontalOptions="FillAndExpand" >
                                             <Label>
                                                 <Label.FormattedText>
                                                     <FormattedString>
@@ -64,9 +65,9 @@
                                                 </Label.FormattedText>
                                             </Label>
                                             <Label Text="{Binding cart_datetime}"
-                                           TextColor="#D1D1D2" VerticalOptions="EndAndExpand"/>
+                                           TextColor="#D1D1D2" VerticalOptions="End"/>
                                         </StackLayout>
-                                        <StackLayout HorizontalOptions="EndAndExpand" WidthRequest="100" Margin="0,0,10,0">
+                                        <StackLayout HorizontalOptions="EndAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,10,0">
                                             <Label TextColor="Black" 
                                                FontSize="Medium" HorizontalOptions="EndAndExpand">
                                                 <Label.FormattedText>
@@ -92,7 +93,7 @@
                                     </SwipeView.RightItems>
                                 </SwipeView>
                             </Frame>
-                        </ContentView>
+                        </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
