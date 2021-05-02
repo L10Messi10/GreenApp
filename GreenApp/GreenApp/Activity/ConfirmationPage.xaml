@@ -57,7 +57,7 @@
                         </StackLayout>
                     </Frame>
                     <Label
-                        Text="Please note, that if this order isn't claimed on the day you ordered it, we will cancel this order."
+                        Text="Our products are checked to for quality assurance. If there are any defects or ripe products, Kindly contact us to so we can assiss you."
                         Margin="0,0,0,30" Padding="0"
                         FontSize="Small"
                         HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />

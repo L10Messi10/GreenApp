@@ -184,7 +184,7 @@
                         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
                                      IsVisible="False" x:Name="ErrorLayout">
                             <Image Source="nointernet.gif" VerticalOptions="CenterAndExpand"
-                                   x:Name="imgnofound" IsAnimationPlaying="True" Aspect="AspectFit"
+                                   x:Name="imgnofound"
                                    HeightRequest="250" WidthRequest="250" />
                             <Button Text="Retry" FontAttributes="Bold" CornerRadius="10"
                                     BackgroundColor="{StaticResource Primary}"

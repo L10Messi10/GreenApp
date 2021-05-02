@@ -5,6 +5,7 @@
              xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
+             xmlns:fontAwesome="clr-namespace:FontAwesome"
              x:Class="GreenApp.Activity.MenuTrayPage" Title="Me">
 
     <StackLayout BackgroundColor="{StaticResource TextBackColor}" Spacing="0" Padding="0" Orientation="Vertical">
@@ -50,7 +51,7 @@
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Home_OnTapped" />
                             </StackLayout.GestureRecognizers>
-                            <Image Source="home" WidthRequest="30" Margin="10,0,0,0" />
+                        <Image WidthRequest="30" Margin="10,0,0,0" Source="home"/>
                             <Label Text="Home" VerticalOptions="Center" FontSize="15"
                                    TextColor="{StaticResource Textcolor}" />
                         </StackLayout>
