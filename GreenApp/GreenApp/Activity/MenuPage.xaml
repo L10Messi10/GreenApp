@@ -182,13 +182,26 @@
                             </CollectionView>
                         </RefreshView>
                         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
-                                     IsVisible="False" x:Name="ErrorLayout">
-                            <Image Source="nointernet.gif" VerticalOptions="CenterAndExpand"
+                                     IsVisible="False" x:Name="ErrorLayout" BackgroundColor="Transparent">
+                            <Image Source="nointernet" VerticalOptions="CenterAndExpand"
                                    x:Name="imgnofound"
                                    HeightRequest="250" WidthRequest="250" />
                             <Button Text="Retry" FontAttributes="Bold" CornerRadius="10"
                                     BackgroundColor="{StaticResource Primary}"
                                     x:Name="btnretry" Clicked="Btnretry_OnClicked" />
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
+                                     IsVisible="False" BackgroundColor="Transparent" x:Name="EmptyLayout" WidthRequest="250">
+                            <Image Source="empty_state" VerticalOptions="CenterAndExpand"
+                                   HeightRequest="200" WidthRequest="200" Margin="0"/>
+                            <Label Text="It's not on your end. It's us." TextColor="{StaticResource TextBackColor}" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" FontSize="Medium"/>
+                            <Label Text="Unfortunately, we are currently out-of-stock as of the moment. Although we try our best to maintain 100% accuracy with inventory, there are rare occasions where we experience an inventory error."
+                                   FontSize="Micro"/>
+                            <Label Text="Please accept our apologies for this inconvenience."
+                                   FontSize="Micro"/>
+                            <Button Text="Retry" FontAttributes="Bold" CornerRadius="10"
+                                    BackgroundColor="{StaticResource Primary}"
+                                    x:Name="btnretry_1" Clicked="Btnretry_OnClicked" />
                         </StackLayout>
                     </Grid>
                 </Grid>

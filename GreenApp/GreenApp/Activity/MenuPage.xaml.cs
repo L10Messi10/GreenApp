@@ -132,11 +132,22 @@ namespace GreenApp.Activity
                 if (!refresh)
                 {
                     var categories = await V_Categories_Display.Read();
-                    ListCategories.ItemsSource = categories;
-                    //var samp = CurrentOrderId ;
-                    refresh = true;
-                    RefreshView.IsRefreshing = false;
-                    progressLoading.IsVisible = false;
+                    if (categories.Count != 0)
+                    {
+                        ListCategories.ItemsSource = categories;
+                        //var samp = CurrentOrderId ;
+                        EmptyLayout.IsVisible = false;
+                        refresh = true;
+                        RefreshView.IsRefreshing = false;
+                        progressLoading.IsVisible = false;
+                    }
+                    else
+                    {
+                        EmptyLayout.IsVisible = true;
+                        refresh = true;
+                        RefreshView.IsRefreshing = false;
+                        progressLoading.IsVisible = false;
+                    }
                 }
 
                 if (_selectedAddressId == "")

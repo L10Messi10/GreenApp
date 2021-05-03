@@ -57,7 +57,7 @@
                         </StackLayout>
                     </Frame>
                     <Label
-                        Text="Our products are checked to for quality assurance. If there are any defects or ripe products, Kindly contact us to so we can assiss you."
+                        Text="Our products are checked to for quality assurance. If there are any concerns about our products, Kindly contact us to so we can assist you."
                         Margin="0,0,0,30" Padding="0"
                         FontSize="Small"
                         HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
