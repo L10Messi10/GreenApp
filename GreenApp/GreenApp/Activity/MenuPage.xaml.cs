@@ -145,7 +145,10 @@ namespace GreenApp.Activity
                     {
                         EmptyLayout.IsVisible = true;
                         refresh = true;
-                        RefreshView.IsRefreshing = false;
+                        ListCategories.ItemsSource = null;
+                        //await Navigation.PushAsync(new NoInternetPage(), true);
+                        progressLoading.IsVisible = false;
+                        ListCategories.IsVisible = false;
                         progressLoading.IsVisible = false;
                     }
                 }
