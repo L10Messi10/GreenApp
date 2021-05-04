@@ -130,6 +130,13 @@ namespace GreenApp.Activity
                 ListCategories.IsVisible = true;
                 ErrorLayout.IsVisible = false;
                 progressLoading.IsVisible = true;
+                //Check if the market is open
+                var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
+                if (stat != null) MarketStatus = stat.status;
+                if (MarketStatus == "0")
+                {
+                    MarketClosed.IsVisible = true;
+                }
                 if (!refresh)
                 {
                     var categories = await V_Categories_Display.Read();
@@ -142,12 +149,6 @@ namespace GreenApp.Activity
                         RefreshView.IsRefreshing = false;
                         progressLoading.IsVisible = false;
                         //MarketClosed.IsVisible = false;
-                        var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
-                        if (stat != null) MarketStatus = stat.status;
-                        if (MarketStatus == "0")
-                        {
-                            MarketClosed.IsVisible = true;
-                        }
                     }
                     else
                     {
@@ -202,6 +203,7 @@ namespace GreenApp.Activity
             catch
             {
                 RefreshView.IsRefreshing = false;
+                EmptyLayout.IsVisible = false;
                 ListCategories.ItemsSource = null;
                 //await Navigation.PushAsync(new NoInternetPage(), true);
                 progressLoading.IsVisible = false;
@@ -234,7 +236,7 @@ namespace GreenApp.Activity
         
         private async void Checkout_OnTapped(object sender, EventArgs e)
         {
-            if (progressLoading.IsVisible || ErrorLayout.IsVisible) return;
+            if (progressLoading.IsVisible || ErrorLayout.IsVisible || MarketClosed.IsVisible || MarketStatus == "0") return;
             await Navigation.PushAsync(new CheckOutPage(), true);
         }
 

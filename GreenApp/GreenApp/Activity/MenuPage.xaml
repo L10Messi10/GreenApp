@@ -181,11 +181,13 @@
                                 </CollectionView.ItemTemplate>
                             </CollectionView>
                         </RefreshView>
-                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center" WidthRequest="250"
                                      IsVisible="False" x:Name="ErrorLayout" BackgroundColor="Transparent">
                             <Image Source="nointernet" VerticalOptions="CenterAndExpand"
                                    x:Name="imgnofound"
                                    HeightRequest="250" WidthRequest="250" />
+                            <Label Text="Please check your internet connectivity, please check your internet cables, router and try again." HorizontalOptions="CenterAndExpand"
+                                   FontSize="Micro"/>
                             <Button Text="Retry" FontAttributes="Bold" CornerRadius="10"
                                     BackgroundColor="{StaticResource Primary}"
                                     x:Name="btnretry" Clicked="Btnretry_OnClicked" />
