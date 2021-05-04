@@ -47,27 +47,20 @@ namespace GreenApp.Activity
                 else
                 {
                     indicatorloader.IsVisible = true;
-                    var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
-                    if (stat != null) MarketStatus = stat.status;
                     var users = (await MobileService.GetTable<TBL_Users>().Where(mail => mail.emailadd == emailentry.Text).ToListAsync()).FirstOrDefault();
                     if (users != null)
                     {
                         if (users.password == passentry.Text)
                         {
-                            if (MarketStatus == "1")
-                            {
-                                var getAddresses = (await MobileService.GetTable<TBL_Addresses>().Where(p => p.user_id == users.Id).ToListAsync()).FirstOrDefault();
+                            var getAddresses = (await MobileService.GetTable<TBL_Addresses>().Where(p => p.user_id == users.Id).ToListAsync()).FirstOrDefault();
                                 if (getAddresses != null)
                                 {
                                     AddressesPage._selectedAddressId = getAddresses.id;
-                                    if (getAddresses != null)
-                                    {
-                                        order_long = getAddresses.add_long;
-                                        order_lat = getAddresses.add_lat;
-                                        order_rcvr_add = getAddresses.Address;
-                                        build_name = getAddresses.building_name;
-                                        order_notes = getAddresses.Notes;
-                                    }
+                                    order_long = getAddresses.add_long;
+                                    order_lat = getAddresses.add_lat;
+                                    order_rcvr_add = getAddresses.Address;
+                                    build_name = getAddresses.building_name;
+                                    order_notes = getAddresses.Notes;
                                 }
                                 user_id = users.Id;
                                 fullname = users.full_name;
@@ -88,12 +81,7 @@ namespace GreenApp.Activity
                                 //Device.BeginInvokeOnMainThread(() => { Application.Current.MainPage = new MenuPage(); });
                                 ////PROBLEM HERE LOGING OUT AND NOT REMEMBERING EMAIL
                                 //await Navigation.PushAsync(new MenuPage(), true);
-                            }
-                            else
-                            {
-                                indicatorloader.IsVisible = false;
-                                await Navigation.PushAsync(new MarketClosePage());
-                            }
+                            
                         }
                         else
                         {

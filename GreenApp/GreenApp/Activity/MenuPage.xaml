@@ -192,8 +192,8 @@
                         </StackLayout>
                         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
                                      IsVisible="False" BackgroundColor="Transparent" x:Name="EmptyLayout" WidthRequest="250">
-                            <Image Source="empty_state" VerticalOptions="CenterAndExpand"
-                                   HeightRequest="200" WidthRequest="200" Margin="0"/>
+                            <Image Source="sorry" VerticalOptions="CenterAndExpand"
+                                   Margin="0"/>
                             <Label Text="It's not on your end. It's us." TextColor="{StaticResource TextBackColor}" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" FontSize="Medium"/>
                             <Label Text="Unfortunately, we are currently out-of-stock as of the moment. Although we try our best to maintain 100% accuracy with inventory, there are rare occasions where we experience an inventory error."
                                    FontSize="Micro"/>
@@ -219,6 +219,25 @@
                 HorizontalOptions="CenterAndExpand"
                 Color="{StaticResource Primary}" Margin="0,300,0,0" />
             <!--<Label x:Name="lblorderstate" Text="Bagging your order, please wait..." Margin="0" HorizontalOptions="CenterAndExpand" TextColor="WhiteSmoke"/>-->
+        </StackLayout>
+        <StackLayout
+            x:Name="MarketClosed"
+            IsVisible="False" VerticalOptions="FillAndExpand"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            BackgroundColor="Black" Opacity="0.8">
+            <StackLayout VerticalOptions="CenterAndExpand" Margin="50">
+                <Image Source="were_closed.png" VerticalOptions="CenterAndExpand"
+                       Aspect="AspectFit" Margin="0" />
+                <Label Text="Please bare with us. Our market will open at 5-am and will close at 7-pm. Please also take note that we are not open during holidays." HorizontalOptions="CenterAndExpand"
+                       FontSize="Small" TextColor="{StaticResource Textcolor}"/>
+                <Label Text="" HorizontalOptions="CenterAndExpand"
+                       FontSize="Small" TextColor="{StaticResource Textcolor}"/>
+                <Label Text="Thank you!" HorizontalOptions="CenterAndExpand"
+                       FontSize="Small" TextColor="{StaticResource Textcolor}"/>
+                <Button Text="Retry" FontAttributes="Bold" CornerRadius="10"
+                        BackgroundColor="{StaticResource Primary}"
+                        x:Name="btnretry_2" Clicked="Btnretry_OnClicked" VerticalOptions="Center" /></StackLayout>
         </StackLayout>
     </AbsoluteLayout>
 </ContentPage>

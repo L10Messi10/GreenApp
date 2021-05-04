@@ -126,6 +126,7 @@ namespace GreenApp.Activity
             try
             {
                 //RefreshView.IsRefreshing = true;
+                MarketClosed.IsVisible = false;
                 ListCategories.IsVisible = true;
                 ErrorLayout.IsVisible = false;
                 progressLoading.IsVisible = true;
@@ -140,6 +141,13 @@ namespace GreenApp.Activity
                         refresh = true;
                         RefreshView.IsRefreshing = false;
                         progressLoading.IsVisible = false;
+                        //MarketClosed.IsVisible = false;
+                        var stat = (await MobileService.GetTable<TBL_MarketStatus>().ToListAsync()).FirstOrDefault();
+                        if (stat != null) MarketStatus = stat.status;
+                        if (MarketStatus == "0")
+                        {
+                            MarketClosed.IsVisible = true;
+                        }
                     }
                     else
                     {
