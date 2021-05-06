@@ -76,6 +76,7 @@ namespace GreenApp.Activity
                 picker.SelectedIndex = 1;
                 order_lat = m.VisibleRegion.Center.Latitude;
                 order_long = m.VisibleRegion.Center.Longitude;
+                
                 //await DisplayAlert ("Alert","Lat: " + m.VisibleRegion.Center.Latitude.ToString() + " Lon:" + m.VisibleRegion.Center.Longitude.ToString() + " ","OK");
             }
 
