@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GreenApp.Models;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static System.DateTime;
@@ -153,8 +154,9 @@ namespace GreenApp.Activity
                         sub_total = txtsubtotal.Text
                     };
                     await TBL_Order_Details.Insert(orderDetails);
+                    await this.DisplayToastAsync("Item successfully added to cart!",2000);
                     progressaddtocart.IsVisible = false;
-                    await DisplayAlert("Success", "Item successfully added to cart!", "OK");
+                    //await DisplayAlert("Success", "Item successfully added to cart!", "OK");
                     await Navigation.PopAsync(true);
                 }
                 else
@@ -176,8 +178,9 @@ namespace GreenApp.Activity
                     //    Description = "Cart updated!"
                     //};
                     //await notificator.Notify(options);
+                    await this.DisplayToastAsync("Cart successfully updated!",2000);
                     progressaddtocart.IsVisible = false;
-                    await DisplayAlert("Success", "Cart successfully updated!", "OK");
+                    //await DisplayAlert("Success", "Cart successfully updated!", "OK");
                     await Navigation.PopAsync(true);
                 }
             }

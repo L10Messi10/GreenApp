@@ -10,6 +10,8 @@ using Plugin.Geolocator;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using Xamarin.Essentials;
+using Xamarin.CommunityToolkit.Extensions;
+using Xamarin.CommunityToolkit.UI.Views.Options;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.PlatformConfiguration;
@@ -59,7 +61,7 @@ namespace GreenApp.Activity
 
             if (current != NetworkAccess.Internet)
             {
-                await DisplayAlert("Connection slow", "Your might be offline! Please try again later.", "OK");
+                await this.DisplayToastAsync("Your might be offline! Please try again.", 2000);
                 return;
             }
 
@@ -412,13 +414,14 @@ namespace GreenApp.Activity
                 if (_calc_distance > limit_distance)
                 {
                     var round = Math.Round(limit_distance, 2);
-                    await DisplayAlert("Distance error", "The address you've entered isn't covered by the service. Please try again with another location closer to the allowed distance from the market which is " + round + " KM", "OK");
+                    await this.DisplayToastAsync("The address you've entered isn't covered by the service. Please try again with another location closer to the allowed distance from the market which is " + round + " KM");
+                    //await DisplayAlert("Distance error", "The address you've entered isn't covered by the service. Please try again with another location closer to the allowed distance from the market which is " + round + " KM", "OK");
                     return;
                 }
 
                 if (isnotesEmpty || isubuildingEmpty)
                 {
-                    await DisplayAlert("Notes / Building", "Please enter a notes and building name with specific instruction for our riders.", "OK");
+                    await this.DisplayToastAsync("Please enter a notes and building name with specific instruction for our riders.");
                     //txtnotes.Focus();
                 }
                 else

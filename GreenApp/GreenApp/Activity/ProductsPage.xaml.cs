@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GreenApp.Models;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static GreenApp.Activity.MenuPage;
@@ -93,12 +94,16 @@ namespace GreenApp.Activity
             }
             catch
             {
+
                 ListProducts.SelectedItem = null;
                 RefreshView.IsRefreshing = false;
+                //xRefreshView.IsRefreshing = false;
                 //await Navigation.PushAsync(new NoInternetPage(), true);
                 //progressLoading.IsVisible = false;
                 ListProducts.IsVisible = false;
                 ErrorLayout.IsVisible = true;
+                //await this.DisplayToastAsync("A network error occured, please check your internet connectivity and try again.");
+
             }
         }
 

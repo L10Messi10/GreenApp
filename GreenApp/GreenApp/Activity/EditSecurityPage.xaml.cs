@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using GreenApp.Models;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static GreenApp.App;
@@ -70,21 +71,24 @@ namespace GreenApp.Activity
                         picstr = picstr
                     };
                     await TBL_Users.Update(newusersecurity);
+                    await this.DisplayToastAsync("Security setting saved!");
                     progresssave.IsVisible = false;
-                    await DisplayAlert("Info", "Security setting saved!", "OK");
+                    //await DisplayAlert("Info", "Security setting saved!", "OK");
                     await Navigation.PopAsync(true);
                 }
                 else
                 {
+                    
+                    await this.DisplayToastAsync("Old password is incorrect!");
                     progresssave.IsVisible = false;
-                    await DisplayAlert("Error", "Old password is incorrect!", "OK");
+                    //await DisplayAlert("Error", "Old password is incorrect!", "OK");
                     entreyoldpass.Focus();
                 }
             }
             catch
             {
-                await Navigation.PushAsync(new NoInternetPage(), true);
                 progresssave.IsVisible = false;
+                await Navigation.PushAsync(new NoInternetPage(), true);
             }
         }
     }

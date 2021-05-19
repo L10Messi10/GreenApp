@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GreenApp.Models;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static GreenApp.App;
@@ -76,8 +77,9 @@ namespace GreenApp.Activity
                 };
                 fullname = entryfullname.Text;
                 await TBL_Users.Update(profile);
+                await this.DisplayToastAsync("Profile information updated!");
                 progresssave.IsVisible = false;
-                await DisplayAlert("Info", "Profile information updated!", "Ok");
+                //await DisplayAlert("Info", "Profile information updated!", "Ok");
                 await Navigation.PopAsync(true);
             }
             catch

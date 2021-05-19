@@ -114,16 +114,7 @@ namespace GreenApp.Activity
             var email = emailentry.Text;
 
             var emailPattern = @"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$";
-            if (Regex.IsMatch(email, emailPattern))
-            {
-
-                lblerror.IsVisible = false;
-            }
-            else
-            {
-
-                lblerror.IsVisible = true;
-            }
+            lblerror.IsVisible = !Regex.IsMatch(email, emailPattern);
         }
     }
 }

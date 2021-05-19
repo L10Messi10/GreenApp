@@ -10,6 +10,7 @@ using Plugin.Media;
 using Azure.Storage.Blobs;
 using Azure.Storage;
 using Plugin.Media.Abstractions;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -38,7 +39,8 @@ namespace GreenApp.Activity
             }
             catch
             {
-                await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
+                await this.DisplayToastAsync("A network error occured, please check your internet connectivity and try again.");
+                //await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
                 progressload.IsVisible = false;
             }
         }
@@ -60,7 +62,8 @@ namespace GreenApp.Activity
                 var selectedImageFile = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
                 if (selectedImageFile == null)
                 {
-                    await DisplayAlert("Error", "There was an error trying to get the image. Please try again later", "OK");
+                    await this.DisplayToastAsync("You haven't selected any image.");
+                    //await DisplayAlert("Error", "There was an error trying to get the image. Please try again later", "OK");
                     return;
                 }
                 profileimg.Source = ImageSource.FromStream(() => selectedImageFile.GetStream());
@@ -112,7 +115,8 @@ namespace GreenApp.Activity
             }
             catch
             {
-                await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
+                await this.DisplayToastAsync("A network error occured, please check your internet connectivity and try again.");
+                //await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
                 progressload.IsVisible = false;
             }
         }
@@ -140,7 +144,8 @@ namespace GreenApp.Activity
             }
             catch
             {
-                await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
+                await this.DisplayToastAsync("A network error occured, please check your internet connectivity and try again.");
+                //await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
                 progressload.IsVisible = false;
             }
         }

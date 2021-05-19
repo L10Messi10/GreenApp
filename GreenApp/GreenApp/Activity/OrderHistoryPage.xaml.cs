@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using GreenApp.Models;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static GreenApp.App;
@@ -48,8 +49,9 @@ namespace GreenApp.Activity
             }
             catch
             {
+                await this.DisplayToastAsync("A network error occured, please check your internet connectivity and try again.");
                 xRefreshView.IsRefreshing = false;
-                await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
+                //await DisplayAlert("Network Error", "", "OK");
             }
         }
 
@@ -97,7 +99,8 @@ namespace GreenApp.Activity
             }
             catch
             {
-                await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
+                await this.DisplayToastAsync("A network error occured, please check your internet connectivity and try again.");
+                //xRefreshView.IsRefreshing = false;
             }
         }
 
