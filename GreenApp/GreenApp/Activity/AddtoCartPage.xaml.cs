@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using GreenApp.Models;
 using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 using Xamarin.Forms.Xaml;
 using static System.DateTime;
 using static GreenApp.App;
@@ -25,6 +26,19 @@ namespace GreenApp.Activity
             InitializeComponent();
             qtystepper.Text = _defquantity.ToString(CultureInfo.CurrentCulture);
             lblrndnumpeople.Text = generator.Next(1, 20).ToString();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
+        }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            if (e.NetworkAccess == NetworkAccess.None)
+            {
+                this.DisplayToastAsync("You have no internet connection.");
+            }
+            else if (e.NetworkAccess == NetworkAccess.Internet)
+            {
+                this.DisplayToastAsync("You internet connection was restored.");
+            }
         }
 
         protected override async void OnAppearing()

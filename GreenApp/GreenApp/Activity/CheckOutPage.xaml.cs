@@ -7,8 +7,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using GreenApp.Models;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 using static System.DateTime;
 using static GreenApp.Activity.AddressesPage;
 using static GreenApp.App;
@@ -24,7 +26,19 @@ namespace GreenApp.Activity
         public CheckOutPage()
         {
             InitializeComponent();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
+        }
 
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            if (e.NetworkAccess == NetworkAccess.None)
+            {
+                this.DisplayToastAsync("You have no internet connection.");
+            }
+            else if (e.NetworkAccess == NetworkAccess.Internet)
+            {
+                this.DisplayToastAsync("You internet connection was restored.");
+            }
         }
 
         protected override async void OnAppearing()

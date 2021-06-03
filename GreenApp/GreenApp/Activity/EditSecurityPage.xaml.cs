@@ -5,6 +5,7 @@ using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static GreenApp.App;
+using Xamarin.Essentials;
 
 namespace GreenApp.Activity
 {
@@ -14,6 +15,19 @@ namespace GreenApp.Activity
         public EditSecurityPage()
         {
             InitializeComponent();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
+        }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            if (e.NetworkAccess == NetworkAccess.None)
+            {
+                this.DisplayToastAsync("You have no internet connection.");
+            }
+            else if (e.NetworkAccess == NetworkAccess.Internet)
+            {
+                this.DisplayToastAsync("You internet connection was restored.");
+            }
         }
 
         protected override async void OnAppearing()

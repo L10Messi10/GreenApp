@@ -7,6 +7,7 @@ using GreenApp.Models;
 using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 using static GreenApp.App;
 
 namespace GreenApp.Activity
@@ -17,6 +18,19 @@ namespace GreenApp.Activity
         public EditProfilePage()
         {
             InitializeComponent();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
+        }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            if (e.NetworkAccess == NetworkAccess.None)
+            {
+                this.DisplayToastAsync("You have no internet connection.");
+            }
+            else if (e.NetworkAccess == NetworkAccess.Internet)
+            {
+                this.DisplayToastAsync("You internet connection was restored.");
+            }
         }
 
         protected override async void OnAppearing()

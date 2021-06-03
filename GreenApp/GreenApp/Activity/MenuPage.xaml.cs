@@ -6,9 +6,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using GreenApp.Models;
 using GreenApp.Utils;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
 using static GreenApp.Activity.AddressesPage;
 using static GreenApp.App;
 using static Xamarin.Forms.Application;
@@ -22,9 +24,23 @@ namespace GreenApp.Activity
         public MenuPage()
         {
             InitializeComponent();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             //getUserDetails();
 
         }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            if (e.NetworkAccess == NetworkAccess.None)
+            {
+                this.DisplayToastAsync("You have no internet connection.");
+            }
+            else if (e.NetworkAccess == NetworkAccess.Internet)
+            {
+                this.DisplayToastAsync("You internet connection was restored.");
+            }
+        }
+
         protected override async void OnAppearing()
         {
             await GetSections();

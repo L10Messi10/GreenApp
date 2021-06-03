@@ -11,6 +11,7 @@ using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static GreenApp.App;
+using Xamarin.Essentials;
 
 namespace GreenApp.Activity
 {
@@ -22,7 +23,21 @@ namespace GreenApp.Activity
         {
             InitializeComponent();
             swipeViews = new List<SwipeView>();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
         }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            if (e.NetworkAccess == NetworkAccess.None)
+            {
+                this.DisplayToastAsync("You have no internet connection.");
+            }
+            else if (e.NetworkAccess == NetworkAccess.Internet)
+            {
+                this.DisplayToastAsync("You internet connection was restored.");
+            }
+        }
+
         public ICommand OnDeleteCommand => new Command(OnDelete);
         private async void OnDelete()
         {

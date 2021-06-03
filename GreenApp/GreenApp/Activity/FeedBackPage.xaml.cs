@@ -7,7 +7,7 @@ using GreenApp.Models;
 using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using Xamarin.Essentials;
 namespace GreenApp.Activity
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -16,6 +16,19 @@ namespace GreenApp.Activity
         public FeedBackPage()
         {
             InitializeComponent();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
+        }
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            if (e.NetworkAccess == NetworkAccess.None)
+            {
+                this.DisplayToastAsync("You have no internet connection.");
+            }
+            else if (e.NetworkAccess == NetworkAccess.Internet)
+            {
+                this.DisplayToastAsync("You internet connection was restored.");
+            }
         }
 
         private async void Button_OnClicked(object sender, EventArgs e)

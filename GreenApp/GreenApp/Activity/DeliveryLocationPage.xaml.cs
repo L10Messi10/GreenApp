@@ -49,7 +49,7 @@ namespace GreenApp.Activity
             //map.MoveToRegion(MapSpan.FromCenterAndRadius(pin.Position, Distance.FromMeters(5000)));
             //ApplyMapTheme();
             map.PropertyChanged += Map_PropertyChanged;
-
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             //map.CameraIdled += Map_CameraIdled;
         }
 
@@ -57,15 +57,8 @@ namespace GreenApp.Activity
         {
             try
             {
-                var current = Connectivity.NetworkAccess;
 
-            if (current != NetworkAccess.Internet)
-            {
-                await this.DisplayToastAsync("Your might be offline! Please try again.", 2000);
-                return;
-            }
-
-            Geocoder geoCoder = new Geocoder();
+                Geocoder geoCoder = new Geocoder();
             var m = map;
             if (m.VisibleRegion != null)
             {
@@ -189,7 +182,7 @@ namespace GreenApp.Activity
 
             #endregion
 
-            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
+            
             try
             {
                 //********Get market location********************

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using GreenApp.Models;
 using GreenApp.Utils;
 using Plugin.Connectivity;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -21,9 +22,22 @@ namespace GreenApp.Activity
         public LoginPage()
         {
             InitializeComponent();
+            Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
             //BindingContext = new CheckInternetModel();
         }
-        
+
+        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            if (e.NetworkAccess == NetworkAccess.None)
+            {
+                this.DisplayToastAsync("You have no internet connection.");
+            }
+            else if (e.NetworkAccess == NetworkAccess.Internet)
+            {
+                this.DisplayToastAsync("You internet connection was restored.");
+            }
+        }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
