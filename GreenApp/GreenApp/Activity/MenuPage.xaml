@@ -8,6 +8,7 @@
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              xmlns:touchEffect="clr-namespace:TouchEffect;assembly=TouchEffect"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="GreenApp.Activity.MenuPage">
     <ContentPage.Resources>
         <Style TargetType="Grid">
@@ -181,21 +182,25 @@
                                 </CollectionView.ItemTemplate>
                             </CollectionView>
                         </RefreshView>
-                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center" WidthRequest="250"
+                        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center" WidthRequest="300"
                                      IsVisible="False" x:Name="ErrorLayout" BackgroundColor="Transparent">
-                            <Image Source="nointernet" VerticalOptions="CenterAndExpand"
+                            <forms:AnimationView Animation="nointernet.json" AutoPlay="True" IsAnimating="True" 
+                                                 VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                                                 HeightRequest="300" WidthRequest="300" RepeatMode="Infinite"/>
+                            <!--<Image Source="nointernet" VerticalOptions="CenterAndExpand"
                                    x:Name="imgnofound"
-                                   HeightRequest="250" WidthRequest="250" />
-                            <Label Text="Please check your internet connectivity, please check your internet cables, router and try again." HorizontalOptions="CenterAndExpand"
+                                   HeightRequest="250" WidthRequest="250" />-->
+                            <Label Text="Please check your internet connectivity and try again." HorizontalOptions="CenterAndExpand"
                                    FontSize="Micro"/>
                             <Button Text="Retry" FontAttributes="Bold" CornerRadius="10"
                                     BackgroundColor="{StaticResource Primary}"
                                     x:Name="btnretry" Clicked="Btnretry_OnClicked" />
                         </StackLayout>
                         <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
-                                     IsVisible="False" BackgroundColor="Transparent" x:Name="EmptyLayout" WidthRequest="250">
-                            <Image Source="sorry" VerticalOptions="CenterAndExpand"
-                                   Margin="0"/>
+                                     IsVisible="False" BackgroundColor="Transparent" x:Name="EmptyLayout" WidthRequest="300">
+                            <forms:AnimationView Animation="sorry.json" AutoPlay="True" IsAnimating="True" 
+                                                 VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                                                 HeightRequest="300" WidthRequest="300" RepeatMode="Infinite"/>
                             <Label Text="It's not on your end. It's us." TextColor="{StaticResource TextBackColor}" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" FontSize="Medium"/>
                             <Label Text="Unfortunately, we are currently out-of-stock as of the moment. Although we try our best to maintain 100% accuracy with inventory, there are rare occasions where we experience an inventory error."
                                    FontSize="Micro"/>
@@ -229,8 +234,11 @@
             AbsoluteLayout.LayoutFlags="All"
             BackgroundColor="Black" Opacity="0.8">
             <StackLayout VerticalOptions="CenterAndExpand" Margin="50">
-                <Image Source="were_closed.png" VerticalOptions="CenterAndExpand"
-                       Aspect="AspectFit" Margin="0" />
+                <forms:AnimationView Animation="closed.json" AutoPlay="True" IsAnimating="True" 
+                                     VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                                     HeightRequest="250" WidthRequest="250" RepeatMode="Infinite"/>
+                <!--<Image Source="were_closed.png" VerticalOptions="CenterAndExpand"
+                       Aspect="AspectFit" Margin="0" />-->
                 <Label Text="Please bare with us. Our market will open at 5-am and will close at 7-pm. Please also take note that we are not open during holidays." HorizontalOptions="CenterAndExpand"
                        FontSize="Small" TextColor="{StaticResource Textcolor}"/>
                 <Label Text="" HorizontalOptions="CenterAndExpand"
@@ -239,7 +247,8 @@
                        FontSize="Small" TextColor="{StaticResource Textcolor}"/>
                 <Button Text="Retry" FontAttributes="Bold" CornerRadius="10"
                         BackgroundColor="{StaticResource Primary}"
-                        x:Name="btnretry_2" Clicked="Btnretry_OnClicked" VerticalOptions="Center" /></StackLayout>
+                        x:Name="btnretry_2" Clicked="Btnretry_OnClicked" VerticalOptions="Center" />
+            </StackLayout>
         </StackLayout>
     </AbsoluteLayout>
 </ContentPage>

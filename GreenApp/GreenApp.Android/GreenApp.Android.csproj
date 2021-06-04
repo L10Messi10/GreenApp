@@ -60,6 +60,12 @@
     <PackageReference Include="Azure.Storage.Blobs">
       <Version>12.8.3</Version>
     </PackageReference>
+    <PackageReference Include="Com.Airbnb.Android.Lottie">
+      <Version>3.6.1</Version>
+    </PackageReference>
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
+      <Version>4.0.9</Version>
+    </PackageReference>
     <PackageReference Include="MarcTron.Admob">
       <Version>1.6.1</Version>
     </PackageReference>
@@ -161,6 +167,9 @@
     <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\nointernet.json" />
+    <AndroidAsset Include="Assets\closed.json" />
+    <AndroidAsset Include="Assets\sorry.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
@@ -332,15 +341,12 @@
     <AndroidResource Include="Resources\drawable\nointernet.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\sorry.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\were_closed.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties XamarinHotReloadDebuggerTimeoutExceptionGreenAppAndroidHideInfoBar="True" XamarinHotReloadUnhandledDeviceExceptionGreenAppAndroidHideInfoBar="True" TriggeredFromHotReload="False" />
+      <UserProperties TriggeredFromHotReload="False" XamarinHotReloadUnhandledDeviceExceptionGreenAppAndroidHideInfoBar="True" XamarinHotReloadDebuggerTimeoutExceptionGreenAppAndroidHideInfoBar="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

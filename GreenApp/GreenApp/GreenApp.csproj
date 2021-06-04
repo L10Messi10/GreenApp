@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <PackageReference Include="Azure.Storage.Blobs" Version="12.8.3" />
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.0.9" />
     <PackageReference Include="MarcTron.Admob" Version="1.6.1" />
     <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.2.0" />
     <PackageReference Include="Plugin.Permissions" Version="6.0.1" />

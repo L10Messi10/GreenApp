@@ -29,15 +29,20 @@ namespace GreenApp.Activity
 
         }
 
-        private void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        private async void Connectivity_ConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
         {
             if (e.NetworkAccess == NetworkAccess.None)
             {
-                this.DisplayToastAsync("You have no internet connection.");
+                await this.DisplayToastAsync("You have no internet connection.");
+
             }
             else if (e.NetworkAccess == NetworkAccess.Internet)
             {
-                this.DisplayToastAsync("You internet connection was restored.");
+                await this.DisplayToastAsync("You internet connection was restored.");
+                await GetSections();
+                await GetUserDetails();
+               
+
             }
         }
 
