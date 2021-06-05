@@ -170,6 +170,8 @@
     <AndroidAsset Include="Assets\nointernet.json" />
     <AndroidAsset Include="Assets\closed.json" />
     <AndroidAsset Include="Assets\sorry.json" />
+    <AndroidAsset Include="Assets\feedback.json" />
+    <AndroidAsset Include="Assets\about.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

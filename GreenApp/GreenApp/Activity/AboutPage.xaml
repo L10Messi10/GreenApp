@@ -4,6 +4,7 @@
              x:Class="GreenApp.Activity.AboutPage"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              Title="About">
     <StackLayout>
         
@@ -36,9 +37,10 @@
                                 <Label.Text>The Green Market Laboratory envisions to connect farmers and fishermen to the market place directly, providing fresh and quality products from the farms, where it promotes and maintain cleanliness.</Label.Text>
                             </Label>
                         </StackLayout>
-                        <ff:CachedImage Source="aboutimg" HeightRequest="300" WidthRequest="300"
-                                        HorizontalOptions="CenterAndExpand" Aspect="AspectFit" />
-                    </StackLayout>
+                    <forms:AnimationView Animation="about.json" AutoPlay="True" IsAnimating="True" 
+                                         VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                                         HeightRequest="250" WidthRequest="250" RepeatMode="Infinite"/>
+                </StackLayout>
                 </ScrollView>
         </StackLayout>
     </StackLayout>

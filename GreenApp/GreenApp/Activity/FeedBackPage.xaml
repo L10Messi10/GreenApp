@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:ffTrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="GreenApp.Activity.FeedBackPage" Title="Feedback">
     <AbsoluteLayout>
         <ScrollView AbsoluteLayout.LayoutBounds="0,0,1,1"
@@ -10,16 +11,17 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="300" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <ff:CachedImage Source="feedback.jpg" Margin="0"
-                                LoadingPriority="High" Aspect="AspectFill" />
-                <Frame Grid.Row="1" Margin="20,-140" CornerRadius="20" HasShadow="True">
+                <forms:AnimationView Animation="feedback.json" AutoPlay="True" IsAnimating="True" 
+                                     VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                                     HeightRequest="250" WidthRequest="250" RepeatMode="Infinite"/>
+                <Frame Grid.Row="1" Margin="20,0" CornerRadius="20" HasShadow="True">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="60" />
-                            <RowDefinition Height="200" />
+                            <RowDefinition Height="100" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="10" />
@@ -33,7 +35,7 @@
                                 PlaceholderColor="Silver" MaxLength="1000" />
                     </Grid>
                 </Frame>
-                <StackLayout Grid.Row="2" Grid.Column="0" Margin="20,155">
+                <StackLayout Grid.Row="2" Grid.Column="0" Margin="20,0">
                     <Button BackgroundColor="{StaticResource Primary}" TextColor="White"
                             Text="Submit feedback" CornerRadius="20" Clicked="Button_OnClicked" />
                 </StackLayout>
