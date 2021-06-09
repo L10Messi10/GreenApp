@@ -88,7 +88,7 @@ namespace GreenApp.Activity
                 map.PropertyChanged -= Map_PropertyChanged;
                 Connectivity.ConnectivityChanged -= Connectivity_ConnectivityChanged;
                 await locator.StopListeningAsync();
-                await Navigation.PopAsync();
+                //await Navigation.PopAsync();
             }
         }
         

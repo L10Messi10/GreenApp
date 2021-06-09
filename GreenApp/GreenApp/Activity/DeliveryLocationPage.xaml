@@ -11,17 +11,20 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="327"/>
         </Grid.RowDefinitions>
-        <AbsoluteLayout Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <!--<maps:Map x:Name="map" BackgroundColor="Gray"
+            <Frame Grid.Row="0" Padding="2" Margin="8" CornerRadius="10">
+                <AbsoluteLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <!--<maps:Map x:Name="map" BackgroundColor="Gray"
                             MapType="Hybrid" 
                             VerticalOptions="FillAndExpand"/>-->
-            <maps:Map x:Name="map" AbsoluteLayout.LayoutBounds="0,0,1,1"
-                      AbsoluteLayout.LayoutFlags="All" IsShowingUser="True" MapType="Street" HasZoomEnabled="True"
-                      MoveToLastRegionOnLayoutChange="False" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
-            <Image Source="marker_shadow.png" HeightRequest="35" AbsoluteLayout.LayoutBounds="0,0,1,1"
-                   AbsoluteLayout.LayoutFlags="All" Aspect="AspectFit"
-                   WidthRequest="30" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-        </AbsoluteLayout>
+                    <maps:Map x:Name="map" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                              AbsoluteLayout.LayoutFlags="All" IsShowingUser="True" MapType="Street"
+                              HasZoomEnabled="True"
+                              MoveToLastRegionOnLayoutChange="False" VerticalOptions="FillAndExpand"
+                              HorizontalOptions="FillAndExpand" />
+                    <Image Source="marker_shadow.png" HeightRequest="35" AbsoluteLayout.LayoutBounds="0,0,1,1"
+                           AbsoluteLayout.LayoutFlags="All" Aspect="AspectFit"
+                           WidthRequest="30" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                </AbsoluteLayout></Frame>
         <Frame Grid.Row="1"
                CornerRadius="0" Margin="0,0,0,0" HasShadow="False" 
                VerticalOptions="FillAndExpand" Padding="0">

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "796869975857",
+    "project_id": "greenmarketpushnotification",
+    "storage_bucket": "greenmarketpushnotification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:796869975857:android:07cf72b91681d9c4f1da10",
+        "android_client_info": {
+          "package_name": "ph.segotier.pushnotification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "796869975857-okk017uer4d98luino7b3jkof2ebujm8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWMBgzyAiPDbJ3MbZ6woQhcK9gSvc2gms"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "796869975857-okk017uer4d98luino7b3jkof2ebujm8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

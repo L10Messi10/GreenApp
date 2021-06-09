@@ -15,6 +15,7 @@ using Android.Support.V4.Content;
 using Android.Util;
 using Google.Android.Material.Snackbar;
 using Plugin.CurrentActivity;
+using Plugin.FirebasePushNotification;
 using Plugin.Permissions;
 using TouchEffect.Android;
 using Xamarin.Forms;
@@ -26,11 +27,12 @@ namespace GreenApp.Droid
     [Activity(Label = "GreenApp", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        const int RequestLocationId = 0;
         private readonly string[] permissionGroup =
         {
             Manifest.Permission.ReadExternalStorage,
-            Manifest.Permission.WriteExternalStorage,
-            Manifest.Permission.AccessCoarseLocation
+            Manifest.Permission.AccessCoarseLocation,
+            Manifest.Permission.AccessFineLocation
         };
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -54,13 +56,44 @@ namespace GreenApp.Droid
             RequestPermissions(permissionGroup,0);
             MobileAds.Initialize(ApplicationContext);
             LoadApplication(new App());
+            FirebasePushNotificationManager.ProcessIntent(this, Intent);
         }
+        protected override void OnStart()
+        {
+            base.OnStart();
 
+            if ((int)Build.VERSION.SdkInt >= 23)
+            {
+                if (CheckSelfPermission(Manifest.Permission.AccessFineLocation) != Permission.Granted)
+                {
+                    RequestPermissions(permissionGroup, RequestLocationId);
+                }
+                else
+                {
+                    // Permissions already granted - display a message.
+                }
+            }
+        }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
         {
-            Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            //base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            if (requestCode == RequestLocationId)
+            {
+                if ((grantResults.Length == 1) && (grantResults[0] == (int) Permission.Granted))
+                {
+                    // Permissions granted - display a message.
+                }
+                else
+                {
+                    // Permissions denied - display a message.
+                }
+            }
+            else
+            {
+                base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            }
             //if (requestCode == REQUEST_LOCATION)
             //{
             //    // Received permission result for camera permission.
