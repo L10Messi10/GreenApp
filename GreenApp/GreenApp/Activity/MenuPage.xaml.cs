@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using GreenApp.Models;
 using GreenApp.Utils;
+using Plugin.FirebasePushNotification;
 using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
@@ -25,7 +26,45 @@ namespace GreenApp.Activity
         {
             InitializeComponent();
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
+            CrossFirebasePushNotification.Current.OnTokenRefresh += Current_OnTokenRefresh;
             //getUserDetails();
+
+        }
+        private async void Current_OnTokenRefresh(object source, FirebasePushNotificationTokenEventArgs e)
+        {
+            //might need to save the token in database.
+            //System.Diagnostics.Debug.WriteLine($"Token :{e.Token}");
+            try
+            {
+                //tokenStr = e.Token;
+                if (SignedIn)
+                {
+                    var users = (await MobileService.GetTable<TBL_Token>().Where(userid => userid.user_id == user_id).ToListAsync()).FirstOrDefault();
+                    if (users == null)
+                    {
+                        var token = new TBL_Token
+                        {
+                            user_id = user_id,
+                            push_token = e.Token
+                        };
+                        await TBL_Token.Insert(token);
+                    }
+                    else
+                    {
+                        var token = new TBL_Token
+                        {
+                            id = users.id,
+                            user_id = user_id,
+                            push_token = e.Token
+                        };
+                        await TBL_Token.Update(token);
+                    }
+                }
+            }
+            catch
+            {
+                //ignored
+            }
 
         }
 
@@ -67,6 +106,7 @@ namespace GreenApp.Activity
                     menuTray.IsVisible = true;
                     profilepic.IsVisible = false;
                 }
+                
                 if (SignedIn) return;
                 if (Settings.LastUsedEmail != string.Empty)
                 {

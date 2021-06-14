@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using GreenApp.Activity;
+using GreenApp.Models;
 using Microsoft.WindowsAzure.MobileServices;
 using Plugin.Connectivity;
 using Plugin.FirebasePushNotification;
@@ -46,15 +48,10 @@ namespace GreenApp
             SetFlags(new[] { "SwipeView_Experimental" }); // Add here
             InitializeComponent();
             MainPage = new NavigationPage(new MenuPage());
-            CrossFirebasePushNotification.Current.OnTokenRefresh += Current_OnTokenRefresh;
+            
         }
 
-        private void Current_OnTokenRefresh(object source, FirebasePushNotificationTokenEventArgs e)
-        {
-            //might need to save the token in database.
-            System.Diagnostics.Debug.WriteLine($"Token :{e.Token}");
-        }
-
+       
         protected override void OnStart()
         {
             base.OnStart();
