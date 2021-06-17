@@ -279,7 +279,7 @@ namespace GreenApp.Activity
                 ListCategories.IsVisible = true;
                 ErrorLayout.IsVisible = false;
                 progressLoading.IsVisible = true;
-                var products = (await MobileService.GetTable<V_Categories_Display>().ToListAsync());
+                var products = await MobileService.GetTable<V_Categories_Display>().Take(100).ToListAsync();
                 ListCategories.ItemsSource = products.Where(p => p.category_name.ToLower().Contains(query.ToLower())).ToList();
                 RefreshView.IsRefreshing = false;
                 progressLoading.IsVisible = false;

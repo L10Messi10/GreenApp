@@ -208,12 +208,12 @@ namespace GreenApp.Activity
                 else
                 {
                     await DisplayAlert("Login", "Please login or create an account first before doing any transaction in the market! It's FREE!", "OK");
-                    await Navigation.PushAsync(new LoginPage());
+                    await Navigation.PushModalAsync(new LoginPage(),true);
                 }
             }
             catch
             {
-                await DisplayAlert("Network Error", "A network error occured, please check your internet connectivity and try again.", "OK");
+                await DisplayAlert("Network Error", "A network error occurred, please check your internet connectivity and try again.", "OK");
                 progressplaceorder.IsVisible = false;
             }
 }

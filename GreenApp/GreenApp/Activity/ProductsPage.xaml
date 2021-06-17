@@ -99,7 +99,7 @@
                                     FadeAnimationEnabled="True" HeightRequest="50"
                                     DownsampleToViewSize="True" Grid.Column="0" Grid.ColumnSpan="2" >
                         <ff:CachedImage.Transformations>
-                            <transformations:BlurredTransformation Radius="15" />
+                            <transformations:BlurredTransformation Radius="1" />
                         </ff:CachedImage.Transformations>
                     </ff:CachedImage>
                     <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Opacity="0.5" Margin="10,10,10,0"
@@ -118,11 +118,11 @@
                         <Label  Margin="5,-10,0,0" x:Name="lblSection" 
                                Text="Section name"
                                HorizontalOptions="StartAndExpand"
-                               TextColor="#D1D1D2" FontSize="30"/>
+                               TextColor="{StaticResource Primary}" FontSize="30"/>
                         <Label Margin="5,0,0,0" x:Name="lblcatdesc"
                                Text="Lorem Ipsum dolor"
                                HorizontalOptions="StartAndExpand" LineBreakMode="WordWrap"
-                               TextColor="#D1D1D2" FontSize="12"/>
+                               TextColor="{StaticResource Textcolor}" FontSize="12"/>
                     </StackLayout>
                 </Grid>
                 <Grid Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2">

@@ -53,7 +53,7 @@
 							HeightRequest="1"
 							Margin="0" />
 					</StackLayout>
-					<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+					<!--<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
 						<Label Text="Already have an account? Login now."
 							   FontSize="13" VerticalOptions="Center"
 							   HorizontalOptions="End"
@@ -62,7 +62,7 @@
 								Text="login" Margin="0,-7" Padding="0" Visual="None"
 								TextColor="{StaticResource Primary}"
 								Clicked="Btnlogin_OnClicked" />
-					</StackLayout>
+					</StackLayout>-->
 				</StackLayout>
 			</Frame>
 		</StackLayout>

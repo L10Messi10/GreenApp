@@ -97,7 +97,7 @@ namespace GreenApp.Activity
             else
             {
                 await DisplayAlert("Login", "Please login or create an account first before doing any transaction in the market! It's FREE!", "OK");
-                await Navigation.PushAsync(new LoginPage());
+                await Navigation.PushModalAsync(new LoginPage(),true);
             }
             
         }
@@ -168,7 +168,7 @@ namespace GreenApp.Activity
                         sub_total = txtsubtotal.Text
                     };
                     await TBL_Order_Details.Insert(orderDetails);
-                    await this.DisplayToastAsync("Item successfully added to cart!",2000);
+                    await this.DisplayToastAsync("Item successfully added to cart!",1000);
                     progressaddtocart.IsVisible = false;
                     //await DisplayAlert("Success", "Item successfully added to cart!", "OK");
                     await Navigation.PopAsync(true);
@@ -192,7 +192,7 @@ namespace GreenApp.Activity
                     //    Description = "Cart updated!"
                     //};
                     //await notificator.Notify(options);
-                    await this.DisplayToastAsync("Cart successfully updated!",2000);
+                    await this.DisplayToastAsync("Cart successfully updated!",1000);
                     progressaddtocart.IsVisible = false;
                     //await DisplayAlert("Success", "Cart successfully updated!", "OK");
                     await Navigation.PopAsync(true);

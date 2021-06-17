@@ -53,13 +53,13 @@
                             <ActivityIndicator x:Name="indicatorloader" Color="Green" IsVisible="False" IsRunning="True" />
                             <Button x:Name="btnlogin" Text="SIGN IN" CornerRadius="20" HeightRequest="40" BackgroundColor="{StaticResource Primary}"
                                     TextColor="{StaticResource Textcolor}" Clicked="Btnlogin_OnClicked"/>
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0">
+                            <!--<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="0">
                                 <Label Text="No account on GreenMarket yet?" Margin="0"
                                        TextColor="{StaticResource TextColor}"
                                        HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
                                 <Button x:Name="btnsignup" Text="Sign Up" Margin="0" TextColor="{StaticResource Primary}"
                                         BackgroundColor="Transparent" FontAttributes="Bold" Clicked="Btnsignup_OnClicked" />
-                            </StackLayout>
+                            </StackLayout>-->
                             <StackLayout IsVisible="False">
                                 <Grid>
                                     <BoxView BackgroundColor="{StaticResource Primary}" HeightRequest="1"

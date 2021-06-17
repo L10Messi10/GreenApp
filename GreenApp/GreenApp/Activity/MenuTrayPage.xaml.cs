@@ -71,17 +71,17 @@ namespace GreenApp.Activity
 
         private async void Btnlogin_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new LoginPage(), false);
+            await Navigation.PushModalAsync(new LoginPage(), true);
         }
 
         private async void Bbtnsignin_OnClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SignupPage(), true);
+            await Navigation.PushModalAsync(new SignupPage(), true);
         }
 
         private async void Profile_OnTapped(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ProfilePage(), true);
+            await Navigation.PushModalAsync(new ProfilePage(), true);
         }
 
         private async void Addresses_OnTapped(object sender, EventArgs e)

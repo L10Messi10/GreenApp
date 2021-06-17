@@ -32,12 +32,6 @@ namespace GreenApp.Activity
                 this.DisplayToastAsync("You internet connection was restored.");
             }
         }
-
-        private async void Btnlogin_OnClicked(object sender, EventArgs e)
-        {
-            await Navigation.PopAsync(true);
-        }
-
         private async void Btnregister_OnClicked(object sender, EventArgs e)
         {
             try
@@ -109,19 +103,19 @@ namespace GreenApp.Activity
                     await DisplayAlert("Success", "You've successfully signed up! Please login to your account now!", "OK");
                     indicatornot.IsVisible = false;
                     loadingindicator.IsVisible = false;
-                    await Navigation.PopAsync(true);
+                    await Navigation.PopModalAsync(true);
                 }
                 else
                 {
-                    await DisplayAlert("Confirm password", "Password did not match!", "OK");
+                    await this.DisplayToastAsync( "Password did not match!");
                     confirmpassentry.Focus();
                 }
             }
             catch
             {
-                await DisplayAlert("Error", "There was an error processing your request. " +
+                await this.DisplayToastAsync( "There was an error processing your request. " +
                                             "The email address you've entered already exist. Please try another one. " +
-                                            "Please check you internet connectivity as well.", "OK");
+                                            "Please check you internet connectivity as well.", 5000);
                 indicatornot.IsVisible = false;
                 loadingindicator.IsVisible = false;
             }

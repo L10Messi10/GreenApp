@@ -48,7 +48,7 @@ namespace GreenApp.Activity
                 lblcatdesc.Text = cat_desc;
                 ListProducts.IsVisible = true;
                 ErrorLayout.IsVisible = false;
-                var getproducts = await MobileService.GetTable<TBL_Products>().Where(p => p.category_name == Selected_CatID && p.prod_av=="Available").ToListAsync();
+                var getproducts = await MobileService.GetTable<TBL_Products>().Take(300).Where(p => p.category_name == Selected_CatID && p.prod_av=="Available").ToListAsync();
                 ListProducts.ItemsSource = getproducts;
                 var getorderid = (await MobileService.GetTable<TBL_Orders>().Where(orders => orders.users_id == user_id && orders.order_status == "Carted").ToListAsync()).FirstOrDefault();
                 if (getorderid != null) CurrentOrderId = getorderid.id;
@@ -101,14 +101,13 @@ namespace GreenApp.Activity
                 ListProducts.IsVisible = true;
                 ErrorLayout.IsVisible = false;
                 RefreshView.IsRefreshing = true;
-                var products = (await MobileService.GetTable<TBL_Products>().ToListAsync());
+                var products = await MobileService.GetTable<TBL_Products>().Take(200).ToListAsync();
                 ListProducts.ItemsSource = products.Where(p => p.prod_name.ToLower().Contains(query.ToLower())  && 
                                                            p.category_name.ToLower().Equals(Selected_CatID.ToLower()) && p.prod_av == "Available").ToList();
                 RefreshView.IsRefreshing = false;
             }
             catch
             {
-
                 ListProducts.SelectedItem = null;
                 RefreshView.IsRefreshing = false;
                 //xRefreshView.IsRefreshing = false;

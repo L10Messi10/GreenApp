@@ -91,7 +91,7 @@ namespace GreenApp.Activity
                                 Settings.LastUsedEmail = emailentry.Text;
                                 SignedIn = true;
                                 hasnetwork = true;
-                                await Navigation.PopToRootAsync(true);
+                                await Navigation.PopModalAsync(true);
                                 //Device.BeginInvokeOnMainThread(() => { Application.Current.MainPage = new MenuPage(); });
                                 ////PROBLEM HERE LOGING OUT AND NOT REMEMBERING EMAIL
                                 //await Navigation.PushAsync(new MenuPage(), true);
@@ -117,10 +117,10 @@ namespace GreenApp.Activity
             }
         }
 
-        private async void Btnsignup_OnClicked(object sender, EventArgs e)
-        {
-            //Settings.LastUsedEmail = emailentry.Text;
-            await Navigation.PushAsync(new SignupPage(),true);
-        }
+        //private async void Btnsignup_OnClicked(object sender, EventArgs e)
+        //{
+        //    //Settings.LastUsedEmail = emailentry.Text;
+        //    await Navigation.PushModalAsync(new SignupPage(),true);
+        //}
     }
 }
