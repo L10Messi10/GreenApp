@@ -12,6 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Fonts\BebasNeue-Regular.ttf" />
     <None Remove="Resources\Fonts\KelseyScript.otf" />
     <None Remove="Resources\Fonts\Lobster-Regular.ttf" />
     <None Remove="Resources\Fonts\samantha.ttf" />
@@ -20,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\BebasNeue-Regular.ttf" />
     <EmbeddedResource Include="Resources\Fonts\KelseyScript.otf" />
     <EmbeddedResource Include="Resources\Fonts\Lobster-Regular.ttf" />
     <EmbeddedResource Include="Resources\Fonts\samantha.ttf" />
@@ -29,7 +31,7 @@
 
   <ItemGroup>
     <PackageReference Include="Azure.Storage.Blobs" Version="12.8.3" />
-    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.0.9" />
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.0.10" />
     <PackageReference Include="MarcTron.Admob" Version="1.6.1" />
     <PackageReference Include="Microsoft.Azure.Mobile.Client" Version="4.2.0" />
     <PackageReference Include="Plugin.FirebasePushNotification" Version="3.3.10" />

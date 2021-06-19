@@ -19,7 +19,8 @@ namespace GreenApp.Activity
     public partial class OrderHistoryPage : ContentPage
     {
         List<SwipeView> swipeViews { set; get; }
-        public OrderHistoryPage()
+        public static bool list_ref = true;
+        public OrderHistoryPage()   
         {
             InitializeComponent();
             swipeViews = new List<SwipeView>();
@@ -49,7 +50,15 @@ namespace GreenApp.Activity
         }
         protected override async void OnAppearing()
         {
-            await getHistoryOrders();
+            if (list_ref)
+            {
+                await getHistoryOrders();
+            }
+            else
+            {
+                OrdersList.SelectedItem = null;
+            }
+            
         }
         private async Task getHistoryOrders()
         {
@@ -59,8 +68,9 @@ namespace GreenApp.Activity
                 var getorders = await MobileService.GetTable<TBL_OrderHistory>().Where(orders => orders.users_id.ToLower().Contains(user_id)).ToListAsync();
                 OrdersList.ItemsSource = getorders;
                 Selected_orderID = null;
-                OrdersList.SelectedItem = null;
+                //OrdersList.SelectedItem = null;
                 xRefreshView.IsRefreshing = false;
+                list_ref = true;
             }
             catch
             {

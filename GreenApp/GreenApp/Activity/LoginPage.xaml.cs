@@ -76,6 +76,7 @@ namespace GreenApp.Activity
                                     build_name = getAddresses.building_name;
                                     order_notes = getAddresses.Notes;
                                 }
+                                SignedIn = true;
                                 user_id = users.Id;
                                 fullname = users.full_name;
                                 mobilenum = users.mobile_num;
@@ -89,7 +90,6 @@ namespace GreenApp.Activity
                                 refresh = false;
                                 indicatorloader.IsVisible = false;
                                 Settings.LastUsedEmail = emailentry.Text;
-                                SignedIn = true;
                                 hasnetwork = true;
                                 await Navigation.PopModalAsync(true);
                                 //Device.BeginInvokeOnMainThread(() => { Application.Current.MainPage = new MenuPage(); });

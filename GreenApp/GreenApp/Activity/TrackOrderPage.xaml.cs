@@ -16,6 +16,7 @@ namespace GreenApp.Activity
     public partial class TrackOrderPage : ContentPage
     {
         public static string t_order_id;
+        
         public TrackOrderPage()
         {
             InitializeComponent();
@@ -37,6 +38,7 @@ namespace GreenApp.Activity
         protected override async void OnAppearing()
         {
             await XTracking();
+
         }
 
         private async Task XTracking()
@@ -48,6 +50,7 @@ namespace GreenApp.Activity
                 ListTrack.ItemsSource = getTrackOrders.OrderByDescending(i => i.track_num);
                 OrderLayout.BindingContext = getTrackOrders.FirstOrDefault();
                 xRefreshView.IsRefreshing = false;
+                
             }
             catch
             {

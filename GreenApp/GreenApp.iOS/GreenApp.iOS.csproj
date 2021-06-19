@@ -132,7 +132,7 @@
       <Version>12.8.3</Version>
     </PackageReference>
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
-      <Version>3.0.0</Version>
+      <Version>4.0.10</Version>
     </PackageReference>
     <PackageReference Include="MarcTron.Admob">
       <Version>1.6.1</Version>

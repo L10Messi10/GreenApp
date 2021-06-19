@@ -116,7 +116,7 @@
                     </Frame>
                     <StackLayout Grid.Row="1" Grid.Column="0" Margin="10" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand" Spacing="0" >
                         <Label  Margin="5,-10,0,0" x:Name="lblSection" 
-                               Text="Section name"
+                               Text="Section name" FontFamily="CategoryFont"
                                HorizontalOptions="StartAndExpand"
                                TextColor="{StaticResource Primary}" FontSize="30"/>
                         <Label Margin="5,0,0,0" x:Name="lblcatdesc"

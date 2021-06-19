@@ -205,7 +205,7 @@ namespace GreenApp.Activity
                     {
                         ListCategories.ItemsSource = categories;
                         //var samp = CurrentOrderId ;
-                        EmptyLayout.IsVisible = false;
+                        //EmptyLayout.IsVisible = false;
                         refresh = true;
                         RefreshView.IsRefreshing = false;
                         progressLoading.IsVisible = false;
@@ -213,7 +213,7 @@ namespace GreenApp.Activity
                     }
                     else
                     {
-                        EmptyLayout.IsVisible = true;
+                        //EmptyLayout.IsVisible = true;
                         refresh = true;
                         ListCategories.ItemsSource = null;
                         //await Navigation.PushAsync(new NoInternetPage(), true);
@@ -264,7 +264,7 @@ namespace GreenApp.Activity
             catch
             {
                 RefreshView.IsRefreshing = false;
-                EmptyLayout.IsVisible = false;
+                //EmptyLayout.IsVisible = false;
                 ListCategories.ItemsSource = null;
                 //await Navigation.PushAsync(new NoInternetPage(), true);
                 progressLoading.IsVisible = false;
