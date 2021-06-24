@@ -26,10 +26,13 @@ namespace GreenApp.Activity
         {
             InitializeComponent();
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
-            CrossFirebasePushNotification.Current.OnTokenRefresh += Current_OnTokenRefresh;
+            //This line used to send notifications but still needs rebuff to completely make it work
+            //CrossFirebasePushNotification.Current.OnTokenRefresh += Current_OnTokenRefresh;
             //getUserDetails();
 
         }
+        //This event handles the token refresh of the device, this still needs rework because what if the app is on release already
+        //I haven't figure out yet how to refresh the token on release, it might be setting it to true.
         private async void Current_OnTokenRefresh(object source, FirebasePushNotificationTokenEventArgs e)
         {
             //might need to save the token in database.

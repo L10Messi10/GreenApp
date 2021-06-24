@@ -135,9 +135,12 @@
                                                FontSize="Micro"/>
                                         <Label Text="Please accept our apologies for this inconvenience."
                                                FontSize="Micro"/>
-                                        <Button Text="Retry" FontAttributes="Bold" CornerRadius="10"
-                                                BackgroundColor="{StaticResource Primary}"
-                                                x:Name="btnretry_1" Clicked="Btnretry_OnClicked" />
+                                        <Frame HasShadow="False" Padding="0" Margin="0" CornerRadius="10">
+                                            <Button Text="Retry" TextColor="{StaticResource Primary}" FontAttributes="Bold"
+                                                    CornerRadius="10" BorderColor="{StaticResource Primary}" TextTransform="None"
+                                                    BackgroundColor="White" BorderWidth="5"
+                                                    x:Name="btnretry_1" Clicked="Btnretry_OnClicked" />
+                                        </Frame>
                                     </StackLayout>
                                 </CollectionView.EmptyView>
                                 <CollectionView.ItemsLayout>
@@ -209,9 +212,13 @@
                                    HeightRequest="250" WidthRequest="250" />-->
                             <Label Text="Please check your internet connectivity and try again." HorizontalOptions="CenterAndExpand"
                                    FontSize="Micro"/>
-                            <Button Text="Retry" FontAttributes="Bold" CornerRadius="10"
-                                    BackgroundColor="{StaticResource Primary}"
-                                    x:Name="btnretry" Clicked="Btnretry_OnClicked" />
+                            <Frame HasShadow="False" Padding="0" Margin="0" CornerRadius="10">
+                                <Button Text="Retry" TextColor="{StaticResource Primary}" FontAttributes="Bold"
+                                        CornerRadius="10" BorderColor="{StaticResource Primary}" TextTransform="None"
+                                        BackgroundColor="White" BorderWidth="5"
+                                        x:Name="btnretry" Clicked="Btnretry_OnClicked" />
+                            </Frame>
+                            
                         </StackLayout>
                         
                     </Grid>
@@ -249,9 +256,12 @@
                        FontSize="Small" TextColor="{StaticResource Textcolor}"/>
                 <Label Text="Thank you!" HorizontalOptions="CenterAndExpand"
                        FontSize="Small" TextColor="{StaticResource Textcolor}"/>
-                <Button Text="Retry" FontAttributes="Bold" CornerRadius="10"
-                        BackgroundColor="{StaticResource Primary}"
-                        x:Name="btnretry_2" Clicked="Btnretry_OnClicked" VerticalOptions="Center" />
+                <Frame HasShadow="False" Padding="0" Margin="0" CornerRadius="10">
+                    <Button Text="Retry" TextColor="{StaticResource Primary}" FontAttributes="Bold"
+                            CornerRadius="10" BorderColor="{StaticResource Primary}" TextTransform="None"
+                            BackgroundColor="White" BorderWidth="5"
+                            x:Name="btnretry_2" Clicked="Btnretry_OnClicked" />
+                </Frame>
             </StackLayout>
         </StackLayout>
     </AbsoluteLayout>
